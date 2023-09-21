@@ -14,10 +14,10 @@ I am not a security expert so I thought I would look into what is the exact diff
 So, how does all this connect together? 
 Take this picture...
 
-![Alt text](image-2.png)
+![Alt text](images/CVE-CWE-Risk.png)
 
 and this picture...
-![Alt text](image-3.png)
+![Alt text](images/Security-Hierarchy.png)
 
 Consider the log4J vulnerability that was widely reported. It was a specific bug in a specific version of a specific piece of software. That software **vulnerability** was reported in MITRE's vulnerability database, among other places. It was assigned a unique identifier: CVE-2021-44228.  As other software was reported to be vulnerable as a result of using log4J, they were assigned their own vulnerability identifier and entry in the MITRE vulnerability database. Apache tomcat has CVE–2021–45046, while Red Hat Enterprise Linux has CVE-2021-45105 is an example. Note, CVE stands for Common Vulnerability and Exposure. 
 
