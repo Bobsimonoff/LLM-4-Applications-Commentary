@@ -76,13 +76,13 @@ The following is a tentative classification of where part of the various framewo
 
 Sections:
 
-- [LLM01: Prompt injection](./OWASP-Mappings-to-other-frameworks-LLM01-PromptInj.md)
-- [LLM02: Insecure output handling](./OWASP-Mappings-to-other-frameworks-LLM02-InsecureOutput.md) 
-- [LLM03: Training data poisoning](./OWASP-Mappings-to-other-frameworks-LLM03-TrainingDataPoisoning.md)
-- [LLM04: Model denial of service](./OWASP-Mappings-to-other-frameworks-LLM04-ModelDoS.md)
-- [LLM05: Supply chain vulnerabilities](./OWASP-Mappings-to-other-frameworks-LLM05-SupplyChain.md)
-- [LLM06: Sensitive information disclosure](./OWASP-Mappings-to-other-frameworks-LLM06-SensitiveInfoDisclosure.md)
-- [LLM07: Insecure plug-in design](./OWASP-Mappings-to-other-frameworks-LLM07-InsecurePlugin.md)
-- [LLM08: Excessive agency](./OWASP-Mappings-to-other-frameworks-LLM08-ExcessiveAgency.md)
-- [LLM09: Overreliance](./OWASP-Mappings-to-other-frameworks-LLM09-Overreliance.md)
-- [LLM10: Model theft](./OWASP-Mappings-to-other-frameworks-LLM10-ModelTheft.md)
+- [LLM01: Prompt injection](./LLM-Top-10-Framework-Mappings/OWASP-Mappings-to-other-frameworks-LLM01-PromptInj.md)
+- [LLM02: Insecure output handling](./LLM-Top-10-Framework-Mappings/OWASP-Mappings-to-other-frameworks-LLM02-InsecureOutput.md) 
+- [LLM03: Training data poisoning](./LLM-Top-10-Framework-Mappings/OWASP-Mappings-to-other-frameworks-LLM03-TrainingDataPoisoning.md)
+- [LLM04: Model denial of service](./LLM-Top-10-Framework-Mappings/OWASP-Mappings-to-other-frameworks-LLM04-ModelDoS.md)
+- [LLM05: Supply chain vulnerabilities](./LLM-Top-10-Framework-Mappings/OWASP-Mappings-to-other-frameworks-LLM05-SupplyChain.md)
+- [LLM06: Sensitive information disclosure](./LLM-Top-10-Framework-Mappings/OWASP-Mappings-to-other-frameworks-LLM06-SensitiveInfoDisclosure.md)
+- [LLM07: Insecure plug-in design](./LLM-Top-10-Framework-Mappings/OWASP-Mappings-to-other-frameworks-LLM07-InsecurePlugin.md)
+- [LLM08: Excessive agency](./LLM-Top-10-Framework-Mappings/OWASP-Mappings-to-other-frameworks-LLM08-ExcessiveAgency.md)
+- [LLM09: Overreliance](./LLM-Top-10-Framework-Mappings/OWASP-Mappings-to-other-frameworks-LLM09-Overreliance.md)
+- [LLM10: Model theft](./LLM-Top-10-Framework-Mappings/OWASP-Mappings-to-other-frameworks-LLM10-ModelTheft.md)
