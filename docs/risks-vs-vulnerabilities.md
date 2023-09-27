@@ -1,3 +1,10 @@
+Bob Simonoff, September 18, 2023
+
+LinkedIn at https://www.linkedin.com/in/bob-simonoff
+medium/com at https://medium.com/@bob.simonoff
+github at https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main
+
+
 # The Ah Ha Moment
 I've recently learned that OWASP Top 10 focuses on **risks** not vulnerabilities. The very first page of the [OWASP Top 10](https://owasp.org/www-project-top-ten/) says "The OWASP Top 10 is a standard awareness document for developers and web application security. **It represents a broad consensus about the most critical security risks to web applications.**"
 
