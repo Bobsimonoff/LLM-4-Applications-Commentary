@@ -24,6 +24,9 @@ I intend to use this repository as a way of incubating ideas and developing thou
 
 **[Exploring ChatGPT Hallucinations and Confabulation through the 6 Degrees of Kevin Bacon Game](./docs/2023-09-08-exploring-chatgpt-hallucinations-and-confabulation.markdown)** - An article describing an experiment that I did to explore the idea of hallucinations using the game 6° of Kevin Bacon. 
 
+**[Taking Text Embedding and Cosine Similarity for a Test Drive](./docs/2023-09-13-text-embedding-and-cosine-similarity.markdown)** - documentation of some experiments I did on OpenAIs embedding algorithm. The goal was to see whether the embedding algorithm was overly sensitive to upper versus lower case, synonyms, punctuation, etc.  
+
+
 **[Mappings to/from OWASP Top 10 for LLM Applications to other Security Frameworks](./docs/LLM-Top-10-Framework-Mappings/OWASP-Mappings-to-other-frameworks-Intro.md)** - mapping between the OWASP Top 10 for Large Language Models and the following frameworks:
 - The Common Weakness Enumeration (CWE) serves as a dictionary of software weaknesses. CWEs provide standardized concepts that classify the types of weaknesses related to the OWASP LLM risks. Mapping CWEs helps identify the core vulnerability types that could lead to or underlie the OWASP risks.
 
