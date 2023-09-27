@@ -1,17 +1,14 @@
----
-layout:	single
-title:	"Exploring ChatGPT Hallucinations and Confabulation through the 6 Degrees of Kevin Bacon Game"
-date:	2023-09-08 00:00:00 +0100
-author: Bob Simonoff  # as used in `authors.yml`
-author_profile: true
-header:
-  overlay_image: assets/images/2023-09-08-exploring-chatgpt-hallucinations/sebastianneubauer_Doctor_diagnosing_a_hallucinating_female_AI_r_64098c6d-915a-4ebf-8798-a1_crop.png
-  overlay_filter: 0.1
-  show_overlay_excerpt: false
-hidden: true
----
 
 # Exploring ChatGPT Hallucinations and Confabulation through the 6 Degrees of Kevin Bacon Game
+
+Bob Simonoff, September 7, 2023
+
+- LinkedIn at https://www.linkedin.com/in/bob-simonoff
+
+- medium/com at https://medium.com/@bob.simonoff
+
+- github at https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main
+
 
 ## Introduction
 
@@ -38,43 +35,29 @@ Let’s explore an example of the 6 Degrees of Kevin Bacon Game. The following s
    
 Here is the ChatGPT representation:
 
-<figure>
-  <img src="{{site.url}}/assets/images/2023-09-08-exploring-chatgpt-hallucinations/1_BsVO71zDWl9OVI_e3SWQQQ.png"/>
-  <figcaption>ChatGPT demonstrates that Mila Kunis can be connected to Kevin Bacon in 6 steps.</figcaption>
-</figure>
+![ChatGPT demonstrates that Mila Kunis can be connected to Kevin Bacon in 6 steps.](images/2023-09-08-exploring-chatgpt-hallucinations/1_BsVO71zDWl9OVI_e3SWQQQ.png)
+
 
 ## ChatGPT May Tell You If It Does Not Know
 
 ChatGPT can tell you if it doesn't know about the actor. In the following, I asked ChatGPT to connect a made-up actor named Danny Feznerali to Kevin Bacon. It correctly responds that it can’t find any information about that actor.
 
-<figure>
-  <img src="{{site.url}}/assets/images/2023-09-08-exploring-chatgpt-hallucinations/1_uHH7uTI3NV3PBKQ8eh6SIQ.png"/>
-  <figcaption>ChatGPT says it could not find information on the made-up actor Danny Feznerali</figcaption>
-</figure>
+![ChatGPT says it could not find information on the made-up actor Danny Feznerali.](images/2023-09-08-exploring-chatgpt-hallucinations/1_uHH7uTI3NV3PBKQ8eh6SIQ.png)
+
 
 ## ChatGPT and Minor Misspellings
 
 To a limited extent, ChatGPT can correct misspelled names. When I asked ChatGPT to connect Dakota Pfanning to Kevin Bacon, it determined that I likely meant Dakota Fanning and connected her to Kevin Bacon.
 
-<figure>
-  <img src="{{site.url}}/assets/images/2023-09-08-exploring-chatgpt-hallucinations/1_4aocPx7VY-tjUpSaifmyYg.png"/>
-  <figcaption>ChatGPT successfully determines that a misspelling of Dakota Fanning can be connected to Kevin Bacon in 2 steps</figcaption>
-</figure>
+![ChatGPT successfully determines that a misspelling of Dakota Fanning can be connected to Kevin Bacon in 2 steps.](images/2023-09-08-exploring-chatgpt-hallucinations/1_4aocPx7VY-tjUpSaifmyYg.png)
 
 However, if the spelling is a bit more incorrect, as in ‘Dakota Pfenning’, ChatGPT confabulates an answer. Not only does it not tell me who the presumed actor was, but Dakota Fanning nor any actor whose name looks like hers is listed in the cast according to [http://imdb.com](https://medium.com/r/?url=http%3A%2F%2Fimdb.com). Rather than explaining that it does not know who the actor is, as it did with Danny Feznerali, or correcting the spelling error, it confidently gives an incorrect answer. 
 
-
-<figure>
-  <img src="{{site.url}}/assets/images/2023-09-08-exploring-chatgpt-hallucinations/1_m7oqP4nEhcvfpvsKbjWSqQ.png"/>
-  <figcaption>ChatGPT hallucinates when asked about a misspelling that is further from Dakota Fanning’s name.</figcaption>
-</figure>
+![ChatGPT hallucinates when asked about a misspelling that is further from Dakota Fanning’s name.](images/2023-09-08-exploring-chatgpt-hallucinations/1_m7oqP4nEhcvfpvsKbjWSqQ.png)
 
 If you ask ChatGPT about this, in an attempt to understand its reasoning, you just get an apology.
 
-<figure>
-  <img src="{{site.url}}/assets/images/2023-09-08-exploring-chatgpt-hallucinations/1_LRC6e7Cp6L4jroY-8k5rrA.png"/>
-  <figcaption>ChatGPT apologizes for its mistake. </figcaption>
-</figure>
+![ChatGPT apologizes for its mistake.](images/2023-09-08-exploring-chatgpt-hallucinations/1_LRC6e7Cp6L4jroY-8k5rrA.png)
 
 This article will dive deeper into hallucinations and confabulations in a few moments.
 
@@ -82,42 +65,31 @@ This article will dive deeper into hallucinations and confabulations in a few mo
 
 Here, I ask ChatGPT to provide an example connecting an actor or actress to Kevin Bacon through 3 stages. It does select an actor, Tom Hanks but instead of three stages it does it in a single stage through the movie “Apollo 13”
 
-<figure>
-  <img src="{{site.url}}/assets/images/2023-09-08-exploring-chatgpt-hallucinations/1_M179rPFHg5x8xIey8_8jrQ.png"/>
-  <figcaption>ChatGPT connects Tom Hanks to Kevin Bacon in 1 step via the movie "Apollo 13" rather than the requested 3 steps.</figcaption>
-</figure>
+![ChatGPT connects Tom Hanks to Kevin Bacon in 1 step via the movie "Apollo 13" rather than the requested 3 steps.](images/2023-09-08-exploring-chatgpt-hallucinations/1_M179rPFHg5x8xIey8_8jrQ.png)
+
 
 ## ChatGPT Can Answer More Complex Questions
 
 When asked to connect the first actor to ever have played Dracula to Kevin Bacon, it correctly reasons that it first must figure out who the first actor was to play Dracula. After it determines that Bela Lugosi played Dracula in the movie “Abbott and Costello Meet Frankenstein” it then proceeds to follow actors in movies until it gets to Kevin Bacon. Note that ChatGPT determined to not consider Max Schreck as the first Dracula from the film *Nosferatu*, presumably because the character’s name was Count Orlok. The name was changed because the producers could not afford the rights to the name Dracula.
 
-<figure>
-  <img src="{{site.url}}/assets/images/2023-09-08-exploring-chatgpt-hallucinations/1_yZkwat26JWoXr4LC6PT9bQ.png"/>
-  <figcaption>ChatGPT correctly determines that the first Dracula was played by Bela Lugosi and connects him to Kevin Bacon in 3 steps </figcaption>
-</figure>
+![ChatGPT correctly determines that the first Dracula was played by Bela Lugosi and connects him to Kevin Bacon in 3 steps.](images/2023-09-08-exploring-chatgpt-hallucinations/1_yZkwat26JWoXr4LC6PT9bQ.png)
+
 
 ## Hallucination and Confabulation — Part 1
 
 Taking this a step further, if asked to connect the first green-eyed actor to have played Dracula to Kevin Bacon, it determines that Christopher Lee meets the criteria, then connects him to Kevin Bacon. Unfortunately, however, Christopher Lee had brown eyes.
 
-<figure>
-  <img src="{{site.url}}/assets/images/2023-09-08-exploring-chatgpt-hallucinations/1_KTQAfhlJO0R_dGnjZ8uvHA.png"/>
-  <figcaption>ChatGPT incorrectly says that Christopher Lee’s brown eyes were green </figcaption>
-</figure>
+![ChatGPT incorrectly says that Christopher Lee’s brown eyes were green.](images/2023-09-08-exploring-chatgpt-hallucinations/1_KTQAfhlJO0R_dGnjZ8uvHA.png)
 
 But…. When asked about the color of Christopher Lee’s eyes, ChatGPT described them as piercing blue. So, interestingly, ChatGPT treated them as green before and now proclaims they are blue, both of which are incorrect.
 
-<figure>
-  <img src="{{site.url}}/assets/images/2023-09-08-exploring-chatgpt-hallucinations/1_y45_NgdZr2j_iBDq3NpW_w.png"/>
-  <figcaption>ChatGPT demonstrates that it seems to know that Lee’s eye color is blue</figcaption>
-</figure>
+![ChatGPT demonstrates that it seems to know that Lee’s eye color is blue.](images/2023-09-08-exploring-chatgpt-hallucinations/1_y45_NgdZr2j_iBDq3NpW_w.png)
+
 
 Prompting techniques teach us that the way you ask the question makes a big difference in the outcome. So, if we think about this differently, maybe we can coerce a different result. Let us ask ChatGPT the eye color of all Dracula actors.
 
-<figure>
-  <img src="{{site.url}}/assets/images/2023-09-08-exploring-chatgpt-hallucinations/1_UcF6F1Pi7esJjGtZj7yAkA.png"/>
-  <figcaption>ChatGPT lists all Dracula movie actors and their eye color — Lee’s eye color is back to brown!</figcaption>
-</figure>
+![ChatGPT lists all Dracula movie actors and their eye color — Lee’s eye color is back to brown!](images/2023-09-08-exploring-chatgpt-hallucinations/1_UcF6F1Pi7esJjGtZj7yAkA.png)
+
 
 OK assuming this list is correct, none of the actors had green eyes, however, Christopher Lee now has brown eyes. ChatGPT seems to be disagreeing with itself first green, then blue, and now brown.
 
@@ -143,38 +115,26 @@ To show that eye color was not a one-time problem, this example will demonstrate
 
 Let’s ask ChatGPT to connect the first Czech actor to have played Dracula with Kevin Bacon. 
 
-<figure>
-  <img src="{{site.url}}/assets/images/2023-09-08-exploring-chatgpt-hallucinations/1_erhRxj8caKNTBpYUnrWdjQ.png"/>
-  <figcaption>ChatGPT claims that the first Czech actor to play Dracula was Max Schreck</figcaption>
-</figure>
+![ChatGPT claims that the first Czech actor to play Dracula was Max Schreck.](images/2023-09-08-exploring-chatgpt-hallucinations/1_erhRxj8caKNTBpYUnrWdjQ.png)
 
 Max Schreck, interesting, is now Dracula. Even more interesting is that ChatGPT also knows that Max never lived in Czechoslovakia. Max lived in Germany his entire life according to ChatGPT. Nosferatu, however, was filmed in Czechoslovakia.
 
-<figure>
-  <img src="{{site.url}}/assets/images/2023-09-08-exploring-chatgpt-hallucinations/1_OnLJ6pRyO2Ld6cCmvazJog.png"/>
-  <figcaption>ChatGPT shows that it also thinks that Max Schreck lived his whole life in Germany</figcaption>
-</figure>
+![ChatGPT shows that it also thinks that Max Schreck lived his whole life in Germany.](images/2023-09-08-exploring-chatgpt-hallucinations/1_OnLJ6pRyO2Ld6cCmvazJog.png)
 
 Maybe a different tact will yield a Czech actor who played Dracula. Let’s ask for a list of all of the actors from Czechoslovakia who played Dracula. 
 
-<figure>
-  <img src="{{site.url}}/assets/images/2023-09-08-exploring-chatgpt-hallucinations/1_ieknrekcg7TMtrjDe9vuUQ.png"/>
-  <figcaption>ChatGPT claims there are no Czech actors to have played Dracula?!?!</figcaption>
-</figure>
+![ChatGPT claims there are no Czech actors to have played Dracula?!?!](images/2023-09-08-exploring-chatgpt-hallucinations/1_ieknrekcg7TMtrjDe9vuUQ.png)
+
 
 ChatGPT claims there are no actors from Czechoslovakia to have played Dracula. But, I wonder if ChatGPT knows otherwise. Let’s ask if Hrabě Drakula is a Czechoslovakian Dracula movie.
 
-<figure>
-  <img src="{{site.url}}/assets/images/2023-09-08-exploring-chatgpt-hallucinations/1_sUJRzFBc_obdGLDPl1NMLg.png"/>
-  <figcaption>ChatGPT affirms there there is indeed a Czech Dracula movie where Jiří Hrzán played Dracula</figcaption>
-</figure>
+![ChatGPT affirms there there is indeed a Czech Dracula movie where Jiří Hrzán played Dracula.](images/2023-09-08-exploring-chatgpt-hallucinations/1_sUJRzFBc_obdGLDPl1NMLg.png)
+
 
 Indeed it is! But maybe ChatGPT is confusing the idea of a Czechoslovakian Dracula movie with a Czechoslovakian Dracula actor.
 
-<figure>
-  <img src="{{site.url}}/assets/images/2023-09-08-exploring-chatgpt-hallucinations/1_PTyDcnNQiyJ1rJL9-Bq6sQ.png"/>
-  <figcaption>ChatGPT demonstrates knowledge that Jiří Hrzán is from Czechoslovakia. </figcaption>
-</figure>
+![ChatGPT demonstrates knowledge that Jiří Hrzán is from Czechoslovakia.](images/2023-09-08-exploring-chatgpt-hallucinations/1_PTyDcnNQiyJ1rJL9-Bq6sQ.png)
+
 
 Nope, just like the eye color question, ChatGPT seems to have confused itself. It knows the answer but doesn’t return it unless the question is asked differently. Also, Jiří Hrzá was not listed in the list of Dracula actors ChatGPT created earlier. 
 
@@ -188,8 +148,4 @@ When used with care, ChatGPT can be a helpful assistant, but attribution should 
 
 *Note: [claude.ai](https://medium.com/r/?url=http%3A%2F%2Fclaude.ai) from Anthropic was used for grammar and spelling corrections. It was also used for brainstorming ideas in the conclusion section, however, all words are strictly my own.*
 
-Bob Simonoff is 
 
-* A Senior Principal Software Engineer, Blue Yonder Fellow at [Blue Yonder](http://www.blueyonder.com). 
-* A founding member of the [OWASP Top 10 for Large Language Model Applications](https://llmtop10.com). 
-* on LinkedIn at [www.linkedin.com/in/bob-simonoff](https://www.linkedin.com/in/bob-simonoff/) 
