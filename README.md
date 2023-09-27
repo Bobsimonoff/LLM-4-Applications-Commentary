@@ -15,6 +15,8 @@ I intend to use this repository as a way of incubating ideas and developing thou
 
 **[Risks versus Vulnerabilities](./docs/risks-vs-vulnerabilities.md)** - Realizations when I understood that OWASP Top 10 focuses on risks not vulnerabilities.  this changed my thinking about what should and should not go in the LLM Applicatkns Top 10 list.
 
+**[The Promise of Generative AI](./docs/The-promise-of-generative-ai.md)** - This is a high level article I wrote for my company's blog site. It speaks to executive management about the balance between the promise of Generative AI and the new security landscape that comes with it. 
+
 **[Mappings to/from OWASP Top 10 for LLM Applications to other Security Frameworks](./docs/LLM-Top-10-Framework-Mappings/OWASP-Mappings-to-other-frameworks-Intro.md)** - mapping between the OWASP Top 10 for Large Language Models and the following frameworks:
 - The Common Weakness Enumeration (CWE) serves as a dictionary of software weaknesses. CWEs provide standardized concepts that classify the types of weaknesses related to the OWASP LLM risks. Mapping CWEs helps identify the core vulnerability types that could lead to or underlie the OWASP risks.
 
