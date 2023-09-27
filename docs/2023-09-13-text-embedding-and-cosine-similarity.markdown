@@ -1,17 +1,15 @@
----
-layout:	single
-title:	"Taking Text Embedding and Cosine Similarity for a Test Drive"
-date:	2023-09-13 00:00:00 +0100
-author: Bob Simonoff  # as used in `authors.yml`
-author_profile: true
-header:
-  overlay_image: assets/images/2023-09-13-text-embedding-and-cosine-similarity/sebastianneubauer_Measuring_distance_between_written_words_char_705ce783-9ee6-4631-83d.png
-  overlay_filter: 0.1
-  show_overlay_excerpt: false
-hidden: true
----
 
 # Taking Text Embedding and Cosine Similarity for a Test Drive 
+
+
+Bob Simonoff, September 7, 2023
+
+- LinkedIn at https://www.linkedin.com/in/bob-simonoff
+
+- medium/com at https://medium.com/@bob.simonoff
+
+- github at https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main
+
 
 ## Introduction
 
@@ -24,6 +22,9 @@ Word embeddings have become a fundamental technique for capturing the semantic m
 To solve our search problem, we also need a way to measure how similar or different the embeddings are from each other. There are multiple algorithms for this including Euclidean distance and cosine similarity. In this post, we will explore using cosine similarity to assess how different variations in phrasing impact semantic similarity between sentences. We will see how changes like synonyms only slightly alter vector orientations, while sentences having opposite meanings or are completely unrelated cause larger divergence.
 
 The following is a two-dimensional graph showing sample embedding vectors for car, cat, and dog. The cosine similarity between the cat and dog embedding vectors is fairly small but is larger between cat and car. 
+
+![Example of Car, Cat and Dog embedding vectors and the cosine similarity between cat and dog as well as between cat and car.](images/2023-09-13-text-embedding-and-cosine-similarity/image-1.png)
+
 
 <figure>
   <img src="{{site.url}}/assets/images/2023-09-13-text-embedding-and-cosine-similarity/image-1.png"/>
@@ -161,6 +162,10 @@ The following bar chart shows each sentence and its similarity. The bar color in
 - Green for Conceptually Close sentences
 - Red for Opposites/Negations
 - Yellow for Unrelated Concepts
+
+
+![Graph showing Sentence similarities with the bars colored by category.](images/2023-09-13-text-embedding-and-cosine-similarity/image.png)
+
 
 <figure>
   <img src="{{site.url}}/assets/images/2023-09-13-text-embedding-and-cosine-similarity/image.png"/>
