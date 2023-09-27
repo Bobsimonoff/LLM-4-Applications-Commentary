@@ -22,6 +22,8 @@ I intend to use this repository as a way of incubating ideas and developing thou
 
 **[The Promise of Generative AI](./docs/The-promise-of-generative-ai.md)** - This is a high level article I wrote for my company's blog site. It speaks to executive management about the balance between the promise of Generative AI and the new security landscape that comes with it. 
 
+**[Exploring ChatGPT Hallucinations and Confabulation through the 6 Degrees of Kevin Bacon Game](./docs/2023-09-08-exploring-chatgpt-hallucinations-and-confabulation.markdown)** - An article describing an experiment that I did to explore the idea of hallucinations using the game 6° of Kevin Bacon. 
+
 **[Mappings to/from OWASP Top 10 for LLM Applications to other Security Frameworks](./docs/LLM-Top-10-Framework-Mappings/OWASP-Mappings-to-other-frameworks-Intro.md)** - mapping between the OWASP Top 10 for Large Language Models and the following frameworks:
 - The Common Weakness Enumeration (CWE) serves as a dictionary of software weaknesses. CWEs provide standardized concepts that classify the types of weaknesses related to the OWASP LLM risks. Mapping CWEs helps identify the core vulnerability types that could lead to or underlie the OWASP risks.
 
