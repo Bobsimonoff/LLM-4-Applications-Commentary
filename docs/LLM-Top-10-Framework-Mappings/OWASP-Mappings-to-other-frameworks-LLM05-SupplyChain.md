@@ -1,3 +1,12 @@
+By Bob Simonoff
+
+- LinkedIn at https://www.linkedin.com/in/bob-simonoff
+
+- medium/com at https://medium.com/@bob.simonoff
+
+- github at https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main
+
+
 # LLM05: Supply Chain Vulnerabilities
 
 ## Summary 
