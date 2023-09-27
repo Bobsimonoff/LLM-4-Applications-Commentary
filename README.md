@@ -3,9 +3,11 @@
 ## Who am I
 I am a Senior Principal Software Engineer and a Fellow at my current company. I am also a core team and founding member of the OWASP Top 10 for Large Language Model applications project. 
 
-LinkedIn at https://www.linkedin.com/in/bob-simonoff
-medium/com at https://medium.com/@bob.simonoff
-github at https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main
+- LinkedIn at https://www.linkedin.com/in/bob-simonoff
+
+- medium/com at https://medium.com/@bob.simonoff
+
+- github at https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main
 
 
 ## Why am I here
