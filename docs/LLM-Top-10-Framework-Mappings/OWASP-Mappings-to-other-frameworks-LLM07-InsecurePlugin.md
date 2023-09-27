@@ -41,172 +41,24 @@ Prevention requires strict input validation, output encoding, and robust access 
 [CWE-862](https://cwe.mitre.org/data/definitions/862.html): Missing Authorization - Applicable if authorization checks are missing.
 
 
----
----
-# WIP: Ignore below this line for now
----
----
+## MITRE ATT&CK Techniques
 
+- AML.T0047: ML-Enabled Product or Service. Plugins extend capabilities of services, introducing potential weaknesses. Extends capabilities.
 
+- AML.T0040: ML Model Inference API Access. Malicious prompts could exploit vulnerabilities in plugins via the API. API access to plugins.
 
+- AML.T0043: Craft Adversarial Data. Carefully crafted prompts could trigger unintended plugin behaviors. Optimizes malicious inputs.
 
-## NIST CSF
+- AML.T0016: Obtain Capabilities. May obtain tools to identify flaws or automate exploiting plugins. Aids targeting plugins.
 
-**Identify - Asset Management**
-- ID.AM-1: Physical devices and systems within the organization are inventoried. Helps maintain an inventory of plugins.
+- AML.T0012: Valid Accounts. Compromised credentials could enable privileged actions through plugins. Allows escalated access.
 
-**Identify - Business Environment**
-- ID.BE-4: Dependencies and critical functions for delivery of critical services are established. Identifies critical plugins.
+- AML.T0011: User Execution. Users may unknowingly invoke dangerous plugin functionality. Triggers unintended actions.
 
-**Protect - Identity Management and Access Control**
-- PR.AC-1: Identities and credentials are issued, managed, verified, revoked, and audited for authorized devices, users and processes. Applies access control to plugins.  
+- AML.T0010: ML Supply Chain Compromise. Compromised plugins introduced into the supply chain could be exploited. Introduces compromised plugins. 
 
-**Protect - Data Security** 
-- PR.DS-5: Protections against data leaks are implemented. Prevents plugin data leakage.
+- AML.T0024: Exfiltration via ML Inference API. Plugins could enable data theft via the model API. Leaks data via plugins.
 
-**Detect - Anomalies and Events**
-- DE.AE-2: Detected events are analyzed to understand attack targets and methods. Helps analyze plugin attack behaviors.
+- AML.T0044: Full ML Model Access. Full control allows optimal manipulation of plugins. Maximizes control of plugins.
 
-**Detect - Security Continuous Monitoring**  
-- DE.CM-7: Monitoring for unauthorized personnel, connections, devices, and software is performed. Can detect unauthorized plugin actions.
-
-**Respond - Analysis** 
-- RS.AN-2: Forensics are performed to determine attack scope, targets, and techniques. Analyzes plugin attacks.
-
-**Recover - Recovery Planning**
-- RC.RP-1: Recovery processes and procedures are executed and maintained to ensure timely restoration of systems or assets affected by cybersecurity incidents. Helps recover from plugin attacks. 
-
-## MITRE ATT&CK
-
-**Initial Access - External Remote Services**
-- T1133 - Obtains access through external remote services like VPNs exposed by plugins. 
-
-**Execution - Scripting**
-- T1064 - Uses scripts like JavaScript in exploited plugins for execution.
-
-**Privilege Escalation - Valid Accounts**  
-- T1078 - Reuses compromised plugin credentials for privilege escalation.
-
-**Defense Evasion - Scripting**
-- T1220 - Uses scripts to evade defenses when exploiting plugins.
-
-**Discovery - Application Window Discovery** 
-- T1010 - Discovers application windows via plugins to learn about target.
-
-
-## CIS Controls
-
-**CSC 4 - Continuous Vulnerability Assessment and Remediation**
-
-- CSC 4-8: Perform authorized penetration testing against all enterprise devices and systems on the network to identify vulnerabilities and attack vectors that can be used to exploit enterprise systems successfully. Helps identify plugin vulnerabilities.
-
-**CSC 7 - Email and Web Browser Protections**
-
-- CSC 7-7: Prevent outgoing web traffic that originates from untrusted content run in a browser. Prevents malicious browser-based plugin actions.
-
-**CSC 13 - Data Protection**  
-
-- CSC 13-14: Protect all media types that contain sensitive data and securely dispose of such media when no longer needed. Prevents data leakage through plugins.
-
-**CSC 18 - Application Software Security**
-
-- CSC 18-8: For in-house developed applications, ensure that explicit error checking is performed and documented for all input, including for size, data type, and acceptable ranges or formats. Validates plugin inputs.
-
-## FAIR 
-
-**Threat Communities:**
-
-- Cyber criminals: Attackers looking for financial gain by exploiting plugins.
-
-- Hacktivists: Ideologically driven actors who could manipulate or sabotage via plugins.
-
-- Insiders: Malicious insiders who could misuse access to abuse plugins.
-
-**Loss Factors:**
-
-- Response costs: Incident response and remediation costs from plugin attacks.
-
-- Reputation loss: Damage to brand reputation from plugin-related incidents. 
-
-- Productivity loss: Business disruption from exploited plugins being unavailable.
-
-
-## BSIMM
-
-**Strategy & Metrics**
-
-- SM1.2: Maintain an inventory of internet-facing assets and associated software. Helps track plugins.
-
-**Compliance & Policy**
-
-- CP2.1: Create security standards for coding and testing. Provides secure plugin coding guidance.
-
-**Architecture Analysis**
-
-- AA2.1: Perform application security architecture reviews. Reviews plugin integration architecture.
-
-**Security Testing** 
-
-- ST2.3: Perform application fuzz testing. Fuzz tests plugins to uncover flaws.  
-
-- ST2.4: Perform static analysis security testing (SAST). SAST examines plugin code for flaws.
-
-## ENISA
-
-**Threats:**
-
-- T14 - Vulnerable Software Dependencies: Vulnerabilities in third-party plugins create risks.
-
-- T17 - Manipulation of Hardware and Software: Tampering with plugins to add flaws or backdoors.
-
-**Controls:** 
-
-- C10 - Secure Software Deployment: Applying integrity checks and signing plugins to ensure legitimacy.
-
-- C18 - Input Validation and Sanitization: Validating and sanitizing plugin inputs to prevent exploitation.
-
-- C41 - Supply Chain Assurance: Applying security measures throughout the plugin supply chain lifecycle.
-
-
-
-## OAIR
-
-**Vulnerabilities:**
-
-- V7 - Supply Chain: Vulnerabilities introduced via third-party plugins as part of supply chain.
-
-- V9 - Configuration: Insecure plugin configuration like excessive permissions creates risks.
-
-**Threat Scenarios:**
-
-- TS07 - Manipulated Execution: Exploiting flaws in plugins to manipulate execution.
-
-- TS08 - Data Breaches: Using vulnerable plugins to steal data.
-
-**Harms:**
-
-- H3 - Economic: Financial losses from fraud or theft enabled by insecure plugins.
-
-- H5 - Operational: Disruption of services and operations due to unavailable or unstable plugins.
-
-## ATLAS
-
-**Reconnaissance:**
-
-- TTP-R-001: Open Source Intelligence Collection - Gathering intelligence to identify plugin targets.
-
-**Resource Development:** 
-
-- TTP-RD-002: Procure Infrastructure - Acquiring infrastructure to analyze and exploit plugins.
-
-**Initial Access:**
-
-- TTP-IA-001: Spearphishing - Phishing plugin developers to gain access. 
-
-**Command & Control:**
-
-- TTP-C2-004: Multilayer Encryption - Encrypting C2 communications when exploiting plugins to evade detection.
-
-**Impact:**
-
-- TTP-I-001: Endpoint Denial of Service - Exploiting plugins for denial of service attacks.
+- AML.T0019: Publish Poisoned Data. Data could trigger unintended behaviors in downstream plugins. Manipulates plugin processing.

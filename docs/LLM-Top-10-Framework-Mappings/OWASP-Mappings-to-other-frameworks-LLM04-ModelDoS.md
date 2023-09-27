@@ -41,172 +41,25 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
 [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Applicable if plugins/extensions can trigger resource issues.
 
 
+## MITRE ATT&CK Techniques
 
----
----
-# WIP: Ignore below this line for now
----
----
+- AML.T0029: Denial of ML Service. Designed to overload systems with resource-heavy inputs. Directly causes denial of service.
 
+- AML.T0043: Craft Adversarial Data. Crafting prompts that require extensive processing could strain systems. Carefully crafted inputs.
 
+- AML.T0040: ML Model Inference API Access. Flooding the API with requests could overwhelm systems. API access enables attacks. 
 
+- AML.T0016: Obtain Capabilities. May obtain tools to automate sending malicious requests. Aids automation.
 
-## NIST CSF
+- AML.T0012: Valid Accounts. Compromised credentials could bypass rate limiting. Allows increased access.
 
-**Subcategories**
+- AML.T0010: ML Supply Chain Compromise. Could introduce inefficiencies via compromised artifacts that are resource-intensive. Introduces weaknesses. 
 
-- PR.IP-1: A baseline configuration of information technology/industrial control systems is created and maintained
-- PR.IP-3: Configuration change control processes are in place
-- PR.IP-9: Response plans (Incident Response and Business Continuity) and recovery plans (Incident Recovery and Disaster Recovery) are in place and managed
+- AML.T0044: Full ML Model Access. Full control enables sending optimized resource-heavy inputs. Maximizes impact.
 
-**Detect Functions**
+- AML.T0047: ML-Enabled Product or Service. Existing services with inadequate protections could be exploited. Finds vulnerable services.
 
-- DE.AE-5: Processes are established to receive, analyze and respond to vulnerabilities disclosed to the organization from internal and external sources.
-- DE.CM-4: Malicious code is detected
-- DE.CM-7: Monitoring for unauthorized personnel, connections, devices and software is performed
+- AML.T0019: Publish Poisoned Data. Training on data designed to increase compute could degrade performance. Influences model.
 
-**Respond Functions** 
+- AML.T0011: User Execution. Users may unknowingly execute code that overloads systems. Executes malicious code.
 
-- RS.RP-1: Response plan is executed during or after an event
-- RS.CO-2: Incidents are reported consistent with established criteria
-- RS.CO-3: Information is shared consistent with response plans
-- RS.CO-5: Voluntary information sharing occurs with external stakeholders to achieve broader cybersecurity situational awareness
-
-**Recover Functions**
-
-- RC.RP-1: Recovery plan is executed during or after a cybersecurity incident
-- RC.IM-2: Recovery strategies are updated
-
-
-## MITRE ATT&CK
-
-**Tactics**
-
-- Initial Access - Gain initial access to target networks/systems
-
-- Execution - Execute adversarial payloads and commands on local systems
-
-- Impact - Disrupt availability and integrity of systems and data
-
-**Techniques**
-
-- Drive-by Compromise - Gain initial access by exploiting web-facing apps 
-
-- Exploitation for Client Execution - Exploit client-side apps like browsers to execute code
-
-- Resource Exhaustion FLOOD - Overwhelm systems with high volumes of traffic/requests
-
-- Service Stop - Disable or degrade critical system services
-
-
-## CIS Controls 
-
-**Safeguards**
-
-- CIS Control 1 - Inventory and Control of Enterprise Assets: Inventory assets to support DoS defenses. Metrics - percentage of assets inventoried.
-
-- CIS Control 10 - Data Recovery Capabilities: Ensure backup and recovery to restore after DoS incidents. Metrics - time to recover from attacks.
-
-- CIS Control 16 - Account Monitoring and Control: Monitor accounts to detect DoS attacks. Metrics - accounts monitored, unauthorized access detected.
-
-
-
-## FAIR
-
-**Threat Communities**
-
-- Hacktivists - Hacktivist groups performing ideologically motivated attacks.
-
-- Organized Crime - Criminal groups attacking for financial gain. 
-
-- Nation States - State-sponsored attackers pursuing strategic objectives.
-
-**Loss Factors**
-
-- Productivity Loss - Operational disruption decreasing productivity.
-
-- Response Costs - Expenses for incident handling and recovery.
-
-- Fines and Legal Costs - Regulatory and contractual penalties.
-
-- Reputation Loss - Damage to brand credibility. 
-
-
-## BSIMM
-
-**Practices**
-
-- Practice 1 - Architecture Analysis: Architect resiliency into system design.
-
-- Practice 9 - Security Testing: Stress test system robustness against DoS.
-
-- Practice 12 - Operational Enablement: Monitor systems for DoS indicators and impact.
-
-
-## ENISA
-
-**Threats**
-
-- Data poisoning - Flood systems with maliciously crafted data to overwhelm resources.
-
-- Model evasion - Craft inputs to force costly inference, draining resources.
-
-- Logic corruption - Manipulate model logic to trigger unstable behavior.
-
-**Controls**
-
-- Anomaly detection - Detect abnormal spikes in resource usage indicating DoS.
-
-- Rate limiting - Throttle traffic to mitigate resource exhaustion. 
-
-- Input filtering - Filter excessive inputs to maintain operational capacity.
-
-
-## OAIR
-
-**Vulnerabilities**
-
-- Resource exhaustion - Systems lack protections against resource exhaustion.
-
-- Logic corruption - Models are susceptible to unstable logic.
-
-**Threat Scenarios**
-
-- Flooding attacks - Overwhelm systems with excessive requests. 
-
-- Recursion attacks - Trigger repeated expensive processing.
-
-**Harms**
-
-- Denial of service - Systems become unresponsive to legitimate users.
-
-- Financial loss - Downtime and recovery costs due to DoS incidents.
-
-
-## ATLAS 
-
-**Tactics**
-
-- Initial Access - Gain initial foothold on systems.
-
-- Execution - Execute malicious payloads and commands.
-
-- Impact - Disrupt system availability and integrity.
-
-**Techniques** 
-
-- Drive-by Compromise - Gain initial access by exploiting web apps.
-
-- Command and Scripting Interpreter - Execute payloads via languages like Python. 
-
-- Process Injection - Inject code into running processes.
-
-- Service Stop - Disable or degrade critical system services. 
-
-**Procedures**
-
-- Fingerprint service vulnerabilities - Identify potential denial of service vectors.
-
-- Craft recursive queries - Engineer queries to cause repeated expensive processing. 
-
-- Amplify network requests - Use techniques to magnify traffic volume.

@@ -39,178 +39,24 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
 [CWE-916](https://cwe.mitre.org/data/definitions/916.html): Use of Password Hash With Insufficient Computational Effort - Applicable if third-party code uses weak hashing.
 
 
+## MITRE ATT&CK Techniques
 
+- AML.T0010: ML Supply Chain Compromise. Compromising any part of the supply chain provides a vector for attacks. Directly exploits supply chain.
 
----
----
-# WIP: Ignore below this line for now
----
----
+- AML.T0019: Publish Poisoned Data. Adversaries could distribute poisoned datasets through compromised sources. Poisons data sources.
 
+- AML.T0020: Poison Training Data. Allows poisoning of artifacts used in training models. Manipulates training data.
 
+- AML.T0043: Craft Adversarial Data. Could allow carefully crafted data or models designed to exploit systems. Introduces vulnerabilities.
 
+- AML.T0016: Obtain Capabilities. May obtain tools to compromise supply chain components. Aids targeting supply chain. 
 
-## NIST CSF
+- AML.T0044: Full ML Model Access. Full control of components enables thorough poisoning. Maximizes control over supply chain.
 
-**Identify - Asset Management:**
-- ID.AM-1: Physical devices and systems within the organization are inventoried. This helps maintain an inventory of pre-trained models and other software assets to identify vulnerable or outdated components.
+- AML.T0012: Valid Accounts. Compromised credentials could allow direct access to poison. Allows access to compromise.
 
-**Identify - Risk Assessment:**  
-- ID.RA-1: Asset vulnerabilities are identified and documented. This enables identifying vulnerabilities in pre-trained models, third-party components, etc.
+- AML.T0011: User Execution. Users may unknowingly execute code from compromised sources. Executes malicious code.
 
-**Protect - Identity Management and Access Control:**
-- PR.AC-1: Identities and credentials are issued, managed, verified, revoked, and audited for authorized devices, users and processes. This enables access control on external systems and suppliers.
+- AML.T0047: ML-Enabled Product or Service. Services relying on compromised components could be exploited. Finds and exploits vulnerabilities.
 
-**Protect - Information Protection:**  
-- PR.IP-1: Baseline configuration of systems are created and maintained. Helps prevent misconfigurations of third-party components.
-
-**Detect - Anomalies and Events:**
-- DE.AE-1: A baseline of network operations and expected data flows is established and managed. Anomalies can indicate malicious third-party code execution or data exfiltration.
-
-**Detect - Security Continuous Monitoring:**
-- DE.CM-1: The network is monitored to detect potential cybersecurity events. Can help detect vulnerabilities or unauthorized plugin usage.
-
-**Detect - Detection Processes:**
-- DE.DP-1: Roles and responsibilities for detection are well defined to ensure accountability. Clarifies who monitors for supply chain events. 
-
-**Respond - Response Planning:**
-- RS.RP-1: Response processes and procedures are executed and maintained. This includes having an incident response plan to address supply chain attacks.
-
-**Recover - Recovery Planning:**
-- RC.RP-1: Recovery processes and procedures are executed and maintained to ensure timely restoration of systems or assets affected by cybersecurity incidents. Helps recover from incidents involving supply chain compromise.
-
-**Recover - Improvements:**  
-- RC.IM-1: Recovery planning and processes are improved by incorporating lessons learned. Improves supply chain risk management based on past incidents.
-
-
-## MITRE ATT&CK
-
-**Tactics**
-
-- Initial Access (TA0001): An attacker could exploit overreliance by gaining initial access to poison the LLM.  
-
-- Execution (TA0002): Manipulate LLM inputs and outputs through techniques like scripting.
-
-**Techniques** 
-
-- Supply Chain Compromise (T1195): Manipulate training data or other inputs through supply chain.
-
-- Valid Accounts (T1078): Compromise accounts with LLM access to manipulate inputs/outputs.
-
-- Scripting (T1064): Use scripts to automate poisoning of LLM via inputs. 
-
-- Exploit Public-Facing Application (T1190): Exploit public LLMs by manipulating prompts and inputs.
-
-
-
-## CIS Controls
-
-- Audit Log Reviews (ID 023): Reviewing system logs could identify suspicious activities like manipulation of LLM inputs/outputs.
-
-- Malware Defenses (ID 018): Tools to detect malware like logic bombs could identify backdoors used to poison LLM data.
-
-- Data Protection (ID 017): Cryptographic validation of LLM outputs could mitigate risks of tampering.
-
-## FAIR 
-
-**Threat Communities:**
-
-- Organized crime groups: Motivated by financial gain, may compromise supply chain to steal data or IP.
-
-- Hacktivists: Motivated by ideology, may poison data or models as a form of protest. 
-
-- Nation states: Motivated by espionage or sabotage, may compromise supply chain to infiltrate or disrupt operations.
-
-**Loss Factors:** 
-
-- Productivity loss: Disruption of operations from supply chain compromise affects productivity.
-
-- Response costs: Incident response and recovery costs from supply chain attacks.
-
-- Fines and legal costs: Penalties and legal costs from non-compliance, IP theft, etc. enabled by supply chain compromise.
-
-
-## BSIMM 
-
-**Strategy & Metrics:**
-
-- SM2.1: Create an SBOM for internally developed software to inventory components. Can help identify risky third-party dependencies.
-
-**Compliance & Policy:** 
-
-- CP2.1: Create security standards for coding and testing. Can mandate security requirements for third-party code review and testing.
-
-**Attack Models:**
-
-- AM3.2: Use threat modeling to identify risks. Can uncover supply chain threat scenarios. 
-
-**Security Testing:**
-
-- ST2.3: Perform application fuzz testing to uncover flaws. Helps finds vulnerabilities in third-party code.
-
-**Software Environment:**
-
-- SE3.6: Use static and dynamic analysis security testing tools. Can analyze third-party code for vulnerabilities.
-
-
-## ENISA
-
-**Threats:**
-
-- T10 - Increased Attack Surface: More third-party components increase potential attack surface.
-
-- T14 - Vulnerable Software Dependencies: Vulnerable open source software and models create risks.
-
-- T15 - Supply Chain Threats: Manipulation of hardware, software or data from suppliers.
-
-**Controls:**
-
-- C10 - Secure Software Deployment: Signing and integrity checks on third-party code and models.
-
-- C26 - Software Bill of Materials: Inventory of third-party components to manage risks. 
-
-- C41 - Supply Chain Assurance: Security measures applied throughout the supply chain lifecycle.
-
-
-## OAIR
-
-**Vulnerabilities:**
-
-- V3 - Data Dependencies: Vulnerabilities in training data from third parties creates biases or manipulation. 
-
-- V7 - Supply Chain: Vulnerabilities introduced via third-party hardware, software, or data supply chains.
-
-**Threat Scenarios:**
-
-- TS03 - Data Poisoning: Manipulation of training data from suppliers to alter model behavior. 
-
-- TS04 - Model Theft: Theft of proprietary models by compromising third-party systems.
-
-**Harms:**
-
-- H1 - Safety & Wellbeing: Biased models from data poisoning can negatively impact individuals.
-
-- H3 - Economic: Financial damage from IP theft enabled by supply chain attacks.
-
-
-## ATLAS
-
-**Reconnaissance:**
-
-- TTP-R-001 Open Source Intelligence Collection: Gather public info on supply chain providers to enable targeting.
-
-**Weaponization:**
-
-- TTP-W-001 Malware Development: Create malware to leverage vulnerabilities in third-party software.
-
-**Delivery:**
-
-- TTP-D-001 third Party Software Deployment: Deliver malware via legitimate software deployment channels.
-
-**Exploitation:**
-
-- TTP-E-004 Supply Chain Compromise: Exploit the supply chain to establish persistence undetected.
-
-**Command & Control:**
-
-- TTP-C2-002 Multi-Hop Proxy: Obfuscate C2 using compromised third-party systems. 
+- AML.T0040: ML Model Inference API Access. May enable attacks via compromised model APIs. API access to poisoned models.

@@ -42,176 +42,24 @@ Prevention involves treating the LLM as any other user, applying input validatio
 [CWE-937](https://cwe.mitre.org/data/definitions/937.html): OWASP Top Ten 2013 Category A9 - Using Components with Known Vulnerabilities - Added as vulnerable components could mishandle outputs.
 
 
+## MITRE ATT&CK Techniques
 
----
----
-# WIP: Ignore below this line for now
----
----
+- AML.T0040: ML Model Inference API Access. Adversaries could send crafted prompts to generate malicious outputs via the API. Allows manipulating model outputs.
 
+- AML.T0043: Craft Adversarial Data. Allows adversaries to carefully craft prompts to produce insecure outputs. Enables tailoring insecure outputs.
 
+- AML.T0016: Obtain Capabilities. Adversaries may obtain tools to generate payloads or automate exploiting the vulnerability. Aids in producing insecure outputs.
 
-## NIST CSF
-**NIST CSF Subcategories** 
+- AML.T0011: User Execution. Users may unknowingly execute insecure outputs from LLM systems. Executes adversary-controlled outputs. 
 
-- PR.DS-2: Data in transit is protected
-- PR.DS-5: Protections against data leaks are implemented
-- PR.PT-3: The principle of least functionality is incorporated by configuring systems to provide only essential capabilities
+- AML.T0024: Exfiltration via ML Inference API. Adversaries could exfiltrate data by encoding it in LLM outputs. Outputs can steal data.
 
-**NIST CSF Detect Functions**
+- AML.T0012: Valid Accounts. Compromised credentials could allow adversaries to directly interact with the LLM. Provides API access for attacks.
 
-- DE.CM-4: Malicious code is detected 
-- DE.CM-7: Monitoring for unauthorized personnel, connections, devices and software is performed
+- AML.T0010: ML Supply Chain Compromise. Could introduce vulnerabilities enabling insecure outputs via compromised artifacts. Introduces weaknesses.
 
-**NIST CSF Respond Functions**
+- AML.T0044: Full ML Model Access. Full access allows fine tuning prompts to generate intended insecure outputs. Maximizes control over outputs.
 
-- RS.MI-1: Incidents are contained
-- RS.MI-2: Incidents are mitigated
+- AML.T0047: ML-Enabled Product or Service. Existing services could be exploited if they have improper output handling. Finds vulnerable services.
 
-**NIST CSF Recover Functions**
-
-- RC.IM-1: Recovery plans incorporate lessons learned
-
-
-## MITRE ATT&CK
-
-**MITRE ATT&CK Tactics**
-
-- Initial Access - Tactics that gain initial access to systems, like drive-by compromise via web apps.
-
-- Execution - Tactics to execute adversarial code/commands on local systems.
-
-- Persistence - Maintain presence on systems, like valid accounts or remote services. 
-
-- Privilege Escalation - Gain higher-level permissions, like process injection or forged credentials.
-
-**MITRE ATT&CK Techniques**
-
-- Drive-by Compromise - Gain access by exploiting web apps through user visiting malicious pages.
-
-- Exploitation for Client Execution - Exploit client-side apps like browsers to execute code via crafted data. 
-
-- Process Injection - Inject adversary code into legitimate processes, like via DLL injection.
-
-- Forge Web Credentials - Forge cookies or headers for impersonation or session hijacking.
-
-## CIS Controls
-
-**Safeguards**
-
-- CIS Control 3 - Secure Configurations for Hardware and Software on Mobile Devices, Laptops, Workstations and Servers: Establish secure configurations and harden systems to reduce attack surface. Metrics - Percentage of systems adhering to secure configuration baseline.
-
-- CIS Control 5 - Secure Configuration for Network Devices like Firewalls, Routers and Switches: Implement firewall rules, proxies and VLANs to control and filter network traffic. Metrics - Percentage of network devices adhering to documented secure configuration baseline. 
-
-- CIS Control 6 - Maintenance, Monitoring and Analysis of Audit Logs: Collect, manage and analyze audit logs to understand insecure output handling attack details. Metrics - Percentage of systems with sufficient logging enabled.
-
-
-## FAIR 
-
-**Threat Communities**
-
-- Partners - Business partners connecting systems for data sharing may be sources of attacks on outputs.
-
-- Service Providers - Cloud infrastructure providers supporting systems could enable insecure output risks.
-
-- Customers - Customers engaging with web apps and APIs can be threat communities exploiting output handling flaws.
-
-**Loss Factors** 
-
-- Productivity Loss - Disruption from compromised systems affects productivity. 
-
-- Response Costs - Investigation and remediation costs from incidents.
-
-- Fines and Legal Costs - Penalties and costs from non-compliance with regulations.
-
-- Reputation Loss - Public awareness of incidents damages brand reputation. 
-
-
-## BSIMM
-
-**Practices**
-
-- Practice 1 - Architecture Analysis: Analyze architecture and design review to identify and address output handling risks.
-
-- Practice 2 - Code Review: Perform manual code reviews and use static analysis to catch output handling flaws.
-
-- Practice 9 - Security Testing: Conduct dynamic scanning, fuzz testing to catch insecure output handling issues.
-
-- Practice 12 - Operational Enablement: Monitor systems for anomalies in traffic, errors indicating potential handling issues.
-
-
-
-## ENISA
-
-**Threats**
-
-- Data poisoning - Contaminating data like LLM outputs to manipulate model behavior or cause misinterpretation.  
-
-- Model evasion - Crafting inputs that produce incorrect model outputs, undermining reliability.
-
-- Model inversion - Reconstructing sensitive attributes from model outputs and behaviors. 
-
-**Controls**
-
-- Input validation - Validate and filter inputs to prevent malicious inputs from reaching outputs.
-
-- Anomaly detection - Detect anomalous patterns in model inputs and outputs indicating potential manipulation.
-
-- Access control - Control and limit access to model outputs to prevent unauthorized exposure.
-
-## OAIR
-
-**Vulnerabilities**
-
-- Data poisoning - Contaminating data like model outputs can manipulate behaviors. 
-
-- Backdoors - Hidden model manipulations activated by crafted inputs.
-
-- Evasion - Carefully crafted inputs mislead models into incorrect outputs.
-
-**Threat Scenarios** 
-
-- Data poisoning - Manipulating outputs via poisoning to undermine integrity.
-
-- Backdoor triggering - Activate backdoors through crafted inputs to model outputs.  
-
-- Evasion - Generate adversarial examples to evade detection by models.
-
-**Harms**
-
-- Availability loss - System crashes or denial of service from malicious outputs.
-
-- Integrity loss - Data corruption and operational disruption from poisoned outputs. 
-
-- Infrastructure loss - Damage to systems and data from malicious outputs.
-
-
-## ATLAS
-
-**Tactics**
-
-- Initial Access - Gain access to systems, like via drive-by compromise of web apps.
-
-- Execution - Execute adversarial code/commands on local systems.
-
-- Persistence - Maintain presence on compromised systems.
-
-- Privilege Escalation - Escalate privileges to expand impact.
-
-**Techniques**
-
-- Drive-by Compromise - Gain initial access by exploiting vulnerabilities in web-facing apps.
-
-- Command and Scripting Interpreter - Execute commands/scripts via languages like Python, JavaScript. 
-
-- Scripting - Use scripts to automate and scale execution of operations.
-
-- Process Injection - Inject code into running processes, like via DLL injection. 
-
-**Procedures**
-
-- Analyze application security configurations - Fingerprint apps to uncover vulnerabilities.
-
-- Enumerate browser plugins - Identify client-side apps like browsers to target.
-
-- Analyze process binaries - Reverse engineer processes to identify injection points.
+- AML.T0019: Publish Poisoned Data. Adversaries could poison training data to influence insecure outputs. Manipulates model behavior.
