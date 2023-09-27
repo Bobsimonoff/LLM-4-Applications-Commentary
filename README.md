@@ -9,7 +9,7 @@ I am a Senior Principal Software Engineer and a Fellow at my current company. I 
 
 - github at https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main
 
-- Test
+- Test 2
 
 ## Why am I here
 This repository contains thoughts, notes and observations on the [OWASP Top 10 for Large Language Model Applications Top 10](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications) project and documents. Also note there is a website at [llmtop10.com](https://llmtop10.com/). 
