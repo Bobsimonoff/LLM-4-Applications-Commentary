@@ -19,7 +19,7 @@ The OWASP Top 10 provides the top 10 critical security risks for web application
 
 - [OAIR Framework](https://www.operationalizingai.org/) identifies risks across the AI system lifecycle. Mapping OAIR relates the OWASP risks to AI-specific vulnerabilities and harms providing visibility into AI relevance.
 
-- [ATLAS](https://www.anthropic.com/) documents observed real-world attacks against AI. Mapping ATLAS builds understanding of how the OWASP risks manifest in actual AI threat scenarios based on evidence.
+- [ATLAS](https://atlas.mitre.org/) documents observed real-world attacks against AI. Mapping ATLAS builds understanding of how the OWASP risks manifest in actual AI threat scenarios based on evidence.
 
 This cross-framework mapping aims to connect the dots between OWASP risks and complementary frameworks. Please let me know if I should modify or expand this introduction to better convey the value of mapping across each targeted framework.
 
