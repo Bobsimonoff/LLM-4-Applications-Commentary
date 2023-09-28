@@ -24,19 +24,19 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
 
 ## Common Weakness Enumeration (CWE)
 
-[CWE-494](https://cwe.mitre.org/data/definitions/494.html): Download of Code Without Integrity Check - Applicable as unauthorized third-party code from a compromised supplier may be integrated without integrity checks, introducing vulnerabilities.
+- [CWE-494](https://cwe.mitre.org/data/definitions/494.html): Download of Code Without Integrity Check - Applicable as unauthorized third-party code from a compromised supplier may be integrated without integrity checks, introducing vulnerabilities.
 
-[CWE-733](https://cwe.mitre.org/data/definitions/733.html): Compiler Optimization Removal or Modification of Security-critical Code - Applicable as optimizations during compilation of third-party code could remove security controls, increasing vulnerabilities.
+- [CWE-733](https://cwe.mitre.org/data/definitions/733.html): Compiler Optimization Removal or Modification of Security-critical Code - Applicable as optimizations during compilation of third-party code could remove security controls, increasing vulnerabilities.
 
-[CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Applicable as integration of third-party code introduces risks of untrusted functionality from compromised suppliers.
+- [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Applicable as integration of third-party code introduces risks of untrusted functionality from compromised suppliers.
 
-[CWE-915](https://cwe.mitre.org/data/definitions/915.html): Improperly Controlled Modification of Dynamically-Determined Object Attributes - Applicable as lack of control over dynamic attributes in integrated third-party code poses risks if the supplier is compromised.
+- [CWE-915](https://cwe.mitre.org/data/definitions/915.html): Improperly Controlled Modification of Dynamically-Determined Object Attributes - Applicable as lack of control over dynamic attributes in integrated third-party code poses risks if the supplier is compromised.
 
-[CWE-918](https://cwe.mitre.org/data/definitions/918.html): Server-Side Request Forgery (SSRF) - Applicable as third-party requests to external services may not be properly validated after integration, enabling SSRF if the supplier is compromised.
+- [CWE-918](https://cwe.mitre.org/data/definitions/918.html): Server-Side Request Forgery (SSRF) - Applicable as third-party requests to external services may not be properly validated after integration, enabling SSRF if the supplier is compromised.
 
-[CWE-937](https://cwe.mitre.org/data/definitions/937.html): OWASP Top Ten 2013 Category A5 - Security Misconfiguration - Applicable as misconfigured third-party components integrated from a compromised supplier pose risks per OWASP guidelines.
+- [CWE-937](https://cwe.mitre.org/data/definitions/937.html): OWASP Top Ten 2013 Category A5 - Security Misconfiguration - Applicable as misconfigured third-party components integrated from a compromised supplier pose risks per OWASP guidelines.
 
-[CWE-916](https://cwe.mitre.org/data/definitions/916.html): Use of Password Hash With Insufficient Computational Effort - Applicable if third-party code from a compromised supplier uses weak hashing, enabling password cracking.
+- [CWE-916](https://cwe.mitre.org/data/definitions/916.html): Use of Password Hash With Insufficient Computational Effort - Applicable if third-party code from a compromised supplier uses weak hashing, enabling password cracking.
 
 ## ATT&CK Techniques
 
