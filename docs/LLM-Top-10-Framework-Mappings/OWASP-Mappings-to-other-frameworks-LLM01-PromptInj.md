@@ -48,14 +48,6 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
 
 - [T1571](https://attack.mitre.org/techniques/T1571/): Non-Standard Port - Use of non-standard ports to bypass restrictions. Uses non-standard ports. Could access systems to inject prompts by bypassing defenses via obscure ports. 
 
-## ATT&CK Mitigations
-
-- [M1041](https://attack.mitre.org/mitigations/M1041/): Restrict Web-Based Content - Limit web content execution. Limits web content execution. Could block web-based prompt injection by restricting web content execution.
-
-- [M1042](https://attack.mitre.org/mitigations/M1042/): Disable or Remove Feature or Program - Disabling or removing risky features or programs. Removes risky features. Could eliminate vulnerable plugin functions enabling injections by disabling them. 
-
-- [M1043](https://attack.mitre.org/mitigations/M1043/): Isolate System or Network - Isolating systems from untrusted networks. Isolates systems and networks. Could prevent lateral movement from injected prompts by isolating compromised systems.
-
 
 ## MITRE ATLAS Techniques
 
@@ -76,6 +68,16 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
 - [AML.T0011](/techniques/AML.T0011): User Execution - Users tricked into executing adversary payloads. Users may unknowingly execute prompts containing injections from documents. Causes unintentional execution of injections.
 
 - [AML.T0019](/techniques/AML.T0019): Publish Poisoned Data - Distribution of contaminated datasets. Adversaries could poison public datasets with malicious prompts that exploit models trained on the data. Poisons datasets to persistently embed injections.
+
+
+## ATT&CK Mitigations
+
+- [M1041](https://attack.mitre.org/mitigations/M1041/): Restrict Web-Based Content - Limit web content execution. Limits web content execution. Could block web-based prompt injection by restricting web content execution.
+
+- [M1042](https://attack.mitre.org/mitigations/M1042/): Disable or Remove Feature or Program - Disabling or removing risky features or programs. Removes risky features. Could eliminate vulnerable plugin functions enabling injections by disabling them. 
+
+- [M1043](https://attack.mitre.org/mitigations/M1043/): Isolate System or Network - Isolating systems from untrusted networks. Isolates systems and networks. Could prevent lateral movement from injected prompts by isolating compromised systems.
+
 
 ## MITRE ATLAS Mitigations
 
