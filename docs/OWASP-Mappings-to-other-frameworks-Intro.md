@@ -28,7 +28,6 @@ The OWASP Top 10 provides the top 10 critical security risks for web application
 
 - [ATLAS](https://atlas.mitre.org/) documents observed real-world attacks against AI. Mapping ATLAS builds understanding of how the OWASP risks manifest in actual AI threat scenarios based on evidence.
 
-This cross-framework mapping aims to connect the dots between OWASP risks and complementary frameworks. Please let me know if I should modify or expand this introduction to better convey the value of mapping across each targeted framework.
 
 ![alt text](./LLM-Top-10-Framework-Mappings/images/Security-Frameworks-Template.png)
 

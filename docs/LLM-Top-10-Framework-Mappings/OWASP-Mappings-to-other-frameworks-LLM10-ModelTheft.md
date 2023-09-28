@@ -22,83 +22,81 @@ Prevention requires strong access controls, network security, authentication, an
 
 ## Common Weakness Enumeration (CWE)
 
-[CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization - Flawed authorization allows unauthorized model access.
+- [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization - Flawed authorization controls allow unauthorized access to proprietary language models.
 
-[CWE-287](https://cwe.mitre.org/data/definitions/287.html): Improper Authentication - Weak authentication enables unauthorized access.
+- [CWE-287](https://cwe.mitre.org/data/definitions/287.html): Improper Authentication - Weak authentication mechanisms enable unauthorized users to access private language models. 
 
-[CWE-306](https://cwe.mitre.org/data/definitions/306.html): Missing Authentication for Critical Function - Lack of authentication could allow unauthorized access.
+- [CWE-306](https://cwe.mitre.org/data/definitions/306.html): Missing Authentication for Critical Function - Lack of authentication checks for access to language models allows unauthorized users access.
 
-[CWE-327](https://cwe.mitre.org/data/definitions/327.html): Use of a Broken or Risky Cryptographic Algorithm - Weak cryptography could enable interception of model data.
+- [CWE-327](https://cwe.mitre.org/data/definitions/327.html): Use of a Broken or Risky Cryptographic Algorithm - Use of weak cryptography to protect language model data could enable interception and unauthorized access during transmission.
 
-[CWE-346](https://cwe.mitre.org/data/definitions/346.html): Origin Validation Error - Failing to validate input source can allow unauthorized access.
+- [CWE-346](https://cwe.mitre.org/data/definitions/346.html): Origin Validation Error - Failing to validate the source of inputs to language model interfaces can allow unauthorized API access enabling data theft.
 
-[CWE-639](https://cwe.mitre.org/data/definitions/639.html): Authorization Bypass Through User-Controlled Key - User keys could enable authorization bypass. 
+- [CWE-639](https://cwe.mitre.org/data/definitions/639.html): Authorization Bypass Through User-Controlled Key - User API keys could enable authorization bypass to access private language models and steal data.
 
-[CWE-703](https://cwe.mitre.org/data/definitions/703.html): Improper Check or Handling of Exceptional Conditions - May prevent detection of extraction attacks.
+- [CWE-703](https://cwe.mitre.org/data/definitions/703.html): Improper Check or Handling of Exceptional Conditions - May prevent detection of language model data extraction attacks by mishandling exceptions.
 
-[CWE-732](https://cwe.mitre.org/data/definitions/732.html): Inadequate Encoding of Output Data - Insufficient output encoding risks data exfiltration.
+- [CWE-732](https://cwe.mitre.org/data/definitions/732.html): Inadequate Encoding of Output Data - Insufficient output encoding from language models risks exposing sensitive training data enabling theft.
 
-[CWE-798](https://cwe.mitre.org/data/definitions/798.html): Use of Hard-coded Credentials - Hard-coded credentials with excessive permissions risk unauthorized access.
+- [CWE-798](https://cwe.mitre.org/data/definitions/798.html): Use of Hard-coded Credentials - Hard-coded credentials with excessive permissions granted to interfaces risk unauthorized access to language models.
 
-[CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Inclusion of untrusted components poses unauthorized access risks.
+- [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Inclusion of untrusted third-party components poses risks of unauthorized access to language models.
 
-[CWE-384](https://cwe.mitre.org/data/definitions/384.html): Session Fixation - Session fixation could allow adversary to steal authenticated sessions to access models.
+- [CWE-384](https://cwe.mitre.org/data/definitions/384.html): Session Fixation - Session fixation could allow an adversary to hijack authenticated sessions to language models to access or steal data.
 
-[CWE-913](https://cwe.mitre.org/data/definitions/913.html): Improper Control of Dynamically-Managed Code Resources - Could allow execution of unauthorized code enabling model access/theft.
+- [CWE-913](https://cwe.mitre.org/data/definitions/913.html): Improper Control of Dynamically-Managed Code Resources - Could allow unauthorized execution of code enabling access to steal language model data.
 
-[CWE-918](https://cwe.mitre.org/data/definitions/918.html): Server-Side Request Forgery (SSRF) - SSRF could enable unauthorized access to internal model storage.
+- [CWE-918](https://cwe.mitre.org/data/definitions/918.html): Server-Side Request Forgery (SSRF) - SSRF vulnerabilities could enable unauthorized access to internal language model storage servers to steal data.
+  
 
 ## ATT&CK Techniques
 
-- [T1081](https://attack.mitre.org/techniques/T1081/) - Credentials in Files. Accesses creds from files. Could enable unauthorized access.
+- [T1081](https://attack.mitre.org/techniques/T1081/) - Credentials in Files. Accesses credentials stored in files which could enable unauthorized access to proprietary language models.
 
-- [T1530](https://attack.mitre.org/techniques/T1530/) - Data from Cloud Storage Object. Accesses cloud data. Could access proprietary models. 
+- [T1530](https://attack.mitre.org/techniques/T1530/) - Data from Cloud Storage Object. Accesses cloud storage containing language models or artifacts. Could access proprietary data to steal.
+
+## MITRE ATLAS Techniques  
+
+- AML.T0024: Exfiltration via ML Inference API. Carefully crafted queries to language model APIs could elicit proprietary details that are extracted and stolen.
+
+- AML.T0043: Craft Adversarial Data. Tailored prompts and inputs to language models could infer proprietary model architecture and parameters for theft.
+
+- AML.T0040: ML Model Inference API Access. Repeated queries to language model APIs could reconstruct model behavior for extraction and theft.
+
+- AML.T0012: Valid Accounts. Compromised credentials provide unauthorized access to language models to steal proprietary artifacts.
+
+- AML.T0044: Full ML Model Access. Full whitebox control makes stealing proprietary language model artifacts simpler.
+
+- AML.T0010: ML Supply Chain Compromise. Compromising third-party suppliers provides a vector to steal proprietary language models.  
+
+- AML.T0016: Obtain Capabilities. May obtain tools to automate extraction and theft of language models.
+
+- AML.T0047: ML-Enabled Product or Service. Commercial services with weak protections could enable language model theft.
 
 ## ATT&CK Mitigations
 
-- [M1015](https://attack.mitre.org/mitigations/M1015/) - Secure Authentication. Implements secure authentication. Prevents unauthorized credential use.
+- [M1015](https://attack.mitre.org/mitigations/M1015/) - Secure Authentication. Implements secure authentication mechanisms. Prevents unauthorized use of credentials to access language models.
 
-- [M1043](https://attack.mitre.org/mitigations/M1043/) - Isolate System or Network. Isolates systems and networks. Could prevent model theft.
+- [M1043](https://attack.mitre.org/mitigations/M1043/) - Isolate System or Network. Isolates systems containing proprietary language models. Could prevent model extraction and theft.
 
-- [M1051](https://attack.mitre.org/mitigations/M1051/) - Network Intrusion Prevention. Uses network IPS. Could block extraction attempts.
-
-
-## MITRE ATLAS Techniques
-
-- AML.T0024: Exfiltration via ML Inference API. Carefully crafted queries could elicit model details that are extracted. Extracts model details.
-
-- AML.T0043: Craft Adversarial Data. Tailored prompts could infer model architecture and parameters. Infers model details.
-
-- AML.T0040: ML Model Inference API Access. Repeated queries could reconstruct model behavior for theft. Reconstructs model.
-
-- AML.T0012: Valid Accounts. Compromised credentials provide access to steal artifacts. Enables unauthorized access.
-
-- AML.T0044: Full ML Model Access. Full control makes stealing artifacts simpler. Provides direct access for theft. 
-
-- AML.T0010: ML Supply Chain Compromise. Compromising suppliers provides a vector to steal models. Attacks supply chain.
-
-- AML.T0016: Obtain Capabilities. May obtain tools to automate model extraction. Aids model theft.
-
-- AML.T0047: ML-Enabled Product or Service. Commercial services with weak protections could enable theft. Finds vulnerable services.
-
+- [M1051](https://attack.mitre.org/mitigations/M1051/) - Network Intrusion Prevention. Uses network IPS to block unauthorized connections attempting model extraction.
 
 ## MITRE ATLAS Mitigations
 
-- AML.M0005: Control Access to ML Models and Data at Rest. Limit access to models. Reduces attack surface.
+- AML.M0005: Control Access to ML Models and Data at Rest. Limit access to language models through permissions. Reduces attack surface for theft.
 
-- AML.M0012: Encrypt Sensitive Information. Encrypt models and artifacts. Protects confidentiality. 
+- AML.M0012: Encrypt Sensitive Information. Encrypt language models and related artifacts containing IP. Protects confidentiality against data theft.
 
-- AML.M0013: Code Signing. Ensure proper signing of models and artifacts. Validates integrity.
+- AML.M0013: Code Signing. Ensure proper cryptographic signing of language models and artifacts. Validates integrity to identify theft.
 
-- AML.M0014: Verify ML Artifacts. Detect tampered or stolen artifacts. Identifies theft attempts.
+- AML.M0014: Verify ML Artifacts. Detect tampered, modified or stolen language model artifacts. Identifies potential model extraction attempts.
 
-- AML.M0015: Adversarial Input Detection. Detect and block queries attempting extraction. Identifies extraction tries.
+- AML.M0015: Adversarial Input Detection. Detect and filter queries attempting to extract language models. Identifies extraction tries. 
 
-- AML.M0004: Restrict Number of ML Model Queries. Limit queries that could aid extraction. Reduces attack surface. 
+- AML.M0004: Restrict Number of ML Model Queries. Limit total queries to language models that could aid extraction. Reduces attack surface.
 
-- AML.M0001: Limit Model Artifact Release. Reduce public model details. Limits available information to aid attacks.
+- AML.M0001: Limit Model Artifact Release. Reduce public details of language models. Limits available information to aid theft attacks.
 
-- AML.M0016: Vulnerability Scanning. Scan for flaws enabling theft. Finds issues to address.
+- AML.M0016: Vulnerability Scanning. Scan for flaws that could enable language model theft. Finds issues to address proactively.
 
-- AML.M0018: User Training. Educate users on model theft risks. Reduces unknowing participation in attacks.
-
+- AML.M0018: User Training. Educate users on language model theft risks to reduce unknowing participation in attacks.

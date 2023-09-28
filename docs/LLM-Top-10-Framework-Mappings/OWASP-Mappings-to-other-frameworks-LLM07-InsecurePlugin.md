@@ -55,8 +55,6 @@ By Bob Simonoff
 - AML.T0019: Publish Poisoned Data. Data obtained from compromised sources could trigger unintended behaviors in downstream plugins leading to exploitation.
 
 
-Here are the expanded mitigation entries relating to insecure plugin design:
-
 ## ATT&CK Mitigations
 
 - [M1042](https://attack.mitre.org/mitigations/M1042/) - Disable or Remove Feature or Program. Removes problematic features like unsafe plugins. Eliminating vulnerable plugins reduces the attack surface.
