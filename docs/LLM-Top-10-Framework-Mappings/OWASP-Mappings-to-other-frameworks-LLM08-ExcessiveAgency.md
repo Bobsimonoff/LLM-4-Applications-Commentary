@@ -20,7 +20,7 @@ Attackers can exploit ambiguous or malicious prompts, along with insecure plugin
 
 Prevention requires limiting LLM functionality, permissions, and autonomy to only what is essential. Strict input validation and robust access controls should be implemented in plugins. User context must be maintained and human approval required for impactful actions. Monitoring systems and rate limiting can help detect and limit unauthorized behaviors. Following security best practices around authorization, mediation, and privilege minimization is key to securing LLM agency.
 
-## CWE
+## Common Weakness Enumeration (CWE)
 
 [CWE-272](https://cwe.mitre.org/data/definitions/272.html): Least Privilege Violation - Applicable when excessive permissions are granted beyond functional needs.
 
@@ -39,7 +39,20 @@ Prevention requires limiting LLM functionality, permissions, and autonomy to onl
 [CWE-862](https://cwe.mitre.org/data/definitions/862.html): Missing Authorization - Applicable when authorization is not checked before actions.
 
 
-## MITRE ATT&CK Techniques 
+## ATT&CK Techniques
+
+- [T1548](https://attack.mitre.org/techniques/T1548/) - Abuse Elevation Control Mechanism. Exploits weak access controls. Could leverage excessive permissions. 
+
+- [T1555](https://attack.mitre.org/techniques/T1555/) - Credentials from Password Stores. Steals stored credentials. Could access unchecked functions.
+
+## ATT&CK Mitigations
+
+- [M1032](https://attack.mitre.org/mitigations/M1032/) - Limit Access to Resource Over Network. Limits network resource access. Could prevent lateral movement from excessive permissions.
+
+- [M1040](https://attack.mitre.org/mitigations/M1040/) - Network Segmentation. Segregates networks. Could limit connectivity of unchecked functions.
+
+
+## MITRE ATLAS Techniques 
 
 - AML.T0047: ML-Enabled Product or Service. Services granting excessive permissions introduce vulnerability. Provides unchecked capabilities.
 
@@ -56,7 +69,7 @@ Prevention requires limiting LLM functionality, permissions, and autonomy to onl
 - AML.T0019: Publish Poisoned Data. Data could trigger unintended behaviors enabled by excessive permissions. Manipulates downstream actions.
 
 
-## MITRE ATT&CK Mitigations
+## MITRE ATLAS Mitigations
 
 - AML.M0015: Adversarial Input Detection. Detect and block malicious queries that could trigger unintended actions. Identifies and blocks malicious queries.
 

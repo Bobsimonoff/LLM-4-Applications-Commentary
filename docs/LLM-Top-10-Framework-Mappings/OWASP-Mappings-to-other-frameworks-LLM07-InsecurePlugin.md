@@ -20,7 +20,7 @@ Inadequate input sanitization and output encoding allow attackers to inject mali
 
 Prevention requires strict input validation, output encoding, and robust access control in plugins. Inputs should be parameterized with type checking. Privileges must be minimized and interactions between plugins controlled. Extensive testing of plugins should occur, along with monitoring for anomalous behaviors. Following OWASP guidelines for secure development can mitigate plugin vulnerabilities. Reducing the attack surface through access restrictions and ongoing authorization validation is key.
 
-## CWEs
+## Common Weakness Enumeration (CWE)
 
 [CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation - Applicable when plugins fail to validate inputs properly. 
 
@@ -40,8 +40,20 @@ Prevention requires strict input validation, output encoding, and robust access 
 
 [CWE-862](https://cwe.mitre.org/data/definitions/862.html): Missing Authorization - Applicable if authorization checks are missing.
 
+## ATT&CK Techniques
 
-## MITRE ATT&CK Techniques
+- [T1190](https://attack.mitre.org/techniques/T1190/) - Exploit Public-Facing Application. Attacks exposed applications. Could exploit public plugin interfaces.
+
+## ATT&CK Mitigations
+
+- [M1042](https://attack.mitre.org/mitigations/M1042/) - Disable or Remove Feature or Program. Removes features. Could eliminate vulnerable plugins.
+
+- [M1043](https://attack.mitre.org/mitigations/M1043/) - Isolate System or Network. Isolates systems and networks. Could prevent exploits from spreading. 
+
+- [M1049](https://attack.mitre.org/mitigations/M1049/) - Disable or Remove Feature or Program. Removes features. Could eliminate vulnerable plugins.
+
+
+## MITRE ATLAS Techniques
 
 - AML.T0047: ML-Enabled Product or Service. Plugins extend capabilities of services, introducing potential weaknesses. Extends capabilities.
 
@@ -64,7 +76,7 @@ Prevention requires strict input validation, output encoding, and robust access 
 - AML.T0019: Publish Poisoned Data. Data could trigger unintended behaviors in downstream plugins. Manipulates plugin processing.
 
 
-## MITRE ATT&CK Mitigations
+## MITRE ATLAS Mitigations
 
 - AML.M0015: Adversarial Input Detection. Detect and block malicious plugin inputs. Identifies and blocks exploits.
 

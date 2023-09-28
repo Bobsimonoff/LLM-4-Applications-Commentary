@@ -20,7 +20,7 @@ Inadequate data handling, weak access controls, and insufficient input/output va
 
 Prevention involves robust data sanitization, input filtering, and output validation. Strict access controls should be implemented, limiting data access to only authorized purposes. LLM training data must be carefully filtered to exclude sensitive information. Comprehensive data governance and privacy policies can help mitigate risks. Monitoring systems for anomalous behavior can also help detect potential unauthorized access attempts. Securing LLMs against sensitive data exposure is critical for maintaining trust and competitive advantage.
 
-## CWE
+## Common Weakness Enumeration (CWE)
 
 [CWE-202](https://cwe.mitre.org/data/definitions/202.html): Exposure of Sensitive Information to an Unauthorized Actor - Applicable when sensitive data is exposed to unauthorized users.
 
@@ -38,8 +38,22 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
 [CWE-922](https://cwe.mitre.org/data/definitions/922.html): Insecure Storage of Sensitive Information - Applicable if sensitive data is stored insecurely.
 
+## ATT&CK Techniques
 
-## MITRE ATT&CK Techniques
+- [T1530](https://attack.mitre.org/techniques/T1530/) - Data from Cloud Storage Object. Accesses cloud storage data. Could access stored sensitive data.
+
+- [T1552](https://attack.mitre.org/techniques/T1552/) - Unsecured Credentials. Uses compromised identities and keys. Could enable unauthorized data access.
+
+## ATT&CK Mitigations
+
+- [M1041](https://attack.mitre.org/mitigations/M1041/) - Restrict Web-Based Content. Limits web content execution. Could block web access to sensitive data. 
+
+- [M1043](https://attack.mitre.org/mitigations/M1043/) - Isolate System or Network. Isolates systems and networks. Could prevent sensitive data access.
+
+- [M1048](https://attack.mitre.org/mitigations/M1048/) - Perform Software and File Integrity Checking. Checks integrity of assets. Could detect unauthorized data modifications.
+
+
+## MITRE ATLAS Techniques
 
 - AML.T0024: Exfiltration via ML Inference API. The API could reveal private training data or inferences. Directly leaks sensitive data.
 
@@ -61,7 +75,7 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
 - AML.T0019: Publish Poisoned Data. Training on sensitive data could enable later exposure. Leaks data via training.
 
-## MITRE ATT&CK Mitigations
+## MITRE ATLAS Mitigations
 
 - AML.M0002: Passive ML Output Obfuscation. Decrease output fidelity. Limits information leaked through outputs.
 

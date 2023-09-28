@@ -20,7 +20,7 @@ Attackers can exploit weak access controls, insufficient monitoring, vulnerable 
 
 Prevention requires strong access controls, network security, authentication, and monitoring. LLMs should have restricted network access and regular auditing of related logs and activities. Robust MLOps governance, input filtering, and output encoding can help prevent extraction attacks. Physical security and watermarking also help mitigate risks. Proactively securing LLMs against theft is crucial for maintaining confidentiality of intellectual property.
 
-## CWE
+## Common Weakness Enumeration (CWE)
 
 [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization - Flawed authorization allows unauthorized model access.
 
@@ -48,8 +48,22 @@ Prevention requires strong access controls, network security, authentication, an
 
 [CWE-918](https://cwe.mitre.org/data/definitions/918.html): Server-Side Request Forgery (SSRF) - SSRF could enable unauthorized access to internal model storage.
 
+## ATT&CK Techniques
 
-## MITRE ATT&CK Techniques
+- [T1081](https://attack.mitre.org/techniques/T1081/) - Credentials in Files. Accesses creds from files. Could enable unauthorized access.
+
+- [T1530](https://attack.mitre.org/techniques/T1530/) - Data from Cloud Storage Object. Accesses cloud data. Could access proprietary models. 
+
+## ATT&CK Mitigations
+
+- [M1015](https://attack.mitre.org/mitigations/M1015/) - Secure Authentication. Implements secure authentication. Prevents unauthorized credential use.
+
+- [M1043](https://attack.mitre.org/mitigations/M1043/) - Isolate System or Network. Isolates systems and networks. Could prevent model theft.
+
+- [M1051](https://attack.mitre.org/mitigations/M1051/) - Network Intrusion Prevention. Uses network IPS. Could block extraction attempts.
+
+
+## MITRE ATLAS Techniques
 
 - AML.T0024: Exfiltration via ML Inference API. Carefully crafted queries could elicit model details that are extracted. Extracts model details.
 
@@ -68,7 +82,7 @@ Prevention requires strong access controls, network security, authentication, an
 - AML.T0047: ML-Enabled Product or Service. Commercial services with weak protections could enable theft. Finds vulnerable services.
 
 
-## MITRE ATT&CK Mitigations
+## MITRE ATLAS Mitigations
 
 - AML.M0005: Control Access to ML Models and Data at Rest. Limit access to models. Reduces attack surface.
 

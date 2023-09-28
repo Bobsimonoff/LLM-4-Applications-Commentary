@@ -22,7 +22,7 @@ Vulnerable components like unpatched libraries, contaminated datasets, and compr
 Prevention involves extensive supplier vetting, integrity checks, and monitoring. Only use trusted suppliers and ensure alignment of security policies. Scrutinize third-party plugins before integration. Maintain updated inventories of components, and implement code signing for models. Audit supplier security regularly.
 
 
-## CWE
+## Common Weakness Enumeration (CWE)
 
 [CWE-494](https://cwe.mitre.org/data/definitions/494.html): Download of Code Without Integrity Check - Applicable as unauthorized third-party code may be downloaded without integrity checks.
 
@@ -38,8 +38,18 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
 
 [CWE-916](https://cwe.mitre.org/data/definitions/916.html): Use of Password Hash With Insufficient Computational Effort - Applicable if third-party code uses weak hashing.
 
+## ATT&CK Techniques
 
-## MITRE ATT&CK Techniques
+- [T1195](https://attack.mitre.org/techniques/T1195/) - Supply Chain Compromise. Manipulates products or services. Directly compromises supply chain.
+
+## ATT&CK Mitigations
+
+- [M1048](https://attack.mitre.org/mitigations/M1048/) - Perform Software and File Integrity Checking. Checks integrity of assets. Could detect tampered supply chain components.
+
+- [M1053](https://attack.mitre.org/mitigations/M1053/) - Disable or Restrict Resource Consumption Settings. Limits resource use. Could prevent compromised components from overloading systems. 
+
+
+## MITRE ATLAS Techniques
 
 - AML.T0010: ML Supply Chain Compromise. Compromising any part of the supply chain provides a vector for attacks. Directly exploits supply chain.
 
@@ -62,7 +72,7 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
 - AML.T0040: ML Model Inference API Access. May enable attacks via compromised model APIs. API access to poisoned models.
 
 
-## MITRE ATT&CK Mitigations
+## MITRE ATLAS Mitigations
 
 - AML.M0014: Verify ML Artifacts. Detect tampered or compromised artifacts. Identifies supply chain issues.
 

@@ -42,7 +42,7 @@ Prevention involves treating the LLM as any other user, applying input validatio
 [CWE-937](https://cwe.mitre.org/data/definitions/937.html): OWASP Top Ten 2013 Category A9 - Using Components with Known Vulnerabilities - Added as vulnerable components could mishandle outputs.
 
 
-## MITRE ATT&CK Techniques
+## MITRE ATLAS Techniques
 
 - AML.T0040: ML Model Inference API Access. Adversaries could send crafted prompts to generate malicious outputs via the API. Allows manipulating model outputs.
 
@@ -65,8 +65,22 @@ Prevention involves treating the LLM as any other user, applying input validatio
 - AML.T0019: Publish Poisoned Data. Adversaries could poison training data to influence insecure outputs. Manipulates model behavior.
 
 
+## ATT&CK Techniques
 
-## MITRE ATT&CK Mitigations
+- [T1190](https://attack.mitre.org/techniques/T1190/) - Exploit Public-Facing Application. Attacks exposed apps. Could exploit public model APIs. 
+
+- [T1499](https://attack.mitre.org/techniques/T1499/) - Endpoint Denial of Service. Disrupts service availability. Overflowing outputs could cause DoS.
+
+## ATT&CK Mitigations  
+
+- [M1041](https://attack.mitre.org/mitigations/M1041/) - Restrict Web-Based Content. Limits risky web content. Could block web outputs leading to code execution.
+
+- [M1042](https://attack.mitre.org/mitigations/M1042/) - Disable or Remove Feature or Program. Removes features. Could eliminate plugin functions producing insecure outputs. 
+
+- [M1049](https://attack.mitre.org/mitigations/M1049/) - Disable or Remove Feature or Program. Removes features. Could eliminate plugin functions producing insecure outputs.
+
+
+## MITRE ATLAS Mitigations
 
 - AML.M0002: Passive ML Output Obfuscation. Decrease output fidelity. Limits information leaked through outputs.
 
@@ -86,7 +100,7 @@ Prevention involves treating the LLM as any other user, applying input validatio
 
 
 
-## MITRE ATT&CK Mitigations
+## MITRE ATLAS Mitigations
 
 - AML.M0002: Passive ML Output Obfuscation. Decrease output fidelity. Limits information leaked through outputs.
 

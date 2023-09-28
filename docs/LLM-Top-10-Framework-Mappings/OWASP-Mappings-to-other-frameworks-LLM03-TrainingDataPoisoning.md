@@ -22,7 +22,7 @@ Poisoned training data like falsified, biased, or malicious content can lead to 
 Prevention involves verifying supply chain integrity, validating legitimacy of data sources, isolating training environments, sanitizing inputs, and incorporating adversarial robustness techniques. Monitoring model behavior and using human review loops can help detect poisoning attacks.
 
 
-## CWE
+## Common Weakness Enumeration (CWE)
 
 [CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation - Applicable as lack of validation enables poisoning of training data.
 
@@ -37,7 +37,22 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
 [CWE-937](https://cwe.mitre.org/data/definitions/937.html): OWASP Top Ten 2013 Category A9 - Using Components with Known Vulnerabilities - Added as vulnerable components could enable poisoning.
 
 
-## MITRE ATT&CK Techniques
+## ATT&CK Techniques
+
+- [T1565](https://attack.mitre.org/techniques/T1565/) - Data Manipulation. Alters data prior to storage/transmission. Could directly poison training data. 
+
+- [T1566](https://attack.mitre.org/techniques/T1566/) - Phishing. Deploys malicious messages to users. Could direct users to poisoned data sources.
+
+## ATT&CK Mitigations
+
+- [M1041](https://attack.mitre.org/mitigations/M1041/) - Restrict Web-Based Content. Limits web content execution. Could block web access to poisoned data.
+
+- [M1043](https://attack.mitre.org/mitigations/M1043/) - Isolate System or Network. Isolates systems and networks. Could prevent poisoned data from spreading.
+
+- [M1050](https://attack.mitre.org/mitigations/M1050/) - Network Segmentation. Segregates networks. Could prevent poisoned data accessing production systems.
+
+
+## MITRE ATLAS Techniques
 
 - AML.T0019: Publish Poisoned Data. Adversaries could directly publish poisoned datasets used for training.
 
@@ -60,7 +75,7 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
 - AML.T0047: ML-Enabled Product or Service. Existing services using poisoned data could be exploited.
 
 
-## MITRE ATT&CK Mitigations
+## MITRE ATLAS Mitigations
 
 - AML.M0007: Sanitize Training Data. Remove or remediate poisoned data. Directly addresses data poisoning. 
 

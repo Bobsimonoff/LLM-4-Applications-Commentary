@@ -22,7 +22,7 @@ Attackers can send unusual or malformed inputs that consume excessive resources,
 Prevention involves input sanitization, enforcing limits on resource usage and context windows, implementing rate limiting, monitoring for spikes in resource utilization, and promoting awareness among developers.
 
 
-## CWE
+## Common Weakness Enumeration (CWE)
 
 [CWE-16](https://cwe.mitre.org/data/definitions/16.html): Configuration - Applicable as misconfigurations could trigger resource issues.
 
@@ -40,8 +40,20 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
 
 [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Applicable if plugins/extensions can trigger resource issues.
 
+## ATT&CK Techniques 
 
-## MITRE ATT&CK Techniques
+- [T1499](https://attack.mitre.org/techniques/T1499/) - Endpoint Denial of Service. Disrupts service availability. Directly causes denial of service.
+
+## ATT&CK Mitigations
+
+- [M1042](https://attack.mitre.org/mitigations/M1042/) - Disable or Remove Feature or Program. Removes features. Could eliminate functions producing heavy resource load.
+
+- [M1049](https://attack.mitre.org/mitigations/M1049/) - Disable or Remove Feature or Program. Removes features. Could eliminate functions producing heavy resource load. 
+
+- [M1050](https://attack.mitre.org/mitigations/M1050/) - Network Segmentation. Segregates networks. Could prevent resource-heavy requests reaching models.
+
+
+## MITRE ATLAS Techniques
 
 - AML.T0029: Denial of ML Service. Designed to overload systems with resource-heavy inputs. Directly causes denial of service.
 
@@ -64,7 +76,7 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
 - AML.T0011: User Execution. Users may unknowingly execute code that overloads systems. Executes malicious code.
 
 
-## MITRE ATT&CK Mitigations
+## MITRE ATLAS Mitigations
 
 - AML.M0004: Restrict Number of ML Model Queries. Limit total queries and rate. Directly prevents flooding systems. 
 

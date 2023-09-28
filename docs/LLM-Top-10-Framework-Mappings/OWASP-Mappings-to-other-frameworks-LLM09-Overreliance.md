@@ -20,7 +20,7 @@ Failing to scrutinize outputs allows attackers to manipulate prompts or poison t
 
 Prevention requires continuous monitoring, oversight, and multiple levels of verification. Outputs should be validated against trusted external sources and checked for consistency across models. Automated validation tools and vigilant human review are essential. Risks should be clearly communicated and UIs designed to promote responsible LLM use. Establishing secure coding practices is critical when relying on LLM-generated code. Reducing overreliance through defense-in-depth and critical evaluation is key to mitigating risks.
 
-## CWE
+## Common Weakness Enumeration (CWE)
 
 [CWE-119](https://cwe.mitre.org/data/definitions/119.html): Improper Restriction of Operations within the Bounds of a Memory Buffer - Applicable as unchecked LLM code risks buffer overflows.
 
@@ -43,12 +43,26 @@ Prevention requires continuous monitoring, oversight, and multiple levels of ver
 [CWE-1059](https://cwe.mitre.org/data/definitions/1059.html): Incomplete Documentation of Program Execution - Applicable if execution docs lack monitoring/verification details.  
 
 
-## MITRE ATT&CK Techniques
+## ATT&CK Techniques
+
+- [T1566](https://attack.mitre.org/techniques/T1566/) - Phishing. Deploys malicious messages to users. Could spread misinformation via phishing.
+
+- [T1572](https://attack.mitre.org/techniques/T1572/) - Protocol Tunneling. Uses other protocols to bypass restrictions. Could bypass filters to take advantage of blind trust.
+
+
+## ATT&CK Mitigations
+
+- [M1043](https://attack.mitre.org/mitigations/M1043/) - Isolate System or Network. Isolates systems and networks. Could prevent lateral movement of unreliable data.
+
+- [M1034](https://attack.mitre.org/mitigations/M1034/) - Account Use Policies. Defines acceptable use policies. Could discourage blind trust in systems.
+
+
+## MITRE ATLAS Techniques
 
 - AML.T0019: Publish Poisoned Data. Training models on poisoned data could lead to unreliable outputs. Poisons model reliability. 
 
 
-## MITRE ATT&CK Mitigations
+## MITRE ATLAS Mitigations
 
 - AML.M0002: Passive ML Output Obfuscation. Decrease output fidelity. Reduces appearance of authority. 
 

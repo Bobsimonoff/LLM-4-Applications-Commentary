@@ -36,7 +36,24 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
 - [CWE-346](https://cwe.mitre.org/data/definitions/346.html): Origin Validation Error. Not properly validating the origin of inputs such as prompts leaves the system open to manipulation through malicious external sources. Could enable injection from untrusted external sources.
 
 
-## MITRE ATT&CK Techniques
+## ATT&CK Techniques
+
+- [T1059](https://attack.mitre.org/techniques/T1059/) - Command and Scripting Interpreter. Executes commands via interpreters. Could enable code execution from injections.
+
+- [T1566](https://attack.mitre.org/techniques/T1566/) - Phishing. Deploys messages to manipulate users. Could deliver injected prompts.  
+
+- [T1571](https://attack.mitre.org/techniques/T1571/) - Non-Standard Port. Uses non-standard ports. Could access systems to inject prompts.
+
+## ATT&CK Mitigations
+
+- [M1041](https://attack.mitre.org/mitigations/M1041/) - Restrict Web-Based Content. Limits web content execution. Could block web-based prompt injection.
+
+- [M1042](https://attack.mitre.org/mitigations/M1042/) - Disable or Remove Feature or Program. Removes risky features. Could eliminate vulnerable plugin functions.
+
+- [M1043](https://attack.mitre.org/mitigations/M1043/) - Isolate System or Network. Isolates systems and networks. Could prevent lateral movement from injected prompts.
+
+
+## MITRE ATLAS Techniques
 
 - AML.T0040: ML Model Inference API Access. Adversaries could craft malicious prompts and inject them into the model via the inference API.
 
@@ -57,7 +74,7 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
 - AML.T0019: Publish Poisoned Data. Adversaries could poison public datasets with malicious prompts that exploit models trained on the data.
 
 
-## MITRE ATT&CK Mitigations
+## MITRE ATLAS Mitigations
 
 - AML.M0004: Restrict Number of ML Model Queries. Limit total queries and rate. Prevents excessive probing of model to craft attacks.
 
