@@ -66,3 +66,25 @@ Prevention requires strong access controls, network security, authentication, an
 - AML.T0016: Obtain Capabilities. May obtain tools to automate model extraction. Aids model theft.
 
 - AML.T0047: ML-Enabled Product or Service. Commercial services with weak protections could enable theft. Finds vulnerable services.
+
+
+## MITRE ATT&CK Mitigations
+
+- AML.M0005: Control Access to ML Models and Data at Rest. Limit access to models. Reduces attack surface.
+
+- AML.M0012: Encrypt Sensitive Information. Encrypt models and artifacts. Protects confidentiality. 
+
+- AML.M0013: Code Signing. Ensure proper signing of models and artifacts. Validates integrity.
+
+- AML.M0014: Verify ML Artifacts. Detect tampered or stolen artifacts. Identifies theft attempts.
+
+- AML.M0015: Adversarial Input Detection. Detect and block queries attempting extraction. Identifies extraction tries.
+
+- AML.M0004: Restrict Number of ML Model Queries. Limit queries that could aid extraction. Reduces attack surface. 
+
+- AML.M0001: Limit Model Artifact Release. Reduce public model details. Limits available information to aid attacks.
+
+- AML.M0016: Vulnerability Scanning. Scan for flaws enabling theft. Finds issues to address.
+
+- AML.M0018: User Training. Educate users on model theft risks. Reduces unknowing participation in attacks.
+

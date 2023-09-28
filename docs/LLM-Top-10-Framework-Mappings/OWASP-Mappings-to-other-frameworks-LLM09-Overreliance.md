@@ -47,3 +47,22 @@ Prevention requires continuous monitoring, oversight, and multiple levels of ver
 
 - AML.T0019: Publish Poisoned Data. Training models on poisoned data could lead to unreliable outputs. Poisons model reliability. 
 
+
+## MITRE ATT&CK Mitigations
+
+- AML.M0002: Passive ML Output Obfuscation. Decrease output fidelity. Reduces appearance of authority. 
+
+- AML.M0015: Adversarial Input Detection. Detect and block unreliable queries. Identifies manipulation attempts.
+
+- AML.M0003: Model Hardening. Make models more robust to unreliable outputs. Hardens model reliability.
+
+- AML.M0014: Verify ML Artifacts. Detect artifacts modified to produce unreliable outputs. Checks integrity.
+
+- AML.M0018: User Training. Train users to critically verify outputs. Reduces blind trust.
+
+- AML.M0007: Sanitize Training Data. Remove data that leads to unreliable outputs. Addresses data poisoning. 
+
+- AML.M0016: Vulnerability Scanning. Scan for flaws enabling unreliable outputs. Finds issues to address.
+
+- AML.M0001: Limit Model Artifact Release. Reduce public info that could help craft unreliable outputs. Limits available information. 
+

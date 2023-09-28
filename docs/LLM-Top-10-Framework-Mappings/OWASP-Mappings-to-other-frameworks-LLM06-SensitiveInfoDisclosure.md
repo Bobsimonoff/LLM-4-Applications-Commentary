@@ -60,3 +60,25 @@ Prevention involves robust data sanitization, input filtering, and output valida
 - AML.T0047: ML-Enabled Product or Service. Services with data exposure could be exploited. Identify services with weaknesses.
 
 - AML.T0019: Publish Poisoned Data. Training on sensitive data could enable later exposure. Leaks data via training.
+
+## MITRE ATT&CK Mitigations
+
+- AML.M0002: Passive ML Output Obfuscation. Decrease output fidelity. Limits information leaked through outputs.
+
+- AML.M0004: Restrict Number of ML Model Queries. Limit total queries and rate. Reduces attack surface. 
+
+- AML.M0015: Adversarial Input Detection. Detect and block malicious queries. Identifies data stealing attempts.
+
+- AML.M0003: Model Hardening. Make models more robust to extracting sensitive data. Hardens model. 
+
+- AML.M0001: Limit Model Artifact Release. Reduce public info that could help extract data. Limits available information.
+
+- AML.M0005: Control Access to ML Models and Data at Rest. Limit access to sensitive data and models. Reduces attack surface.
+
+- AML.M0012: Encrypt Sensitive Information. Encrypt data and models. Protects sensitive artifacts. 
+
+- AML.M0014: Verify ML Artifacts. Detect artifacts tampered with to enable data theft. Identifies data exposure efforts.
+
+- AML.M0007: Sanitize Training Data. Remove sensitive data from training sets. Addresses data exposure via training. 
+
+

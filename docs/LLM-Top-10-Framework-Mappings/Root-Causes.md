@@ -8,23 +8,6 @@ Prompt injection vulnerabilities occur when attackers manipulate LLMs by craftin
 
 Attackers can directly inject rogue prompts into the LLM (called "jailbreaking") or indirectly inject prompts through external inputs like websites. Successful attacks can lead to impacts such as data exfiltration, social engineering, unauthorized access, financial fraud, and more. The compromised LLM may also aid attackers by circumventing safeguards, acting as an intermediary to manipulate information or exploit backend systems. This allows attackers to achieve objectives while keeping the user unaware of the intrusion.
 
-## CWE
-[CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation - Failure to properly validate user inputs such as prompts enables the introduction of malicious payloads that can manipulate LLM behavior. This inadequate input validation is a primary factor enabling prompt injection attacks.
-
-[CWE-114](https://cwe.mitre.org/data/definitions/114.html): Process Control - The lack of separation between user prompts and external content leads to a loss of control over LLM processing, enabling unintended and potentially harmful actions. Prompt injections exploit the lack of segregation of prompts and data.
-
-[CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization - Prompt injections can bypass access controls, enabling attackers to achieve privilege escalation and gain unauthorized access to systems and data. Injections bypass authorization checks.
-
-[CWE-287](https://cwe.mitre.org/data/definitions/287.html): Improper Authentication - Weak authentication mechanisms allow attackers to remotely manipulate the LLM while evading detection. Poor authentication enables undetected attacks. 
-
-[CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Prompt injections introduce untrusted instructions into the control sphere of the LLM, allowing adversaries to manipulate intended functionality. Injections directly manipulate LLM functionality.
-
-[CWE-74](https://cwe.mitre.org/data/definitions/74.html): Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection') - Failures to properly encode or neutralize special elements in outputs to the LLM allows injections to manipulate downstream processing in unintended ways. Provides additional coverage of weaknesses allowing downstream impacts.
-
-[CWE-346](https://cwe.mitre.org/data/definitions/346.html): Origin Validation Error - Not properly validating the origin of inputs such as prompts leaves the system open to manipulation through malicious external sources. Lack of origin validation is a contributing factor. 
-
-[CWE-472](https://cwe.mitre.org/data/definitions/472.html): External Control of Assumed-Immutable Web Parameter - Prompt injections can manipulate inputs that are assumed to be immutable by the LLM, modifying behavior in unintended ways. Exploits assumptions of parameter immutability.
-
 **Common Examples of Vulnerability:**
 1. Attackers jailbreak the LLM system prompt, overriding safeguards and making the LLM query sensitive data or execute commands.
 2. Attackers embed indirect prompt injections in external content like websites or documents. When summarized by the LLM, these injections manipulate the LLM's behavior and output.
@@ -47,38 +30,40 @@ There is no fool-proof prevention of Prompot Injection attacks, howeverthe follo
 4. A malicious user uploads a resume with a prompt injection. The backend user uses an LLM to summarize the resume and ask if the person is a good candidate. Due to the prompt injection, the LLM says yes, despite the actual resume contents.
 5. A user enables a plugin linked to an e-commerce site. A rogue instruction embedded on a visited website exploits this plugin, leading to unauthorized purchases.
 
+**Common Weakness Enumeration (CWE)**
 
-## SCF
+- [CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation. Failure to properly validate user inputs such as prompts enables the introduction of malicious payloads that can manipulate LLM behavior. Could allow direct injection of malicious prompts.
 
-ATH-02 - Authentication & Access Control: Multi-Factor Authentication
-Reason: Requiring multi-factor authentication makes it harder for attackers to manipulate LLMs undetected.
+- [CWE-114](https://cwe.mitre.org/data/definitions/114.html): Process Control. The lack of separation between user prompts and external data leads to a loss of control over LLM processing, enabling unintended actions. Could allow injection of prompts from untrusted external sources.
 
-CRY-01 - Cryptographic Protections: Use of Cryptographic Controls
-Reason: Encrypting inputs and outputs of LLMs protects against data exfiltration and manipulation. 
+- [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization. Prompt injections can bypass access controls, enabling attackers to achieve privilege escalation and gain unauthorized access to systems and data. Could enable escalation for both direct and indirect prompt injection.  
 
-IAM-02 - Logical Access Controls: User Authentication 
-Reason: Strong authentication prevents attackers from manipulating the LLM while evading detection.
+- [CWE-287](https://cwe.mitre.org/data/definitions/287.html): Improper Authentication. Weak authentication mechanisms allow attackers to remotely manipulate the LLM while evading detection. Could allow undetected remote prompt injection.
 
-IAM-04 - Identity & Access Management: Least Privilege 
-Reason: Enforcing least privilege access controls can prevent privilege escalation and unauthorized access from compromised LLMs.
+- [CWE-346](https://cwe.mitre.org/data/definitions/346.html): Origin Validation Error. Not properly validating the origin of inputs such as prompts leaves the system open to manipulation through malicious external sources. Could enable injection from untrusted external sources.
 
-LLM01 - Human-Machine Interfaces, Controls & Configuration: Sanitize User-Supplied Input
-Reason: Sanitizing user inputs such as prompts before processing by the LLM can prevent malicious payloads from manipulating the model's behavior.
+**MITRE ATT&CK Techniques**
 
-NET-01 - Network Security: Network Segmentation
-Reason: Network segmentation and micro-segmentation helps contain compromised LLMs and prevent lateral movement.
+- AML.T0040: ML Model Inference API Access. Adversaries could craft malicious prompts and inject them into the model via the inference API.
 
-SAI-01 - Software Assurance & Integrity: Protect Software Integrity
-Reason: Software protections can prevent unauthorized modifications that introduce prompt injection vulnerabilities.
+- AML.T0047: ML-Enabled Product or Service. Adversaries could exploit prompt vulnerabilities in commercial services that use LLMs under the hood. 
 
-SEA-01 - Secure Engineering Principles: Industry Standard Secure Engineering Practices
-Reason: Following secure engineering practices during LLM development can prevent vulnerabilities that enable prompt injection. 
+- AML.T0044: Full ML Model Access. With full white-box access, adversaries could directly manipulate the model with malicious prompts.
 
-THR-01 - Threat Management: Threat Intelligence Program
-Reason: Threat intelligence can provide insights into emerging prompt injection techniques that can be addressed proactively.
+- AML.T0043: Craft Adversarial Data. Adversaries could craft prompts designed to manipulate model behavior.
 
-WEB-01 - Web Application Security: Server-Side Input Validation
-Reason: Server-side input validation helps prevent malicious payloads or unexpected inputs that could manipulate LLMs.
+- AML.T0012: Valid Accounts. Compromised credentials could allow adversaries to bypass authentication and directly interact with the model. 
+
+- AML.T0016: Obtain Capabilities. Adversaries may obtain tools to aid in crafting effective prompt injections.
+
+- AML.T0010: ML Supply Chain Compromise. Could allow adversaries to introduce vulnerabilities via compromised model artifacts. 
+
+- AML.T0011: User Execution. Users may unknowingly execute prompts containing injections from documents.
+
+- AML.T0019: Publish Poisoned Data. Adversaries could poison public datasets with malicious prompts that exploit models trained on the data.
+
+
+---
 
 **Root Causes**
 - Input Validation Issues
@@ -152,6 +137,48 @@ The following conditions can increase the impact of this vulnerability:
 
 4. A malicious user instructs the LLM to return a JavaScript payload back to a user, without sanitization controls. This can occur either through a sharing a prompt, prompt injected website, or chatbot that accepts prompts from a URL parameter. The LLM would then return the unsanitized XSS payload back to the user. Without additional filters, outside of those expected by the LLM itself, the JavaScript would execute within the user's browser.
 
+**Common Weakness Enumeration (CWE)**
+
+[CWE-78](https://cwe.mitre.org/data/definitions/78.html): OS Command Injection - Applicable as lack of output validation could allow command injection when passed to system functions.
+
+[CWE-79](https://cwe.mitre.org/data/definitions/79.html): Cross-site Scripting - Applicable as inadequate output encoding risks XSS vulnerabilities in web contexts. 
+
+[CWE-89](https://cwe.mitre.org/data/definitions/89.html): SQL Injection - Applicable as passing unvalidated LLM outputs to SQL can lead to injection.
+
+[CWE-94](https://cwe.mitre.org/data/definitions/94.html): Code Injection - Applicable as directly executing unvalidated output could allow arbitrary code execution.
+
+[CWE-200](https://cwe.mitre.org/data/definitions/200.html): Exposure of Sensitive Information to an Unauthorized Actor - Added as insecure handling can expose sensitive data.
+
+[CWE-284](https://cwe.mitre.org/data/definitions/284.html): Improper Access Control - Added as lack of access control on outputs can enable exploits. 
+
+[CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Applicable as untrusted outputs may trigger unintended functionality.
+
+[CWE-937](https://cwe.mitre.org/data/definitions/937.html): OWASP Top Ten 2013 Category A9 - Using Components with Known Vulnerabilities - Added as vulnerable components could mishandle outputs.
+
+
+**MITRE ATT&CK Techniques**
+
+- AML.T0040: ML Model Inference API Access. Adversaries could send crafted prompts to generate malicious outputs via the API. Allows manipulating model outputs.
+
+- AML.T0043: Craft Adversarial Data. Allows adversaries to carefully craft prompts to produce insecure outputs. Enables tailoring insecure outputs.
+
+- AML.T0016: Obtain Capabilities. Adversaries may obtain tools to generate payloads or automate exploiting the vulnerability. Aids in producing insecure outputs.
+
+- AML.T0011: User Execution. Users may unknowingly execute insecure outputs from LLM systems. Executes adversary-controlled outputs. 
+
+- AML.T0024: Exfiltration via ML Inference API. Adversaries could exfiltrate data by encoding it in LLM outputs. Outputs can steal data.
+
+- AML.T0012: Valid Accounts. Compromised credentials could allow adversaries to directly interact with the LLM. Provides API access for attacks.
+
+- AML.T0010: ML Supply Chain Compromise. Could introduce vulnerabilities enabling insecure outputs via compromised artifacts. Introduces weaknesses.
+
+- AML.T0044: Full ML Model Access. Full access allows fine tuning prompts to generate intended insecure outputs. Maximizes control over outputs.
+
+- AML.T0047: ML-Enabled Product or Service. Existing services could be exploited if they have improper output handling. Finds vulnerable services.
+
+- AML.T0019: Publish Poisoned Data. Adversaries could poison training data to influence insecure outputs. Manipulates model behavior.
+
+
 **Root Causes**
 - Output Validation and Encoding Issues
   - Lack of output validation: Fails to check LLM-generated output, allowing unchecked content.
@@ -190,15 +217,6 @@ The following conditions can increase the impact of this vulnerability:
   - Legal liability: Insecure output handling vulnerabilities can result in legal liability for organizations.
   - Reputational damage: Security breaches via insecure output handling can erode trust in the system.
 
-**Possible CWEs**
-- CWE-78: OS Command Injection - Applicable as lack of output validation could allow command injection when passed to system functions.
-- CWE-79: Cross-site Scripting - Applicable as inadequate output encoding risks XSS vulnerabilities in web contexts.
-- CWE-89: SQL Injection - Applicable as passing unvalidated LLM outputs to SQL can lead to injection.
-- CWE-94: Code Injection - Applicable as directly executing unvalidated output could allow arbitrary code execution. 
-- CWE-285: Improper Authorization - Applicable as excessive LLM privileges increase the impacts of malicious output.
-- CWE-306: Missing Authentication for Critical Function - Applicable as unauthenticated LLM output could enable unauthorized access.
-- CWE-502: Deserialization of Untrusted Data - Applicable as deserializing untrusted outputs could trigger vulnerabilities.
-- CWE-829: Inclusion of Functionality from Untrusted Control Sphere - Applicable as untrusted outputs may trigger unintended functionality.
 
 
 # LLM03: Training Data Poisoning
@@ -250,6 +268,45 @@ Data poisoning is considered an integrity attack because tampering with the trai
 3. A malicious actor or competitor intentionally creates inaccurate or malicious documents which are targeted at a model’s training data in which is training the model at the same time based on inputs. The victim model trains using this falsified information which is reflected in outputs of generative AI prompts to it's consumers.
 4. The vulnerability [Prompt Injection](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/main/1_0_vulns/PromptInjection.md) could be an attack vector to this vulnerability if insufficient sanitization and filtering is performed when clients of the LLM application input is used to train the model. I.E, if malicious or falsified data is input to the model from a client as part of a prompt injection technique, this could inherently be portrayed into the model data.
 
+
+**Common Weakness Enumeration (CWE)**
+
+[CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation - Applicable as lack of validation enables poisoning of training data.
+
+[CWE-306](https://cwe.mitre.org/data/definitions/306.html): Missing Authentication for Critical Function - Applicable as lack of authentication of data sources can allow poisoning.
+
+[CWE-502](https://cwe.mitre.org/data/definitions/502.html): Deserialization of Untrusted Data - Applicable as deserializing untrusted training data poses risks.
+
+[CWE-693](https://cwe.mitre.org/data/definitions/693.html): Protection Mechanism Failure - Added as failure of protections can enable poisoning.
+
+[CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Applicable as poisoned data introduces unintended functionality.
+
+[CWE-937](https://cwe.mitre.org/data/definitions/937.html): OWASP Top Ten 2013 Category A9 - Using Components with Known Vulnerabilities - Added as vulnerable components could enable poisoning.
+
+
+**MITRE ATT&CK Techniques**
+
+- AML.T0019: Publish Poisoned Data. Adversaries could directly publish poisoned datasets used for training.
+
+- AML.T0020: Poison Training Data. Allows adversaries to manipulate training data to introduce vulnerabilities.
+
+- AML.T0010: ML Supply Chain Compromise. Compromising data sources could allow poisoning of artifacts used for training. 
+
+- AML.T0016: Obtain Capabilities. Adversaries may obtain tools to aid in crafting poisoned data.
+
+- AML.T0043: Craft Adversarial Data. Could allow carefully crafted data designed to influence model behavior.
+
+- AML.T0012: Valid Accounts. Compromised credentials could allow direct data poisoning.
+
+- AML.T0044: Full ML Model Access. Full access enables direct manipulation of training data.
+
+- AML.T0040: ML Model Inference API Access. May enable inferring details of training data to craft attacks.
+
+- AML.T0024: Exfiltration via ML Inference API. Could expose private training data. 
+
+- AML.T0047: ML-Enabled Product or Service. Existing services using poisoned data could be exploited.
+
+
 **Root Causes**
 
 - Data Quality and Validation Issues
@@ -299,19 +356,6 @@ Data poisoning is considered an integrity attack because tampering with the trai
   - Financial fraud: Poisoned data can lead to the generation of outputs that facilitate financial fraud or market manipulation.
   - Misinformation spread: Data poisoning can result in the model spreading misinformation or false narratives, causing harm in various contexts.
 
-**Possible CWEs**
-[CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation - Applicable as lack of validation enables poisoning of training data.
-
-[CWE-306](https://cwe.mitre.org/data/definitions/306.html): Missing Authentication for Critical Function - Applicable as lack of authentication of data sources can allow poisoning.
-
-[CWE-502](https://cwe.mitre.org/data/definitions/502.html): Deserialization of Untrusted Data - Applicable as deserializing untrusted training data poses risks.
-
-[CWE-693](https://cwe.mitre.org/data/definitions/693.html): Protection Mechanism Failure - Added as failure of protections can enable poisoning.
-
-[CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Applicable as poisoned data introduces unintended functionality.
-
-[CWE-937](https://cwe.mitre.org/data/definitions/937.html): OWASP Top Ten 2013 Category A9 - Using Components with Known Vulnerabilities - Added as vulnerable components could enable poisoning.
-
 
 # LLM04: Model Denial of Service
 
@@ -348,6 +392,50 @@ An attacker interacts with an LLM in a method that consumes an exceptionally hig
 6. An attacker floods the LLM with a large volume of variable-length inputs, carefully crafted to approach or reach the context window's limit. By overwhelming the LLM with inputs of varying lengths, the attacker aims to exploit any inefficiencies in processing variable-length inputs. This flood of inputs puts an excessive load on the LLM's resources, potentially causing performance degradation and hindering the system's ability to respond to legitimate requests.
 7. While DoS attacks commonly aim to overwhelm system resources, they can also exploit other aspects of system behavior, such as API limitations. For example, in a recent Sourcegraph security incident, the malicious actor employed a leaked admin access token to alter API rate limits, thereby potentially causing service disruptions by enabling abnormal levels of request volumes.
 
+
+**Common Weakness Enumeration (CWE)**
+
+[CWE-16](https://cwe.mitre.org/data/definitions/16.html): Configuration - Applicable as misconfigurations could trigger resource issues.
+
+[CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation - Applicable as validation failures enable malicious requests.  
+
+[CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization - Applicable as unauthorized requests could abuse resources.
+
+[CWE-400](https://cwe.mitre.org/data/definitions/400.html): Uncontrolled Resource Consumption - Applicable as malicious interactions can exhaust LLM resources.  
+
+[CWE-770](https://cwe.mitre.org/data/definitions/770.html): Allocation of Resources Without Limits or Throttling - Applicable as lack of throttling enables resource exhaustion.
+
+[CWE-799](https://cwe.mitre.org/data/definitions/799.html): Improper Control of Interaction Frequency - Applicable as lack of frequency control allows flooding.
+
+[CWE-404](https://cwe.mitre.org/data/definitions/404.html): Improper Resource Shutdown or Release - Applicable if resources are not properly released after use, leading to exhaustion.
+
+[CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Applicable if plugins/extensions can trigger resource issues.
+
+
+**MITRE ATT&CK Techniques**
+
+- AML.T0029: Denial of ML Service. Designed to overload systems with resource-heavy inputs. Directly causes denial of service.
+
+- AML.T0043: Craft Adversarial Data. Crafting prompts that require extensive processing could strain systems. Carefully crafted inputs.
+
+- AML.T0040: ML Model Inference API Access. Flooding the API with requests could overwhelm systems. API access enables attacks. 
+
+- AML.T0016: Obtain Capabilities. May obtain tools to automate sending malicious requests. Aids automation.
+
+- AML.T0012: Valid Accounts. Compromised credentials could bypass rate limiting. Allows increased access.
+
+- AML.T0010: ML Supply Chain Compromise. Could introduce inefficiencies via compromised artifacts that are resource-intensive. Introduces weaknesses. 
+
+- AML.T0044: Full ML Model Access. Full control enables sending optimized resource-heavy inputs. Maximizes impact.
+
+- AML.T0047: ML-Enabled Product or Service. Existing services with inadequate protections could be exploited. Finds vulnerable services.
+
+- AML.T0019: Publish Poisoned Data. Training on data designed to increase compute could degrade performance. Influences model.
+
+- AML.T0011: User Execution. Users may unknowingly execute code that overloads systems. Executes malicious code.
+
+
+
 **Root Causes**
 - Resource Management Issues:
    - Lack of rate limiting: Failing to restrict the number of requests a user can make can lead to resource exhaustion as attackers flood the system with requests.
@@ -380,24 +468,6 @@ An attacker interacts with an LLM in a method that consumes an exceptionally hig
   
 - Exploitation Risks
   - Ransomware or extortion: Prolonged DoS downtime could enable ransomware deployment or extortion attempts by threat actors.
-
-**Possible CWEs**
-
-[CWE-16](https://cwe.mitre.org/data/definitions/16.html): Configuration - Applicable as misconfigurations could trigger resource issues.
-
-[CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation - Applicable as validation failures enable malicious requests.  
-
-[CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization - Applicable as unauthorized requests could abuse resources.
-
-[CWE-400](https://cwe.mitre.org/data/definitions/400.html): Uncontrolled Resource Consumption - Applicable as malicious interactions can exhaust LLM resources.  
-
-[CWE-770](https://cwe.mitre.org/data/definitions/770.html): Allocation of Resources Without Limits or Throttling - Applicable as lack of throttling enables resource exhaustion.
-
-[CWE-799](https://cwe.mitre.org/data/definitions/799.html): Improper Control of Interaction Frequency - Applicable as lack of frequency control allows flooding.
-
-[CWE-404](https://cwe.mitre.org/data/definitions/404.html): Improper Resource Shutdown or Release - Applicable if resources are not properly released after use, leading to exhaustion.
-
-[CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Applicable if plugins/extensions can trigger resource issues.
 
 
 # LLM05: Supply Chain Vulnerabilities
@@ -437,6 +507,46 @@ Finally, LLM Plugin extensions can bring their own vulnerabilities. These are de
 5. An attacker poisons publicly available datasets to help create a back door when fine-tuning models. The back door subtly favors certain companies in different markets.
 6. A compromised employee of a supplier (outsourcing developer, hosting company, etc.) exfiltrates data, model, or code stealing IP.
 7. An LLM operator changes its T&Cs and Privacy Policy to require an explicit opt out from using application data for model training, leading to the memorization of sensitive data.
+
+**Common Weakness Enumeration (CWE)**
+
+[CWE-494](https://cwe.mitre.org/data/definitions/494.html): Download of Code Without Integrity Check - Applicable as unauthorized third-party code may be downloaded without integrity checks.
+
+[CWE-733](https://cwe.mitre.org/data/definitions/733.html): Compiler Optimization Removal or Modification of Security-critical Code - Applicable as optimizations could remove security controls in third-party code. 
+
+[CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Applicable as third-party code introduces risks of untrusted functionality.
+
+[CWE-915](https://cwe.mitre.org/data/definitions/915.html): Improperly Controlled Modification of Dynamically-Determined Object Attributes - Applicable as lack of control over dynamic attributes in third-party code poses risks.
+
+[CWE-918](https://cwe.mitre.org/data/definitions/918.html): Server-Side Request Forgery (SSRF) - Applicable as third-party requests may not be properly validated, enabling SSRF.
+
+[CWE-937](https://cwe.mitre.org/data/definitions/937.html): OWASP Top Ten 2013 Category A5 - Security Misconfiguration - Applicable as misconfigured third-party components pose risks per OWASP guidelines. 
+
+[CWE-916](https://cwe.mitre.org/data/definitions/916.html): Use of Password Hash With Insufficient Computational Effort - Applicable if third-party code uses weak hashing.
+
+
+**MITRE ATT&CK Techniques**
+
+- AML.T0010: ML Supply Chain Compromise. Compromising any part of the supply chain provides a vector for attacks. Directly exploits supply chain.
+
+- AML.T0019: Publish Poisoned Data. Adversaries could distribute poisoned datasets through compromised sources. Poisons data sources.
+
+- AML.T0020: Poison Training Data. Allows poisoning of artifacts used in training models. Manipulates training data.
+
+- AML.T0043: Craft Adversarial Data. Could allow carefully crafted data or models designed to exploit systems. Introduces vulnerabilities.
+
+- AML.T0016: Obtain Capabilities. May obtain tools to compromise supply chain components. Aids targeting supply chain. 
+
+- AML.T0044: Full ML Model Access. Full control of components enables thorough poisoning. Maximizes control over supply chain.
+
+- AML.T0012: Valid Accounts. Compromised credentials could allow direct access to poison. Allows access to compromise.
+
+- AML.T0011: User Execution. Users may unknowingly execute code from compromised sources. Executes malicious code.
+
+- AML.T0047: ML-Enabled Product or Service. Services relying on compromised components could be exploited. Finds and exploits vulnerabilities.
+
+- AML.T0040: ML Model Inference API Access. May enable attacks via compromised model APIs. API access to poisoned models.
+
 
 **Root Causes**
 - Third-party Component Risks:
@@ -486,23 +596,6 @@ Finally, LLM Plugin extensions can bring their own vulnerabilities. These are de
   - Copyright violations: Failure to ensure data privacy policies and copyright compliance by model operators can result in copyright violations and legal repercussions.
 
 
-**Possible CWEs**
-
-[CWE-494](https://cwe.mitre.org/data/definitions/494.html): Download of Code Without Integrity Check - Applicable as unauthorized third-party code may be downloaded without integrity checks.
-
-[CWE-733](https://cwe.mitre.org/data/definitions/733.html): Compiler Optimization Removal or Modification of Security-critical Code - Applicable as optimizations could remove security controls in third-party code. 
-
-[CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Applicable as third-party code introduces risks of untrusted functionality.
-
-[CWE-915](https://cwe.mitre.org/data/definitions/915.html): Improperly Controlled Modification of Dynamically-Determined Object Attributes - Applicable as lack of control over dynamic attributes in third-party code poses risks.
-
-[CWE-918](https://cwe.mitre.org/data/definitions/918.html): Server-Side Request Forgery (SSRF) - Applicable as third-party requests may not be properly validated, enabling SSRF.
-
-[CWE-937](https://cwe.mitre.org/data/definitions/937.html): OWASP Top Ten 2013 Category A5 - Security Misconfiguration - Applicable as misconfigured third-party components pose risks per OWASP guidelines. 
-
-[CWE-916](https://cwe.mitre.org/data/definitions/916.html): Use of Password Hash With Insufficient Computational Effort - Applicable if third-party code uses weak hashing.
-
-
 # LLM06: Sensitive Information Disclosure
 
 **Summary**
@@ -534,6 +627,48 @@ The consumer-LLM application interaction forms a two-way trust boundary, where w
 2. User A targets a well-crafted set of prompts to bypass input filters and sanitization from the LLM to cause it to reveal sensitive information (PII) about other users of the application.
 
 3. Personal data such as PII is leaked into the model via training data due to either negligence from the user themselves, or the LLM application. This case could increase the risk and probability of scenario 1 or 2 above.
+
+**Common Weakness Enumeration (CWE)**
+
+[CWE-202](https://cwe.mitre.org/data/definitions/202.html): Exposure of Sensitive Information to an Unauthorized Actor - Applicable when sensitive data is exposed to unauthorized users.
+
+[CWE-208](https://cwe.mitre.org/data/definitions/208.html): Observable Discrepancy - Applicable when differences between expected and actual LLM behavior allow inference of sensitive information.
+
+[CWE-209](https://cwe.mitre.org/data/definitions/209.html): Information Exposure Through an Error Message - Applicable if error messages reveal sensitive information. 
+
+[CWE-215](https://cwe.mitre.org/data/definitions/215.html): Information Exposure Through Debug Information - Applicable if debug logs contain sensitive data.
+
+[CWE-538](https://cwe.mitre.org/data/definitions/538.html): File and Directory Information Exposure - Applicable if filesystem information is exposed.
+
+[CWE-541](https://cwe.mitre.org/data/definitions/541.html): Information Exposure Through Include Source Code - Applicable if source code containing sensitive data is exposed.
+
+[CWE-649](https://cwe.mitre.org/data/definitions/649.html): Reliance on Obfuscation or Protection Mechanism - Applicable if relying solely on obfuscation without proper access controls.
+
+[CWE-922](https://cwe.mitre.org/data/definitions/922.html): Insecure Storage of Sensitive Information - Applicable if sensitive data is stored insecurely.
+
+
+**MITRE ATT&CK Techniques**
+
+- AML.T0024: Exfiltration via ML Inference API. The API could reveal private training data or inferences. Directly leaks sensitive data.
+
+- AML.T0021: Establish Accounts. May access victim accounts to collect sensitive data. Gains access to private data. 
+
+- AML.T0036: Data from Information Repositories. Could steal sensitive documents and data. Exfiltrates sensitive data.
+
+- AML.T0037: Data from Local System. Local systems contain private data that could be collected. Gathers sensitive data. 
+
+- AML.T0040: ML Model Inference API Access. Carefully crafted queries could reveal private details. API access to exploit.
+
+- AML.T0016: Obtain Capabilities. May obtain tools to exfiltrate or automate data collection. Aids stealing data.
+
+- AML.T0012: Valid Accounts. Compromised credentials provide access to sensitive data. Allows access to private data.
+
+- AML.T0044: Full ML Model Access. Full control enables retrieving maximum data. Maximizes data access. 
+
+- AML.T0047: ML-Enabled Product or Service. Services with data exposure could be exploited. Identify services with weaknesses.
+
+- AML.T0019: Publish Poisoned Data. Training on sensitive data could enable later exposure. Leaks data via training.
+
 
 **Root Causes**
 - Inadequate Data Handling:
@@ -578,25 +713,6 @@ The consumer-LLM application interaction forms a two-way trust boundary, where w
   - Privacy violations: Mishandling of personal data and unauthorized usage can violate regulations like GDPR.
   - Unlawful secondary usage: Disclosed data may enable unlawful secondary usage by external parties.
 
-**Possible CWEs**
-
-[CWE-202](https://cwe.mitre.org/data/definitions/202.html): Exposure of Sensitive Information to an Unauthorized Actor - Applicable when sensitive data is exposed to unauthorized users.
-
-[CWE-208](https://cwe.mitre.org/data/definitions/208.html): Observable Discrepancy - Applicable when differences between expected and actual LLM behavior allow inference of sensitive information.
-
-[CWE-209](https://cwe.mitre.org/data/definitions/209.html): Information Exposure Through an Error Message - Applicable if error messages reveal sensitive information. 
-
-[CWE-215](https://cwe.mitre.org/data/definitions/215.html): Information Exposure Through Debug Information - Applicable if debug logs contain sensitive data.
-
-[CWE-538](https://cwe.mitre.org/data/definitions/538.html): File and Directory Information Exposure - Applicable if filesystem information is exposed.
-
-[CWE-541](https://cwe.mitre.org/data/definitions/541.html): Information Exposure Through Include Source Code - Applicable if source code containing sensitive data is exposed.
-
-[CWE-649](https://cwe.mitre.org/data/definitions/649.html): Reliance on Obfuscation or Protection Mechanism - Applicable if relying solely on obfuscation without proper access controls.
-
-[CWE-922](https://cwe.mitre.org/data/definitions/922.html): Insecure Storage of Sensitive Information - Applicable if sensitive data is stored insecurely.
-
-
 
 # LLM07: Insecure Plugin Design
 
@@ -633,6 +749,51 @@ This item focuses on creating LLM plugins rather than third-party plugins, which
 4. A plugin accepts SQL WHERE clauses as advanced filters, which are then appended to the filtering SQL. This allows an attacker to stage a SQL attack.
 5. An attacker uses indirect prompt injection to exploit an insecure code management plugin with no input validation and weak access control to transfer repository ownership and lock out the user from their repositories.
 
+**Common Weakness Enumeration (CWE)**
+
+[CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation - Applicable when plugins fail to validate inputs properly. 
+
+[CWE-79](https://cwe.mitre.org/data/definitions/79.html): Improper Neutralization of Input During Web Page Generation - Applicable if plugins do not neutralize untrusted web inputs, risking XSS.
+
+[CWE-89](https://cwe.mitre.org/data/definitions/89.html): SQL Injection - Applicable if plugins accept raw SQL inputs. 
+
+[CWE-284](https://cwe.mitre.org/data/definitions/284.html): Improper Access Control - Applicable when plugins have excessive privileges or inadequate access control.
+
+[CWE-306](https://cwe.mitre.org/data/definitions/306.html): Missing Authentication for Critical Function - Applicable if plugins lack authentication.
+
+[CWE-346](https://cwe.mitre.org/data/definitions/346.html): Origin Validation Error - Applicable if plugin request origins are not validated. 
+
+[CWE-732](https://cwe.mitre.org/data/definitions/732.html): Inadequate Encoding of Output Data - Applicable if plugin output lacks encoding.
+
+[CWE-807](https://cwe.mitre.org/data/definitions/807.html): Reliance on Untrusted Inputs in a Security Decision - Applicable if plugins rely on unvalidated inputs.
+
+[CWE-862](https://cwe.mitre.org/data/definitions/862.html): Missing Authorization - Applicable if authorization checks are missing.
+
+
+**MITRE ATT&CK Techniques**
+
+- AML.T0047: ML-Enabled Product or Service. Plugins extend capabilities of services, introducing potential weaknesses. Extends capabilities.
+
+- AML.T0040: ML Model Inference API Access. Malicious prompts could exploit vulnerabilities in plugins via the API. API access to plugins.
+
+- AML.T0043: Craft Adversarial Data. Carefully crafted prompts could trigger unintended plugin behaviors. Optimizes malicious inputs.
+
+- AML.T0016: Obtain Capabilities. May obtain tools to identify flaws or automate exploiting plugins. Aids targeting plugins.
+
+- AML.T0012: Valid Accounts. Compromised credentials could enable privileged actions through plugins. Allows escalated access.
+
+- AML.T0011: User Execution. Users may unknowingly invoke dangerous plugin functionality. Triggers unintended actions.
+
+- AML.T0010: ML Supply Chain Compromise. Compromised plugins introduced into the supply chain could be exploited. Introduces compromised plugins. 
+
+- AML.T0024: Exfiltration via ML Inference API. Plugins could enable data theft via the model API. Leaks data via plugins.
+
+- AML.T0044: Full ML Model Access. Full control allows optimal manipulation of plugins. Maximizes control of plugins.
+
+- AML.T0019: Publish Poisoned Data. Data could trigger unintended behaviors in downstream plugins. Manipulates plugin processing.
+
+
+
 **Root Causes**
 - Input Validation and Sanitization:
   - Lack of input validation: Failing to validate input, permitting malicious payloads to manipulate the plugin.
@@ -667,25 +828,6 @@ This item focuses on creating LLM plugins rather than third-party plugins, which
 - Reputational Damage
   - Loss of trust: Incidents stemming from insecure plugins may erode customer trust and damage brand reputation.
 
-**Possible CWEs**
-
-[CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation - Applicable when plugins fail to validate inputs properly. 
-
-[CWE-79](https://cwe.mitre.org/data/definitions/79.html): Improper Neutralization of Input During Web Page Generation - Applicable if plugins do not neutralize untrusted web inputs, risking XSS.
-
-[CWE-89](https://cwe.mitre.org/data/definitions/89.html): SQL Injection - Applicable if plugins accept raw SQL inputs. 
-
-[CWE-284](https://cwe.mitre.org/data/definitions/284.html): Improper Access Control - Applicable when plugins have excessive privileges or inadequate access control.
-
-[CWE-306](https://cwe.mitre.org/data/definitions/306.html): Missing Authentication for Critical Function - Applicable if plugins lack authentication.
-
-[CWE-346](https://cwe.mitre.org/data/definitions/346.html): Origin Validation Error - Applicable if plugin request origins are not validated. 
-
-[CWE-732](https://cwe.mitre.org/data/definitions/732.html): Inadequate Encoding of Output Data - Applicable if plugin output lacks encoding.
-
-[CWE-807](https://cwe.mitre.org/data/definitions/807.html): Reliance on Untrusted Inputs in a Security Decision - Applicable if plugins rely on unvalidated inputs.
-
-[CWE-862](https://cwe.mitre.org/data/definitions/862.html): Missing Authorization - Applicable if authorization checks are missing.
 
 
 # LLM08: Excessive Agency
@@ -731,6 +873,45 @@ An LLM-based personal assistant app is granted access to an individual’s mailb
 (b) eliminating excessive permissions by authenticating to the user's email service via an OAuth session with a read-only scope, and/or
 (c) eliminating excessive autonomy by requiring the user to manually review and hit 'send' on every mail drafted by the LLM plugin.
 Alternatively, the damage caused could be reduced by implementing rate limiting on the mail-sending interface.
+
+
+
+**Common Weakness Enumeration (CWE)**
+
+[CWE-272](https://cwe.mitre.org/data/definitions/272.html): Least Privilege Violation - Applicable when excessive permissions are granted beyond functional needs.
+
+[CWE-284](https://cwe.mitre.org/data/definitions/284.html): Improper Access Control - Applicable if plugins lack access controls, enabling unauthorized actions.
+
+[CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization - Applicable when improper authorization leads to unauthorized actions. 
+
+[CWE-347](https://cwe.mitre.org/data/definitions/347.html): Improper Verification of Cryptographic Signature - Applicable if failure to verify signatures poses authorization risks.
+
+[CWE-732](https://cwe.mitre.org/data/definitions/732.html): Inadequate Encoding of Output Data - Applicable if plugin output lacks encoding, leading to unintended actions.
+
+[CWE-798](https://cwe.mitre.org/data/definitions/798.html): Use of Hard-coded Credentials - Applicable as hard-coded credentials with excessive permissions pose unauthorized action risks.
+
+[CWE-799](https://cwe.mitre.org/data/definitions/799.html): Improper Control of Interaction Frequency - Applicable as lack of frequency control poses risks of excessive unauthorized actions.  
+
+[CWE-862](https://cwe.mitre.org/data/definitions/862.html): Missing Authorization - Applicable when authorization is not checked before actions.
+
+
+**MITRE ATT&CK Techniques** 
+
+- AML.T0047: ML-Enabled Product or Service. Services granting excessive permissions introduce vulnerability. Provides unchecked capabilities.
+
+- AML.T0040: ML Model Inference API Access. Carefully crafted queries could trigger unintended actions via the API. API access to downstream systems.
+
+- AML.T0043: Craft Adversarial Data. Allows tailoring prompts to exploit excessive permissions. Optimizes malicious prompts. 
+
+- AML.T0016: Obtain Capabilities. May obtain tools to identify or exploit excessive permissions. Aids targeting vulnerabilities.
+
+- AML.T0010: ML Supply Chain Compromise. Compromised components could introduce excessive capabilities. Introduces vulnerabilities.
+
+- AML.T0044: Full ML Model Access. Full control allows optimal exploitation of excessive permissions. Maximizes impact.
+
+- AML.T0019: Publish Poisoned Data. Data could trigger unintended behaviors enabled by excessive permissions. Manipulates downstream actions.
+
+
 
 **Root Causes**
 - Excessive Functionality and Permissions:
@@ -784,15 +965,7 @@ Alternatively, the damage caused could be reduced by implementing rate limiting 
   - Identity theft: LLMs may enable identity theft via unauthorized data access.
   - Unintended transactions: LLMs may cause individuals to make unintended purchases.
 
-**Possible CWEs**
-- CWE-272: Least Privilege Violation: This applies when excessive permissions are granted beyond functional needs.
-- CWE-284: Improper Access Control: If plugins lack access controls, it can lead to unauthorized actions.
-- CWE-285: Improper Authorization: This applies when improper authorization enables unauthorized actions.
-- CWE-347: Improper Verification of Cryptographic Signature: Failure to verify signatures on LLM operations poses authorization risks.
-- CWE-732: Inadequate Encoding of Output Data: If plugin output lacks encoding, it risks enabling unintended actions when processed.
-- CWE-798: Use of Hard-coded Credentials: Hard-coded credentials with excessive permissions pose unauthorized action risks.   
-- CWE-799: Improper Control of Interaction Frequency: Lack of frequency control poses risks of excessive unauthorized actions.
-- CWE-862: Missing Authorization: This applies when LLMs do not properly check authorization before performing actions, potentially leading to unauthorized actions and privilege escalation. 
+
 
 
 # LLM09: Overreliance
@@ -828,6 +1001,35 @@ LLM-generated source code can introduce unnoticed security vulnerabilities. This
 2. The AI unintentionally plagiarizes content, leading to copyright issues and decreased trust in the organization.
 3. A software development team utilizes an LLM system to expedite the coding process. Over-reliance on the AI's suggestions introduces security vulnerabilities in the application due to insecure default settings or recommendations inconsistent with secure coding practices.
 4. A software development firm uses an LLM to assist developers. The LLM suggests a non-existent code library or package, and a developer, trusting the AI, unknowingly integrates a malicious package into the firm's software. This highlights the importance of cross-checking LLM suggestions, especially when involving third-party code or libraries.
+
+**Common Weakness Enumeration (CWE)**
+
+[CWE-119](https://cwe.mitre.org/data/definitions/119.html): Improper Restriction of Operations within the Bounds of a Memory Buffer - Applicable as unchecked LLM code risks buffer overflows.
+
+[CWE-347](https://cwe.mitre.org/data/definitions/347.html): Improper Verification of Cryptographic Signature - Applicable as reliance on unsigned LLM content is risky. 
+
+[CWE-707](https://cwe.mitre.org/data/definitions/707.html): Improper Enforcement of Message Integrity During Transmission in a Communication Channel - Applicable as reliance on unvalidated LLM communications risks integrity issues.
+
+[CWE-839](https://cwe.mitre.org/data/definitions/839.html): Numeric Range Comparison Without Minimum Check - Applicable as reliance on unvalidated LLM numerical outputs is risky.
+
+[CWE-862](https://cwe.mitre.org/data/definitions/862.html): Missing Authorization - Applicable as blind reliance could lead to missing authorization checks.
+
+[CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Applicable as reliance without validating functionality risks its inclusion from untrusted sources. 
+
+[CWE-554](https://cwe.mitre.org/data/definitions/554.html): ASP.NET Misconfiguration: Not Understanding the Implications of Invoking Unvalidated Methods - Applicable as invoking unchecked LLM methods risks misconfiguration issues.
+
+[CWE-908](https://cwe.mitre.org/data/definitions/908.html): Use of Uninitialized Resource - Applicable as reliance on uninitialized LLM outputs poses risks.
+
+[CWE-1053](https://cwe.mitre.org/data/definitions/1053.html): Missing Documentation for Design - Applicable if design docs lacking details on monitoring/verification.
+
+[CWE-1059](https://cwe.mitre.org/data/definitions/1059.html): Incomplete Documentation of Program Execution - Applicable if execution docs lack monitoring/verification details.  
+
+
+**MITRE ATT&CK Techniques**
+
+- AML.T0019: Publish Poisoned Data. Training models on poisoned data could lead to unreliable outputs. Poisons model reliability. 
+
+
 
 **Root Causes**
 - Overreliance on LLMs:
@@ -865,27 +1067,7 @@ LLM-generated source code can introduce unnoticed security vulnerabilities. This
 - Financial Impact
   - Revenue loss: Misinformation or operational errors caused by overreliance on LLMs can lead to financial losses, including reduced revenue and increased operational costs.
 
-**Possible CWEs**
 
-[CWE-119](https://cwe.mitre.org/data/definitions/119.html): Improper Restriction of Operations within the Bounds of a Memory Buffer - Applicable as unchecked LLM code risks buffer overflows.
-
-[CWE-347](https://cwe.mitre.org/data/definitions/347.html): Improper Verification of Cryptographic Signature - Applicable as reliance on unsigned LLM content is risky. 
-
-[CWE-707](https://cwe.mitre.org/data/definitions/707.html): Improper Enforcement of Message Integrity During Transmission in a Communication Channel - Applicable as reliance on unvalidated LLM communications risks integrity issues.
-
-[CWE-839](https://cwe.mitre.org/data/definitions/839.html): Numeric Range Comparison Without Minimum Check - Applicable as reliance on unvalidated LLM numerical outputs is risky.
-
-[CWE-862](https://cwe.mitre.org/data/definitions/862.html): Missing Authorization - Applicable as blind reliance could lead to missing authorization checks.
-
-[CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Applicable as reliance without validating functionality risks its inclusion from untrusted sources. 
-
-[CWE-554](https://cwe.mitre.org/data/definitions/554.html): ASP.NET Misconfiguration: Not Understanding the Implications of Invoking Unvalidated Methods - Applicable as invoking unchecked LLM methods risks misconfiguration issues.
-
-[CWE-908](https://cwe.mitre.org/data/definitions/908.html): Use of Uninitialized Resource - Applicable as reliance on uninitialized LLM outputs poses risks.
-
-[CWE-1053](https://cwe.mitre.org/data/definitions/1053.html): Missing Documentation for Design - Applicable if design docs lacking details on monitoring/verification.
-
-[CWE-1059](https://cwe.mitre.org/data/definitions/1059.html): Incomplete Documentation of Program Execution - Applicable if execution docs lack monitoring/verification details.  
 
 
 # LLM10: Model Theft
@@ -932,6 +1114,55 @@ Use of a stolen model, as a shadow model, can be used to stage adversarial attac
 4. A security control failure is present within the supply-chain and leads to data leaks of proprietary model information.
 5. A malicious attacker bypasses input filtering techniques and preambles of the LLM to perform a side-channel attack and retrieve model information to a remote controlled resource under their control.
 
+
+**Common Weakness Enumeration (CWE)**
+
+[CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization - Flawed authorization allows unauthorized model access.
+
+[CWE-287](https://cwe.mitre.org/data/definitions/287.html): Improper Authentication - Weak authentication enables unauthorized access.
+
+[CWE-306](https://cwe.mitre.org/data/definitions/306.html): Missing Authentication for Critical Function - Lack of authentication could allow unauthorized access.
+
+[CWE-327](https://cwe.mitre.org/data/definitions/327.html): Use of a Broken or Risky Cryptographic Algorithm - Weak cryptography could enable interception of model data.
+
+[CWE-346](https://cwe.mitre.org/data/definitions/346.html): Origin Validation Error - Failing to validate input source can allow unauthorized access.
+
+[CWE-639](https://cwe.mitre.org/data/definitions/639.html): Authorization Bypass Through User-Controlled Key - User keys could enable authorization bypass. 
+
+[CWE-703](https://cwe.mitre.org/data/definitions/703.html): Improper Check or Handling of Exceptional Conditions - May prevent detection of extraction attacks.
+
+[CWE-732](https://cwe.mitre.org/data/definitions/732.html): Inadequate Encoding of Output Data - Insufficient output encoding risks data exfiltration.
+
+[CWE-798](https://cwe.mitre.org/data/definitions/798.html): Use of Hard-coded Credentials - Hard-coded credentials with excessive permissions risk unauthorized access.
+
+[CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Inclusion of untrusted components poses unauthorized access risks.
+
+[CWE-384](https://cwe.mitre.org/data/definitions/384.html): Session Fixation - Session fixation could allow adversary to steal authenticated sessions to access models.
+
+[CWE-913](https://cwe.mitre.org/data/definitions/913.html): Improper Control of Dynamically-Managed Code Resources - Could allow execution of unauthorized code enabling model access/theft.
+
+[CWE-918](https://cwe.mitre.org/data/definitions/918.html): Server-Side Request Forgery (SSRF) - SSRF could enable unauthorized access to internal model storage.
+
+
+**MITRE ATT&CK Techniques**
+
+- AML.T0024: Exfiltration via ML Inference API. Carefully crafted queries could elicit model details that are extracted. Extracts model details.
+
+- AML.T0043: Craft Adversarial Data. Tailored prompts could infer model architecture and parameters. Infers model details.
+
+- AML.T0040: ML Model Inference API Access. Repeated queries could reconstruct model behavior for theft. Reconstructs model.
+
+- AML.T0012: Valid Accounts. Compromised credentials provide access to steal artifacts. Enables unauthorized access.
+
+- AML.T0044: Full ML Model Access. Full control makes stealing artifacts simpler. Provides direct access for theft. 
+
+- AML.T0010: ML Supply Chain Compromise. Compromising suppliers provides a vector to steal models. Attacks supply chain.
+
+- AML.T0016: Obtain Capabilities. May obtain tools to automate model extraction. Aids model theft.
+
+- AML.T0047: ML-Enabled Product or Service. Commercial services with weak protections could enable theft. Finds vulnerable services.
+
+
 **Root Causes**
 - Access Control and Security Measures:
   - Weak access controls: Inadequate access control mechanisms can allow unauthorized individuals or systems to gain access to LLM model repositories, leading to potential theft.
@@ -975,31 +1206,4 @@ Model Extraction Techniques:
   - Data breach liability: Model theft leading to data loss may spur legal liability.
   - Regulatory violations: Model theft can violate data protection laws.
 
-**Possible CWEs**
-
-[CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization - Flawed authorization allows unauthorized model access.
-
-[CWE-287](https://cwe.mitre.org/data/definitions/287.html): Improper Authentication - Weak authentication enables unauthorized access.
-
-[CWE-306](https://cwe.mitre.org/data/definitions/306.html): Missing Authentication for Critical Function - Lack of authentication could allow unauthorized access.
-
-[CWE-327](https://cwe.mitre.org/data/definitions/327.html): Use of a Broken or Risky Cryptographic Algorithm - Weak cryptography could enable interception of model data.
-
-[CWE-346](https://cwe.mitre.org/data/definitions/346.html): Origin Validation Error - Failing to validate input source can allow unauthorized access.
-
-[CWE-639](https://cwe.mitre.org/data/definitions/639.html): Authorization Bypass Through User-Controlled Key - User keys could enable authorization bypass. 
-
-[CWE-703](https://cwe.mitre.org/data/definitions/703.html): Improper Check or Handling of Exceptional Conditions - May prevent detection of extraction attacks.
-
-[CWE-732](https://cwe.mitre.org/data/definitions/732.html): Inadequate Encoding of Output Data - Insufficient output encoding risks data exfiltration.
-
-[CWE-798](https://cwe.mitre.org/data/definitions/798.html): Use of Hard-coded Credentials - Hard-coded credentials with excessive permissions risk unauthorized access.
-
-[CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Inclusion of untrusted components poses unauthorized access risks.
-
-[CWE-384](https://cwe.mitre.org/data/definitions/384.html): Session Fixation - Session fixation could allow adversary to steal authenticated sessions to access models.
-
-[CWE-913](https://cwe.mitre.org/data/definitions/913.html): Improper Control of Dynamically-Managed Code Resources - Could allow execution of unauthorized code enabling model access/theft.
-
-[CWE-918](https://cwe.mitre.org/data/definitions/918.html): Server-Side Request Forgery (SSRF) - SSRF could enable unauthorized access to internal model storage.
 

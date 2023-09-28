@@ -60,3 +60,18 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
 - AML.T0047: ML-Enabled Product or Service. Services relying on compromised components could be exploited. Finds and exploits vulnerabilities.
 
 - AML.T0040: ML Model Inference API Access. May enable attacks via compromised model APIs. API access to poisoned models.
+
+
+## MITRE ATT&CK Mitigations
+
+- AML.M0014: Verify ML Artifacts. Detect tampered or compromised artifacts. Identifies supply chain issues.
+
+- AML.M0013: Code Signing. Ensure proper signing of artifacts. Validates authenticity.
+
+- AML.M0015: Adversarial Input Detection. Detect attempts to exploit compromised components. Identifies attacks.
+
+- AML.M0016: Vulnerability Scanning. Scan for flaws in supply chain. Finds weaknesses to address.
+
+- AML.M0005: Control Access to ML Models and Data at Rest. Limit access to supply chain components. Reduces attack surface.
+
+- AML.M0018: User Training. Educate users on supply chain risks. Reduces unknowing participation.

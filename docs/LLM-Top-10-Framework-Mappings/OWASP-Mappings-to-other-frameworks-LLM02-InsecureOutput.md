@@ -23,7 +23,7 @@ Successful attacks can lead to privilege escalation, command injection, XSS, SSR
 
 Prevention involves treating the LLM as any other user, applying input validation and sanitization per OWASP guidelines, and encoding outputs to mitigate code execution. LLM access should be limited using least privilege principles.
 
-## CWE
+## Common Weakness Enumeration (CWE)
 
 [CWE-78](https://cwe.mitre.org/data/definitions/78.html): OS Command Injection - Applicable as lack of output validation could allow command injection when passed to system functions.
 
@@ -63,3 +63,52 @@ Prevention involves treating the LLM as any other user, applying input validatio
 - AML.T0047: ML-Enabled Product or Service. Existing services could be exploited if they have improper output handling. Finds vulnerable services.
 
 - AML.T0019: Publish Poisoned Data. Adversaries could poison training data to influence insecure outputs. Manipulates model behavior.
+
+
+
+## MITRE ATT&CK Mitigations
+
+- AML.M0002: Passive ML Output Obfuscation. Decrease output fidelity. Limits information leaked through outputs.
+
+- AML.M0004: Restrict Number of ML Model Queries. Limit total queries and rate. Reduces attack surface.
+
+- AML.M0015: Adversarial Input Detection. Detect and block malicious prompts. Blocks attempts to generate insecure outputs.
+
+- AML.M0003: Model Hardening. Make models more robust to manipulation. Hardens model against generating insecure outputs.
+
+- AML.M0018: User Training. Train users on potential output risks. Reduces unknowing execution of insecure outputs.
+
+- AML.M0007: Sanitize Training Data. Remove data enabling insecure outputs. Addresses training data risks. 
+
+- AML.M0014: Verify ML Artifacts. Detect tampered artifacts designed to produce insecure outputs. Identifies tampering.
+
+- AML.M0016: Vulnerability Scanning. Scan for flaws that could lead to insecure outputs. Finds weaknesses to address.
+
+
+
+## MITRE ATT&CK Mitigations
+
+- AML.M0002: Passive ML Output Obfuscation. Decrease output fidelity. Limits information leaked through outputs.
+
+- AML.M0004: Restrict Number of ML Model Queries. Limit total queries and rate. Reduces attack surface. 
+
+- AML.M0015: Adversarial Input Detection. Detect and block malicious prompts. Blocks attempts to generate insecure outputs.
+
+- AML.M0003: Model Hardening. Make models more robust to manipulation. Hardens model against generating insecure outputs. 
+
+- AML.M0007: Sanitize Training Data. Remove data enabling insecure outputs. Addresses training data risks.
+
+- AML.M0014: Verify ML Artifacts. Detect tampered artifacts designed to produce insecure outputs. Identifies tampering. 
+
+- AML.M0016: Vulnerability Scanning. Scan for flaws that could lead to insecure outputs. Finds weaknesses to address. 
+
+- AML.M0001: Limit Model Artifact Release. Limit public release of model details. Reduces available information to exploit models. 
+
+- AML.M0013: Code Signing. Enforce signing of model artifacts. Validates artifact integrity.
+
+- AML.M0005: Control Access to ML Models and Data at Rest. Limit access to models. Reduces attack surface.
+
+- AML.M0017: Model Distribution Methods. Avoid distributing models to edge devices. Limits adversary access. 
+
+- AML.M0012: Encrypt Sensitive Information. Encrypt models and data. Protects artifacts.
+

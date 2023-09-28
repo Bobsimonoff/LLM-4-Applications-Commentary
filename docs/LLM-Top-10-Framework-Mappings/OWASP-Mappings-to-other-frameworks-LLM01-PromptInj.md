@@ -56,3 +56,21 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
 
 - AML.T0019: Publish Poisoned Data. Adversaries could poison public datasets with malicious prompts that exploit models trained on the data.
 
+
+## MITRE ATT&CK Mitigations
+
+- AML.M0004: Restrict Number of ML Model Queries. Limit total queries and rate. Prevents excessive probing of model to craft attacks.
+
+- AML.M0015: Adversarial Input Detection. Detect and block malicious prompts before reaching model. Directly blocks injection attempts. 
+
+- AML.M0014: Verify ML Artifacts. Verify artifacts not modified or contain injections. Checks for prompt tampering. 
+
+- AML.M0013: Code Signing. Prevent execution of unverified code that could enable injections. Blocks untrusted code execution.
+
+- AML.M0018: User Training. Train users on potential injection risks. Reduces likelihood of unknowingly enabling injections. 
+
+- AML.M0016: Vulnerability Scanning. Scan for potential injection flaws. Identifies vulnerabilities for remediation.
+
+- AML.M0007: Sanitize Training Data. Remove injected prompts from training data. Addresses poisoning risks that could lead to injection.
+
+

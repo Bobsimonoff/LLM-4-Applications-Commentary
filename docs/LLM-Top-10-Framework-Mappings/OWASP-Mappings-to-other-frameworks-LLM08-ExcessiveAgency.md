@@ -55,3 +55,22 @@ Prevention requires limiting LLM functionality, permissions, and autonomy to onl
 
 - AML.T0019: Publish Poisoned Data. Data could trigger unintended behaviors enabled by excessive permissions. Manipulates downstream actions.
 
+
+## MITRE ATT&CK Mitigations
+
+- AML.M0015: Adversarial Input Detection. Detect and block malicious queries that could trigger unintended actions. Identifies and blocks malicious queries.
+
+- AML.M0004: Restrict Number of ML Model Queries. Limit total queries and rate to downstream systems. Reduces attack surface.
+
+- AML.M0014: Verify ML Artifacts. Detect tampered plugins or components enabling excessive actions. Identifies compromised artifacts.
+
+- AML.M0005: Control Access to ML Models and Data at Rest. Limit plugin and component access to sensitive systems. Reduces capabilities.
+
+- AML.M0003: Model Hardening. Make models robust to manipulation attempts that could enable unintended actions. Hardens model. 
+
+- AML.M0016: Vulnerability Scanning. Scan plugins and components for flaws enabling unintended actions. Finds weaknesses.
+
+- AML.M0018: User Training. Educate users on potential excessive agency risks. Reduces unknowing participation.
+
+- AML.M0012: Encrypt Sensitive Information. Encrypt data to prevent unintended actions resulting in data exposure. Protects data confidentiality.
+

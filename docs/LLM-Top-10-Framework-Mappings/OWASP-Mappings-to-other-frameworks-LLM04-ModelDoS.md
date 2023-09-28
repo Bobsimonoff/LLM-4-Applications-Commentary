@@ -63,3 +63,25 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
 
 - AML.T0011: User Execution. Users may unknowingly execute code that overloads systems. Executes malicious code.
 
+
+## MITRE ATT&CK Mitigations
+
+- AML.M0004: Restrict Number of ML Model Queries. Limit total queries and rate. Directly prevents flooding systems. 
+
+- AML.M0015: Adversarial Input Detection. Detect and block heavy inputs before reaching model. Identifies malicious requests.
+
+- AML.M0003: Model Hardening. Make models robust to complex inputs. Reduces strain from inputs.
+
+- AML.M0014: Verify ML Artifacts. Detect tampered artifacts designed to overload systems. Identifies tampering.
+
+- AML.M0013: Code Signing. Prevent execution of artifacts modified to cause denial of service. Checks integrity.
+
+- AML.M0012: Encrypt Sensitive Information. Encrypt models and data. Prevents access to craft resource-heavy inputs.  
+
+- AML.M0005: Control Access to ML Models and Data at Rest. Limit access to models. Reduces attack surface.
+
+- AML.M0016: Vulnerability Scanning. Scan for flaws enabling denial of service. Finds weaknesses to address. 
+
+- AML.M0018: User Training. Educate users on denial of service risks. Reduces unknowing participation. 
+
+

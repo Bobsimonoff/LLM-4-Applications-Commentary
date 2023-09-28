@@ -62,3 +62,25 @@ Prevention requires strict input validation, output encoding, and robust access 
 - AML.T0044: Full ML Model Access. Full control allows optimal manipulation of plugins. Maximizes control of plugins.
 
 - AML.T0019: Publish Poisoned Data. Data could trigger unintended behaviors in downstream plugins. Manipulates plugin processing.
+
+
+## MITRE ATT&CK Mitigations
+
+- AML.M0015: Adversarial Input Detection. Detect and block malicious plugin inputs. Identifies and blocks exploits.
+
+- AML.M0004: Restrict Number of ML Model Queries. Limit queries to plugins. Reduces attack surface.
+
+- AML.M0014: Verify ML Artifacts. Detect tampered plugins. Identifies compromised plugins. 
+
+- AML.M0013: Code Signing. Ensure proper signing of plugins. Checks integrity.
+
+- AML.M0005: Control Access to ML Models and Data at Rest. Limit plugin access to sensitive data. Reduces exposure.
+
+- AML.M0003: Model Hardening. Make models robust to plugin manipulation. Hardens model.
+
+- AML.M0016: Vulnerability Scanning. Scan plugins for flaws. Identifies vulnerabilities to address.
+
+- AML.M0012: Encrypt Sensitive Information. Encrypt data to prevent exposure through plugins. Protects data.
+
+- AML.M0018: User Training. Educate users on potential plugin risks. Reduces unknowing misuse.
+

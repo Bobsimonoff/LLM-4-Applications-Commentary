@@ -58,3 +58,24 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
 - AML.T0024: Exfiltration via ML Inference API. Could expose private training data. 
 
 - AML.T0047: ML-Enabled Product or Service. Existing services using poisoned data could be exploited.
+
+
+## MITRE ATT&CK Mitigations
+
+- AML.M0007: Sanitize Training Data. Remove or remediate poisoned data. Directly addresses data poisoning. 
+
+- AML.M0014: Verify ML Artifacts. Detect tampering of training data. Identifies poisoning attempts.
+
+- AML.M0004: Restrict Number of ML Model Queries. Limit inference queries that could aid poisoning. Reduces attack surface.
+
+- AML.M0013: Code Signing. Prevent execution of poisoned artifacts. Blocks malicious code execution. 
+
+- AML.M0015: Adversarial Input Detection. Detect and block poisoning input attempts. Identifies poisoning tries. 
+
+- AML.M0012: Encrypt Sensitive Information. Encrypt training data. Limits exposure for poisoning. 
+
+- AML.M0005: Control Access to ML Models and Data at Rest. Limit access to training data. Reduces poisoning surface.
+
+- AML.M0016: Vulnerability Scanning. Scan for flaws that could enable poisoning. Finds weaknesses to address.
+
+- AML.M0018: User Training. Educate users on poisoning risks. Reduces unknowing poisoning.
