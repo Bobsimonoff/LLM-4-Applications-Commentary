@@ -161,24 +161,9 @@ This item focuses on creating LLM plugins rather than third-party plugins, which
   Justification: Directly applicable mitigation to reduce attack surface by eliminating vulnerable plugins.
 
 
+
 ### MITRE ATLAS Mitigations
 
-- AML.M0015: Adversarial Input Detection. Detect and filter malicious inputs and queries to plugins before reaching vulnerable code. Identifies and blocks potential exploits.
+- AML.M0011: Restrict Library Loading
 
-- AML.M0004: Restrict Number of ML Model Queries. Limit total queries and rate to plugins which reduces the attack surface for sending malicious inputs. 
-
-- AML.M0014: Verify ML Artifacts. Detect compromised or tampered plugins through verifying integrity. Identifies problematic plugins.
-
-- AML.M0013: Code Signing. Ensure proper signing of plugins before integration to validate they have not been tampered with.
-
-- AML.M0005: Control Access to ML Models and Data at Rest. Limit plugin access to sensitive data through permissions. Reduces exposure from compromised plugins.
-
-- AML.M0003: Model Hardening. Make models robust to plugin manipulation through malicious inputs. Hardens model against plugins.
-
-- AML.M0016: Vulnerability Scanning. Scan plugins for flaws and weaknesses. Identifies vulnerabilities to address proactively. 
-
-- AML.M0012: Encrypt Sensitive Information. Encrypt sensitive data to prevent exposure through potential vulnerabilities in integrated plugins. 
-
-- AML.M0018: User Training. Educate users on potential plugin risks so they avoid unknowingly invoking dangerous functionality.
-
-
+  Description: Prevent abuse of library loading mechanisms in the operating system and software to load untrusted code by configuring appropriate library loading mechanisms and investigating potential vulnerable software. File formats such as pickle files that are commonly used to store machine learning models can contain exploits that allow for loading of malicious libraries.

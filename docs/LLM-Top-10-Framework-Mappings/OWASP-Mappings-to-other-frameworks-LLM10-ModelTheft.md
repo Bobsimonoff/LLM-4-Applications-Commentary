@@ -214,22 +214,9 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
 
   Justification: M1051 is directly related to the risk as it focuses on using network IPS to block unauthorized attempts to extract language models, thus preventing data theft and unauthorized access.
 
+
 ### MITRE ATLAS Mitigations
 
-- AML.M0005: Control Access to ML Models and Data at Rest. Limit access to language models through permissions. Reduces attack surface for theft.
+- AML.M0017: Model Distribution Methods
 
-- AML.M0012: Encrypt Sensitive Information. Encrypt language models and related artifacts containing IP. Protects confidentiality against data theft.
-
-- AML.M0013: Code Signing. Ensure proper cryptographic signing of language models and artifacts. Validates integrity to identify theft.
-
-- AML.M0014: Verify ML Artifacts. Detect tampered, modified or stolen language model artifacts. Identifies potential model extraction attempts.
-
-- AML.M0015: Adversarial Input Detection. Detect and filter queries attempting to extract language models. Identifies extraction tries. 
-
-- AML.M0004: Restrict Number of ML Model Queries. Limit total queries to language models that could aid extraction. Reduces attack surface.
-
-- AML.M0001: Limit Model Artifact Release. Reduce public details of language models. Limits available information to aid theft attacks.
-
-- AML.M0016: Vulnerability Scanning. Scan for flaws that could enable language model theft. Finds issues to address proactively.
-
-- AML.M0018: User Training. Educate users on language model theft risks to reduce unknowing participation in attacks.
+  Description: Deploying ML models to edge devices can increase the attack surface of the system. Consider serving models in the cloud to reduce the level of access the adversary has to the model.

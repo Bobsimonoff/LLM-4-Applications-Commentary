@@ -145,12 +145,6 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
 
   Justification: Introducing adversarial data through compromised third parties erodes model integrity.
 
-- AML.T0034: Cost Harvesting
-
-  Description: Adversaries may exploit vulnerable third-party components integrated into the supply chain to craft expensive adversarial inputs that substantially increase operating costs through wasted computation.
-
-  Justification: Vulnerable suppliers enable cost harvesting via manipulated inputs.
-
 
 ### MITRE ATT&CK Mitigations
 
@@ -169,14 +163,6 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
 
 ### MITRE ATLAS Mitigations
 
-- AML.M0014: Verify ML Artifacts. Detect tampered or compromised third-party artifacts by verifying checksums. Identifies issues introduced through the supply chain.
+- AML.M0006: Use Ensemble Methods
 
-- AML.M0013: Code Signing. Ensure proper signing of third-party artifacts before integration. Validates authenticity from the source. 
-
-- AML.M0015: Adversarial Input Detection. Detect attempts to exploit vulnerabilities in integrated third-party components. Identifies attacks enabled by compromised supply chain.
-
-- AML.M0016: Vulnerability Scanning. Scan for flaws in integrated third-party components obtained through the supply chain. Finds weaknesses to address.
-
-- AML.M0005: Control Access to ML Models and Data at Rest. Limit access to supply chain components to reduce the attack surface for compromises. 
-
-- AML.M0018: User Training. Educate users on supply chain compromise risks to reduce unknowing participation in attacks involving compromised components.
+  Description: Use an ensemble of models for inference to increase robustness to adversarial inputs. Some attacks may effectively evade one model or model family but be ineffective against others.

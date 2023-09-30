@@ -183,20 +183,7 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
 ### MITRE ATLAS Mitigations
 
-- AML.M0002: Passive ML Output Obfuscation. Decrease output fidelity which limits the amount of sensitive information leaked through model outputs.
+- AML.M0002: Passive ML Output Obfuscation
 
-- AML.M0004: Restrict Number of ML Model Queries. Limit total queries and rate which reduces attack surface for malicious queries attempting to extract sensitive data.
-
-- AML.M0015: Adversarial Input Detection. Detect and block potentially malicious queries designed to expose sensitive data. Identifies data stealing attempts.
-
-- AML.M0003: Model Hardening. Make models more robust to inputs attempting to extract sensitive training data. Hardens model against data exposure.
-
-- AML.M0001: Limit Model Artifact Release. Reduce public information that could help adversaries design inputs to extract sensitive data. Limits available information. 
-
-- AML.M0005: Control Access to ML Models and Data at Rest. Limit access to sensitive training data and models. Reduces attack surface for data exposure.
-
-- AML.M0012: Encrypt Sensitive Information. Encrypt training data, models and artifacts containing sensitive information. Protects against data exposure. 
-
-- AML.M0014: Verify ML Artifacts. Detect artifacts that may have been tampered with to introduce data exposure vulnerabilities. Identifies risks.
-
-- AML.M0007: Sanitize Training Data. Remove sensitive data from training sets and models. Addresses data exposure risks introduced via training data.
+  Description: Decreasing the fidelity of model outputs provided to the end user can reduce an adversaries ability to extract information about the model and optimize attacks for the model.
+  

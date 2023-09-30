@@ -198,21 +198,26 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
   Justification: Prevents execution of code from injected prompts.
 
 
+
 ### MITRE ATLAS Mitigations
 
-- [AML.M0004](/mitigations/AML.M0004): Restrict Number of ML Model Queries - Limiting the number and frequency of queries to the ML model. Limit total queries and rate. Prevents excessive probing of model to craft attacks. Restricts adversary reconnaissance. 
+- AML.M0002: Passive ML Output Obfuscation
 
-- [AML.M0015](/mitigations/AML.M0015): Adversarial Input Detection - Detecting and blocking potentially malicious input data. Detect and block malicious prompts before reaching model. Directly blocks injection attempts. Stops injections at network edge.
+  Description: Decreasing the fidelity of model outputs provided to the end user can reduce an adversaries ability to extract information about the model and optimize attacks for the model.
 
-- [AML.M0014](/mitigations/AML.M0014): Verify ML Artifacts - Checking ML artifacts for integrity and signs of tampering. Verify artifacts not modified or contain injections. Checks for prompt tampering. Identifies injected artifacts.
+- AML.M0004: Restrict Number of ML Model Queries
 
-- [AML.M0013](/mitigations/AML.M0013): Code Signing - Enforcing integrity checks on software and binaries. Prevent execution of unverified code that could enable injections. Blocks untrusted code execution. Prevents unverified execution. 
+  Description: Limit the total number and rate of queries a user can perform.
 
-- [AML.M0018](/mitigations/AML.M0018): User Training - Educating users about adversary TTPs and disinformation. Train users on potential injection risks. Reduces likelihood of unknowingly enabling injections. Improves threat awareness.
+- AML.M0005: Control Access to ML Models and Data at Rest
 
-- [AML.M0016](/mitigations/AML.M0016): Vulnerability Scanning - Scanning systems and assets for flaws and weaknesses. Scan for potential injection flaws. Identifies vulnerabilities for remediation. Discovers injection risks.
+  Description: Establish access controls on internal model registries and limit internal access to production models. Limit access to training data only to approved users.
 
-- [AML.M0007](/mitigations/AML.M0007): Sanitize Training Data - Detecting and removing malicious training data. Remove injected prompts from training data. Addresses poisoning risks that could lead to injection. Limits data persistence.
+- AML.M0012: Encrypt Sensitive Information
 
+  Description: Encrypt sensitive data such as ML models to protect against adversaries attempting to access sensitive data.
 
+- AML.M0015: Adversarial Input Detection
+
+  Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
 

@@ -179,18 +179,6 @@ Overreliance can occur when an Large Language Model produces erroneous informati
 
 ### MITRE ATLAS Mitigations
 
-- AML.M0002: Passive ML Output Obfuscation. Decrease output fidelity which reduces appearance of authority and reliability, discouraging blind trust.
+- AML.M0020: Validate ML Outputs
 
-- AML.M0015: Adversarial Input Detection. Detect and filter unreliable queries designed to manipulate outputs. Identifies poisoning attempts. 
-
-- AML.M0003: Model Hardening. Make models more robust to generating unreliable outputs. Hardens model reliability. 
-
-- AML.M0014: Verify ML Artifacts. Detect artifacts modified to produce unreliable outputs by verifying integrity. Checks for poisoning.
-
-- AML.M0018: User Training. Train users to critically verify LLM outputs instead of blindly trusting them. Reduces overreliance.
-
-- AML.M0007: Sanitize Training Data. Remove data leading to unreliable outputs. Addresses data poisoning impacting outputs.
-
-- AML.M0016: Vulnerability Scanning. Scan for flaws enabling unreliable outputs. Finds issues introducing unreliability to address.
-
-- AML.M0001: Limit Model Artifact Release. Reduce public information that could help craft unreliable outputs. Limits available knowledge to leverage.
+  Description: Ensure proper validation of LLM outputs prior to taking any actions based on the information. Avoid blind trust in LLMs by verifying accuracy through redundancy, subject matter expertise, and outcome monitoring.

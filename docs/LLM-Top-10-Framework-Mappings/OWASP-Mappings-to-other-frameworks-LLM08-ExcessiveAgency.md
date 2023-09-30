@@ -169,19 +169,6 @@ Prevention requires limiting LLM functionality, permissions, and autonomy to onl
 
 ### MITRE ATLAS Mitigations
 
-- AML.M0015: Adversarial Input Detection. Detect and filter malicious queries that could trigger unintended actions before reaching vulnerable systems. Identifies and blocks potentially malicious queries.
+- AML.M0019: LLM Autonomy Restriction
 
-- AML.M0004: Restrict Number of ML Model Queries. Limit total queries and rate to downstream systems which reduces attack surface for sending action-triggering inputs.
-
-- AML.M0014: Verify ML Artifacts. Detect compromised or tampered plugins and components through integrity verification to identify artifacts enabling excessive actions.
-
-- AML.M0005: Control Access to ML Models and Data at Rest. Limit plugin and component access through permissions to sensitive systems and data stores. Reduces capabilities that could enable unintended actions.
-
-- AML.M0003: Model Hardening. Make models robust to manipulation attempts that could enable uncontrolled downstream actions. Hardens model against enabling unintended behaviors.
-
-- AML.M0016: Vulnerability Scanning. Scan plugins and components for flaws that could lead to unintended actions. Finds weaknesses to address proactively.
-
-- AML.M0018: User Training. Educate users on potential excessive agency risks so they avoid unknowingly triggering unintended behaviors. 
-
-- AML.M0012: Encrypt Sensitive Information. Encrypt sensitive data to prevent unintended actions resulting in unauthorized data exposure. Protects data confidentiality.
-
+  Description: Limit the autonomy of LLMs by carefully scoping their capabilities and permissions. Monitor LLMs and enforce restricted behaviors to prevent unintended actions.

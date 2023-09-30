@@ -170,21 +170,21 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
 
 ### MITRE ATLAS Mitigations
 
-- AML.M0007: Sanitize Training Data - Detecting and removing malicious training data. Remove or remediate poisoned data. Directly addresses data poisoning by cleansing datasets.
 
-- AML.M0014: Verify ML Artifacts - Checking artifacts for signs of tampering. Detect tampering of training data. Identifies poisoning attempts by validating data integrity. 
+- AML.M0005: Control Access to ML Models and Data at Rest
 
-- AML.M0004: Restrict Number of ML Model Queries - Limiting queries to reduce attack surface. Limit inference queries that could aid poisoning. Reduces attack surface by restricting overall model access. 
+  Description: Establish access controls on internal model registries and limit internal access to production models. Limit access to training data only to approved users.
 
-- AML.M0013: Code Signing - Enforcing integrity checks on software and binaries. Prevent execution of poisoned artifacts. Blocks malicious code execution by requiring valid signatures.
+- AML.M0007: Sanitize Training Data
 
-- AML.M0015: Adversarial Input Detection - Detecting and blocking malicious input data. Detect and block poisoning input attempts. Identifies poisoning tries by analyzing inputs.
+  Description: Detect and remove or remediate poisoned training data. Training data should be sanitized prior to model training and recurrently for an active learning model. Implement a filter to limit ingested training data. Establish a content policy that would remove unwanted content such as certain explicit or offensive language from being used.
 
-- AML.M0012: Encrypt Sensitive Information - Protecting confidentiality through cryptography. Encrypt training data. Limits exposure for poisoning by encoding data.
+- AML.M0012: Encrypt Sensitive Information
 
-- AML.M0005: Control Access to ML Models and Data at Rest - Implementing access controls on assets. Limit access to training data. Reduces poisoning surface by restricting data access. 
+  Description: Encrypt sensitive data such as ML models to protect against adversaries attempting to access sensitive data. 
 
-- AML.M0016: Vulnerability Scanning - Discovering flaws and weaknesses. Scan for flaws that could enable poisoning. Finds weaknesses to address through active scanning. 
+- AML.M0015: Adversarial Input Detection
 
-- AML.M0018: User Training - Educating users about adversary TTPs. Educate users on poisoning risks. Reduces unknowing poisoning by improving awareness.
+  Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
 
+Let me know if you need any clarification or have additional mitigations you would like formatted in this structure.

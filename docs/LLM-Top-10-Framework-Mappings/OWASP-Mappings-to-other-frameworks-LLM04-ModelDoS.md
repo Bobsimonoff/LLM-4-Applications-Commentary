@@ -162,58 +162,9 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
 
 N/A
 
+
 ### MITRE ATLAS Mitigations
-
-- AML.M0004: Restrict Number of ML Model Queries
-
-  Description: Limiting total queries and rate.
-
-  Justification: Directly prevents flooding systems.
 
 - AML.M0015: Adversarial Input Detection
 
-  Description: Detecting and blocking heavy inputs.
-
-  Justification: Identifies malicious requests.
-
-- AML.M0003: Model Hardening
-
-  Description: Making models robust to complex inputs.
-
-  Justification: Reduces strain from inputs. 
-
-- AML.M0014: Verify ML Artifacts
-
-  Description: Detecting tampered artifacts.
-
-  Justification: Identifies artifacts designed to cause exhaustion.
-
-- AML.M0013: Code Signing
-
-  Description: Preventing execution of unsigned artifacts.
-
-  Justification: Checks integrity to prevent modified exhaustion code.
-
-- AML.M0012: Encrypt Sensitive Information
-
-  Description: Encrypting models and data.
-
-  Justification: Prevents crafting resource-heavy inputs.
-
-- AML.M0005: Control Access to ML Models and Data at Rest
-
-  Description: Limiting model access.
-
-  Justification: Reduces attack surface.
-
-- AML.M0016: Vulnerability Scanning
-
-  Description: Scanning for flaws.
-
-  Justification: Finds weaknesses that could enable exhaustion attacks.
-
-- AML.M0018: User Training
-
-  Description: Educating users on risks.
-
-  Justification: Reduces unknowing participation.
+  Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
