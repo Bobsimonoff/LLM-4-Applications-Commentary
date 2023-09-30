@@ -9,11 +9,11 @@ By Bob Simonoff
 
 # LLM04: Denial of Service
 
-## Summary
+### Summary
 
 Overloading LLMs with resource-heavy operations can cause service disruptions and increased costs.
 
-## Description
+### Description
 
 Model Denial of Service involves overloading LLMs with resource-heavy operations that can disrupt services and incur costs. 
 
@@ -21,73 +21,227 @@ Attackers can send unusual or malformed inputs that consume excessive resources,
 
 Prevention involves input sanitization, enforcing limits on resource usage and context windows, implementing rate limiting, monitoring for spikes in resource utilization, and promoting awareness among developers.
 
+### Common Examples of Risk
 
-## Common Weakness Enumeration (CWE)
+1. Sending queries that recursively generate excessive tasks. 
 
-- [CWE-16](https://cwe.mitre.org/data/definitions/16.html): Configuration - Weaknesses related to security configurations. Applicable as misconfigurations could trigger resource issues by enabling resource exhaustion. 
+2. Submitting inputs with unusual formatting that require extensive processing.
 
-- [CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation - Failure to properly validate input data. Applicable as validation failures enable malicious requests that consume excessive resources. 
+3. Flooding systems with continuous input exceeding context limits. 
 
-- [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization - Failure to restrict access to authorized users. Applicable as unauthorized requests could abuse resources since they are not limited.
+4. Repeatedly sending long inputs that strain context window capacity. 
 
-- [CWE-400](https://cwe.mitre.org/data/definitions/400.html): Uncontrolled Resource Consumption - Failure to limit resource consumption. Applicable as malicious interactions can exhaust LLM resources directly via uncontrolled consumption.
+5. Crafting inputs that recursively expand context causing repeated processing.
 
-- [CWE-770](https://cwe.mitre.org/data/definitions/770.html): Allocation of Resources Without Limits or Throttling - Failure to throttle or limit allocation of resources. Applicable as lack of throttling enables resource exhaustion by allowing unchecked usage. 
+6. Flooding systems with variable length inputs approaching context limits.
 
-- [CWE-799](https://cwe.mitre.org/data/definitions/799.html): Improper Control of Interaction Frequency - Failure to limit frequency of interactions. Applicable as lack of frequency control allows flooding requests that overwhelm resources.
+### Prevention and Mitigation Strategies
 
-- [CWE-404](https://cwe.mitre.org/data/definitions/404.html): Improper Resource Shutdown or Release - Failure to properly free resources after use. Applicable if resources are not properly released after use, leading to exhaustion by depleting available resources.
+1. Validate and sanitize input data to defined limits.
 
-- [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Use of untrusted code or inputs. Applicable if plugins/extensions can trigger resource issues by including uncontrolled functionality. 
+2. Cap resource usage per request to slow complex inputs. 
+
+3. Enforce API rate limiting to restrict requests.
+
+4. Limit queued actions and total actions after LLM responses.
+
+5. Monitor for spikes in resource utilization indicating attacks.
+
+6. Set strict input size limits based on context window. 
+
+7. Educate developers on potential denial of service risks.
+
+### Example Attack Scenarios
+
+1. Attacker overwhelms systems with repeated expensive requests, degrading performance.
+
+2. Benign web query triggers excessive resource consumption through model interactions.
+
+3. Attacker floods LLM with input exceeding context window, crashing system. 
+
+4. Attacker sends sequential inputs approaching context limit, exhausting resources.
+
+5. Attacker crafted input causes repeated context expansion, straining systems.
+
+6. Attacker floods systems with varied length inputs targeting context limits.
+
+
+### Common Weakness Enumeration (CWE)
+
+- [CWE-16](https://cwe.mitre.org/data/definitions/16.html): Configuration
+
+  Description: Weaknesses related to security configurations wherein the default configurations are misconfigured or unsafe.
+
+  Justification: Misconfigurations could trigger resource exhaustion by enabling unchecked resource consumption.
+
+- [CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation
+
+  Description: Missing or inadequate input validation leading to dangerous behaviors from unchecked tainted input.
+
+  Justification: Lack of input validation enables sending resource-heavy requests.
+  
+- [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization
+
+  Description: Failure to restrict access to authorized entities leading to privilege escalation.
+
+  Justification: Unauthorized requests could abuse resources since they are unrestricted.
+
+- [CWE-400](https://cwe.mitre.org/data/definitions/400.html): Uncontrolled Resource Consumption
+
+  Description: Failure to control resource consumption enabling exhaustion of resources like CPU, memory, disk space, database connections, etc.
+
+  Justification: Malicious interactions directly exhaust LLM resources through uncontrolled consumption.
+
+- [CWE-770](https://cwe.mitre.org/data/definitions/770.html): Allocation of Resources Without Limits or Throttling
+
+  Description: Failure to throttle or limit allocation of resources enabling unchecked consumption.
+
+  Justification: Lack of throttling allows unchecked resource usage enabling exhaustion.
+
+- [CWE-799](https://cwe.mitre.org/data/definitions/799.html): Improper Control of Interaction Frequency
+
+  Description: Failure to limit the frequency of interactions enabling repeated operations that strain resources.
+
+  Justification: Lack of frequency control allows flooding requests overwhelming resources.  
+
+- [CWE-404](https://cwe.mitre.org/data/definitions/404.html): Improper Resource Shutdown or Release
+
+  Description: Failure to properly free resources after use leading to resource exhaustion.
+
+  Justification: Improper resource release leads to depletion of available resources.
+
+- [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere
+
+  Description: Use of untrusted code or inputs leading to unintended functionality.
+
+  Justification: Extensions/plugins could trigger resource issues by including uncontrolled functionality.
 
 ## ATT&CK Technique
 
-- [T1499](https://attack.mitre.org/techniques/T1499/): Endpoint Denial of Service - Techniques to disrupt service availability. Disrupts service availability. Directly causes denial of service.
+- [T1499](https://attack.mitre.org/techniques/T1499/): Endpoint Denial of Service
 
-## MITRE ATLAS Techniques 
+  Description: Techniques used to make systems or services unavailable to legitimate users.
 
-- [AML.T0029](/techniques/AML.T0029): Denial of ML Service - Overloading systems with resource-heavy operations. Designed to overload systems with resource-heavy inputs. Directly causes denial of service.
+  Justification: Directly causes denial of service on endpoints.
 
-- [AML.T0043](/techniques/AML.T0043): Craft Adversarial Data - Careful input crafting to manipulate models. Crafting prompts that require extensive processing could strain systems. Carefully crafted inputs that consume excessive resources. 
+### MITRE ATLAS Techniques
 
-- [AML.T0040](/techniques/AML.T0040): ML Model Inference API Access - Use of the model API to manipulate behavior. Flooding the API with requests could overwhelm systems. API access enables attacks.
+- [AML.T0029](/techniques/AML.T0029): Denial of ML Service
 
-- [AML.T0016](/techniques/AML.T0016): Obtain Capabilities - Obtaining tools and exploits. May obtain tools to automate sending malicious requests. Aids automation of resource exhaustion. 
+  Description: Overloading ML systems with resource-heavy operations designed to disrupt services.
 
-- [AML.T0012](/techniques/AML.T0012): Valid Accounts - Abuse of compromised credentials. Compromised credentials could bypass rate limiting. Allows increased access to send more requests. 
+  Justification: Directly causes model denial of service.
 
-- [AML.T0010](/techniques/AML.T0010): ML Supply Chain Compromise - Compromise of ML components and services. Could introduce inefficiencies via compromised artifacts that are resource-intensive. Introduces weaknesses that strain resources.
+- [AML.T0043](/techniques/AML.T0043): Craft Adversarial Data
 
-- [AML.T0044](/techniques/AML.T0044): Full ML Model Access - Complete control over the model. Full control enables sending optimized resource-heavy inputs. Maximizes impact through total control. 
+  Description: Careful input crafting to manipulate models in unintended ways.
 
-- [AML.T0047](/techniques/AML.T0047): ML-Enabled Product or Service - Exploiting ML services. Existing services with inadequate protections could be exploited. Finds vulnerable services to target.
+  Justification: Inputs crafted to require extensive processing could strain systems.
 
-- [AML.T0019](/techniques/AML.T0019): Publish Poisoned Data - Distribution of contaminated datasets. Training on data designed to increase compute could degrade performance. Influences model to require more resources. 
+- [AML.T0040](/techniques/AML.T0040): ML Model Inference API Access
 
-- [AML.T0011](/techniques/AML.T0011): User Execution - Tricking users into executing payloads. Users may unknowingly execute code that overloads systems. Executes malicious code causing resource exhaustion.
+  Description: Use of the model API to manipulate behavior.
 
+  Justification: Flooding the API could overwhelm systems. 
 
-## ATT&CK Mitigations
+- [AML.T0016](/techniques/AML.T0016): Obtain Capabilities
 
-N.A.
+  Description: Obtaining tools and exploits.
 
+  Justification: May obtain automation tools for resource exhaustion.
 
-## MITRE ATLAS Mitigations 
+- [AML.T0012](/techniques/AML.T0012): Valid Accounts
 
-- AML.M0004: Restrict Number of ML Model Queries. Limit total queries and rate. Directly prevents flooding systems.
+  Description: Abuse of compromised credentials.
 
-- AML.M0015: Adversarial Input Detection. Detect and block heavy inputs before reaching model. Identifies malicious requests. 
+  Justification: Compromised credentials could bypass rate limiting.
 
-- AML.M0003: Model Hardening. Make models robust to complex inputs. Reduces strain from inputs.
+- [AML.T0010](/techniques/AML.T0010): ML Supply Chain Compromise
 
-- AML.M0014: Verify ML Artifacts. Detect tampered artifacts designed to overload systems. Identifies tampering. 
+  Description: Compromise of ML components and services.
 
-- AML.M0013: Code Signing. Prevent execution of artifacts modified to cause denial of service. Checks integrity.
+  Justification: Compromised artifacts could introduce resource-intensive inefficiencies.
 
-- AML.M0012: Encrypt Sensitive Information. Encrypt models and data. Prevents access to craft resource-heavy inputs.   
+- [AML.T0044](/techniques/AML.T0044): Full ML Model Access
 
-- AML.M0005: Control Access to ML Models and Data at Rest. Limit access to models. Reduces attack surface.
+  Description: Complete control over the model.
 
-- AML.M0016: Vulnerability Scanning. Scan for flaws enabling denial of service. Finds weaknesses to address.
+  Justification: Full control enables sending optimized resource-heavy inputs.
 
-- AML.M0018: User Training. Educate users on denial of service risks. Reduces unknowing participation.
+- [AML.T0047](/techniques/AML.T0047): ML-Enabled Product or Service
+
+  Description: Exploiting ML services.
+
+  Justification: Vulnerable services could be exploited.
+
+- [AML.T0019](/techniques/AML.T0019): Publish Poisoned Data
+
+  Description: Distribution of contaminated datasets.
+
+  Justification: Data designed to increase compute requirements could degrade performance.
+
+- [AML.T0011](/techniques/AML.T0011): User Execution
+
+  Description: Tricking users into executing payloads.
+
+  Justification: Users may execute code causing resource exhaustion.
+
+### MITRE ATT&CK Mitigations
+
+N/A
+
+### MITRE ATLAS Mitigations
+
+- AML.M0004: Restrict Number of ML Model Queries
+
+  Description: Limiting total queries and rate.
+
+  Justification: Directly prevents flooding systems.
+
+- AML.M0015: Adversarial Input Detection
+
+  Description: Detecting and blocking heavy inputs.
+
+  Justification: Identifies malicious requests.
+
+- AML.M0003: Model Hardening
+
+  Description: Making models robust to complex inputs.
+
+  Justification: Reduces strain from inputs. 
+
+- AML.M0014: Verify ML Artifacts
+
+  Description: Detecting tampered artifacts.
+
+  Justification: Identifies artifacts designed to cause exhaustion.
+
+- AML.M0013: Code Signing
+
+  Description: Preventing execution of unsigned artifacts.
+
+  Justification: Checks integrity to prevent modified exhaustion code.
+
+- AML.M0012: Encrypt Sensitive Information
+
+  Description: Encrypting models and data.
+
+  Justification: Prevents crafting resource-heavy inputs.
+
+- AML.M0005: Control Access to ML Models and Data at Rest
+
+  Description: Limiting model access.
+
+  Justification: Reduces attack surface.
+
+- AML.M0016: Vulnerability Scanning
+
+  Description: Scanning for flaws.
+
+  Justification: Finds weaknesses that could enable exhaustion attacks.  
+
+- AML.M0018: User Training
+
+  Description: Educating users on risks.
+
+  Justification: Reduces unknowing participation.

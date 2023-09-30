@@ -9,11 +9,11 @@ By Bob Simonoff
 
 # LLM01: Prompt Injection
 
-## Summary
+### Summary
 
 Manipulating LLMs via crafted inputs can lead to unauthorized access, data breaches, and compromised decision-making. Attackers can directly inject rogue prompts into the LLM (called "jailbreaking") or indirectly inject prompts through external inputs.
 
-## Description
+### Description
 
 Prompt injection attacks involve crafting malicious prompts that manipulate LLMs into executing unintended and potentially harmful actions. These attacks exploit the lack of segregation between instructions and data in LLMs. 
 
@@ -23,33 +23,116 @@ Successful attacks can lead to impacts like unauthorized access, data breaches, 
 
 Prevention involves restricting LLM access, requiring confirmation, isolating prompts, establishing trust boundaries, and indicating untrustworthy responses.
 
+### Common Examples of Risk
 
-## Common Weakness Enumeration (CWE)
+1. An attacker overwrites the system prompt to make the LLM return sensitive information without restrictions.
 
-- [CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation - Failure to properly validate input data. Failure to properly validate user inputs such as prompts enables the introduction of malicious payloads that can manipulate LLM behavior. Could allow direct injection of malicious prompts by failing to validate prompt inputs. 
+2. An attacker embeds a malicious prompt in a website's text. When summarized by the LLM, it tricks the LLM into stealing data. 
 
-- [CWE-77](https://cwe.mitre.org/data/definitions/77.html): Improper Neutralization of Special Elements Used in a Command ('Command Injection') - Failure to properly neutralize special elements that could modify the intended command. Lack of input neutralization could allow injecting prompts that execute commands by failing to neutralize special characters in prompts.
+3. An attacker uploads a resume with a hidden prompt injection. When summarized by the LLM, it causes biased and incorrect outputs.
 
-- [CWE-89](https://cwe.mitre.org/data/definitions/89.html): Improper Input Validation - Weakness in input validation. Lack of prompt input validation enables injecting malicious prompts by failing to properly validate prompt inputs.
+4. A website exploits an LLM shopping plugin with a malicious prompt to make unauthorized purchases. 
 
-- [CWE-114](https://cwe.mitre.org/data/definitions/114.html): Process Control - Lack of control over processes triggered by external inputs. The lack of separation between user prompts and external data leads to a loss of control over LLM processing, enabling unintended actions. Could allow injection of prompts from untrusted external sources due to lack of isolation between prompts and external data.
+5. A website exploits other LLM plugins with malicious prompts to scam users.
 
-- [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization - Failure to restrict access to authorized users. Prompt injections can bypass access controls, enabling attackers to achieve privilege escalation and gain unauthorized access to systems and data. Could enable escalation for both direct and indirect prompt injection by bypassing access controls.  
+### Prevention and Mitigation Strategies
 
-- [CWE-287](https://cwe.mitre.org/data/definitions/287.html): Improper Authentication - Failure to adequately authenticate entities. Weak authentication mechanisms allow attackers to remotely manipulate the LLM while evading detection. Could allow undetected remote prompt injection due to weak authentication.
+1. Restrict the LLM's access to backends and APIs using the principle of least privilege.
 
-- [CWE-346](https://cwe.mitre.org/data/definitions/346.html): Origin Validation Error - Failure to validate input source. Not properly validating the origin of inputs such as prompts leaves the system open to manipulation through malicious external sources. Could enable injection from untrusted external sources due to lack of origin validation.
+2. Require user approval before allowing the LLM to take sensitive actions. 
 
-## ATT&CK Techniques 
+3. Separate and label external text from user prompts.
 
-- [T1059](https://attack.mitre.org/techniques/T1059/): Command and Scripting Interpreter - Use of interpreters to execute commands. Executes commands via interpreters. Could enable code execution from injections by executing injected prompt commands.
+4. Treat the LLM as untrusted and maintain user control over decisions.
 
-- [T1566](https://attack.mitre.org/techniques/T1566/): Phishing - Use of fraudulent messages to deliver payloads. Deploys messages to manipulate users. Could deliver injected prompts through phishing messages.  
+5. Visually highlight potentially untrustworthy LLM responses to users.
 
-- [T1571](https://attack.mitre.org/techniques/T1571/): Non-Standard Port - Use of non-standard ports to bypass restrictions. Uses non-standard ports. Could access systems to inject prompts by bypassing defenses via obscure ports. 
+### Example Attack Scenarios
+
+1. An attacker overwrites the prompt to force the LLM to steal data by exploiting vulnerabilities.
+
+2. A website injects a prompt telling the LLM to delete a user's emails using a plugin.
+
+3. A website tricks the LLM into stealing user data via JavaScript when summarizing malicious text. 
+
+4. An attacker uploads a resume with a prompt causing the LLM to incorrectly assess qualifications.
+
+5. A website uses a malicious prompt to exploit a shopping plugin to make purchases without user consent.
 
 
-## MITRE ATLAS Techniques
+### Common Weakness Enumeration (CWE)
+
+- [CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation
+
+  Description: Missing or inadequate input validation leads to unchecked tainted input used directly/indirectly resulting in dangerous downstream behaviors.
+
+  Justification: Lack of prompt input validation allows attackers to directly inject malicious instructions into the LLM system.
+
+- [CWE-77](https://cwe.mitre.org/data/definitions/77.html): Improper Neutralization of Special Elements Used in a Command ('Command Injection')
+
+  Description: Failure to properly encode special characters like semicolons, backticks, and quotes in prompts allows attackers to terminate the intended command and inject new malicious system commands on backend servers accessible through the LLM.
+
+  Justification: For prompt injection, lack of input sanitization allows injecting malicious system commands.
+
+- [CWE-89](https://cwe.mitre.org/data/definitions/89.html): Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')
+
+  Description: Failure to properly handle special elements results in altered intended SQL command logic.
+
+  Justification: Lack of input sanitization enables attackers to inject malicious SQL commands through prompts to access or modify databases.
+
+- [CWE-114](https://cwe.mitre.org/data/definitions/114.html): Process Control 
+
+  Description: The lack of isolation between user prompts and external untrusted data sources like websites allows injected instructions in one to influence and manipulate processing of the other. This loss of control enables unintended actions through prompt injections from malicious external sources.
+
+  Justification: Mixing prompts and external sources enables injected instructions due to lack of isolation.
+
+- [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization
+
+  Description: Injected prompts with special syntax can grant higher privileges, add fake credentials, or directly disable access controls. This allows bypassing restrictions on what actions the LLM can perform, enabling escalated unauthorized access to backend systems.
+
+  Justification: Injected prompts can bypass access controls, enabling privilege escalation on backend systems and unauthorized access through the LLM.
+
+- [CWE-287](https://cwe.mitre.org/data/definitions/287.html): Improper Authentication
+
+  Description: Weak or missing authentication mechanisms for LLM access allows attackers to remotely inject malicious prompts while evading detection. Without sufficiently verifying identities, remote prompt injection can go unnoticed.
+
+  Justification: Weak authentication allows remote attackers to inject prompts and manipulate the LLM while evading detection.  
+
+- [CWE-346](https://cwe.mitre.org/data/definitions/346.html): Origin Validation Error
+
+  Description: Not verifying the source of prompt inputs allows attackers to hijack LLM conversations by injecting prompts from malicious external sources disguised as the user or authorized systems.
+
+  Justification: Lack of origin validation allows injecting prompts from untrusted external sources.
+
+
+### MITRE ATT&CK Techniques 
+
+- [T1059](https://attack.mitre.org/techniques/T1059/): Command and Scripting Interpreter
+
+  Description: Adversaries leverage command interpreters and scripting engines used for automation and program execution to run malicious commands and scripts. Commands injected into prompts through lack of input validation could take advantage of these interpreters on backend servers and systems accessible through the LLM to achieve arbitrary remote code execution.
+
+  Justification: Can directly enable code execution from injected prompt commands.
+
+- [T1078](https://attack.mitre.org/techniques/T1078/): Valid Accounts
+
+  Description: Adversaries may obtain credentials from compromised accounts with the needed privileges for LLM access. Privileged valid credentials could enable bypassing access controls when injecting prompts.
+
+  Justification: Compromised privileged accounts can allow prompt injection while bypassing access controls.
+
+- [T1090](https://attack.mitre.org/techniques/T1090/): Proxy
+
+  Description: Adversaries may compromise systems and use them as a proxy for prompting the LLM to hide their true identity. Proxies could be leveraged to deliver prompts with injected malicious instructions.
+
+  Justification: Proxies can obscure the source of injected prompts.
+  
+- [T1566](https://attack.mitre.org/techniques/T1566/): Phishing
+
+  Description: Adversaries deploy phishing messages containing malicious attachments or links to get users to unknowingly download malware, visit credential harvesting sites, or provide sensitive information. Similarly, phishing messages could be crafted to manipulate users into interacting with the LLM in ways that inject malicious prompts, tricking the LLM into carrying out unintended and potentially harmful actions on behalf of the user.
+
+  Justification: Could deliver injected prompts through phishing messages.
+
+
+### MITRE ATLAS Techniques
 
 - [AML.T0040](/techniques/AML.T0040): ML Model Inference API Access - Use of the ML model inference API to send crafted input data and manipulate model behavior. Adversaries could craft malicious prompts and inject them into the model via the inference API. This allows adversaries to directly inject prompts into the model to manipulate its behavior.
 
@@ -70,16 +153,34 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
 - [AML.T0019](/techniques/AML.T0019): Publish Poisoned Data - Distribution of contaminated datasets. Adversaries could poison public datasets with malicious prompts that exploit models trained on the data. Poisons datasets to persistently embed injections.
 
 
-## ATT&CK Mitigations
+### MITRE ATT&CK Mitigations
 
-- [M1041](https://attack.mitre.org/mitigations/M1041/): Restrict Web-Based Content - Limit web content execution. Limits web content execution. Could block web-based prompt injection by restricting web content execution.
+- [M1037](https://attack.mitre.org/mitigations/M1037/): Application Configuration
 
-- [M1042](https://attack.mitre.org/mitigations/M1042/): Disable or Remove Feature or Program - Disabling or removing risky features or programs. Removes risky features. Could eliminate vulnerable plugin functions enabling injections by disabling them. 
+  Description: Adversaries may take advantage of application configurations that enable access without proper restrictions. Properly configuring access controls, permissions, trusts, and authentication mechanisms helps reduce the attack surface for prompt injections.
 
-- [M1043](https://attack.mitre.org/mitigations/M1043/): Isolate System or Network - Isolating systems from untrusted networks. Isolates systems and networks. Could prevent lateral movement from injected prompts by isolating compromised systems.
+  Justification: Hardening application configurations reduces attack surface.
 
+- [M1041](https://attack.mitre.org/mitigations/M1041/): Restrict Web-Based Content
 
-## MITRE ATLAS Mitigations
+  Description: Limiting web content execution through allowlisting, sandboxing, or blocking scripts helps prevent web pages from manipulating the LLM through injected prompts when summarizing text. This reduces the risk of indirect prompt injection.
+
+  Justification: Limits web vectors that could enable injected prompts.
+
+- [M1043](https://attack.mitre.org/mitigations/M1043/): Isolate System or Network
+
+  Description: Isolating the network segments, systems, and access between the LLM, user inputs, and backend resources helps prevent lateral movement and exploitation through injected prompts.
+
+  Justification: Limits impact of injected prompts.
+
+- [M1047](https://attack.mitre.org/mitigations/M1047/): Implement Software Restriction Policies
+
+  Description: Implementing whitelisting policies restricting code execution and scripting helps prevent untrusted code and payloads from being executed through injected prompts.
+
+  Justification: Prevents execution of code from injected prompts.
+  
+
+### MITRE ATLAS Mitigations
 
 - [AML.M0004](/mitigations/AML.M0004): Restrict Number of ML Model Queries - Limiting the number and frequency of queries to the ML model. Limit total queries and rate. Prevents excessive probing of model to craft attacks. Restricts adversary reconnaissance. 
 

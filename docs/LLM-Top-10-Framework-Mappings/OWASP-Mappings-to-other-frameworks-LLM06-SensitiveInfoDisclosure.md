@@ -9,10 +9,10 @@ By Bob Simonoff
 
 # LLM06: Sensitive Information Disclosure
 
-## Summary
+### Summary
 Failure to protect against disclosure of sensitive information in LLM outputs can result in legal consequences or a loss of competitive advantage.
 
-## Description
+### Description
 
 Failure to protect against unauthorized exposure of confidential data in LLM outputs can enable adversaries to steal intellectual property and sensitive information. 
 
@@ -20,33 +20,101 @@ Inadequate data handling, weak access controls, and insufficient input/output va
 
 Prevention involves robust data sanitization, input filtering, and output validation. Strict access controls should be implemented, limiting data access to only authorized purposes. LLM training data must be carefully filtered to exclude sensitive information. Comprehensive data governance and privacy policies can help mitigate risks. Monitoring systems for anomalous behavior can also help detect potential unauthorized access attempts. Securing LLMs against sensitive data exposure is critical for maintaining trust and competitive advantage.
 
+### Common Examples of Risk
 
-## Common Weakness Enumeration (CWE)
+1. Improper filtering of sensitive data in LLM responses.
 
-- [CWE-202](https://cwe.mitre.org/data/definitions/202.html): Exposure of Sensitive Information to an Unauthorized Actor - Applicable when sensitive data like API keys or PII is exposed in model outputs to unauthorized users due to inadequate access controls.
+2. Overfitting on confidential data during training. 
 
-- [CWE-208](https://cwe.mitre.org/data/definitions/208.html): Observable Discrepancy - Applicable when differences between a model's expected and actual outputs allow inference of sensitive information used in training data. 
+3. Unintended disclosure through model errors or misinterpretations.
 
-- [CWE-209](https://cwe.mitre.org/data/definitions/209.html): Information Exposure Through an Error Message - Applicable if error messages generated during model inference reveal details about training data or internal model information.
+### Prevention and Mitigation Strategies
 
-- [CWE-215](https://cwe.mitre.org/data/definitions/215.html): Information Exposure Through Debug Information - Applicable if debug logs from models contain sensitive metadata or inferences about private training data.
+1. Scrub sensitive data from training sets.
 
-- [CWE-538](https://cwe.mitre.org/data/definitions/538.html): File and Directory Information Exposure - Applicable if filesystem permissions allow unauthorized access to view model artifacts containing sensitive data.
+2. Implement robust input validation and sanitization.
 
-- [CWE-541](https://cwe.mitre.org/data/definitions/541.html): Information Exposure Through Include Source Code - Applicable if source code for models exposes sensitive configuration details or training data.
+3. Apply strict data access controls and least privilege when enriching models.
 
-- [CWE-649](https://cwe.mitre.org/data/definitions/649.html): Reliance on Obfuscation or Protection Mechanism - Applicable if relying solely on input/output obfuscation without proper access controls to protect sensitive data.
+4. Limit model access to external data sources.
 
-- [CWE-922](https://cwe.mitre.org/data/definitions/922.html): Insecure Storage of Sensitive Information - Applicable if artifacts containing sensitive data like model parameters or training texts are stored without encryption.
+5. Maintain secure supply chain for external data.
 
-## ATT&CK Techniques
+### Example Attack Scenarios
 
-- [T1530](https://attack.mitre.org/techniques/T1530/) - Data from Cloud Storage Object. Accesses cloud storage containing model training data or artifacts. Could access stored sensitive information.
+1. Legitimate user exposed to other user's sensitive data through LLM.
 
-- [T1552](https://attack.mitre.org/techniques/T1552/) - Unsecured Credentials. Uses compromised identities and keys to access systems and data. Could enable unauthorized access to sensitive information.
+2. Attacker bypasses filters to elicit sensitive data through crafted prompts.
+
+3. Sensitive training data leaked into model enables exposure risks.
 
 
-## MITRE ATLAS Techniques
+### Common Weakness Enumeration (CWE) 
+
+- [CWE-202](https://cwe.mitre.org/data/definitions/202.html): Exposure of Sensitive Information to an Unauthorized Actor
+
+  Description: The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
+
+  Justification: Inadequate access controls could enable exposure of sensitive data through model outputs.
+
+- [CWE-208](https://cwe.mitre.org/data/definitions/208.html): Observable Discrepancy
+
+  Description: Behavioral differences between the product's expected behavior and its actual behavior allow detection of the product's sensitive information.
+
+  Justification: Model outputs could reveal sensitive training data through observable discrepancies.
+
+- [CWE-209](https://cwe.mitre.org/data/definitions/209.html): Information Exposure Through an Error Message
+
+  Description: The product generates error messages that expose sensitive information about the environment, users, or associated data.
+
+  Justification: Model error messages could reveal sensitive configuration, training data or internal details. 
+
+- [CWE-215](https://cwe.mitre.org/data/definitions/215.html): Information Exposure Through Debug Information
+
+  Description: Debugging output can contain sensitive information like credentials or cryptographic keys.
+
+  Justification: Model debug logs could expose private training data metadata and inferences.
+
+- [CWE-538](https://cwe.mitre.org/data/definitions/538.html): File and Directory Information Exposure
+
+  Description: The product reveals sensitive filesystem information that aids attackers in adversary techniques.
+
+  Justification: Filesystem permissions could enable unauthorized access to sensitive model artifacts.
+
+- [CWE-541](https://cwe.mitre.org/data/definitions/541.html): Information Exposure Through Include Source Code
+
+  Description: Source code exposes sensitive details like credentials, SQL, or cryptographic material.
+
+  Justification: Model source code could expose sensitive configuration details or training data. 
+
+- [CWE-649](https://cwe.mitre.org/data/definitions/649.html): Reliance on Obfuscation or Protection Mechanism
+
+  Description: Relying solely on obfuscation or data protection mechanisms provides ineffective protection.
+
+  Justification: Proper access controls still needed despite obfuscation of sensitive data.
+
+- [CWE-922](https://cwe.mitre.org/data/definitions/922.html): Insecure Storage of Sensitive Information
+
+  Description: Sensitive information stored without encryption or with a weak algorithm can enable adversaries to easily gain access.
+
+  Justification: Unencrypted model artifacts could expose training data or parameters.
+
+### MITRE ATT&CK Techniques
+
+- [T1530](https://attack.mitre.org/techniques/T1530/) - Data from Cloud Storage Object
+
+  Description: Adversaries may get access to sensitive data from cloud storage including credentials and keys.
+
+  Justification: Could access stored artifacts exposing sensitive model information. 
+
+- [T1552](https://attack.mitre.org/techniques/T1552/) - Unsecured Credentials
+
+  Description: Adversaries may steal and abuse valid account credentials and keys to access cloud services, like AWS.
+
+  Justification: Compromised credentials could enable unauthorized access to sensitive information.
+
+
+### MITRE ATLAS Techniques
 
 - AML.T0024: Exfiltration via ML Inference API. The inference API could reveal private details about training data or model behavior enabling exposure of sensitive information.
 
@@ -68,16 +136,28 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
 - AML.T0019: Publish Poisoned Data. Training models on sensitive data could enable later inference of that private information. Leaks sensitive data via training set composition.
   
+### MITRE ATT&CK Mitigations
 
-## ATT&CK Mitigations
+- [M1041](https://attack.mitre.org/mitigations/M1041/): Restrict Web-Based Content
 
-- [M1041](https://attack.mitre.org/mitigations/M1041/) - Restrict Web-Based Content. Limits web content execution which could be used to collect sensitive data or access controlled systems. Reduces attack surface.
+  Description: Limiting web content execution can reduce attack surface and prevent malicious web activity.
 
-- [M1043](https://attack.mitre.org/mitigations/M1043/) - Isolate System or Network. Isolates systems containing sensitive data and models. Limits access to sensitive information. 
+  Justification: Could block web vectors used to collect sensitive data. 
 
-- [M1048](https://attack.mitre.org/mitigations/M1048/) - Perform Software and File Integrity Checking. Checks integrity of assets like data and models. Could detect unauthorized modifications or access attempts.
+- [M1043](https://attack.mitre.org/mitigations/M1043/): Isolate System or Network
 
-## MITRE ATLAS Mitigations
+  Description: Isolating systems provides network segmentation, limiting an attacker's ability to access systems and sensitive data.
+
+  Justification: Segmentation limits exposure of sensitive systems and data.
+
+- [M1048](https://attack.mitre.org/mitigations/M1048/): Perform Software and File Integrity Checking
+
+  Description: Checking integrity of systems and files enables detection of unauthorized modifications or access attempts.
+
+  Justification: Could identify unauthorized access attempts and modifications.
+
+
+### MITRE ATLAS Mitigations
 
 - AML.M0002: Passive ML Output Obfuscation. Decrease output fidelity which limits the amount of sensitive information leaked through model outputs.
 

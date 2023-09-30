@@ -6,33 +6,102 @@ By Bob Simonoff
 
 - github at https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main
 
+# LLM07: Insecure Plugin Design
 
 
-## Common Weakness Enumeration (CWE) 
+### Summary
+LLM plugins processing untrusted inputs and having insufficient access control risk severe exploits like remote code execution.
 
-- [CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation - Applicable when plugins fail to validate untrusted inputs properly, enabling injection attacks.
+### Description
+LLM plugins are extensions that, when enabled, are called automatically by the model during user interactions. The model integration platform drives them,  and the application may have no control over the execution, especially when the model is hosted by another party. Furthermore, plugins are likely to implement free-text inputs from the model with no validation or type-checking to deal with context-size limitations. This allows a potential attacker to construct a malicious request to the plugin, which could result in a wide range of undesired behaviors, up to and including remote code execution. 
 
-- [CWE-79](https://cwe.mitre.org/data/definitions/79.html): Improper Neutralization of Input During Web Page Generation - Applicable if plugins do not encode or neutralize untrusted web inputs, risking stored XSS injections. 
+The harm of malicious inputs often depends on insufficient access controls and the failure to track authorization across plugins. Inadequate access control allows a plugin to blindly trust other plugins and assume that the end user provided the inputs. Such inadequate access control can enable malicious inputs to have harmful consequences ranging from data exfiltration, remote code execution, and privilege escalation.
 
-- [CWE-89](https://cwe.mitre.org/data/definitions/89.html): SQL Injection - Applicable if plugins accept raw SQL query inputs without sanitization, enabling SQLi attacks.
+This item focuses on creating LLM plugins rather than third-party plugins, which LLM-Supply-Chain-Vulnerabilities cover. 
 
-- [CWE-284](https://cwe.mitre.org/data/definitions/284.html): Improper Access Control - Applicable when plugins are given excessive privileges or have inadequate access control between them, enabling privilege escalation. 
+### Common Examples of Vulnerability
 
-- [CWE-306](https://cwe.mitre.org/data/definitions/306.html): Missing Authentication for Critical Function - Applicable if plugins lack authentication checks, permitting unauthorized access. 
+1. Plugin accepts all parameters in one unvalidated text field.
 
-- [CWE-346](https://cwe.mitre.org/data/definitions/346.html): Origin Validation Error - Applicable if plugin request origins are not validated, enabling CORS exploits.
+2. Plugin accepts unsafe configuration strings overriding settings. 
 
-- [CWE-732](https://cwe.mitre.org/data/definitions/732.html): Inadequate Encoding of Output Data - Applicable if plugin output lacks proper encoding, enabling DOM XSS or stored injections.
+3. Plugin accepts raw SQL or code statements without parameterization.
 
-- [CWE-807](https://cwe.mitre.org/data/definitions/807.html): Reliance on Untrusted Inputs in a Security Decision - Applicable if plugins rely on unvalidated inputs in security decisions, enabling exploitation.
+4. Authentication without authorization checks per plugin.
 
-- [CWE-862](https://cwe.mitre.org/data/definitions/862.html): Missing Authorization - Applicable if authorization checks are missing in plugins, allowing unauthorized access.
+5. Plugin assumes LLM content is from user and performs any requested actions without authorization.
 
-## ATT&CK Techniques
+### How to Prevent
 
-- [T1190](https://attack.mitre.org/techniques/T1190/) - Exploit Public-Facing Application. Attacks exposed applications which could include public plugin interfaces and endpoints.
+1. Enforce parameterized inputs with validation and sanitization. Inspect unstructured inputs for unsafe methods.
 
-## MITRE ATLAS Techniques
+2. Apply OWASP input validation and sanitization guidelines.
+
+3. Thoroughly test plugins for validation issues using SAST, DAST, IAST scans. 
+
+4. Minimize exploit impact through least privilege access control per OWASP.
+
+5. Use proper authentication like OAuth2 and API keys for authorization decisions. 
+
+6. Require manual user approval before allowing sensitive actions.
+
+7. Apply OWASP API security guidance to plugins.
+
+###v Example Attack Scenarios
+
+1. Attacker exploits plugin URL parameter injection to inject malicious content.
+
+2. Unvalidated plugin input enables reconnaissance and exploitation.
+
+3. Attacker overrides plugin configuration to access unauthorized data sources. 
+
+4. SQL injection through unchecked plugin input.
+
+5. Prompt injection exploits code management plugin to lock out user.
+
+
+### Common Weakness Enumeration (CWE) 
+
+- [CWE-300](https://cwe.mitre.org/data/definitions/300.html): Channel Accessible by Non-Endpoint ('Man-in-the-Middle')
+
+  Description: A communication channel is exposed to intermediaries, enabling information disclosure or spoofing.
+
+  Justification: Applicable as poisoning attacks manipulate training data in transit.
+  
+- [CWE-451](https://cwe.mitre.org/data/definitions/451.html): User Interface (UI) Misrepresentation of Critical Information
+
+  Description: Incorrect or misleading user interface presentation that masks or misrepresents critical information.
+
+  Justification: Relevant as data poisoning can cause misrepresentation of information.
+
+- [CWE-920: Improper Restriction of Power Consumption](https://cwe.mitre.org/data/definitions/920.html)
+
+  Description: Not limiting resource consumption enables denial of service.
+
+  Justification: Applicable as data poisoning aims to consume excessive resources.
+  
+- [CWE-1188](https://cwe.mitre.org/data/definitions/1188.html): Insecure Default Initialization of Resource
+
+  Description: Failure to change default initial settings makes the component vulnerable.
+
+  Justification: Relevant as models often use default data sources vulnerable to poisoning.
+
+- [CWE-1286](https://cwe.mitre.org/data/definitions/1286.html): Insufficient Data Validation
+
+  Description: Accepting input data without sufficient validation enables malicious activity.
+
+  Justification: Highly applicable as lack of validation enables data poisoning attacks.
+
+### MITRE ATT&CK Techniques
+
+- [T1190](https://attack.mitre.org/techniques/T1190/): Exploit Public-Facing Application
+
+  Description: Attacker exploits vulnerabilities in public-facing applications like APIs and plugins.
+
+  Justification: Directly relevant as plugins are public interfaces that may contain flaws.
+
+
+### MITRE ATLAS Techniques
 
 - AML.T0047: ML-Enabled Product or Service. Plugins extend capabilities of services, introducing potential input validation, access control and encoding weaknesses.
 
@@ -55,15 +124,28 @@ By Bob Simonoff
 - AML.T0019: Publish Poisoned Data. Data obtained from compromised sources could trigger unintended behaviors in downstream plugins leading to exploitation.
 
 
-## ATT&CK Mitigations
+### MITRE ATT&CK Mitigations
 
-- [M1042](https://attack.mitre.org/mitigations/M1042/) - Disable or Remove Feature or Program. Removes problematic features like unsafe plugins. Eliminating vulnerable plugins reduces the attack surface.
+- [M1042](https://attack.mitre.org/mitigations/M1042/): Disable or Remove Feature or Program
 
-- [M1043](https://attack.mitre.org/mitigations/M1043/) - Isolate System or Network. Isolates systems containing plugins. Segmentation could prevent exploits initiated through plugins from impacting other systems.
+  Description: Disable or remove problematic features or programs like insecure plugins.
 
-- [M1049](https://attack.mitre.org/mitigations/M1049/) - Disable or Remove Feature or Program. Removes features like insecure plugins. Eliminating vulnerable plugins reduces the attack surface.
+  Justification: Highly applicable mitigation to reduce attack surface by removing vulnerable plugins.
 
-## MITRE ATLAS Mitigations
+- [M1043](https://attack.mitre.org/mitigations/M1043/): Isolate System or Network
+  
+  Description: Isolate systems like those hosting plugins from other resources.
+
+  Justification: Segmentation could limit impact of any plugin exploits.
+
+- [M1049](https://attack.mitre.org/mitigations/M1049/): Disable or Remove Feature or Program
+
+  Description: Disable or remove problematic features like insecure plugins.
+
+  Justification: Directly applicable mitigation to reduce attack surface by eliminating vulnerable plugins.
+
+
+### MITRE ATLAS Mitigations
 
 - AML.M0015: Adversarial Input Detection. Detect and filter malicious inputs and queries to plugins before reaching vulnerable code. Identifies and blocks potential exploits.
 
@@ -82,4 +164,5 @@ By Bob Simonoff
 - AML.M0012: Encrypt Sensitive Information. Encrypt sensitive data to prevent exposure through potential vulnerabilities in integrated plugins. 
 
 - AML.M0018: User Training. Educate users on potential plugin risks so they avoid unknowingly invoking dangerous functionality.
-- 
+  
+

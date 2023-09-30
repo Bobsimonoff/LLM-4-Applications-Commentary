@@ -9,11 +9,11 @@ By Bob Simonoff
 
 # LM02: Insecure Output Handling
 
-## Summary
+### Summary
 
-Neglecting to validate LLM outputs may lead to downstream security exploits, including code execution that compromises systems and exposes data.
+Neglecting to validate Large Language Model outputs may lead to downstream security exploits, including code execution that compromises systems and exposes data.
 
-## Description
+### Description
 
 Insecure Output Handling arises when downstream components blindly accept LLM outputs without scrutiny, enabling attackers to indirectly access functionality or trigger exploits.
 
@@ -24,25 +24,97 @@ Successful attacks can lead to privilege escalation, command injection, XSS, SSR
 Prevention involves treating the LLM as any other user, applying input validation and sanitization per OWASP guidelines, and encoding outputs to mitigate code execution. LLM access should be limited using least privilege principles.
 
 
-## Common Weakness Enumeration (CWE)
+### Common Examples of Risk 
 
-- [CWE-78](https://cwe.mitre.org/data/definitions/78.html): OS Command Injection - Allowing operating system commands to be injected. Applicable as lack of output validation could allow command injection when passed to system functions by failing to validate outputs used in OS commands.
+1. Executing unchecked LLM output in system shells enabling command injection.
 
-- [CWE-79](https://cwe.mitre.org/data/definitions/79.html): Cross-site Scripting - Failure to properly handle user input in web pages. Applicable as inadequate output encoding risks XSS vulnerabilities in web contexts by not properly encoding untrusted LLM outputs in web applications.
+2. Returning unvalidated JavaScript/Markdown from LLM to browsers causing XSS.
 
-- [CWE-89](https://cwe.mitre.org/data/definitions/89.html): SQL Injection - Improper neutralization of special elements leading to malformed SQL queries. Applicable as passing unvalidated LLM outputs to SQL can lead to injection by not validating outputs used in SQL queries. 
+### Prevention and Mitigation Strategies
 
-- [CWE-94](https://cwe.mitre.org/data/definitions/94.html): Code Injection - Serving user input directly to an interpreter as code. Applicable as directly executing unvalidated output could allow arbitrary code execution by interpreting LLM outputs as code.
+1. Validate LLM outputs to backends per OWASP input validation guidelines.
 
-- [CWE-200](https://cwe.mitre.org/data/definitions/200.html): Exposure of Sensitive Information to an Unauthorized Actor - Unprotected sensitive data that could be accessed by unauthorized parties. Added as insecure handling can expose sensitive data through improper access controls on outputs. 
+2. Encode LLM outputs to users per OWASP output encoding guidance.
 
-- [CWE-284](https://cwe.mitre.org/data/definitions/284.html): Improper Access Control - Failure to restrict access to authorized users. Added as lack of access control on outputs can enable exploits by allowing unauthorized access.
+### Example Attack Scenarios
 
-- [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Use of untrusted inputs or code. Applicable as untrusted outputs may trigger unintended functionality by including functionality from untrusted outputs.
+1. Unvalidated chatbot response executed as system commands, allowing RCE.
 
-- [CWE-937](https://cwe.mitre.org/data/definitions/937.html): OWASP Top Ten 2013 Category A9 - Using Components with Known Vulnerabilities - Using software with unpatched vulnerabilities. Added as vulnerable components could mishandle outputs if outputs are passed to flawed components. 
+2. Website summarizer exfiltrates data through LLM output encoding. 
 
-## MITRE ATLAS Techniques
+3. LLM generates malicious SQL query that wipes database after execution.
+
+4. Attacker uses prompt injection for LLM to return unsanitized XSS payload.
+
+
+
+### Common Weakness Enumeration (CWE)
+
+- [CWE-78](https://cwe.mitre.org/data/definitions/78.html): OS Command Injection
+
+  Description: The software constructs all or part of an OS command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended OS command when it is sent to a downstream component.
+
+  Justification: Failure to validate outputs could allow command injection when passed to system functions.
+
+- [CWE-79](https://cwe.mitre.org/data/definitions/79.html): Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
+
+  Description: The software does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.
+
+  Justification: Inadequate output encoding risks XSS vulnerabilities in web contexts.
+
+- [CWE-89](https://cwe.mitre.org/data/definitions/89.html): Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')
+
+  Description: The software constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended SQL command when it is sent to a downstream component.
+
+  Justification: Passing outputs to SQL could lead to injection.
+
+- [CWE-94](https://cwe.mitre.org/data/definitions/94.html): Improper Control of Generation of Code ('Code Injection')
+
+  Description: The software constructs all or part of a code segment using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the syntax or behavior of the intended code segment.
+
+  Justification: Direct execution of outputs could allow arbitrary code execution.
+
+- [CWE-200](https://cwe.mitre.org/data/definitions/200.html): Exposure of Sensitive Information to an Unauthorized Actor   
+
+  Description: The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
+
+  Justification: Insecure handling could expose sensitive data through improper access controls.
+
+- [CWE-284](https://cwe.mitre.org/data/definitions/284.html): Improper Access Control
+
+  Description: The software does not restrict or incorrectly restricts access to a resource from an actor that is not explicitly authorized to access the resource.
+
+  Justification: Lack of access control could enable exploits through unauthorized access.
+
+- [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere
+
+  Description: The software imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.  
+
+  Justification: Untrusted outputs could trigger unintended functionality.
+
+- [CWE-937](https://cwe.mitre.org/data/definitions/937.html): OWASP Top Ten 2013 Category A9 - Using Components with Known Vulnerabilities
+
+  Description: The software is out-of-date, lacking patches, or makes use of third-party components with publicly known vulnerabilities.
+
+  Justification: Vulnerable components could mishandle outputs.
+
+
+### MITRE ATT&CK Techniques
+
+- [T1190](https://attack.mitre.org/techniques/T1190/): Exploit Public-Facing Application
+
+  Description: Adversaries may attempt to take advantage of a weakness in an internet-facing computer or program using software, data, or commands in order to cause unintended or unanticipated behavior. Public facing applications, including APIs and cloud-based services, are common targets.
+
+  Justification: Could exploit public model APIs by targeting exposed services that inadequately validate outputs. 
+
+- [T1499](https://attack.mitre.org/techniques/T1499/): Endpoint Denial of Service
+
+  Description: Adversaries may disrupt services by targeting endpoints, which are networked computing devices such as PCs, servers, and mobile devices. Different types of DoS operations can consume all available network bandwidth, exhaust computational resources, and disable services and system crash. 
+
+  Justification: Resource exhaustion denial of service could occur from flooding endpoints with excessive outputs.
+
+
+### MITRE ATLAS Techniques
 
 - [AML.T0040](/techniques/AML.T0040): ML Model Inference API Access - Use of the model API to manipulate behavior. Adversaries could send crafted prompts to generate malicious outputs via the API. Allows manipulating model outputs by controlling API inputs. 
 
@@ -64,22 +136,29 @@ Prevention involves treating the LLM as any other user, applying input validatio
 
 - [AML.T0019](/techniques/AML.T0019): Publish Poisoned Data - Distribution of contaminated datasets. Adversaries could poison training data to influence insecure outputs. Manipulates model behavior by poisoning training data.
 
-## ATT&CK Techniques
 
-- [T1190](https://attack.mitre.org/techniques/T1190/): Exploit Public-Facing Application - Attacks against exposed applications. Attacks exposed apps. Could exploit public model APIs by targeting exposed services.
+### MITRE ATT&CK Mitigations
 
-- [T1499](https://attack.mitre.org/techniques/T1499/): Endpoint Denial of Service - Disrupting service availability. Disrupts service availability. Overflowing outputs could cause DoS by consuming resources.
+- [M1041](https://attack.mitre.org/mitigations/M1041/): Restrict Web-Based Content
+
+  Description: Limiting the execution of web content including scripts helps reduce attack surface. Allowlisting trusted sources, sandboxing, and blocking unnecessary scripting helps prevent exploitation of improper output handling in web contexts.
+
+  Justification: Could prevent execution of malicious web outputs by restricting web content.
+
+- [M1042](https://attack.mitre.org/mitigations/M1042/): Disable or Remove Feature or Program
+
+  Description: Disabling or removing unnecessary features and programs reduces attack surface. Disabling plugin functionalities that improperly handle outputs removes pathways for potential exploitation.
+
+  Justification: Could eliminate plugins mishandling outputs by disabling them. 
+
+- [M1049](https://attack.mitre.org/mitigations/M1049/): Disable or Remove Feature or Program
+
+  Description: Disabling or removing unnecessary features and programs reduces attack surface. Disabling plugin functionalities that improperly handle outputs removes pathways for potential exploitation.
+
+  Justification: Could eliminate plugins mishandling outputs by disabling them.
 
 
-## ATT&CK Mitigations
-
-- [M1041](https://attack.mitre.org/mitigations/M1041/): Restrict Web-Based Content - Limiting web content execution. Limits risky web content. Could block web outputs leading to code execution by restricting web content execution.
-
-- [M1042](https://attack.mitre.org/mitigations/M1042/): Disable or Remove Feature or Program - Disabling or removing risky features. Removes features. Could eliminate plugin functions producing insecure outputs by disabling them.
-
-- [M1049](https://attack.mitre.org/mitigations/M1049/): Disable or Remove Feature or Program - Disabling or removing risky features. Removes features. Could eliminate plugin functions producing insecure outputs by disabling them.
-
-## MITRE ATLAS Mitigations 
+### MITRE ATLAS Mitigations 
 
 - AML.M0018: User Training - Educating users about adversary TTPs. Train users on potential output risks. Reduces unknowing execution of insecure outputs by improving user awareness. 
 

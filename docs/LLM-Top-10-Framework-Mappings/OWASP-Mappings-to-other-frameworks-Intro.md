@@ -23,7 +23,7 @@ The OWASP Top 10 provides the top 10 critical security risks for web application
 - [ENISA Threat Landscape](https://www.enisa.europa.eu/) examines emerging threats to AI systems. Mapping ENISA helps identify OWASP LLM risks unique to the AI domain that may not be highlighted in traditional frameworks.
 
 
-This cross-framework mapping aims to connect the dots between OWASP risks and complementary frameworks. Please let me know if I should modify or expand this introduction to better convey the value of mapping across each targeted framework.
+This cross-framework mapping aims to connect the dots between OWASP risks and complementary frameworks. 
 
 ![alt text](./images/Security-Frameworks-Template.png)
 

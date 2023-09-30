@@ -9,11 +9,11 @@ By Bob Simonoff
 
 # LLM03: Training Data Poisoning
 
-## Summary
+### Summary
 
 Tampered training data can impair LLM models leading to responses that may compromise security, accuracy, or ethical behavior.
 
-## Description
+### Description
 
 Training Data Poisoning involves manipulating the data used to train LLMs to impair model capabilities and outputs. 
 
@@ -22,27 +22,92 @@ Poisoned training data like falsified, biased, or malicious content can lead to 
 Prevention involves verifying supply chain integrity, validating legitimacy of data sources, isolating training environments, sanitizing inputs, and incorporating adversarial robustness techniques. Monitoring model behavior and using human review loops can help detect poisoning attacks.
 
 
-## Common Weakness Enumeration (CWE) 
+### Common Examples of Risk
 
-- [CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation - Failure to properly validate input data. Applicable as lack of validation enables poisoning of training data by allowing malicious data to be ingested without inspection.
+1. Malicious actor poisons model training data with falsified information that impacts model outputs.
 
-- [CWE-306](https://cwe.mitre.org/data/definitions/306.html): Missing Authentication for Critical Function - Not authenticating entities before performing sensitive functions. Applicable as lack of authentication of data sources can allow poisoning by permitting unauthorized access to manipulate training data. 
+2. Attacker directly injects harmful content into model training which is reflected in outputs. 
 
-- [CWE-502](https://cwe.mitre.org/data/definitions/502.html): Deserialization of Untrusted Data - Deserializing data from untrusted sources. Applicable as deserializing untrusted training data poses risks of executing adversary code in poisoned serialized models or datasets.
+3. User unintentionally leaks sensitive data that appears in model outputs.
 
-- [CWE-693](https://cwe.mitre.org/data/definitions/693.html): Protection Mechanism Failure - A security protection failing unexpectedly. Added as failure of protections can enable poisoning by allowing defenses to be circumvented.
+4. Model trains on unverified data leading to inaccurate outputs.
 
-- [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Use of untrusted code or inputs. Applicable as poisoned data introduces unintended functionality by including malicious content.
+5. Model ingests unsafe data due to lack of access controls, generating harmful outputs.
 
-- [CWE-937](https://cwe.mitre.org/data/definitions/937.html): OWASP Top Ten 2013 Category A9 - Using Components with Known Vulnerabilities - Failure to patch known weaknesses. Added as vulnerable components could enable poisoning by providing a vector for malicious data to enter workflow.
+### Prevention and Mitigation Strategies
 
-## ATT&CK Techniques
+1. Verify training data supply chain, sources, and contents.
 
-- [T1565](https://attack.mitre.org/techniques/T1565/): Data Manipulation - Altering data prior to storage or transmission. Could directly poison training data by manipulating datasets before they are consumed.
+2. Confirm legitimacy of all data used in training stages.
 
-- [T1566](https://attack.mitre.org/techniques/T1566/): Phishing - Use of fraudulent messages to deliver payloads. Could direct users to poisoned data sources through phishing lures.
+3. Craft separate models for different use cases with tailored training data.
 
-## MITRE ATLAS Techniques
+4. Sandbox models to restrict ingestion of unintended data sources. 
+
+5. Filter and sanitize training data inputs.
+
+6. Use robustness techniques like federated learning to minimize outlier impact.
+
+7. Test models and monitor outputs to detect poisoning signs.
+
+### Example Attack Scenarios
+
+1. Attacker poisons training data to bias model outputs and mislead users. 
+
+2. Malicious user injects toxic data into training, adapting model to generate biased output.
+
+3. Attacker creates fake documents that manipulate model training, impacting outputs.
+
+4. Attacker exploits prompt injection to insert malicious data into model training.
+
+### Common Weakness Enumeration (CWE) 
+
+- [CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation
+
+  Description: Missing or inadequate input validation leads to unchecked tainted input used directly or indirectly resulting in dangerous downstream behaviors.
+
+  Justification: Lack of validation enables poisoning of training data by allowing malicious data to be ingested without inspection.
+
+- [CWE-306](https://cwe.mitre.org/data/definitions/306.html): Missing Authentication for Critical Function
+  
+  Description: The software does not perform or incorrectly performs an authentication check when an actor attempts to access a critical function or resource.
+
+  Justification: Lack of authentication of data sources can allow poisoning by permitting unauthorized access to manipulate training data.
+
+- [CWE-502](https://cwe.mitre.org/data/definitions/502.html): Deserialization of Untrusted Data
+
+  Description: The application deserializes untrusted data without sufficiently verifying that the resulting data will be valid.
+
+  Justification: Deserializing untrusted training data poses risks of executing adversary code in poisoned serialized models or datasets.
+
+- [CWE-693](https://cwe.mitre.org/data/definitions/693.html): Protection Mechanism Failure
+
+  Description: A protection mechanism unexpectedly fails to be enforced or performs an unexpected negative action. This may lead to unintended adverse consequences that were supposed to be prevented by the mechanism.
+
+  Justification: Failure of protections can enable poisoning by allowing defenses to be circumvented.
+  
+- [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere
+
+  Description: The software imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.
+
+  Justification: Poisoned data introduces unintended functionality by including malicious content.
+
+- [CWE-937](https://cwe.mitre.org/data/definitions/937.html): OWASP Top Ten 2013 Category A9 - Using Components with Known Vulnerabilities
+
+  Description: The software is out-of-date, lacking patches, or uses components with publicly known vulnerabilities.
+
+  Justification: Vulnerable components could enable poisoning by providing a vector for malicious data to enter workflow.
+
+
+### MITRE ATT&CK Techniques
+
+- [T1565](https://attack.mitre.org/techniques/T1565/): Data Manipulation
+
+  Description: Adversaries may manipulate and forge file contents and metadata to confuse and mislead forensic investigators or file analysis tools. File attributes like timestamps can be modified to mimic legitimate files. Adversaries may tamper with data at rest or in transit to manipulate external outcomes.
+
+  Justification: Could directly poison training data by manipulating datasets before they are consumed.
+
+### MITRE ATLAS Techniques
 
 - [AML.T0019](/techniques/AML.T0019): Publish Poisoned Data - Distribution of contaminated datasets. Adversaries could directly publish poisoned datasets used for training. Directly provides poisoned data.
 
@@ -65,15 +130,34 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
 - [AML.T0047](/techniques/AML.T0047): ML-Enabled Product or Service - Exploiting ML services. Existing services using poisoned data could be exploited. Propagates impacts through supply chain.
 
 
-## ATT&CK Mitigations
+### MITRE ATT&CK Mitigations
 
-- [M1041](https://attack.mitre.org/mitigations/M1041/): Restrict Web-Based Content - Limiting web content execution. Limits web content execution. Could block web access to poisoned data by restricting web content loading. 
+- [M1041](https://attack.mitre.org/mitigations/M1041/): Restrict Web-Based Content
 
-- [M1043](https://attack.mitre.org/mitigations/M1043/): Isolate System or Network - Isolating systems from untrusted networks. Isolates systems and networks. Could prevent poisoned data from spreading by isolating compromised systems.
+  Description: Allowlisting, blocking, or sandboxing web content will reduce the attack surface against web-based attacks, resulting in safer web browsing and reduced phishing effectiveness.
 
-- [M1050](https://attack.mitre.org/mitigations/M1050/): Network Segmentation - Segmenting networks into enclaves. Segregates networks. Could prevent poisoned data accessing production systems by enforcing network boundaries. 
+  Justification: Could block web access to poisoned data by restricting web content loading.
 
-## MITRE ATLAS Mitigations
+- [M1043](https://attack.mitre.org/mitigations/M1043/): Isolate System or Network
+
+  Description: Isolate systems from the Internet or untrusted networks, and isolate sensitive systems from vulnerable systems to reduce a threat's ability to access and compromise systems. Network segregation also adds a layer of defense, since an exploitation would have to traverse the boundary to reach other systems.
+
+  Justification: Could prevent poisoned data from spreading by isolating compromised systems.
+  
+- [M1050](https://attack.mitre.org/mitigations/M1050/): Network Segmentation
+
+  Description: Segment networks to enforce a degree of separation between systems that reduces the ability for lateral movement and limits traffic to other enclaves and zones. Network segmentation can be achieved through the use of emerging network virtualization techniques, VLANs, and physically separated network segments joined by guarded network gateways.
+
+  Justification: Could prevent poisoned data accessing production systems by enforcing network boundaries.
+  
+- [M1015](https://attack.mitre.org/mitigations/M1015/): Secure Authentication
+
+  Description: Adversaries commonly steal credentials or reuse existing compromised credentials as a means of gaining Initial Access; limiting accessibility and applying multi-factor authentication makes credential theft more difficult. Enable MFA/2FA and use centralized management to enforce secure authentication across all systems, services, and infrastructure.
+
+  Justification: Secure authentication prevents unauthorized data poisoning.
+
+
+### MITRE ATLAS Mitigations
 
 - AML.M0007: Sanitize Training Data - Detecting and removing malicious training data. Remove or remediate poisoned data. Directly addresses data poisoning by cleansing datasets.
 

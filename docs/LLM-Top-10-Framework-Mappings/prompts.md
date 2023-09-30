@@ -17,7 +17,7 @@ For each CWE, provide the following in bullet list format:
 
 Use the following structure:
 
-## Common Weakness Enumeration (CWE)
+### Common Weakness Enumeration (CWE)
 
 - [CWE-ID](URL): Name. Brief description. Explanation of how this could enable Prompt Injection.
 

@@ -9,10 +9,10 @@ By Bob Simonoff
 
 # LLM08: Excessive Agency
 
-## Summary
+### Summary
 Granting LLMs unchecked autonomy to take action can lead to unintended consequences, jeopardizing reliability, privacy, and trust.
 
-## Description
+### Description
 
 Granting LLMs unchecked autonomy to take actions through excessive permissions, functionality, and lack of oversight can lead to harmful unintended consequences. 
 
@@ -20,32 +20,112 @@ Attackers can exploit ambiguous or malicious prompts, along with insecure plugin
 
 Prevention requires limiting LLM functionality, permissions, and autonomy to only what is essential. Strict input validation and robust access controls should be implemented in plugins. User context must be maintained and human approval required for impactful actions. Monitoring systems and rate limiting can help detect and limit unauthorized behaviors. Following security best practices around authorization, mediation, and privilege minimization is key to securing LLM agency.
 
+### Common Examples of Risk
 
-## Common Weakness Enumeration (CWE)
+1. Plugins have unnecessary functions beyond what's needed. 
 
-- [CWE-272](https://cwe.mitre.org/data/definitions/272.html): Least Privilege Violation - Applicable when excessive permissions beyond functional needs are granted, enabling unauthorized actions. 
+2. Plugins fail to filter inputs properly.
 
-- [CWE-284](https://cwe.mitre.org/data/definitions/284.html): Improper Access Control - Applicable if plugins lack access controls between them, permitting privilege escalation and unauthorized actions.
+3. Plugins get more access permissions than required.  
 
-- [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization - Applicable when improper or missing authorization checks lead to unauthorized actions being performed.
+4. Plugins use high-privilege identities unnecessarily. 
 
-- [CWE-347](https://cwe.mitre.org/data/definitions/347.html): Improper Verification of Cryptographic Signature - Applicable if failure to verify signatures on actions poses authorization risks enabling malicious actions.
+5. Plugins take actions without approval.
 
-- [CWE-732](https://cwe.mitre.org/data/definitions/732.html): Inadequate Encoding of Output Data - Applicable if plugin output lacks encoding, leading to unintended execution of unauthorized actions.
+### Prevention and Mitigation Strategies
 
-- [CWE-798](https://cwe.mitre.org/data/definitions/798.html): Use of Hard-coded Credentials - Applicable as hard-coded credentials with excessive privileges granted to plugins pose risks of unauthorized actions.
+1. Only allow necessary plugin functions.
 
-- [CWE-799](https://cwe.mitre.org/data/definitions/799.html): Improper Control of Interaction Frequency - Applicable as lack of frequency control poses risks of excessive unauthorized actions being performed. 
+2. Restrict plugin functions to the minimum needed. 
 
-- [CWE-862](https://cwe.mitre.org/data/definitions/862.html): Missing Authorization - Applicable when authorization is not checked before actions are performed, enabling unauthorized behaviors.
+3. Avoid open-ended plugin functions when possible.
 
-## ATT&CK Techniques
+4. Give plugins least privilege access to other systems.
 
-- [T1548](https://attack.mitre.org/techniques/T1548/) - Abuse Elevation Control Mechanism. Exploits weak access controls around plugins to leverage excessive permissions leading to unintended actions. 
+5. Check user authorization for all plugin actions. 
 
-- [T1555](https://attack.mitre.org/techniques/T1555/) - Credentials from Password Stores. Steals stored credentials granting excessive privileges to perform unauthorized actions.
+6. Require human approval for impactful actions.
 
-## MITRE ATLAS Techniques
+7. Validate all plugin requests against security policies.
+
+### Example Attack Scenarios
+
+1. A mail plugin can send messages when it should only read mail. The LLM is tricked into sending spam.
+
+2. A plugin has unnecessary database access. The LLM deletes records it shouldn't. 
+
+3. A plugin uses an admin account unnecessarily. The LLM makes changes as admin without approval.
+
+4. A social media plugin can post without approval. The LLM posts inappropriate content.
+
+
+### Common Weakness Enumeration (CWE)
+
+- [CWE-272](https://cwe.mitre.org/data/definitions/272.html): Least Privilege Violation
+
+  Description: Granting excessive permissions beyond functional needs enables unauthorized actions.
+
+  Justification: Highly relevant as plugins often get unnecessary privileges. 
+
+- [CWE-284](https://cwe.mitre.org/data/definitions/284.html): Improper Access Control
+
+  Description: Lacking controls between software components permits privilege escalation.
+
+  Justification: Applicable as poor plugin access controls pose risks.
+
+- [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization
+
+  Description: Missing or improper authorization enables unauthorized actions.
+
+  Justification: Directly relevant as plugins may lack authorization checks.
+
+- [CWE-347](https://cwe.mitre.org/data/definitions/347.html): Improper Verification of Cryptographic Signature
+
+  Description: Failing to verify signatures on actions poses authorization risks.
+
+  Justification: Relevant as lack of signature verification enables unauthorized actions.
+
+- [CWE-732](https://cwe.mitre.org/data/definitions/732.html): Inadequate Encoding of Output Data
+
+  Description: Lack of output encoding may lead to unintended execution of actions.
+
+  Justification: Applicable as poor encoding could result in unauthorized behaviors.
+
+- [CWE-798](https://cwe.mitre.org/data/definitions/798.html): Use of Hard-coded Credentials
+
+  Description: Hard-coded credentials with excessive privileges pose unauthorized action risks.
+
+  Justification: Relevant as hard-coded credentials enable unintended behaviors.
+
+- [CWE-799](https://cwe.mitre.org/data/definitions/799.html): Improper Control of Interaction Frequency
+
+  Description: Lack of frequency control poses risks of excessive unauthorized actions.
+
+  Justification: Applicable as excessive actions could occur without frequency checks.
+
+- [CWE-862](https://cwe.mitre.org/data/definitions/862.html): Missing Authorization
+
+  Description: Not checking authorization before actions poses risks of unauthorized behavior.
+
+  Justification: Highly applicable as plugins act without authorization.
+
+
+### MITRE ATT&CK Techniques
+
+- [T1548](https://attack.mitre.org/techniques/T1548/): Abuse Elevation Control Mechanism
+
+  Description: Exploiting weak access controls to leverage excessive privileges.
+
+  Justification: Relevant technique to exploit plugin privileges.
+
+- [T1555](https://attack.mitre.org/techniques/T1555/): Credentials from Password Stores
+  
+  Description: Stealing stored credentials granting excessive privileges.
+  
+  Justification: Enables unauthorized actions through stolen credentials.
+
+
+### MITRE ATLAS Techniques
 
 - AML.T0047: ML-Enabled Product or Service. Services granting plugins or components excessive permissions introduce vulnerabilities enabling unintended actions.
 
@@ -62,14 +142,22 @@ Prevention requires limiting LLM functionality, permissions, and autonomy to onl
 - AML.T0019: Publish Poisoned Data. Data obtained from compromised sources could trigger unintended behaviors enabled by excessive permissions.
 
 
+### MITRE ATT&CK Mitigations 
 
-## ATT&CK Mitigations 
+- [M1032](https://attack.mitre.org/mitigations/M1032/): Limit Access to Resource Over Network
 
-- [M1032](https://attack.mitre.org/mitigations/M1032/) - Limit Access to Resource Over Network. Limits network access to downstream systems. Could prevent lateral movement enabled by excessive permissions granted to plugins.
+  Description: Limit network access to downstream systems.
 
-- [M1040](https://attack.mitre.org/mitigations/M1040/) - Network Segmentation. Segregates networks to limit connectivity of systems exploited through unchecked plugin functions. 
+  Justification: Could prevent lateral movement from plugins.
 
-## MITRE ATLAS Mitigations
+- [M1040](https://attack.mitre.org/mitigations/M1040/): Network Segmentation
+
+  Description: Segregate networks to limit connectivity.
+
+  Justification: Limits impact of unchecked plugin actions.
+
+
+### MITRE ATLAS Mitigations
 
 - AML.M0015: Adversarial Input Detection. Detect and filter malicious queries that could trigger unintended actions before reaching vulnerable systems. Identifies and blocks potentially malicious queries.
 
@@ -86,4 +174,5 @@ Prevention requires limiting LLM functionality, permissions, and autonomy to onl
 - AML.M0018: User Training. Educate users on potential excessive agency risks so they avoid unknowingly triggering unintended behaviors. 
 
 - AML.M0012: Encrypt Sensitive Information. Encrypt sensitive data to prevent unintended actions resulting in unauthorized data exposure. Protects data confidentiality.
-- 
+
+ 
