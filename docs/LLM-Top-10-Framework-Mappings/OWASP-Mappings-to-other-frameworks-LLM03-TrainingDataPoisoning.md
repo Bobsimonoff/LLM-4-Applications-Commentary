@@ -107,55 +107,38 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
 
   Justification: Could directly poison training data by manipulating datasets before they are consumed.
 
+
 ### MITRE ATLAS Techniques
 
 - AML.T0019: Publish Poisoned Datasets
 
-  Description: Adversaries may poison datasets and publish them to a public location. The poisoned data may be introduced via supply chain compromise.
+  Description: Adversaries may publish poisoned datasets designed to manipulate and impair models that consume the data. Publishing provides a vector to introduce malicious data into victim training pipelines.
 
-  Justification: Publishing poisoned training data enables poisoning attacks by making malicious data available.
+  Justification: Publishing poisoned data enables poisoning by making malicious datasets available to unsuspecting consumers.
 
 - AML.T0020: Poison Training Data
 
-  Description: Adversaries may modify training data or labels to embed vulnerabilities in models trained on the data. Poisoned data can be introduced through supply chain attacks or after gaining initial access.
+  Description: Adversaries may directly poison training data to embed flaws activated later. Poisoned data introduced via supply chain attacks or after gaining access persistently compromises integrity of models trained on the data.
 
-  Justification: Poisoning training data is a direct way to manipulate model behavior by embedding flaws.
+  Justification: Poisoning training data is a direct way to manipulate model capabilities by embedding vulnerabilities.
 
 - AML.T0035: ML Artifact Collection
 
-  Description: Adversaries may collect ML artifacts like models and datasets for exfiltration or use in attack staging.
+  Description: Adversaries may collect artifacts like training data for exfiltration or use in attack staging. Access to training data provides the ability to directly manipulate and poison it.
 
-  Justification: Collecting training data could enable poisoning by providing access to manipulate the data.
+  Justification: Access to training data enables poisoning by permitting direct data manipulation.
 
 - AML.T0036: Data from Information Repositories
 
-  Description: Adversaries may mine information repositories to find valuable data aiding their objectives. Repositories facilitate collaboration and information sharing.
+  Description: By mining repositories, adversaries can discover details of training data sources, enabling them to target sources directly for poisoning attacks.
 
-  Justification: Mining data repositories could reveal training data sources to target for poisoning attacks.
-
-- AML.T0037: Data from Local System
-
-  Description: Adversaries may search local system sources like file systems and databases to find sensitive data prior to exfiltration.
-
-  Justification: Accessing local training data stores enables poisoning attacks by providing ability to directly manipulate the data.
-
+  Justification: Discovering data repository details reveals training data sources to target.
+  
 - AML.T0043: Craft Adversarial Data
 
-  Description: Adversaries carefully craft inputs to manipulate model behavior and outputs. Modifications are designed to achieve the adversary's goals.
+  Description: Adversaries may carefully craft malicious training data designed to manipulate model capabilities. The tailored data embeds specific flaws during training.
 
-  Justification: Crafting poisoned training data manipulates the model's learned behavior.
-
-- AML.T0044: Full ML Model Access
-
-  Description: Adversaries gain complete white-box access to a model, enabling them to meticulously craft malicious inputs.
-
-  Justification: Full access facilitates crafting poisoned training data to precisely manipulate model capabilities.
-
-- AML.T0010: ML Supply Chain Compromise
-
-  Description: Adversaries compromise parts of the ML supply chain like data, software, and models to gain initial access.
-
-  Justification: Compromising training data supply chain is a vector for introducing poisoned data.
+  Justification: Crafting poisoned data precisely manipulates models by embedding flaws.
 
 
 ### MITRE ATT&CK Mitigations

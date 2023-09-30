@@ -47,7 +47,6 @@ Prevention involves treating the LLM as any other user, applying input validatio
 4. Attacker uses prompt injection for LLM to return unsanitized XSS payload.
 
 
-
 ### Common Weakness Enumeration (CWE)
 
 - [CWE-78](https://cwe.mitre.org/data/definitions/78.html): OS Command Injection
@@ -116,41 +115,37 @@ Prevention involves treating the LLM as any other user, applying input validatio
 
 ### MITRE ATLAS Techniques
 
-- AML.T0011: User Execution 
+- AML.T0040: ML Model Inference API Access
 
-  Description: An adversary may rely upon a user executing malicious code or outputs from a system. Users may inadvertently execute unsafe code or outputs that were not properly validated or sanitized by the system before being presented to the user.
+  Description: Adversaries may use inference API access to an LLM to craft malicious prompts designed to generate insecure outputs containing unvalidated code snippets or injection payloads. These payloads take advantage of inadequate output handling in downstream systems.
 
-  Justification: A user could execute unchecked malicious outputs from an LLM system, enabling exploits like XSS on the user's browser due to lack of output encoding.
+  Justification: Inference API access provides the ability to tune prompts to maximize insecure output generation.
 
 - AML.T0043: Craft Adversarial Data
 
-  Description: An adversary carefully crafts adversarial inputs to manipulate the behavior of a machine learning model and influence the outputs it generates. The modifications to the inputs are designed to achieve the adversary's objectives.
+  Description: Adversaries may carefully craft prompts to manipulate the LLM into generating insecure outputs designed to exploit lack of validation in downstream systems. The prompts can be tuned to produce unvalidated code or injection payloads.
 
-  Justification: Specially crafted prompts provided to an LLM system could produce intentionally insecure outputs, such as unvalidated code snippets, that take advantage of lack of validation in downstream systems.
-
+  Justification: Crafting prompts precisely controls LLM outputs, enabling generation of malicious payloads by exploiting inadequate downstream validation.
+  
 - AML.T0044: Full ML Model Access
 
-  Description: An adversary gains complete white-box access to a machine learning model, meaning they have full knowledge of the model architecture, parameters, training data, and other implementation details. This level of access enables them to meticulously craft inputs to manipulate model behavior.
+  Description: Full white-box access enables adversaries to meticulously tune prompts to optimally exploit vulnerabilities in downstream systems by maximizing generation of insecure outputs like unvalidated code snippets or injection payloads.
 
-  Justification: With full access to the LLM, an adversary could carefully tune prompts to maximize generation of insecure outputs such as injection payloads tailored to vulnerabilities in downstream systems.
+  Justification: With full access, adversaries can precisely craft prompts to generate extremely tailored insecure outputs exploiting downstream systems.
 
 - AML.T0045: ML Intellectual Property Theft
 
-  Description: An adversary may exfiltrate proprietary machine learning artifacts and data in order to steal intellectual property and cause economic harm to an organization. Lack of proper validation and encoding of model outputs could enable unauthorized access to sensitive artifacts and data.
+  Description: Adversaries may attempt to exfiltrate artifacts or data by manipulating LLM outputs to encode and embed sensitive information that is then decoded downstream. Insecure handling that fails to sanitize outputs could enable this exfiltration.  
 
-  Justification: Failure to properly handle model outputs could inadvertently expose sensitive intellectual property or enable an adversary to steal data assets due to lack of proper access controls.
-
-- AML.T0046: Spamming ML System with Chaff Data
-
-  Description: An adversary may overwhelm a machine learning system with a large volume of chaff data designed to increase false positives and waste the time of human analysts tasked with reviewing system outputs.
-
-  Justification: A high volume of meaningless outputs produced by an LLM could waste substantial analyst time if incorrectly passed downstream to human reviewers without additional validation.
+  Justification: Failure to sanitize outputs could allow embedding of stolen IP or data for exfiltration.
 
 - AML.T0047: ML-Enabled Product or Service
 
-  Description: An adversary leverages access to a product or service that utilizes machine learning internally to gain access to the underlying ML model. This access could then be abused to craft malicious inputs and insecure outputs.
+  Description: By gaining access to an LLM-enabled product/service, an adversary could potentially craft prompts designed to generate insecure outputs by exploiting the product's access to the underlying LLM and lack of output validation in connected downstream systems.
 
-  Justification: By gaining access to an LLM-enabled product or service, an adversary could potentially craft inputs that produce insecure outputs by exploiting the product's access to the underlying LLM.
+  Justification: Access to LLM-enabled services provides prompting access that could produce insecure outputs.
+
+
 
 ### MITRE ATT&CK Mitigations
 
