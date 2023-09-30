@@ -69,7 +69,7 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
   Justification: Lack of validation enables poisoning of training data by allowing malicious data to be ingested without inspection.
 
 - [CWE-306](https://cwe.mitre.org/data/definitions/306.html): Missing Authentication for Critical Function
-  
+
   Description: The software does not perform or incorrectly performs an authentication check when an actor attempts to access a critical function or resource.
 
   Justification: Lack of authentication of data sources can allow poisoning by permitting unauthorized access to manipulate training data.
@@ -85,7 +85,7 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
   Description: A protection mechanism unexpectedly fails to be enforced or performs an unexpected negative action. This may lead to unintended adverse consequences that were supposed to be prevented by the mechanism.
 
   Justification: Failure of protections can enable poisoning by allowing defenses to be circumvented.
-  
+
 - [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere
 
   Description: The software imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.
@@ -109,25 +109,53 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
 
 ### MITRE ATLAS Techniques
 
-- [AML.T0019](/techniques/AML.T0019): Publish Poisoned Data - Distribution of contaminated datasets. Adversaries could directly publish poisoned datasets used for training. Directly provides poisoned data.
+- AML.T0019: Publish Poisoned Datasets
 
-- [AML.T0020](/techniques/AML.T0020): Poison Training Data - Manipulation of training data to introduce vulnerabilities. Allows adversaries to manipulate training data to introduce vulnerabilities. Directly poisons data. 
+  Description: Adversaries may poison datasets and publish them to a public location. The poisoned data may be introduced via supply chain compromise.
 
-- [AML.T0010](/techniques/AML.T0010): ML Supply Chain Compromise - Compromise of ML components and services. Compromising data sources could allow poisoning of artifacts used for training. Introduces poisoned data through third parties.
+  Justification: Publishing poisoned training data enables poisoning attacks by making malicious data available.
 
-- [AML.T0016](/techniques/AML.T0016): Obtain Capabilities - Obtaining tools and exploits. Adversaries may obtain tools to aid in crafting poisoned data. Provides capabilities to optimize poisoning. 
+- AML.T0020: Poison Training Data
 
-- [AML.T0043](/techniques/AML.T0043): Craft Adversarial Data - Careful input crafting to manipulate models. Could allow carefully crafted data designed to influence model behavior. Allows optimizing poisoned data.
+  Description: Adversaries may modify training data or labels to embed vulnerabilities in models trained on the data. Poisoned data can be introduced through supply chain attacks or after gaining initial access.
 
-- [AML.T0012](/techniques/AML.T0012): Valid Accounts - Abuse of compromised credentials. Compromised credentials could allow direct data poisoning. Provides access to manipulate training data. 
+  Justification: Poisoning training data is a direct way to manipulate model behavior by embedding flaws.
 
-- [AML.T0044](/techniques/AML.T0044): Full ML Model Access - Complete control over the model. Full access enables direct manipulation of training data. Provides maximal control over data.
+- AML.T0035: ML Artifact Collection
 
-- [AML.T0040](/techniques/AML.T0040): ML Model Inference API Access - Use of the model API to manipulate behavior. May enable inferring details of training data to craft attacks. Allows reconnaissance for optimizing attacks.
+  Description: Adversaries may collect ML artifacts like models and datasets for exfiltration or use in attack staging.
 
-- [AML.T0024](/techniques/AML.T0024): Exfiltration via ML Inference API - Stealing data through the model API. Could expose private training data. Reveals insider information about training data.
+  Justification: Collecting training data could enable poisoning by providing access to manipulate the data.
 
-- [AML.T0047](/techniques/AML.T0047): ML-Enabled Product or Service - Exploiting ML services. Existing services using poisoned data could be exploited. Propagates impacts through supply chain.
+- AML.T0036: Data from Information Repositories
+
+  Description: Adversaries may mine information repositories to find valuable data aiding their objectives. Repositories facilitate collaboration and information sharing.
+
+  Justification: Mining data repositories could reveal training data sources to target for poisoning attacks.
+
+- AML.T0037: Data from Local System
+
+  Description: Adversaries may search local system sources like file systems and databases to find sensitive data prior to exfiltration.
+
+  Justification: Accessing local training data stores enables poisoning attacks by providing ability to directly manipulate the data.
+
+- AML.T0043: Craft Adversarial Data
+
+  Description: Adversaries carefully craft inputs to manipulate model behavior and outputs. Modifications are designed to achieve the adversary's goals.
+
+  Justification: Crafting poisoned training data manipulates the model's learned behavior.
+
+- AML.T0044: Full ML Model Access
+
+  Description: Adversaries gain complete white-box access to a model, enabling them to meticulously craft malicious inputs.
+
+  Justification: Full access facilitates crafting poisoned training data to precisely manipulate model capabilities.
+
+- AML.T0010: ML Supply Chain Compromise
+
+  Description: Adversaries compromise parts of the ML supply chain like data, software, and models to gain initial access.
+
+  Justification: Compromising training data supply chain is a vector for introducing poisoned data.
 
 
 ### MITRE ATT&CK Mitigations
@@ -143,13 +171,13 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
   Description: Isolate systems from the Internet or untrusted networks, and isolate sensitive systems from vulnerable systems to reduce a threat's ability to access and compromise systems. Network segregation also adds a layer of defense, since an exploitation would have to traverse the boundary to reach other systems.
 
   Justification: Could prevent poisoned data from spreading by isolating compromised systems.
-  
+
 - [M1050](https://attack.mitre.org/mitigations/M1050/): Network Segmentation
 
   Description: Segment networks to enforce a degree of separation between systems that reduces the ability for lateral movement and limits traffic to other enclaves and zones. Network segmentation can be achieved through the use of emerging network virtualization techniques, VLANs, and physically separated network segments joined by guarded network gateways.
 
   Justification: Could prevent poisoned data accessing production systems by enforcing network boundaries.
-  
+
 - [M1015](https://attack.mitre.org/mitigations/M1015/): Secure Authentication
 
   Description: Adversaries commonly steal credentials or reuse existing compromised credentials as a means of gaining Initial Access; limiting accessibility and applying multi-factor authentication makes credential theft more difficult. Enable MFA/2FA and use centralized management to enforce secure authentication across all systems, services, and infrastructure.

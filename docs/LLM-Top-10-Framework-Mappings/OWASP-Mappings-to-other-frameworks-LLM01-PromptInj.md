@@ -96,7 +96,7 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
 
   Description: Weak or missing authentication mechanisms for LLM access allows attackers to remotely inject malicious prompts while evading detection. Without sufficiently verifying identities, remote prompt injection can go unnoticed.
 
-  Justification: Weak authentication allows remote attackers to inject prompts and manipulate the LLM while evading detection.  
+  Justification: Weak authentication allows remote attackers to inject prompts and manipulate the LLM while evading detection.
 
 - [CWE-346](https://cwe.mitre.org/data/definitions/346.html): Origin Validation Error
 
@@ -124,7 +124,7 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
   Description: Adversaries may compromise systems and use them as a proxy for prompting the LLM to hide their true identity. Proxies could be leveraged to deliver prompts with injected malicious instructions.
 
   Justification: Proxies can obscure the source of injected prompts.
-  
+
 - [T1566](https://attack.mitre.org/techniques/T1566/): Phishing
 
   Description: Adversaries deploy phishing messages containing malicious attachments or links to get users to unknowingly download malware, visit credential harvesting sites, or provide sensitive information. Similarly, phishing messages could be crafted to manipulate users into interacting with the LLM in ways that inject malicious prompts, tricking the LLM into carrying out unintended and potentially harmful actions on behalf of the user.
@@ -134,23 +134,77 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
 
 ### MITRE ATLAS Techniques
 
-- [AML.T0040](/techniques/AML.T0040): ML Model Inference API Access - Use of the ML model inference API to send crafted input data and manipulate model behavior. Adversaries could craft malicious prompts and inject them into the model via the inference API. This allows adversaries to directly inject prompts into the model to manipulate its behavior.
+- AML.T0006: Active Scanning
 
-- [AML.T0047](/techniques/AML.T0047): ML-Enabled Product or Service - Exploitation of an existing machine learning product/service by taking advantage of vulnerabilities. Adversaries could exploit prompt vulnerabilities in commercial services that use LLMs under the hood. External services provide a pathway for adversaries to inject malicious prompts.
+  Description: An adversary may probe or scan the victim system to gather information for targeting. This is distinct from other reconnaissance techniques that do not involve direct interaction with the victim system.
 
-- [AML.T0044](/techniques/AML.T0044): Full ML Model Access - Gaining complete access to the target ML model, including its architecture and parameters. With full white-box access, adversaries could directly manipulate the model with malicious prompts. Full access allows adversaries to optimize prompt injections.
+  Justification: An attacker can actively probe the AI system to find vulnerabilities that could be exploited for prompt injection.
 
-- [AML.T0043](/techniques/AML.T0043): Craft Adversarial Data - Carefully crafting input data designed to manipulate model behavior. Adversaries could craft prompts designed to manipulate model behavior. Allows adversaries to tailor injection payloads. 
+- AML.T0011: User Execution
 
-- [AML.T0012](/techniques/AML.T0012): Valid Accounts - Obtaining and abusing credentials of existing accounts as a means of gaining initial access. Compromised credentials could allow adversaries to bypass authentication and directly interact with the model. Provides API access for prompt injections.
+  Description: An adversary may rely upon specific actions by a user in order to gain execution. Users may inadvertently execute unsafe code introduced via supply chain compromise. Users may also be subjected to social engineering to get them to execute malicious code.
 
-- [AML.T0016](/techniques/AML.T0016): Obtain Capabilities - Obtaining tools, exploits, and frameworks to support operations. Adversaries may obtain tools to aid in crafting effective prompt injections. Supports developing injection payloads. 
+  Justification: The attacker relies on the user executing or processing malicious prompts for exploit.
 
-- [AML.T0010](/techniques/AML.T0010): ML Supply Chain Compromise - Manipulation of ML components and services. Could allow adversaries to introduce vulnerabilities via compromised model artifacts. Introduces weaknesses enabling injections.
+- AML.T0012: Valid Accounts
 
-- [AML.T0011](/techniques/AML.T0011): User Execution - Users tricked into executing adversary payloads. Users may unknowingly execute prompts containing injections from documents. Causes unintentional execution of injections.
+  Description: Adversaries may obtain and abuse credentials of existing accounts as a means of gaining initial access. Credentials may take the form of usernames and passwords of individual user accounts or API keys that provide access to various ML resources and services.
 
-- [AML.T0019](/techniques/AML.T0019): Publish Poisoned Data - Distribution of contaminated datasets. Adversaries could poison public datasets with malicious prompts that exploit models trained on the data. Poisons datasets to persistently embed injections.
+  Justification: An attacker can use compromised valid accounts to inject malicious prompts into the system.
+
+- AML.T0015: Evade ML Model
+
+  Description: Adversaries can craft adversarial inputs that prevent a machine learning model from correctly identifying the contents of the data. This technique can be used to evade a downstream task where machine learning is utilized.
+
+  Justification: Crafted prompts can evade protections and exploit the system.
+
+- AML.T0018: Backdoor ML Model
+
+  Description: Adversaries may introduce a backdoor into a ML model. A backdoored model operates as expected under normal conditions, but will produce the adversary's desired output when a trigger is introduced.
+
+  Justification: Injected prompts can introduce backdoors by manipulating the model's behavior.
+
+- AML.T0029: Denial of ML Service
+
+  Description: Adversaries may target machine learning systems with a flood of requests for the purpose of degrading or shutting down the service. Since ML systems require significant compute, they can become overloaded.
+
+  Justification: A flood of malicious prompts could overload the system.
+
+- AML.T0031: Erode ML Model Integrity
+
+  Description: Adversaries may degrade the target model's performance with adversarial data inputs to erode confidence in the system over time. This can lead to the victim wasting time and money attempting to fix the system.
+
+  Justification: Repeated malicious prompts could erode the model's integrity over time.
+
+- AML.T0040: ML Model Inference API Access
+
+  Description: Adversaries may gain access to a model via legitimate access to the inference API. Inference API access can be a means of staging the attack.
+
+  Justification: The attacker can use the inference API to inject malicious prompts.
+
+- AML.T0043: Craft Adversarial Data
+
+  Description: Adversarial data are inputs to a ML model that have been modified to cause the adversary's desired effect in the target model. Effects include misclassification, missed detections, or degraded performance.
+
+  Justification: Crafted prompts can manipulate the model to achieve the adversary's goals.
+
+- AML.T0044: Full ML Model Access
+
+  Description: Adversaries may gain full white-box access to a ML model, meaning complete knowledge of the model architecture, parameters, and ontology.
+
+  Justification: Full access allows unfettered prompt injection capabilities.
+
+- AML.T0045: ML Intellectual Property Theft
+
+  Description: Adversaries may exfiltrate ML artifacts to steal intellectual property and cause economic harm.
+
+  Justification: Injected prompts could potentially steal IP or data.
+
+- AML.T0046: Spamming ML System with Chaff Data
+
+  Description: Adversaries may spam the ML system with chaff data that causes an increase in the number of detections, wasting analysts' time.
+
+  Justification: A flood of bogus prompts could waste analysts' time.
 
 
 ### MITRE ATT&CK Mitigations
@@ -178,7 +232,7 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
   Description: Implementing whitelisting policies restricting code execution and scripting helps prevent untrusted code and payloads from being executed through injected prompts.
 
   Justification: Prevents execution of code from injected prompts.
-  
+
 
 ### MITRE ATLAS Mitigations
 

@@ -26,7 +26,7 @@ Overreliance can occur when an Large Language Model produces erroneous informati
 
 ### Prevention and Mitigation Strategies
 
-1. Continuously monitor and manually review LLM outputs.  
+1. Continuously monitor and manually review LLM outputs.
 
 2. Validate outputs by comparing to trusted external sources.
 
@@ -46,7 +46,7 @@ Overreliance can occur when an Large Language Model produces erroneous informati
 
 10. Employ multiple levels of verification, not blindly trusting LLM outputs.
 
-**Example High-Risk Scenarios:**  
+**Example High-Risk Scenarios:**
 
 1. News org relies on LLM, spreading misinformation.
 
@@ -137,7 +137,30 @@ Overreliance can occur when an Large Language Model produces erroneous informati
 
 ### MITRE ATLAS Techniques
 
-- AML.T0019: Publish Poisoned Data. Training models on poisoned data from compromised sources could lead to unreliable outputs. Poisons model reliability.
+- AML.T0011: User Execution
+
+  Description: An adversary may rely upon users executing malicious code or outputs, such as through social engineering tactics.
+
+  Justification: Users over relying on incorrect LLM outputs may unknowingly execute unsafe actions.
+
+- AML.T0031: Erode ML Model Integrity
+
+  Description: An adversary may craft adversarial data inputs designed to degrade the target model's performance over time, which leads to wasted time and effort by the victim organization.
+
+  Justification: Providing malicious inputs could reduce LLM reliability over time, leading to greater overreliance issues.
+
+- AML.T0045: ML Intellectual Property Theft
+
+  Description: Adversaries may exfiltrate proprietary machine learning artifacts and data to steal intellectual property and cause economic harm.
+
+  Justification: Over reliance on incorrect LLM outputs could enable adversaries to more easily steal confidential data assets. 
+
+- AML.T0046: Spamming ML System with Chaff Data
+
+  Description: An adversary overwhelms ML systems with useless chaff data designed to increase false positives and waste analysts' time.
+
+  Justification: Providing excessive useless inputs could reduce LLM reliability over time, enabling overreliance issues.
+
 
 ### MITRE ATT&CK Mitigations
 

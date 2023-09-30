@@ -12,7 +12,7 @@ I am a Senior Principal Software Engineer and a Fellow at my current company. I 
 ## Why am I here
 This repository contains thoughts, notes and observations on the [OWASP Top 10 for Large Language Model Applications Top 10](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications) project and documents. Also note there is a website at [llmtop10.com](https://llmtop10.com/). 
 
-I intend to use this repository as a way of incubating ideas and developing thoughts for proposed inclusion in the project documentation as well as blog articles that I have time to publish.  
+I intend to use this repository as a way of incubating ideas and developing thoughts for proposed inclusion in the project documentation as well as blog articles that I have time to publish.
 
 ## Current Content
 **[LLM Monitors](./docs/LLM-Monitors.md)** - LLMs work very differently than most traditional software. They are nondeterministic and use natural language for their inputs, outputs, and actions taken. Furthermore, LLMs currently lack explainability to give confidence in the process used to produce answers to prompts. As a result new security monitoring concerns become important while foundational software security monitoring still remains crucial. The goal of this docuement is to highlight monitors implied by LLM security implications to help guide monitoring investments. Keeping these risk areas in mind can inform decisions around tools, metrics, and processes to implement.
@@ -23,7 +23,7 @@ I intend to use this repository as a way of incubating ideas and developing thou
 
 **[Exploring ChatGPT Hallucinations and Confabulation through the 6 Degrees of Kevin Bacon Game](./docs/2023-09-08-exploring-chatgpt-hallucinations-and-confabulation.markdown)** - An article describing an experiment that I did to explore the idea of hallucinations using the game 6° of Kevin Bacon. 
 
-**[Taking Text Embedding and Cosine Similarity for a Test Drive](./docs/2023-09-13-text-embedding-and-cosine-similarity.markdown)** - documentation of some experiments I did on OpenAIs embedding algorithm. The goal was to see whether the embedding algorithm was overly sensitive to upper versus lower case, synonyms, punctuation, etc.  
+**[Taking Text Embedding and Cosine Similarity for a Test Drive](./docs/2023-09-13-text-embedding-and-cosine-similarity.markdown)** - documentation of some experiments I did on OpenAIs embedding algorithm. The goal was to see whether the embedding algorithm was overly sensitive to upper versus lower case, synonyms, punctuation, etc.
 
 
 **[Mappings to/from OWASP Top 10 for LLM Applications to other Security Frameworks](./docs/LLM-Top-10-Framework-Mappings/OWASP-Mappings-to-other-frameworks-Intro.md)** - mapping between the OWASP Top 10 for Large Language Models and the following frameworks:

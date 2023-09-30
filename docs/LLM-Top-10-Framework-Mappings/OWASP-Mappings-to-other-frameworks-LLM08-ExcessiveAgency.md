@@ -26,7 +26,7 @@ Prevention requires limiting LLM functionality, permissions, and autonomy to onl
 
 2. Plugins fail to filter inputs properly.
 
-3. Plugins get more access permissions than required.  
+3. Plugins get more access permissions than required.
 
 4. Plugins use high-privilege identities unnecessarily. 
 
@@ -119,27 +119,50 @@ Prevention requires limiting LLM functionality, permissions, and autonomy to onl
   Justification: Relevant technique to exploit plugin privileges.
 
 - [T1555](https://attack.mitre.org/techniques/T1555/): Credentials from Password Stores
-  
+
   Description: Stealing stored credentials granting excessive privileges.
-  
+
   Justification: Enables unauthorized actions through stolen credentials.
 
 
 ### MITRE ATLAS Techniques
 
-- AML.T0047: ML-Enabled Product or Service. Services granting plugins or components excessive permissions introduce vulnerabilities enabling unintended actions.
 
-- AML.T0040: ML Model Inference API Access. Carefully crafted queries could trigger unintended actions via the API by exploiting poor access controls.
+- AML.T0011: User Execution
 
-- AML.T0043: Craft Adversarial Data. Allows tailoring prompts to exploit poor access controls and perform unintended actions.
+  Description: An adversary may rely upon specific actions by a user in order to gain execution, such as social engineering them to execute malicious code.
 
-- AML.T0016: Obtain Capabilities. May obtain tools to identify or exploit excessive permissions granted to plugins.
+  Justification: Users may execute unintended actions suggested by an LLM with excessive autonomy.
 
-- AML.T0010: ML Supply Chain Compromise. Compromised components could be granted excessive capabilities leading to unintended actions.
+- AML.T0029: Denial of ML Service
 
-- AML.T0044: Full ML Model Access. Full control allows optimal exploitation of poor access controls to manipulate downstream behaviors. 
+  Description: Adversaries may target ML systems with requests designed to overload services and degrade performance.
 
-- AML.T0019: Publish Poisoned Data. Data obtained from compromised sources could trigger unintended behaviors enabled by excessive permissions.
+  Justification: An LLM with excessive autonomy could be manipulated to overwhelm systems.
+
+- AML.T0043: Craft Adversarial Data
+
+  Description: Adversarial data are inputs crafted to cause intended effects in the model, such as missed detections or degraded performance.
+
+  Justification: Carefully crafted data manipulates the behaviors of an LLM with excessive autonomy.
+
+- AML.T0044: Full ML Model Access
+
+  Description: Adversaries may gain full knowledge of a model's architecture, parameters and data.
+
+  Justification: Complete LLM knowledge optimizes an adversary's ability to control excessive autonomy.
+
+- AML.T0045: ML Intellectual Property Theft
+
+  Description: Adversaries may exfiltrate artifacts to steal IP and cause economic harm.
+
+  Justification: Excessive, unchecked LLM behaviors enable data theft.
+
+- AML.T0047: ML-Enabled Product or Service
+
+  Description: Adversaries may use a product's access to the underlying ML model.
+
+  Justification: Products enable manipulating excessive backend LLM autonomy.
 
 
 ### MITRE ATT&CK Mitigations 
@@ -175,4 +198,3 @@ Prevention requires limiting LLM functionality, permissions, and autonomy to onl
 
 - AML.M0012: Encrypt Sensitive Information. Encrypt sensitive data to prevent unintended actions resulting in unauthorized data exposure. Protects data confidentiality.
 
- 

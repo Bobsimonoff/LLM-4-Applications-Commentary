@@ -116,26 +116,49 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
 ### MITRE ATLAS Techniques
 
-- AML.T0024: Exfiltration via ML Inference API. The inference API could reveal private details about training data or model behavior enabling exposure of sensitive information.
+- AML.T0024: Exfiltration via ML Inference API
 
-- AML.T0021: Establish Accounts. May access compromised victim accounts to collect sensitive documents, artifacts or data. Gains access to private information.
+  Description: Adversaries may exfiltrate private data through the inference API by exploiting model vulnerabilities. Techniques like membership inference and model inversion can reconstruct sensitive training data.
 
-- AML.T0036: Data from Information Repositories. Could steal sensitive documents, artifacts or data from repositories. Exfiltrates sensitive information. 
+  Justification: Inference API access enables extracting sensitive data from models.
 
-- AML.T0037: Data from Local System. Local systems like model servers contain private artifacts, data and documents that could be collected. Gathers sensitive information.
+- AML.T0035: ML Artifact Collection
 
-- AML.T0040: ML Model Inference API Access. Carefully crafted inference queries could reveal private details about training data or model behavior. API access enables exposing sensitive information.
+  Description: Adversaries collect proprietary artifacts like data and models that may contain sensitive information for exfiltration.
 
-- AML.T0016: Obtain Capabilities. May obtain tools to exfiltrate sensitive data or automate collection of private artifacts. Aids stealing sensitive information. 
+  Justification: Collecting artifacts provides access to confidential data.
 
-- AML.T0012: Valid Accounts. Compromised credentials provide access to systems and sensitive artifacts, data and documents. Allows access to private information.
+- AML.T0036: Data from Information Repositories
 
-- AML.T0044: Full ML Model Access. Full whitebox control enables retrieving maximum sensitive information from model internals. Maximizes data access.
+  Description: Adversaries mine repositories containing sensitive data like proprietary training sets to exfiltrate.
 
-- AML.T0047: ML-Enabled Product or Service. Services with weak data protection could be exploited to access sensitive information. Identifies services with data exposure risks. 
+  Justification: Mining repositories can reveal sensitive data assets. 
 
-- AML.T0019: Publish Poisoned Data. Training models on sensitive data could enable later inference of that private information. Leaks sensitive data via training set composition.
-  
+- AML.T0037: Data from Local System
+
+  Description: Adversaries search local data sources like file systems and databases to find sensitive data for exfiltration.
+
+  Justification: Accessing local data stores provides access to confidential information.
+
+- AML.T0040: ML Model Inference API Access
+
+  Description: Adversaries leverage inference API access to steal sensitive data from models through techniques like membership inference.
+
+  Justification: Inference API enables data extraction from models.
+
+- AML.T0043: Craft Adversarial Data
+
+  Description: Adversaries carefully craft inputs designed to manipulate models into revealing sensitive information.
+
+  Justification: Crafting prompts can elicit exposure of confidential data.
+
+- AML.T0044: Full ML Model Access
+
+  Description: Full white-box access enables adversaries to precisely craft inputs to optimally exfiltrate sensitive data.
+
+  Justification: Complete access maximizes extracting protected information.
+
+
 ### MITRE ATT&CK Mitigations
 
 - [M1041](https://attack.mitre.org/mitigations/M1041/): Restrict Web-Based Content

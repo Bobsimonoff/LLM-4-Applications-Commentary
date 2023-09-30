@@ -95,7 +95,7 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
   Description: Modifications of object attributes without appropriate constraints can often lead to exploitable vulnerabilities.
 
   Justification: Lack of control over third-party code attributes poses risks if the supplier is compromised.
-  
+
 - [CWE-918](https://cwe.mitre.org/data/definitions/918.html): Server-Side Request Forgery (SSRF)
 
   Description: An SSRF attack occurs when a web server is tricked into making arbitrary requests on behalf of the attacker and can be used to interact with internal systems.
@@ -126,28 +126,44 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
 
 ### MITRE ATLAS Techniques
 
-- AML.T0010: ML Supply Chain Compromise. Compromising any supplier provides a vector to introduce vulnerabilities through legitimate third-party dependencies.  
+- AML.T0010: ML Supply Chain Compromise
 
-- AML.T0019: Publish Poisoned Data. The adversary can insert carefully crafted poisoning examples into datasets obtained from third-party suppliers. When used to train models, these poisoned datasets manipulate the model's behavior to create hidden vulnerabilities or degrade performance.
+  Description: Adversaries compromise parts of the ML supply chain like data, software, and models to gain initial access to systems and undermine integrity.
 
-- AML.T0020: Poison Training Data. A compromised data supplier could tamper with training data or labels before delivery to the organization. The data poisoning injects vulnerabilities into models trained on the data.
+  Justification: Compromising the supply chain provides a vector to infiltrate systems.
 
-- AML.T0043: Craft Adversarial Data. Carefully crafted data or models from a compromised supplier could contain vulnerabilities designed to exploit systems.
+- AML.T0018: Backdoor ML Model
 
-- AML.T0016: Obtain Capabilities. The adversary can leverage a compromised supplier to gain access to tools, code, or information that aids in targeting other elements of the supply chain. This can lead to a chain compromise.
+  Description: Adversaries introduce backdoors into models that behave normally until activated by a trigger input. Backdoors persistently undermine model integrity.
 
-- AML.T0044: Full ML Model Access. Full control of third-party model artifacts enables thorough poisoning if the supplier is compromised.
+  Justification: Supply chain backdoors persistently impair model capabilities.
 
-- AML.T0012: Valid Accounts. Compromised supplier credentials could allow direct access to artifacts to poison them.
+- AML.T0019: Publish Poisoned Datasets
 
-- AML.T0011: User Execution. Code delivered through third-party dependencies may contain hidden exploits or vulnerabilities that get executed unknowingly when users run or integrate the code into their systems.
+  Description: Adversaries publish poisoned datasets that can be used to contaminate systems when integrated into the supply chain.
 
-- AML.T0047: ML-Enabled Product or Service. Services relying on compromised third-party components could be exploited.
+  Justification: Poisoned data undermines integrity when integrated into supply chain.
 
-- AML.T0040: ML Model Inference API Access. May enable attacks via access to APIs of compromised third-party models.
+- AML.T0020: Poison Training Data
+
+  Description: Adversaries poison training data to embed flaws activated later. Poisoned data introduced via supply chain compromises model integrity.
+
+  Justification: Training with poisoned data from supply chain impairs models.
+
+- AML.T0035: ML Artifact Collection
+
+  Description: Adversaries collect artifacts like data and models that may contain vulnerabilities exploitable through supply chain attacks.
+
+  Justification: Collecting supply chain artifacts can reveal vectors for compromise.
+
+- AML.T0036: Data from Information Repositories
+
+  Description: Adversaries mine repositories containing details about supply chain components and data sources to exploit.
+
+  Justification: Mining repositories can reveal supply chain targets.
 
 
-### MITRE ATT&CK Mitigations  
+### MITRE ATT&CK Mitigations
 
 - [M1048](https://attack.mitre.org/mitigations/M1048/) - Perform Software and File Integrity Checking
 

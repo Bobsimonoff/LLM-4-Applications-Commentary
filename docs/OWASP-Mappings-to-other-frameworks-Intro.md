@@ -33,7 +33,7 @@ The OWASP Top 10 provides the top 10 critical security risks for web application
 
 
 
-The following is a tentative classification of where part of the various frameworks could be places with respect to their security context.  
+The following is a tentative classification of where part of the various frameworks could be places with respect to their security context.
 
 1. **Vulnerabilities & Weaknesses**
    - CWE weakness types

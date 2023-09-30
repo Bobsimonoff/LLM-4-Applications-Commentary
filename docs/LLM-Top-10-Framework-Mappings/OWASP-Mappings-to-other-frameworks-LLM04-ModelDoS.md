@@ -79,7 +79,7 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
   Description: Missing or inadequate input validation leading to dangerous behaviors from unchecked tainted input.
 
   Justification: Lack of input validation enables sending resource-heavy requests.
-  
+
 - [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization
 
   Description: Failure to restrict access to authorized entities leading to privilege escalation.
@@ -102,7 +102,7 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
 
   Description: Failure to limit the frequency of interactions enabling repeated operations that strain resources.
 
-  Justification: Lack of frequency control allows flooding requests overwhelming resources.  
+  Justification: Lack of frequency control allows flooding requests overwhelming resources.
 
 - [CWE-404](https://cwe.mitre.org/data/definitions/404.html): Improper Resource Shutdown or Release
 
@@ -126,65 +126,42 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
 
 ### MITRE ATLAS Techniques
 
-- [AML.T0029](/techniques/AML.T0029): Denial of ML Service
+- AML.T0029: Denial of ML Service
 
-  Description: Overloading ML systems with resource-heavy operations designed to disrupt services.
+  Description: Adversaries may overwhelm ML systems with requests designed to consume excessive resources and degrade or deny service availability.
 
-  Justification: Directly causes model denial of service.
+  Justification: Flooding systems with resource-intensive inputs can degrade LLM performance.
 
-- [AML.T0043](/techniques/AML.T0043): Craft Adversarial Data
+- AML.T0034: Cost Harvesting
 
-  Description: Careful input crafting to manipulate models in unintended ways.
+  Description: Adversaries send computationally complex inputs to increase infrastructure costs for ML service providers.
 
-  Justification: Inputs crafted to require extensive processing could strain systems.
+  Justification: Expensive LLM inputs increase operating costs. 
 
-- [AML.T0040](/techniques/AML.T0040): ML Model Inference API Access
+- AML.T0040: ML Model Inference API Access
 
-  Description: Use of the model API to manipulate behavior.
+  Description: Adversaries gain access to models via inference APIs which can be abused to overwhelm systems.
 
-  Justification: Flooding the API could overwhelm systems. 
+  Justification: Inference API access provides a vector to target LLM systems.
 
-- [AML.T0016](/techniques/AML.T0016): Obtain Capabilities
+- AML.T0043: Craft Adversarial Data
 
-  Description: Obtaining tools and exploits.
+  Description: Adversaries carefully craft inputs designed to consume excessive resources and manipulate model behavior.
 
-  Justification: May obtain automation tools for resource exhaustion.
+  Justification: Crafting complex inputs strains LLM systems.
 
-- [AML.T0012](/techniques/AML.T0012): Valid Accounts
+- AML.T0044: Full ML Model Access
 
-  Description: Abuse of compromised credentials.
+  Description: Full access enables adversaries to precisely craft harmful inputs to optimally manipulate and overload models.
 
-  Justification: Compromised credentials could bypass rate limiting.
+  Justification: With full access, attackers can optimize overload inputs. 
 
-- [AML.T0010](/techniques/AML.T0010): ML Supply Chain Compromise
+- AML.T0046: Spamming ML System with Chaff Data
 
-  Description: Compromise of ML components and services.
+  Description: Adversaries overwhelm ML systems with useless chaff data, wasting resources.
 
-  Justification: Compromised artifacts could introduce resource-intensive inefficiencies.
+  Justification: Flooding systems with excessive bogus data consumes resources.
 
-- [AML.T0044](/techniques/AML.T0044): Full ML Model Access
-
-  Description: Complete control over the model.
-
-  Justification: Full control enables sending optimized resource-heavy inputs.
-
-- [AML.T0047](/techniques/AML.T0047): ML-Enabled Product or Service
-
-  Description: Exploiting ML services.
-
-  Justification: Vulnerable services could be exploited.
-
-- [AML.T0019](/techniques/AML.T0019): Publish Poisoned Data
-
-  Description: Distribution of contaminated datasets.
-
-  Justification: Data designed to increase compute requirements could degrade performance.
-
-- [AML.T0011](/techniques/AML.T0011): User Execution
-
-  Description: Tricking users into executing payloads.
-
-  Justification: Users may execute code causing resource exhaustion.
 
 ### MITRE ATT&CK Mitigations
 
@@ -238,7 +215,7 @@ N/A
 
   Description: Scanning for flaws.
 
-  Justification: Finds weaknesses that could enable exhaustion attacks.  
+  Justification: Finds weaknesses that could enable exhaustion attacks.
 
 - AML.M0018: User Training
 

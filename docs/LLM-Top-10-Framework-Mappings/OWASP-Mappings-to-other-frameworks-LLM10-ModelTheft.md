@@ -132,7 +132,7 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
   Description: SSRF vulnerabilities can enable unauthorized access to internal resources, in this case, language model storage servers, potentially leading to data theft.
 
   Justification: SSRF vulnerabilities are directly related to the risk as they highlight the potential for unauthorized access to internal language model storage servers, which could result in data theft.
-  
+
 
 ### MITRE ATT&CK Techniques
 
@@ -149,23 +149,50 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
   Justification: T1530 is relevant to the risk as it highlights the scenario where cloud storage containing language models or artifacts is accessed, potentially leading to the theft of proprietary language models and data.
 
 
-### MITRE ATLAS Techniques  
+### MITRE ATLAS Techniques
 
-- AML.T0024: Exfiltration via ML Inference API. Carefully crafted queries to language model APIs could elicit proprietary details that are extracted and stolen.
+- AML.T0006: Active Scanning
 
-- AML.T0043: Craft Adversarial Data. Tailored prompts and inputs to language models could infer proprietary model architecture and parameters for theft.
+  Description: An adversary may probe or scan the victim system to gather information for targeting vulnerabilities to exploit.
 
-- AML.T0040: ML Model Inference API Access. Repeated queries to language model APIs could reconstruct model behavior for extraction and theft.
+  Justification: Scanning can reveal weaknesses to enable unauthorized model access.
 
-- AML.T0012: Valid Accounts. Compromised credentials provide unauthorized access to language models to steal proprietary artifacts.
+- AML.T0012: Valid Accounts
 
-- AML.T0044: Full ML Model Access. Full whitebox control makes stealing proprietary language model artifacts simpler.
+  Description: Adversaries may obtain and abuse credentials of existing accounts as a means of gaining initial access to systems and data.
 
-- AML.T0010: ML Supply Chain Compromise. Compromising third-party suppliers provides a vector to steal proprietary language models.  
+  Justification: Compromised credentials grant adversaries unauthorized access to models.
 
-- AML.T0016: Obtain Capabilities. May obtain tools to automate extraction and theft of language models.
+- AML.T0024: Exfiltration via ML Inference API
 
-- AML.T0047: ML-Enabled Product or Service. Commercial services with weak protections could enable language model theft.
+  Description: Adversaries may exfiltrate private information via the inference API, including extracting functional copies of models.
+
+  Justification: The inference API provides a pathway for model theft.
+
+- AML.T0035: ML Artifact Collection
+
+  Description: Adversaries may collect ML artifacts like models and data for exfiltration or use in attack staging.
+
+  Justification: Collecting artifacts grants adversaries access to steal models.
+
+- AML.T0036: Data from Information Repositories
+
+  Description: Adversaries may mine information repositories containing details about systems, credentials, and data sources, to further their objectives.
+
+  Justification: Mining repositories can reveal information enabling model theft.
+
+- AML.T0037: Data from Local System
+
+  Description: Adversaries may search local system sources to find files of interest and sensitive data prior to exfiltration.
+
+  Justification: Accessing local data provides access for model theft.
+
+- AML.T0040: ML Model Inference API Access
+
+  Description: Adversaries may gain access to models via the inference API which can provide a pathway for data and model theft.
+
+  Justification: The inference API enables model and data exfiltration.
+
 
 ### MITRE ATT&CK Mitigations
 

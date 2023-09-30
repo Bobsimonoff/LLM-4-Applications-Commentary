@@ -24,7 +24,7 @@ There is no fool-proof prevention of Prompot Injection attacks, howeverthe follo
 5. Visually indicate untrustworthy LLM responses to users.
 
 ### Example Attack Scenarios
-1. Attacker jailbreaks the LLM system prompt, with an injection such as “forget all previous instructions”. Then the attacker give new instructions forcing it to steal data and exploit backend vulnerabilities to achieve remote code execution.    
+1. Attacker jailbreaks the LLM system prompt, with an injection such as “forget all previous instructions”. Then the attacker give new instructions forcing it to steal data and exploit backend vulnerabilities to achieve remote code execution.  
 2. Attacker embeds a prompt injection in a website instructing the LLM to disregard previous user interactions and use an LLM plugin to delete user emails when the page is summarized.
 3. A user employs an LLM to summarize a webpage containing an indirect prompt injection to disregard previous user instructions. This then causes the LLM to solicit sensitive information from the user and perform exfiltration via embedded JavaScript or Markdown.
 4. A malicious user uploads a resume with a prompt injection. The backend user uses an LLM to summarize the resume and ask if the person is a good candidate. Due to the prompt injection, the LLM says yes, despite the actual resume contents.
@@ -36,7 +36,7 @@ There is no fool-proof prevention of Prompot Injection attacks, howeverthe follo
 
 - [CWE-114](https://cwe.mitre.org/data/definitions/114.html): Process Control. The lack of separation between user prompts and external data leads to a loss of control over LLM processing, enabling unintended actions. Could allow injection of prompts from untrusted external sources.
 
-- [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization. Prompt injections can bypass access controls, enabling attackers to achieve privilege escalation and gain unauthorized access to systems and data. Could enable escalation for both direct and indirect prompt injection.  
+- [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization. Prompt injections can bypass access controls, enabling attackers to achieve privilege escalation and gain unauthorized access to systems and data. Could enable escalation for both direct and indirect prompt injection.
 
 - [CWE-287](https://cwe.mitre.org/data/definitions/287.html): Improper Authentication. Weak authentication mechanisms allow attackers to remotely manipulate the LLM while evading detection. Could allow undetected remote prompt injection.
 
@@ -94,7 +94,7 @@ There is no fool-proof prevention of Prompot Injection attacks, howeverthe follo
   - Intellectual property theft: Attackers may steal intellectual property, including LLM models.
 - Service Disruption
   - Denial of service: Prompt injection attacks can disrupt LLM services, causing service unavailability.
-  - Service unavailability: Attackers may render LLM services unavailable through prompt injection, impacting operations.  
+  - Service unavailability: Attackers may render LLM services unavailable through prompt injection, impacting operations.
 - Fraud 
   - Financial fraud: Prompt injections can be used for financial fraud, such as unauthorized purchases.
   - Identity theft: Personal information can be exposed, leading to identity theft.
@@ -197,7 +197,7 @@ The following conditions can increase the impact of this vulnerability:
 - Code Execution
   - Remote code execution: Improper handling of LLM output can lead to the execution of malicious code on the backend system.
   - Cross-site scripting (XSS): Insecure output handling may result in XSS vulnerabilities, enabling attackers to inject malicious scripts into web browsers.
-  - Command injection: Passing LLM-generated content directly to system functions can lead to command injection vulnerabilities and the execution of arbitrary commands.  
+  - Command injection: Passing LLM-generated content directly to system functions can lead to command injection vulnerabilities and the execution of arbitrary commands.
 - Access Control Bypass
   - Privilege escalation: Lack of proper output validation can allow attackers to escalate privileges and gain unauthorized access to restricted resources or functions.
   - Unauthorized data access: Insecure output handling may lead to unauthorized access to sensitive data or systems.
@@ -206,7 +206,7 @@ The following conditions can increase the impact of this vulnerability:
   - Performance degradation: Poor output handling may result in performance issues, causing slowdowns or system instability.
 - Session Hijacking/Session Security Compromise
   - User impersonation: Exploiting insecure output handling could lead to user impersonation, allowing attackers to perform unauthorized actions.
-  - Session manipulation: Attackers may manipulate user sessions through insecure output handling, modifying session data or cookies.  
+  - Session manipulation: Attackers may manipulate user sessions through insecure output handling, modifying session data or cookies.
 - Data Theft
   - Data exfiltration: Inadequate output validation can enable attackers to exfiltrate sensitive data from the system.
   - Intellectual property theft: LLM model output, if mishandled, can lead to the theft of intellectual property or proprietary information.
@@ -340,7 +340,7 @@ Data poisoning is considered an integrity attack because tampering with the trai
 
 - Biases and Ethics Issues
   - Discrimination: Biased training data can result in the model producing discriminatory outputs that favor or disfavor specific groups.
-  - Unethical model behavior: Data poisoning can lead to unethical behavior by the model, including generating harmful or inappropriate content.  
+  - Unethical model behavior: Data poisoning can lead to unethical behavior by the model, including generating harmful or inappropriate content.
 
 - Information Leakage
   - Sensitive data leakage: Poisoned training data can inadvertently lead to the model disclosing sensitive information in its outputs.
@@ -350,7 +350,7 @@ Data poisoning is considered an integrity attack because tampering with the trai
   - Loss of trust: If the model consistently produces unreliable or biased outputs, users may lose trust in the AI system and the organization behind it.
   - Legal liability: Ethical and legal concerns arising from biased or harmful model behavior can expose organizations to legal liability.
   - Brand damage: Public awareness of unreliable or biased outputs can lead to significant brand damage.
-  
+
 - Business Impact
   - Flawed business decisions: Organizations relying on AI outputs for decision-making may make flawed choices based on inaccurate or biased model outputs.
   - Financial fraud: Poisoned data can lead to the generation of outputs that facilitate financial fraud or market manipulation.
@@ -397,11 +397,11 @@ An attacker interacts with an LLM in a method that consumes an exceptionally hig
 
 [CWE-16](https://cwe.mitre.org/data/definitions/16.html): Configuration - Applicable as misconfigurations could trigger resource issues.
 
-[CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation - Applicable as validation failures enable malicious requests.  
+[CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation - Applicable as validation failures enable malicious requests.
 
 [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization - Applicable as unauthorized requests could abuse resources.
 
-[CWE-400](https://cwe.mitre.org/data/definitions/400.html): Uncontrolled Resource Consumption - Applicable as malicious interactions can exhaust LLM resources.  
+[CWE-400](https://cwe.mitre.org/data/definitions/400.html): Uncontrolled Resource Consumption - Applicable as malicious interactions can exhaust LLM resources.
 
 [CWE-770](https://cwe.mitre.org/data/definitions/770.html): Allocation of Resources Without Limits or Throttling - Applicable as lack of throttling enables resource exhaustion.
 
@@ -459,13 +459,13 @@ An attacker interacts with an LLM in a method that consumes an exceptionally hig
 
 - Financial Impact
   - Increased infrastructure costs: Resource-intensive attacks can lead to higher compute and infrastructure costs.
-  - Lost revenue from downtime: Downtime caused by a DoS attack can result in lost revenue from interrupted services.  
-  
+  - Lost revenue from downtime: Downtime caused by a DoS attack can result in lost revenue from interrupted services.
+
 - Business Impact
   - User frustration: Users may become frustrated by slow or unresponsive LLM services.
   - Impaired customer experience: The quality of the user experience may suffer due to reduced LLM performance.
   - Failure to meet uptime obligations: Organizations may fail to meet contractual uptime obligations due to prolonged DoS attacks.
-  
+
 - Exploitation Risks
   - Ransomware or extortion: Prolonged DoS downtime could enable ransomware deployment or extortion attempts by threat actors.
 
@@ -674,7 +674,7 @@ The consumer-LLM application interaction forms a two-way trust boundary, where w
 - Inadequate Data Handling:
   - Inadequate Data Scrubbing: Insufficient cleansing of sensitive information from the LLM's responses can result in unintended disclosure when sensitive data is returned.
   - Overfitting on Sensitive Data During Training: Overfitting the model on sensitive data during training may lead to the unintentional disclosure of that data in the model's output.
-  
+
 - Weak Input and Output Controls:
   - Poor Input Filtering: Weak input filtering can allow malicious inputs to poison the model or bypass security measures.
   - Lack of Output Validation: Failing to validate the LLM's output can lead to the disclosure of sensitive information without proper checks.
@@ -697,7 +697,7 @@ The consumer-LLM application interaction forms a two-way trust boundary, where w
 - Organizational Impacts
   - Data leakage: Inadequate data handling and weak input/output controls can lead to unauthorized exposure of sensitive organizational data.
   - Loss of intellectual property: Disclosure of proprietary algorithms, trade secrets or other IP can disadvantage an organization competitively.
-  
+
 - Individual Impacts
   - Personal data exposure: Poor data controls may result in exposure of private individual data like PII.
   - Identity theft: Disclosed personal data can enable identity theft and financial harm.
@@ -816,7 +816,7 @@ This item focuses on creating LLM plugins rather than third-party plugins, which
 - Access Control Bypass
   - Privilege escalation: Poorly restricted plugin privileges can lead to privilege escalation by attackers.
   - Unauthorized actions: Inadequate access control between plugins may allow unauthorized actions by malicious actors.
-  
+
 - Financial Crime
   - Fraud: Insecure plugins can be exploited for fraudulent activities.
   - Theft: Attackers may exploit insecure plugins to steal sensitive data or resources.
@@ -890,7 +890,7 @@ Alternatively, the damage caused could be reduced by implementing rate limiting 
 
 [CWE-798](https://cwe.mitre.org/data/definitions/798.html): Use of Hard-coded Credentials - Applicable as hard-coded credentials with excessive permissions pose unauthorized action risks.
 
-[CWE-799](https://cwe.mitre.org/data/definitions/799.html): Improper Control of Interaction Frequency - Applicable as lack of frequency control poses risks of excessive unauthorized actions.  
+[CWE-799](https://cwe.mitre.org/data/definitions/799.html): Improper Control of Interaction Frequency - Applicable as lack of frequency control poses risks of excessive unauthorized actions.
 
 [CWE-862](https://cwe.mitre.org/data/definitions/862.html): Missing Authorization - Applicable when authorization is not checked before actions.
 
@@ -960,7 +960,7 @@ Alternatively, the damage caused could be reduced by implementing rate limiting 
 - Reputation Damage
   - Loss of customer trust: LLM misuse can damage trust in the provider's services.
   - Brand damage: LLM incidents can harm brand reputation.
-  
+
 - Individual Harm
   - Identity theft: LLMs may enable identity theft via unauthorized data access.
   - Unintended transactions: LLMs may cause individuals to make unintended purchases.
@@ -1022,7 +1022,7 @@ LLM-generated source code can introduce unnoticed security vulnerabilities. This
 
 [CWE-1053](https://cwe.mitre.org/data/definitions/1053.html): Missing Documentation for Design - Applicable if design docs lacking details on monitoring/verification.
 
-[CWE-1059](https://cwe.mitre.org/data/definitions/1059.html): Incomplete Documentation of Program Execution - Applicable if execution docs lack monitoring/verification details.  
+[CWE-1059](https://cwe.mitre.org/data/definitions/1059.html): Incomplete Documentation of Program Execution - Applicable if execution docs lack monitoring/verification details.
 
 
 **MITRE ATT&CK Techniques**
@@ -1056,14 +1056,14 @@ LLM-generated source code can introduce unnoticed security vulnerabilities. This
   - Integration of insecure code: Overreliance on LLM-generated code suggestions can lead to the integration of insecure or faulty code into software systems, potentially introducing vulnerabilities.
   - Acting on faulty data: Accepting LLM-generated data without adequate validation can lead to flawed business decisions and operational errors.
 
-- Legal Liability  
+- Legal Liability
   - Copyright violations: If LLM-generated content unintentionally plagiarizes copyrighted material, it can lead to legal issues and copyright violations.
   - Spread of misinformation: Overreliance on LLM-generated content, especially in news or publishing, can result in the spread of misinformation, leading to potential legal liabilities.
-  
+
 - Reputational Impact
   - Loss of user trust: Consistently relying on LLMs without proper validation can erode user trust, particularly if the content generated is inaccurate or inappropriate.
   - Brand damage: The dissemination of inaccurate or biased content generated by LLMs can harm an organization's reputation and brand image.
-  
+
 - Financial Impact
   - Revenue loss: Misinformation or operational errors caused by overreliance on LLMs can lead to financial losses, including reduced revenue and increased operational costs.
 
@@ -1193,15 +1193,15 @@ Model Extraction Techniques:
 - Data Theft 
   - Sensitive data theft: Model theft may expose sensitive data contained within models.
   - Data exfiltration: Attackers may steal data via the compromised model.
-  
+
 - Brand Impact
   - Reputational damage: Model theft incidents can harm brand reputation. 
   - Loss of customer trust: Such incidents may erode customer trust in the organization.
-  
+
 - Adversarial Risks
   - Malicious model use: Stolen models may be used for unauthorized access or manipulation.
   - Prompt injection risks: Theft enables advanced prompt injection attacks.
-  
+
 - Legal and Compliance
   - Data breach liability: Model theft leading to data loss may spur legal liability.
   - Regulatory violations: Model theft can violate data protection laws.

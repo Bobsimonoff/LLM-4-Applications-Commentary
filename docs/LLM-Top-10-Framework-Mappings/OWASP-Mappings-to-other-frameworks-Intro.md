@@ -29,7 +29,7 @@ This cross-framework mapping aims to connect the dots between OWASP risks and co
 
 
 
-The following is a tentative classification of where part of the various frameworks could be places with respect to their security context.  
+The following is a tentative classification of where part of the various frameworks could be places with respect to their security context.
 
 1. **Weaknesses**
    - CWE weakness types

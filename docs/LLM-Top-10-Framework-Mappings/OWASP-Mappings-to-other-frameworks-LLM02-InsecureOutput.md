@@ -74,7 +74,7 @@ Prevention involves treating the LLM as any other user, applying input validatio
 
   Justification: Direct execution of outputs could allow arbitrary code execution.
 
-- [CWE-200](https://cwe.mitre.org/data/definitions/200.html): Exposure of Sensitive Information to an Unauthorized Actor   
+- [CWE-200](https://cwe.mitre.org/data/definitions/200.html): Exposure of Sensitive Information to an Unauthorized Actor 
 
   Description: The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
@@ -88,7 +88,7 @@ Prevention involves treating the LLM as any other user, applying input validatio
 
 - [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere
 
-  Description: The software imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.  
+  Description: The software imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.
 
   Justification: Untrusted outputs could trigger unintended functionality.
 
@@ -116,26 +116,41 @@ Prevention involves treating the LLM as any other user, applying input validatio
 
 ### MITRE ATLAS Techniques
 
-- [AML.T0040](/techniques/AML.T0040): ML Model Inference API Access - Use of the model API to manipulate behavior. Adversaries could send crafted prompts to generate malicious outputs via the API. Allows manipulating model outputs by controlling API inputs. 
+- AML.T0011: User Execution 
 
-- [AML.T0043](/techniques/AML.T0043): Craft Adversarial Data - Careful input crafting to manipulate models. Allows adversaries to carefully craft prompts to produce insecure outputs. Enables tailoring insecure outputs by optimizing prompt crafting.
+  Description: An adversary may rely upon a user executing malicious code or outputs from a system. Users may inadvertently execute unsafe code or outputs that were not properly validated or sanitized by the system before being presented to the user.
 
-- [AML.T0016](/techniques/AML.T0016): Obtain Capabilities - Obtaining tools and exploits. Adversaries may obtain tools to generate payloads or automate exploiting the vulnerability. Aids in producing insecure outputs by providing payload and automation capabilities. 
+  Justification: A user could execute unchecked malicious outputs from an LLM system, enabling exploits like XSS on the user's browser due to lack of output encoding.
 
-- [AML.T0011](/techniques/AML.T0011): User Execution - Tricking users into executing payloads. Users may unknowingly execute insecure outputs from LLM systems. Executes adversary-controlled outputs through user interaction.
+- AML.T0043: Craft Adversarial Data
 
-- [AML.T0024](/techniques/AML.T0024): Exfiltration via ML Inference API - Stealing data through the model API. Adversaries could exfiltrate data by encoding it in LLM outputs. Outputs can steal data through the native interface.
+  Description: An adversary carefully crafts adversarial inputs to manipulate the behavior of a machine learning model and influence the outputs it generates. The modifications to the inputs are designed to achieve the adversary's objectives.
 
-- [AML.T0012](/techniques/AML.T0012): Valid Accounts - Abuse of compromised credentials. Compromised credentials could allow adversaries to directly interact with the LLM. Provides API access for attacks through account misuse. 
+  Justification: Specially crafted prompts provided to an LLM system could produce intentionally insecure outputs, such as unvalidated code snippets, that take advantage of lack of validation in downstream systems.
 
-- [AML.T0010](/techniques/AML.T0010): ML Supply Chain Compromise - Compromise of ML components and services. Could introduce vulnerabilities enabling insecure outputs via compromised artifacts. Introduces weaknesses through third-party dependency exploits.  
+- AML.T0044: Full ML Model Access
 
-- [AML.T0044](/techniques/AML.T0044): Full ML Model Access - Complete control over the model. Full access allows fine tuning prompts to generate intended insecure outputs. Maximizes control over outputs through total access.
+  Description: An adversary gains complete white-box access to a machine learning model, meaning they have full knowledge of the model architecture, parameters, training data, and other implementation details. This level of access enables them to meticulously craft inputs to manipulate model behavior.
 
-- [AML.T0047](/techniques/AML.T0047): ML-Enabled Product or Service - Exploiting ML services. Existing services could be exploited if they have improper output handling. Finds vulnerable services by targeting public apps.
+  Justification: With full access to the LLM, an adversary could carefully tune prompts to maximize generation of insecure outputs such as injection payloads tailored to vulnerabilities in downstream systems.
 
-- [AML.T0019](/techniques/AML.T0019): Publish Poisoned Data - Distribution of contaminated datasets. Adversaries could poison training data to influence insecure outputs. Manipulates model behavior by poisoning training data.
+- AML.T0045: ML Intellectual Property Theft
 
+  Description: An adversary may exfiltrate proprietary machine learning artifacts and data in order to steal intellectual property and cause economic harm to an organization. Lack of proper validation and encoding of model outputs could enable unauthorized access to sensitive artifacts and data.
+
+  Justification: Failure to properly handle model outputs could inadvertently expose sensitive intellectual property or enable an adversary to steal data assets due to lack of proper access controls.
+
+- AML.T0046: Spamming ML System with Chaff Data
+
+  Description: An adversary may overwhelm a machine learning system with a large volume of chaff data designed to increase false positives and waste the time of human analysts tasked with reviewing system outputs.
+
+  Justification: A high volume of meaningless outputs produced by an LLM could waste substantial analyst time if incorrectly passed downstream to human reviewers without additional validation.
+
+- AML.T0047: ML-Enabled Product or Service
+
+  Description: An adversary leverages access to a product or service that utilizes machine learning internally to gain access to the underlying ML model. This access could then be abused to craft malicious inputs and insecure outputs.
+
+  Justification: By gaining access to an LLM-enabled product or service, an adversary could potentially craft inputs that produce insecure outputs by exploiting the product's access to the underlying LLM.
 
 ### MITRE ATT&CK Mitigations
 
