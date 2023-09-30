@@ -127,42 +127,29 @@ Prevention requires limiting LLM functionality, permissions, and autonomy to onl
 
 ### MITRE ATLAS Techniques
 
-
 - AML.T0011: User Execution
 
-  Description: An adversary may rely upon specific actions by a user in order to gain execution, such as social engineering them to execute malicious code.
+  Description: Adversaries may manipulate users into executing unintended and potentially unsafe actions suggested by an LLM that has been granted excessive, unchecked autonomy. Users may unknowingly execute unsafe code or actions that take advantage of the LLM's broad permissions.
 
-  Justification: Users may execute unintended actions suggested by an LLM with excessive autonomy.
-
-- AML.T0029: Denial of ML Service
-
-  Description: Adversaries may target ML systems with requests designed to overload services and degrade performance.
-
-  Justification: An LLM with excessive autonomy could be manipulated to overwhelm systems.
+  Justification: User execution of unintended actions enabled by an LLM with excessive autonomy allows adversaries to more easily exploit the LLM's broad capabilities through manipulated user behavior.
 
 - AML.T0043: Craft Adversarial Data
 
-  Description: Adversarial data are inputs crafted to cause intended effects in the model, such as missed detections or degraded performance.
+  Description: By crafting adversarial data inputs, an adversary can manipulate the behaviors of an LLM that has excessive autonomy, causing it to take unintended actions that take advantage of its broad permissions and capabilities.
 
-  Justification: Carefully crafted data manipulates the behaviors of an LLM with excessive autonomy.
+  Justification: Carefully engineered data samples enable adversaries to control and exploit the excessive autonomy granted to the LLM to achieve unintended behaviors.
 
 - AML.T0044: Full ML Model Access
 
-  Description: Adversaries may gain full knowledge of a model's architecture, parameters and data.
+  Description: Full white-box access to an LLM with excessive autonomy provides an adversary with maximum control over manipulating its behaviors by crafting inputs optimized to exploit its unchecked capabilities.
 
-  Justification: Complete LLM knowledge optimizes an adversary's ability to control excessive autonomy.
-
-- AML.T0045: ML Intellectual Property Theft
-
-  Description: Adversaries may exfiltrate artifacts to steal IP and cause economic harm.
-
-  Justification: Excessive, unchecked LLM behaviors enable data theft.
+  Justification: Complete access maximizes an adversary's ability to control and exploit the unchecked autonomy granted to the LLM.
 
 - AML.T0047: ML-Enabled Product or Service
 
-  Description: Adversaries may use a product's access to the underlying ML model.
-
-  Justification: Products enable manipulating excessive backend LLM autonomy.
+  Description: By accessing a product that interacts with an LLM backend granted excessive autonomy, adversaries can manipulate the product to control the LLM's behaviors in unintended ways that exploit its broad permissions.
+  
+  Justification: ML-enabled products provide adversaries a pathway to exploit excessive LLM autonomy by manipulating the product's interactions with the LLM.
 
 
 ### MITRE ATT&CK Mitigations 

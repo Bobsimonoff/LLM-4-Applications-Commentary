@@ -124,43 +124,32 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
   Justification: Directly relevant to compromising the supply chain.
 
 
+
 ### MITRE ATLAS Techniques
 
-- AML.T0010: ML Supply Chain Compromise
+- AML.T0016: Obtain Capabilities
 
-  Description: Adversaries compromise parts of the ML supply chain like data, software, and models to gain initial access to systems and undermine integrity.
+  Description: Adversaries may search for and obtain software capabilities like adversarial ML tools to exploit vulnerable supply chain components. Obtaining capabilities aids adversaries in developing attacks targeting weaknesses in integrated third-party code, models, and data.
 
-  Justification: Compromising the supply chain provides a vector to infiltrate systems.
+  Justification: Obtaining attack tools can enable adversaries to exploit vulnerable supply chain components.
 
-- AML.T0018: Backdoor ML Model
+- AML.T0024: Exfiltration via ML Inference API
 
-  Description: Adversaries introduce backdoors into models that behave normally until activated by a trigger input. Backdoors persistently undermine model integrity.
+  Description: Adversaries may extract data, models, and other artifacts containing proprietary information or intellectual property via inference APIs of compromised third-party components. This technique exploits vulnerable access controls in integrated suppliers.
 
-  Justification: Supply chain backdoors persistently impair model capabilities.
+  Justification: Inference API access to compromised third-party components enables data and IP exfiltration.
+  
+- AML.T0031: Erode ML Model Integrity
 
-- AML.T0019: Publish Poisoned Datasets
+  Description: Adversaries can degrade model performance over time by exploiting vulnerabilities in integrated components to craft malicious inputs. Continually supplying adversarial data via compromised suppliers erodes integrity and causes system failures.
 
-  Description: Adversaries publish poisoned datasets that can be used to contaminate systems when integrated into the supply chain.
+  Justification: Introducing adversarial data through compromised third parties erodes model integrity.
 
-  Justification: Poisoned data undermines integrity when integrated into supply chain.
+- AML.T0034: Cost Harvesting
 
-- AML.T0020: Poison Training Data
+  Description: Adversaries may exploit vulnerable third-party components integrated into the supply chain to craft expensive adversarial inputs that substantially increase operating costs through wasted computation.
 
-  Description: Adversaries poison training data to embed flaws activated later. Poisoned data introduced via supply chain compromises model integrity.
-
-  Justification: Training with poisoned data from supply chain impairs models.
-
-- AML.T0035: ML Artifact Collection
-
-  Description: Adversaries collect artifacts like data and models that may contain vulnerabilities exploitable through supply chain attacks.
-
-  Justification: Collecting supply chain artifacts can reveal vectors for compromise.
-
-- AML.T0036: Data from Information Repositories
-
-  Description: Adversaries mine repositories containing details about supply chain components and data sources to exploit.
-
-  Justification: Mining repositories can reveal supply chain targets.
+  Justification: Vulnerable suppliers enable cost harvesting via manipulated inputs.
 
 
 ### MITRE ATT&CK Mitigations

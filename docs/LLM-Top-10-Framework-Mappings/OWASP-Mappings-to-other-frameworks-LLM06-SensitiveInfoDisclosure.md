@@ -118,45 +118,46 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
 - AML.T0024: Exfiltration via ML Inference API
 
-  Description: Adversaries may exfiltrate private data through the inference API by exploiting model vulnerabilities. Techniques like membership inference and model inversion can reconstruct sensitive training data.
+  Description: Adversaries leverage inference API access to reconstruct and exfiltrate sensitive information used in training models, through techniques like membership inference and model inversion that exploit vulnerabilities in how models learn relationships between data.
 
-  Justification: Inference API access enables extracting sensitive data from models.
+  Justification: The inference API provides adversaries a pathway to extract sensitive training data from models.
 
 - AML.T0035: ML Artifact Collection
 
-  Description: Adversaries collect proprietary artifacts like data and models that may contain sensitive information for exfiltration.
+  Description: By gathering proprietary model artifacts and related data, adversaries obtain assets containing sensitive information that can be exfiltrated and exposed. Collecting artifacts provides direct access to confidential data.
 
-  Justification: Collecting artifacts provides access to confidential data.
-
+  Justification: Collecting proprietary model artifacts and data enables adversaries to gather sensitive information for theft.
+  
 - AML.T0036: Data from Information Repositories
 
-  Description: Adversaries mine repositories containing sensitive data like proprietary training sets to exfiltrate.
+  Description: Adversaries mine internal data repositories containing details like proprietary training data metadata, data source configurations, model training parameters, and inferences to gather sensitive information for exposure and theft.
 
-  Justification: Mining repositories can reveal sensitive data assets. 
+  Justification: Mining data repositories reveals sensitive model information adversaries can exfiltrate.
 
 - AML.T0037: Data from Local System
 
-  Description: Adversaries search local data sources like file systems and databases to find sensitive data for exfiltration.
+  Description: Adversaries search local data stores like file systems, databases, and storage for model training data, parameters, inferences, and other sensitive artifacts containing proprietary information to improperly access and exfiltrate.
 
-  Justification: Accessing local data stores provides access to confidential information.
+  Justification: Accessing local systems provides adversaries access to directly gather confidential model information.
 
 - AML.T0040: ML Model Inference API Access
 
-  Description: Adversaries leverage inference API access to steal sensitive data from models through techniques like membership inference.
+  Description: Adversaries exploit the inference API to extract sensitive training data indirectly through model outputs. The API enables data reconstruction through model vulnerabilities.
 
-  Justification: Inference API enables data extraction from models.
+  Justification: Inference API access provides adversaries a pathway to extract sensitive information from models.
 
 - AML.T0043: Craft Adversarial Data
 
-  Description: Adversaries carefully craft inputs designed to manipulate models into revealing sensitive information.
+  Description: Through carefully engineered prompts and queries, adversaries can manipulate model behavior to expose sensitive information learned during training that can be extracted and exfiltrated.
 
-  Justification: Crafting prompts can elicit exposure of confidential data.
+  Justification: Crafting adversarial model inputs can elicit exposure of private training data.
 
 - AML.T0044: Full ML Model Access
 
-  Description: Full white-box access enables adversaries to precisely craft inputs to optimally exfiltrate sensitive data.
+  Description: Full white-box access to models allows adversaries to optimally craft queries to reliably extract maximum sensitive information by precisely analyzing model mechanics and data relationships.
 
-  Justification: Complete access maximizes extracting protected information.
+  Justification: Complete model access maximizes adversaries' ability to expose sensitive training data through tailored prompts.
+
 
 
 ### MITRE ATT&CK Mitigations

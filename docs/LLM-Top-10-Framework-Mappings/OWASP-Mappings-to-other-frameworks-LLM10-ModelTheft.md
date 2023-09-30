@@ -153,45 +153,45 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
 
 - AML.T0006: Active Scanning
 
-  Description: An adversary may probe or scan the victim system to gather information for targeting vulnerabilities to exploit.
+  Description: Adversaries may actively probe the systems housing private language models to identify vulnerabilities that could enable unauthorized access for model theft. Scanning can reveal weaknesses in access controls, authentication, infrastructure configurations, and more.
 
-  Justification: Scanning can reveal weaknesses to enable unauthorized model access.
+  Justification: Active scanning enables adversaries to identify weak points to exploit for gaining unauthorized access to private language models to steal intellectual property or sensitive training data.
 
 - AML.T0012: Valid Accounts
 
-  Description: Adversaries may obtain and abuse credentials of existing accounts as a means of gaining initial access to systems and data.
+  Description: Adversaries may obtain and abuse compromised credentials of authorized users to gain access to systems housing proprietary language models. Valid credentials allow adversaries to bypass access controls and authentication checks when accessing private models or related systems, enabling model theft.
 
-  Justification: Compromised credentials grant adversaries unauthorized access to models.
+  Justification: Compromised valid credentials grant adversaries unauthorized access to private language models and related systems, enabling theft of intellectual property and sensitive training data.
 
-- AML.T0024: Exfiltration via ML Inference API
+- AML.T0024: Exfiltration via ML Inference API  
 
-  Description: Adversaries may exfiltrate private information via the inference API, including extracting functional copies of models.
+  Description: Adversaries may exploit the inference API to extract unauthorized copies of private language models. The inference API provides a pathway for adversaries to replicate functional copies of proprietary models, stealing intellectual property.
 
-  Justification: The inference API provides a pathway for model theft.
+  Justification: The inference API can be abused to extract unauthorized functional copies of private language models, enabling intellectual property theft.
 
 - AML.T0035: ML Artifact Collection
 
-  Description: Adversaries may collect ML artifacts like models and data for exfiltration or use in attack staging.
+  Description: Adversaries may gather and collect proprietary language model files and related artifacts like training data in preparation for stealing intellectual property. Collecting these artifacts provides the assets for model theft.
 
-  Justification: Collecting artifacts grants adversaries access to steal models.
+  Justification: Collecting language model artifacts grants adversaries direct access to steal intellectual property in the form of proprietary models and related data.
 
 - AML.T0036: Data from Information Repositories
 
-  Description: Adversaries may mine information repositories containing details about systems, credentials, and data sources, to further their objectives.
+  Description: Adversaries may access and mine internal information repositories containing credentials, network architecture details, model storage locations, and other valuable information to further enable unauthorized access to private models for theft.
 
-  Justification: Mining repositories can reveal information enabling model theft.
+  Justification: Mining internal information repositories reveals details adversaries can use to identify model storage locations, credentials, and other information to enable unauthorized access for model theft.
 
 - AML.T0037: Data from Local System
 
-  Description: Adversaries may search local system sources to find files of interest and sensitive data prior to exfiltration.
+  Description: Adversaries may access and steal language model files and artifacts from local systems where models are developed, trained, and stored. Local access provides assets adversaries can directly exfiltrate for model theft.
 
-  Justification: Accessing local data provides access for model theft.
+  Justification: Access to local systems provides adversaries direct access to language model files and artifacts, enabling model theft through local exfiltration.
 
 - AML.T0040: ML Model Inference API Access
 
-  Description: Adversaries may gain access to models via the inference API which can provide a pathway for data and model theft.
-
-  Justification: The inference API enables model and data exfiltration.
+  Description: Adversaries may leverage access to the inference API as an attack vector to replicate and steal functional copies of private language models. The inference API provides an avenue for model theft through extraction.
+  
+  Justification: Inference API access enables adversaries to extract unauthorized functional model copies, providing a valuable attack vector to steal intellectual property.
 
 
 ### MITRE ATT&CK Mitigations

@@ -124,37 +124,38 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
 
   Justification: Directly causes denial of service on endpoints.
 
+
 ### MITRE ATLAS Techniques
+
+- AML.T0016: Obtain Capabilities  
+
+  Description: Adversaries may obtain or develop capabilities like adversarial machine learning tools to craft inputs precisely engineered to consume excessive resources. These tools enable adversaries to optimize resource exhaustion attacks on LLMs by precisely measuring resource usage.
+
+  Justification: Obtaining capabilities to craft resource-heavy inputs enables optimized denial of service attacks by profiling resource consumption.
 
 - AML.T0029: Denial of ML Service
 
-  Description: Adversaries may overwhelm ML systems with requests designed to consume excessive resources and degrade or deny service availability.
+  Description: Adversaries may directly overwhelm ML systems with excessive requests designed to degrade performance and deny service availability. Flooding systems strains resources and causes unavailability.
 
-  Justification: Flooding systems with resource-intensive inputs can degrade LLM performance.
+  Justification: Sending excessive requests directly triggers resource exhaustion and denial of service.
+
+- AML.T0034: Cost Harvesting
+
+  Description: Adversaries may specifically craft adversarial inputs designed to incur maximum costs through wasted computation and infrastructure usage in order to financially damage the victim organization.
+
+  Justification: Inputs can be tailored to maximize costs by wasting cloud compute resources.
 
 - AML.T0040: ML Model Inference API Access
 
-  Description: Adversaries gain access to models via inference APIs which can be abused to overwhelm systems.
+  Description: Adversaries may use inference API access to profile model behaviors and identify triggers that require extensive processing in order to craft optimized resource exhaustion attacks.
 
-  Justification: Inference API access provides a vector to target LLM systems.
+  Justification: Inference API access enables adversaries to analyze behaviors to craft optimized resource exhaustion inputs.
 
 - AML.T0043: Craft Adversarial Data
 
-  Description: Adversaries carefully craft inputs designed to consume excessive resources and manipulate model behavior.
+  Description: Adversaries may carefully craft inputs designed to consume excessive resources and manipulate model behavior. This aids in developing denial of service attacks.
 
-  Justification: Crafting complex inputs strains LLM systems.
-
-- AML.T0044: Full ML Model Access
-
-  Description: Full access enables adversaries to precisely craft harmful inputs to optimally manipulate and overload models.
-
-  Justification: With full access, attackers can optimize overload inputs. 
-
-- AML.T0046: Spamming ML System with Chaff Data
-
-  Description: Adversaries overwhelm ML systems with useless chaff data, wasting resources.
-
-  Justification: Flooding systems with excessive bogus data consumes resources.
+  Justification: Crafting complex inputs strains LLM systems, enabling denial of service.
 
 
 ### MITRE ATT&CK Mitigations
