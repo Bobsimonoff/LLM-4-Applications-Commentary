@@ -132,12 +132,6 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
 
   Justification: Flooding systems with resource-intensive inputs can degrade LLM performance.
 
-- AML.T0034: Cost Harvesting
-
-  Description: Adversaries send computationally complex inputs to increase infrastructure costs for ML service providers.
-
-  Justification: Expensive LLM inputs increase operating costs. 
-
 - AML.T0040: ML Model Inference API Access
 
   Description: Adversaries gain access to models via inference APIs which can be abused to overwhelm systems.
