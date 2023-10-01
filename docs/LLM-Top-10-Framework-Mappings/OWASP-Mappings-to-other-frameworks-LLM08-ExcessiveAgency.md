@@ -110,7 +110,7 @@ Prevention requires limiting LLM functionality, permissions, and autonomy to onl
   Justification: Highly applicable as plugins act without authorization.
 
 
-### MITRE ATT&CK Techniques
+### MITRE ATT&CK® Techniques
 
 - [T1548](https://attack.mitre.org/techniques/T1548/): Abuse Elevation Control Mechanism
 
@@ -125,7 +125,7 @@ Prevention requires limiting LLM functionality, permissions, and autonomy to onl
   Justification: Enables unauthorized actions through stolen credentials.
 
 
-### MITRE ATLAS Techniques
+### MITRE ATLAS™ Techniques
 
 - AML.T0011: User Execution
 
@@ -152,7 +152,7 @@ Prevention requires limiting LLM functionality, permissions, and autonomy to onl
   Justification: ML-enabled products provide adversaries a pathway to exploit excessive LLM autonomy by manipulating the product's interactions with the LLM.
 
 
-### MITRE ATT&CK Mitigations 
+### MITRE ATT&CK® Mitigations 
 
 - [M1032](https://attack.mitre.org/mitigations/M1032/): Limit Access to Resource Over Network
 
@@ -167,7 +167,7 @@ Prevention requires limiting LLM functionality, permissions, and autonomy to onl
   Justification: Limits impact of unchecked plugin actions.
 
 
-### MITRE ATLAS Mitigations
+### MITRE ATLAS™ Mitigations
 
 - AML.M0011: Restrict Library Loading
   Description: Prevent abuse of library loading mechanisms in the operating system and software to load untrusted code by configuring appropriate library loading mechanisms and investigating potential vulnerable software. File formats such as pickle files that are commonly used to store machine learning models can contain exploits that allow for loading of malicious libraries.

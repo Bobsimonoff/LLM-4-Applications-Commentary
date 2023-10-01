@@ -12,9 +12,22 @@ The OWASP Top 10 provides the top 10 critical security risks for web application
 
 - [Common Weakness Enumeration (CWE)](https://cwe.mitre.org/) serves as a dictionary of software weaknesses. CWEs provide standardized concepts that classify the types of weaknesses related to the OWASP LLM risks. Mapping CWEs helps identify the core vulnerability types that could lead to or underlie the OWASP risks.
 
-- [MITRE ATT&CK](https://attack.mitre.org/) is a knowledge base of real-world adversary tactics and techniques. Mapping ATT&CK techniques provides insights into how adversaries could actually exploit the OWASP LLM risks in practice. This intelligence can inform threat modeling and defenses.
+- [MITRE ATT&CK®](https://attack.mitre.org/) is a security framework that provides a structured approach to understanding and categorizing the tactics and techniques used by adversaries during cyberattacks and the mitigations that can help prevent them. 
 
-- [ATLAS](https://atlas.mitre.org/) documents observed real-world attacks against AI. Mapping ATLAS builds understanding of how the OWASP risks manifest in actual AI threat scenarios based on evidence.
+  - **Tactics**: These represent high-level objectives or goals that adversaries aim to achieve during an attack. They help in understanding the strategic aspect of an attack, such as gaining initial access, maintaining persistence, or exfiltrating data.
+
+  - **Techniques**: Under each tactic, MITRE ATT&CK® documents specific techniques employed by attackers. These techniques delve into the more detailed methods and procedures adversaries use to achieve their tactical goals. For example, under the "Execution" tactic, a technique might be "Spear Phishing."
+
+  - **Mitigations**: Mitigations are countermeasures and best practices that organizations can implement to defend against or reduce the effectiveness of the documented techniques. These are crucial for improving security posture and mitigating the risk associated with each technique.
+
+
+- [ATLAS™](https://atlas.mitre.org/) (Adversarial Threat Landscape for Artificial-Intelligence Systems) is a knowledge base that focuses on adversary tactics, techniques, and case studies for machine learning (ML) systems. It is structured similarly to MITRE ATT&CK® but tailored to the unique threats posed to ML systems.
+
+  - **Tactics:** ATLAS™ outlines high-level objectives or tactics that adversaries aim to achieve when targeting ML systems, providing strategic insights into their goals.
+
+  - **Techniques:** Under each tactic, ATLAS™ documents specific techniques employed by adversaries to exploit vulnerabilities in ML systems, detailing their methods and procedures.
+
+  - **Mitigations:** ATLAS™ also includes mitigations, which are security concepts and technologies that can prevent or mitigate the successful execution of a technique or sub-technique. These countermeasures help defend ML systems against threats.
 
 - The [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework) delivers guidelines and best practices for managing organizational cybersecurity risk. Mapping NIST CSF helps relate the OWASP risks to recognized standards and controls, providing mature mitigation guidance.
 
@@ -28,19 +41,18 @@ This cross-framework mapping aims to connect the dots between OWASP risks and co
 ![alt text](./images/Security-Frameworks-Template.png)
 
 
-
 The following areroughed in and ready for discussion.
 
 1. **Weaknesses**
    - CWE weakness types
 
 2. **Threats & Attack Vectors**
-   - MITRE ATT&CK tactics and techniques
-   - ATLAS tactics and techniques
+   - MITRE ATT&CK® tactics and techniques
+   - ATLAS™ tactics and techniques
 
 3. **Controls & Mitigations**
-   - ATT&CK Mitigations
-   - ATLAS Mitigation
+   - ATT&CK® Mitigations
+   - ATLAS™ Mitigation
 
 
 Sections:

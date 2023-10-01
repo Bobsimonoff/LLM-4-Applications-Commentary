@@ -105,7 +105,7 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
   Justification: Lack of origin validation allows injecting prompts from untrusted external sources.
 
 
-### MITRE ATT&CK Techniques 
+### MITRE ATT&CK® Techniques 
 
 - [T1059](https://attack.mitre.org/techniques/T1059/): Command and Scripting Interpreter
 
@@ -132,7 +132,7 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
   Justification: Could deliver injected prompts through phishing messages.
 
 
-### MITRE ATLAS Techniques 
+### MITRE ATLAS™ Techniques 
 
 - AML.T0006: Active Scanning
 
@@ -171,7 +171,7 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
   Justification: LLM-enabled services can inadvertently activate injected prompts from crafted external inputs.
 
 
-### MITRE ATT&CK Mitigations
+### MITRE ATT&CK® Mitigations
 
 - [M1037](https://attack.mitre.org/mitigations/M1037/): Application Configuration
 
@@ -199,7 +199,7 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
 
 
 
-### MITRE ATLAS Mitigations
+### MITRE ATLAS™ Mitigations
 
 - AML.M0002: Passive ML Output Obfuscation
   Description: Decreasing the fidelity of model outputs provided to the end user can reduce an adversaries ability to extract information about the model and optimize attacks for the model.

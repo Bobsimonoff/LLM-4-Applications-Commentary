@@ -115,7 +115,7 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
   Justification: Weak hashing in third-party code could enable password cracking if the supplier is compromised.
 
 
-## ATT&CK Technique
+## ATT&CK® Technique
 
 - [T1195](https://attack.mitre.org/techniques/T1195/) - Supply Chain Compromise
 
@@ -125,7 +125,7 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
 
 
 
-### MITRE ATLAS Techniques
+### MITRE ATLAS™ Techniques
 
 - AML.T0016: Obtain Capabilities
 
@@ -146,7 +146,7 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
   Justification: Introducing adversarial data through compromised third parties erodes model integrity.
 
 
-### MITRE ATT&CK Mitigations
+### MITRE ATT&CK® Mitigations
 
 - [M1048](https://attack.mitre.org/mitigations/M1048/) - Perform Software and File Integrity Checking
 
@@ -161,7 +161,7 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
   Justification: Could prevent compromised third-party artifacts from overloading systems.
 
 
-### MITRE ATLAS Mitigations
+### MITRE ATLAS™ Mitigations
 
 - AML.M0002: Passive ML Output Obfuscation
   Description: Decreasing the fidelity of model outputs provided to the end user can reduce an adversaries ability to extract information about the model and optimize attacks for the model.

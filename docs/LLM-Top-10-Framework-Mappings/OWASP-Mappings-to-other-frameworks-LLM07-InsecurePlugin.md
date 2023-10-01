@@ -91,7 +91,7 @@ This item focuses on creating LLM plugins rather than third-party plugins, which
 
   Justification: Highly applicable as lack of validation enables data poisoning attacks.
 
-### MITRE ATT&CK Techniques
+### MITRE ATT&CK® Techniques
 
 - [T1190](https://attack.mitre.org/techniques/T1190/): Exploit Public-Facing Application
 
@@ -100,7 +100,7 @@ This item focuses on creating LLM plugins rather than third-party plugins, which
   Justification: Directly relevant as plugins are public interfaces that may contain flaws.
 
 
-### MITRE ATLAS Techniques
+### MITRE ATLAS™ Techniques
 
 - AML.T0006: Active Scanning
 
@@ -140,7 +140,7 @@ This item focuses on creating LLM plugins rather than third-party plugins, which
 
 
 
-### MITRE ATT&CK Mitigations
+### MITRE ATT&CK® Mitigations
 
 - [M1042](https://attack.mitre.org/mitigations/M1042/): Disable or Remove Feature or Program
 
@@ -162,7 +162,7 @@ This item focuses on creating LLM plugins rather than third-party plugins, which
 
 
 
-### MITRE ATLAS Mitigations
+### MITRE ATLAS™ Mitigations
  
 - AML.M0004: Restrict Number of ML Model Queries
   Description: Limit the total number and rate of queries a user can perform.

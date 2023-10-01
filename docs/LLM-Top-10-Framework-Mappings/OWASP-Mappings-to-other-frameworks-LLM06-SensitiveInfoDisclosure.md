@@ -99,7 +99,7 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
   Justification: Unencrypted model artifacts could expose training data or parameters.
 
-### MITRE ATT&CK Techniques
+### MITRE ATT&CK® Techniques
 
 - [T1530](https://attack.mitre.org/techniques/T1530/) - Data from Cloud Storage Object
 
@@ -114,7 +114,7 @@ Prevention involves robust data sanitization, input filtering, and output valida
   Justification: Compromised credentials could enable unauthorized access to sensitive information.
 
 
-### MITRE ATLAS Techniques
+### MITRE ATLAS™ Techniques
 
 - AML.T0024: Exfiltration via ML Inference API
 
@@ -160,7 +160,7 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
 
 
-### MITRE ATT&CK Mitigations
+### MITRE ATT&CK® Mitigations
 
 - [M1041](https://attack.mitre.org/mitigations/M1041/): Restrict Web-Based Content
 
@@ -181,7 +181,7 @@ Prevention involves robust data sanitization, input filtering, and output valida
   Justification: Could identify unauthorized access attempts and modifications.
 
 
-### MITRE ATLAS Mitigations
+### MITRE ATLAS™ Mitigations
 
 - AML.M0002: Passive ML Output Obfuscation
   Description: Decreasing the fidelity of model outputs provided to the end user can reduce an adversaries ability to extract information about the model and optimize attacks for the model.

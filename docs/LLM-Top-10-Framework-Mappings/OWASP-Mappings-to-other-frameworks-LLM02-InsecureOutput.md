@@ -98,7 +98,7 @@ Prevention involves treating the LLM as any other user, applying input validatio
   Justification: Vulnerable components could mishandle outputs.
 
 
-### MITRE ATT&CK Techniques
+### MITRE ATT&CK® Techniques
 
 - [T1190](https://attack.mitre.org/techniques/T1190/): Exploit Public-Facing Application
 
@@ -113,7 +113,7 @@ Prevention involves treating the LLM as any other user, applying input validatio
   Justification: Resource exhaustion denial of service could occur from flooding endpoints with excessive outputs.
 
 
-### MITRE ATLAS Techniques
+### MITRE ATLAS™ Techniques
 
 - AML.T0040: ML Model Inference API Access
 
@@ -147,7 +147,7 @@ Prevention involves treating the LLM as any other user, applying input validatio
 
 
 
-### MITRE ATT&CK Mitigations
+### MITRE ATT&CK® Mitigations
 
 - [M1041](https://attack.mitre.org/mitigations/M1041/): Restrict Web-Based Content
 
@@ -168,7 +168,7 @@ Prevention involves treating the LLM as any other user, applying input validatio
   Justification: Could eliminate plugins mishandling outputs by disabling them.
 
 
-### MITRE ATLAS Mitigations
+### MITRE ATLAS™ Mitigations
 
 - AML.M0002: Passive ML Output Obfuscation
   Description: Decreasing the fidelity of model outputs provided to the end user can reduce an adversaries ability to extract information about the model and optimize attacks for the model.

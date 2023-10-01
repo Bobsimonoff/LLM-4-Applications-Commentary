@@ -12,7 +12,7 @@ The OWASP Top 10 provides the top 10 critical security risks for web application
 
 - The [Common Weakness Enumeration (CWE)](https://cwe.mitre.org/) serves as a dictionary of software weaknesses. CWEs provide standardized concepts that classify the types of weaknesses related to the OWASP LLM risks. Mapping CWEs helps identify the core vulnerability types that could lead to or underlie the OWASP risks.
 
-- [MITRE ATT&CK](https://attack.mitre.org/) is a knowledge base of real-world adversary tactics and techniques. Mapping ATT&CK techniques provides insights into how adversaries could actually exploit the OWASP LLM risks in practice. This intelligence can inform threat modeling and defenses.
+- [MITRE ATT&CK®](https://attack.mitre.org/) is a knowledge base of real-world adversary tactics and techniques. Mapping ATT&CK® techniques provides insights into how adversaries could actually exploit the OWASP LLM risks in practice. This intelligence can inform threat modeling and defenses.
 
 - The [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework) delivers guidelines and best practices for managing organizational cybersecurity risk. Mapping NIST CSF helps relate the OWASP risks to recognized standards and controls, providing mature mitigation guidance.
 
@@ -26,7 +26,7 @@ The OWASP Top 10 provides the top 10 critical security risks for web application
 
 - [OAIR Framework](https://www.operationalizingai.org/) identifies risks across the AI system lifecycle. Mapping OAIR relates the OWASP risks to AI-specific vulnerabilities and harms providing visibility into AI relevance.
 
-- [ATLAS](https://atlas.mitre.org/) documents observed real-world attacks against AI. Mapping ATLAS builds understanding of how the OWASP risks manifest in actual AI threat scenarios based on evidence.
+- [ATLAS™](https://ATLAS™.mitre.org/) documents observed real-world attacks against AI. Mapping ATLAS™ builds understanding of how the OWASP risks manifest in actual AI threat scenarios based on evidence.
 
 
 ![alt text](./LLM-Top-10-Framework-Mappings/images/Security-Frameworks-Template.png)
@@ -41,8 +41,8 @@ The following is a tentative classification of where part of the various framewo
    - Arc: exposes OWASP Risk
 
 2. **Threats & Attack Vectors**
-   - MITRE ATT&CK tactics and techniques
-   - ATLAS tactics, techniques, and procedures
+   - MITRE ATT&CK® tactics and techniques
+   - ATLAS™ tactics, techniques, and procedures
    - ENISA threats
    - OAIR Threat Scenarios
    - Arc: targets OWASP Risk
@@ -70,13 +70,13 @@ The following is a tentative classification of where part of the various framewo
 
 7. **Detection Strategies**
    - NIST CSF detect function
-   - MITRE ATT&CK Detection
+   - MITRE ATT&CK® Detection
    - Arc: addresses OWASP Risk
 
 8. **Response Strategies**
    - NIST CSF respond function
    - NIST CSF recover function
-   - MITRE ATT&CK Response
+   - MITRE ATT&CK® Response
    - Arc: manages OWASP Risk
 
 

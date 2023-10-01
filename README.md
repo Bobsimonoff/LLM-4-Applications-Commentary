@@ -41,4 +41,4 @@ I intend to use this repository as a way of incubating ideas and developing thou
 
 - ENISA Threat Landscape examines emerging threats to AI systems. Mapping ENISA helps identify OWASP LLM risks unique to the AI domain that may not be highlighted in traditional frameworks.
 
-- ATLAS documents observed real-world attacks against AI. Mapping ATLAS builds understanding of how the OWASP risks manifest in actual AI threat scenarios based on evidence.
+- ATLAS™ documents observed real-world attacks against AI. Mapping ATLAS™ builds understanding of how the OWASP risks manifest in actual AI threat scenarios based on evidence.

@@ -116,7 +116,7 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
 
   Justification: Extensions/plugins could trigger resource issues by including uncontrolled functionality.
 
-## ATT&CK Technique
+## ATT&CK® Technique
 
 - [T1499](https://attack.mitre.org/techniques/T1499/): Endpoint Denial of Service
 
@@ -125,7 +125,7 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
   Justification: Directly causes denial of service on endpoints.
 
 
-### MITRE ATLAS Techniques
+### MITRE ATLAS™ Techniques
 
 - AML.T0016: Obtain Capabilities  
 
@@ -152,12 +152,12 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
   Justification: Crafting complex inputs strains LLM systems, enabling denial of service.
 
 
-### MITRE ATT&CK Mitigations
+### MITRE ATT&CK® Mitigations
 
 N/A
 
 
-### MITRE ATLAS Mitigations
+### MITRE ATLAS™ Mitigations
 
 - AML.M0004: Restrict Number of ML Model Queries
   Description: Limit the total number and rate of queries a user can perform.

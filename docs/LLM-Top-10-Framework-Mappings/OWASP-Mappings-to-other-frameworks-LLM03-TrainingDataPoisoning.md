@@ -99,7 +99,7 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
   Justification: Vulnerable components could enable poisoning by providing a vector for malicious data to enter workflow.
 
 
-### MITRE ATT&CK Techniques
+### MITRE ATT&CK® Techniques
 
 - [T1565](https://attack.mitre.org/techniques/T1565/): Data Manipulation
 
@@ -108,7 +108,7 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
   Justification: Could directly poison training data by manipulating datasets before they are consumed.
 
 
-### MITRE ATLAS Techniques
+### MITRE ATLAS™ Techniques
 
 - AML.T0019: Publish Poisoned Datasets
 
@@ -141,7 +141,7 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
   Justification: Crafting poisoned data precisely manipulates models by embedding flaws.
 
 
-### MITRE ATT&CK Mitigations
+### MITRE ATT&CK® Mitigations
 
 - [M1041](https://attack.mitre.org/mitigations/M1041/): Restrict Web-Based Content
 
@@ -168,7 +168,7 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
   Justification: Secure authentication prevents unauthorized data poisoning.
 
 
-### MITRE ATLAS Mitigations
+### MITRE ATLAS™ Mitigations
 
 - AML.M0005: Control Access to ML Models and Data at Rest
   Description: Establish access controls on internal model registries and limit internal access to production models. Limit access to training data only to approved users.

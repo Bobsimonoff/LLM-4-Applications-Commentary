@@ -134,7 +134,7 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
   Justification: SSRF vulnerabilities are directly related to the risk as they highlight the potential for unauthorized access to internal language model storage servers, which could result in data theft.
 
 
-### MITRE ATT&CK Techniques
+### MITRE ATT&CK® Techniques
 
 - [T1081](https://attack.mitre.org/techniques/T1081/) - Credentials in Files
 
@@ -149,7 +149,7 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
   Justification: T1530 is relevant to the risk as it highlights the scenario where cloud storage containing language models or artifacts is accessed, potentially leading to the theft of proprietary language models and data.
 
 
-### MITRE ATLAS Techniques
+### MITRE ATLAS™ Techniques
 
 - AML.T0006: Active Scanning
 
@@ -194,7 +194,7 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
   Justification: Inference API access enables adversaries to extract unauthorized functional model copies, providing a valuable attack vector to steal intellectual property.
 
 
-### MITRE ATT&CK Mitigations
+### MITRE ATT&CK® Mitigations
 
 - [M1015](https://attack.mitre.org/mitigations/M1015/) - Secure Authentication
 
@@ -215,7 +215,7 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
   Justification: M1051 is directly related to the risk as it focuses on using network IPS to block unauthorized attempts to extract language models, thus preventing data theft and unauthorized access.
 
 
-### MITRE ATLAS Mitigations
+### MITRE ATLAS™ Mitigations
 
 - AML.M0002: Passive ML Output Obfuscation
   Description: Decreasing the fidelity of model outputs provided to the end user can reduce an adversaries ability to extract information about the model and optimize attacks for the model.
