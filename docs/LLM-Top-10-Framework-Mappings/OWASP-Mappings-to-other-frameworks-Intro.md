@@ -29,7 +29,7 @@ This cross-framework mapping aims to connect the dots between OWASP risks and co
 
 
 
-The following is a tentative classification of where part of the various frameworks could be places with respect to their security context.
+The following areroughed in and ready for discussion.
 
 1. **Weaknesses**
    - CWE weakness types
@@ -37,21 +37,10 @@ The following is a tentative classification of where part of the various framewo
 2. **Threats & Attack Vectors**
    - MITRE ATT&CK tactics and techniques
    - ATLAS tactics and techniques
-   - ENISA threats
 
 3. **Controls & Mitigations**
-   - NIST CSF Subcategories
    - ATT&CK Mitigations
    - ATLAS Mitigation
-
-4. **Detection Strategies**
-   - NIST CSF detect function
-   - MITRE ATT&CK Detection
-
-5. **Response Strategies**
-   - NIST CSF respond function
-   - NIST CSF recover function
-   - MITRE ATT&CK Response
 
 
 Sections:
