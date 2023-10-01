@@ -79,11 +79,6 @@ Prevention requires limiting LLM functionality, permissions, and autonomy to onl
 
   Justification: Directly relevant as plugins may lack authorization checks.
 
-- [CWE-347](https://cwe.mitre.org/data/definitions/347.html): Improper Verification of Cryptographic Signature
-
-  Description: Failing to verify signatures on actions poses authorization risks.
-
-  Justification: Relevant as lack of signature verification enables unauthorized actions.
 
 - [CWE-732](https://cwe.mitre.org/data/definitions/732.html): Inadequate Encoding of Output Data
 
@@ -117,12 +112,6 @@ Prevention requires limiting LLM functionality, permissions, and autonomy to onl
   Description: Exploiting weak access controls to leverage excessive privileges.
 
   Justification: Relevant technique to exploit plugin privileges.
-
-- [T1555](https://attack.mitre.org/techniques/T1555/): Credentials from Password Stores
-
-  Description: Stealing stored credentials granting excessive privileges.
-
-  Justification: Enables unauthorized actions through stolen credentials.
 
 
 ### MITRE ATLAS™ Techniques

@@ -154,12 +154,6 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
 
   Justification: Could detect compromised or tampered third-party components.
 
-- [M1053](https://attack.mitre.org/mitigations/M1053/) - Disable or Restrict Resource Consumption Settings
-
-  Description: Disable or limit the consumption of resources to prevent resource exhaustion denial of service conditions.
-
-  Justification: Could prevent compromised third-party artifacts from overloading systems.
-
 
 ### MITRE ATLAS™ Mitigations
 

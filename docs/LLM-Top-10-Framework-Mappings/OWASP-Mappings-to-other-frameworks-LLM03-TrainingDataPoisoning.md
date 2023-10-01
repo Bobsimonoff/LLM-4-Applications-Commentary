@@ -143,12 +143,6 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
 
 ### MITRE ATT&CK® Mitigations
 
-- [M1041](https://attack.mitre.org/mitigations/M1041/): Restrict Web-Based Content
-
-  Description: Allowlisting, blocking, or sandboxing web content will reduce the attack surface against web-based attacks, resulting in safer web browsing and reduced phishing effectiveness.
-
-  Justification: Could block web access to poisoned data by restricting web content loading.
-
 - [M1043](https://attack.mitre.org/mitigations/M1043/): Isolate System or Network
 
   Description: Isolate systems from the Internet or untrusted networks, and isolate sensitive systems from vulnerable systems to reduce a threat's ability to access and compromise systems. Network segregation also adds a layer of defense, since an exploitation would have to traverse the boundary to reach other systems.

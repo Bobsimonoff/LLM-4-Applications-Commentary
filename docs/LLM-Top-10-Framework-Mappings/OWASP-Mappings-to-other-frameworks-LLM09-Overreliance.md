@@ -59,35 +59,6 @@ Overreliance can occur when an Large Language Model produces erroneous informati
 
 ### Common Weakness Enumeration (CWE)
 
-- [CWE-119](https://cwe.mitre.org/data/definitions/119.html): Improper Restriction of Operations within the Bounds of a Memory Buffer
-
-  Description: This weakness occurs when software does not properly restrict operations within the bounds of a memory buffer, potentially leading to buffer overflows.
-
-  Justification: CWE-119 is relevant because blindly using unchecked LLM-generated code could result in buffer overflows or memory-related vulnerabilities, which can compromise security and stability.
-
-- [CWE-347](https://cwe.mitre.org/data/definitions/347.html): Improper Verification of Cryptographic Signature
-
-  Description: This weakness involves the improper verification of cryptographic signatures, which can lead to the use of manipulated or tampered data.
-
-  Justification: CWE-347 is applicable as relying on unsigned LLM content without proper verification can result in the use of manipulated or tampered outputs, leading to security risks.
-
-- [CWE-707](https://cwe.mitre.org/data/definitions/707.html): Improper Enforcement of Message Integrity During Transmission in a Communication Channel
-
-  Description: This weakness relates to the improper enforcement of message integrity during transmission, potentially leading to integrity issues in communication.
-
-  Justification: CWE-707 is relevant because relying on unvalidated LLM communications can introduce integrity issues in the outputs, which can lead to misinformation or security breaches.
-
-- [CWE-839](https://cwe.mitre.org/data/definitions/839.html): Numeric Range Comparison Without Minimum Check
-
-  Description: This weakness occurs when software performs a numeric range comparison without first checking the minimum value, potentially accepting invalid values.
-
-  Justification: CWE-839 is applicable because relying on unvalidated LLM numerical outputs without checking the minimum values poses risks of accepting invalid or incorrect values.
-
-- [CWE-862](https://cwe.mitre.org/data/definitions/862.html): Missing Authorization
-
-  Description: This weakness involves missing authorization checks, allowing unauthorized access or actions.
-
-  Justification: CWE-862 is relevant as blind reliance on LLM outputs without proper authorization checks could lead to unauthorized actions or access, compromising security.
 
 - [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere
 
@@ -95,44 +66,10 @@ Overreliance can occur when an Large Language Model produces erroneous informati
 
   Justification: CWE-829 is applicable because relying on LLM outputs without validating the functionality can risk including untrusted code or logic, potentially leading to security vulnerabilities.
 
-- [CWE-554](https://cwe.mitre.org/data/definitions/554.html): ASP.NET Misconfiguration: Not Understanding the Implications of Invoking Unvalidated Methods
-
-  Description: This weakness involves the misconfiguration of ASP.NET applications due to not understanding the implications of invoking unvalidated methods.
-
-  Justification: CWE-554 is relevant because invoking unchecked LLM-generated methods can lead to misconfiguration issues in applications, potentially introducing security vulnerabilities.
-
-- [CWE-908](https://cwe.mitre.org/data/definitions/908.html): Use of Uninitialized Resource
-
-  Description: This weakness occurs when software uses an uninitialized resource, potentially leading to unpredictable behavior or vulnerabilities.
-
-  Justification: CWE-908 is applicable as reliance on unvalidated, uninitialized LLM outputs can pose risks, including unpredictable behavior or vulnerabilities.
-
-- [CWE-1053](https://cwe.mitre.org/data/definitions/1053.html): Missing Documentation for Design
-
-  Description: This weakness involves missing documentation for the design, which can lead to misunderstandings and inadequate monitoring of software components.
-
-  Justification: CWE-1053 is relevant if design documentation lacks details on monitoring and verifying LLM outputs, as this can enable blind trust and inadequate oversight.
-
-- [CWE-1059](https://cwe.mitre.org/data/definitions/1059.html): Incomplete Documentation of Program Execution
-
-  Description: This weakness occurs when there is incomplete documentation of program execution, which can lead to misunderstandings and inadequate monitoring of software components.
-
-  Justification: CWE-1059 is applicable if execution documentation lacks details on monitoring and verifying LLM outputs, as this can enable blind trust and inadequate oversight.
-
 
 ### MITRE ATT&CK® Techniques
 
-- [T1566](https://attack.mitre.org/techniques/T1566/) - Phishing
-
-  Description: Phishing is the practice of deploying malicious messages to users to deceive them into taking actions that may compromise security. It often involves sending deceptive emails or messages with links or attachments.
-
-  Justification: T1566 is relevant because attackers could deploy phishing campaigns that distribute LLM-generated misinformation. If users blindly trust the information provided by LLMs, they may be more susceptible to phishing attacks that exploit this trust.
-
-- [T1572](https://attack.mitre.org/techniques/T1572/) - Protocol Tunneling
-
-  Description: Protocol tunneling involves using other protocols to bypass network restrictions or filters. Attackers use this technique to evade detection and exploit network vulnerabilities.
-
-  Justification: T1572 is related to the risk because it could allow manipulated LLM outputs to bypass security filters and restrictions. If users blindly trust LLM-generated content without proper validation, attackers might leverage protocol tunneling to introduce malicious content or misinformation into the network, taking advantage of the blind trust.
+N.A.
 
 
 ### MITRE ATLAS™ Techniques

@@ -61,23 +61,24 @@ This item focuses on creating LLM plugins rather than third-party plugins, which
 
 ### Common Weakness Enumeration (CWE) 
 
-- [CWE-300](https://cwe.mitre.org/data/definitions/300.html): Channel Accessible by Non-Endpoint ('Man-in-the-Middle')
+- [CWE-79](https://cwe.mitre.org/data/definitions/79.html): Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
 
-  Description: A communication channel is exposed to intermediaries, enabling information disclosure or spoofing.
+  Description: The software does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.
 
-  Justification: Applicable as poisoning attacks manipulate training data in transit.
+  Justification: Highly applicable to insecure plugin design as user inputs that are not properly sanitized can lead to cross-site scripting attacks. Plugins, especially those handling text fields or other forms of user input, are often susceptible to such vulnerabilities.
+
+- [CWE-287](https://cwe.mitre.org/data/definitions/287.html): Improper Authentication
+  
+  Description: When an actor claims to have a given identity, the software does not prove, or insufficiently proves, that the claim is correct.
+  
+  Justification: Directly relevant to insecure plugin design where lack of proper authentication checks can lead to unauthorized access. A plugin that doesn't validate the identity of the interacting users or systems effectively opens a doorway for attackers.
+
 
 - [CWE-451](https://cwe.mitre.org/data/definitions/451.html): User Interface (UI) Misrepresentation of Critical Information
 
   Description: Incorrect or misleading user interface presentation that masks or misrepresents critical information.
 
   Justification: Relevant as data poisoning can cause misrepresentation of information.
-
-- [CWE-920: Improper Restriction of Power Consumption](https://cwe.mitre.org/data/definitions/920.html)
-
-  Description: Not limiting resource consumption enables denial of service.
-
-  Justification: Applicable as data poisoning aims to consume excessive resources.
 
 - [CWE-1188](https://cwe.mitre.org/data/definitions/1188.html): Insecure Default Initialization of Resource
 
@@ -153,13 +154,6 @@ This item focuses on creating LLM plugins rather than third-party plugins, which
   Description: Isolate systems like those hosting plugins from other resources.
 
   Justification: Segmentation could limit impact of any plugin exploits.
-
-- [M1049](https://attack.mitre.org/mitigations/M1049/): Disable or Remove Feature or Program
-
-  Description: Disable or remove problematic features like insecure plugins.
-
-  Justification: Directly applicable mitigation to reduce attack surface by eliminating vulnerable plugins.
-
 
 
 ### MITRE ATLAS™ Mitigations

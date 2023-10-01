@@ -161,12 +161,6 @@ Prevention involves treating the LLM as any other user, applying input validatio
 
   Justification: Could eliminate plugins mishandling outputs by disabling them. 
 
-- [M1049](https://attack.mitre.org/mitigations/M1049/): Disable or Remove Feature or Program
-
-  Description: Disabling or removing unnecessary features and programs reduces attack surface. Disabling plugin functionalities that improperly handle outputs removes pathways for potential exploitation.
-
-  Justification: Could eliminate plugins mishandling outputs by disabling them.
-
 
 ### MITRE ATLAS™ Mitigations
 

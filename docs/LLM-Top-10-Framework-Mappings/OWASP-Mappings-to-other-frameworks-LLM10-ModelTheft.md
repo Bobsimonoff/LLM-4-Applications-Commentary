@@ -91,12 +91,6 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
 
   Justification: This CWE is directly related to the risk as it addresses the specific scenario where user-controlled API keys can be exploited to bypass authorization and gain unauthorized access to language models, potentially resulting in data theft.
 
-- [CWE-703](https://cwe.mitre.org/data/definitions/703.html): Improper Check or Handling of Exceptional Conditions - May prevent detection of language model data extraction attacks by mishandling exceptions.
-
-  Description: Mishandling exceptions can prevent the detection of data extraction attacks, potentially leading to unauthorized access and data theft.
-
-  Justification: Improper handling of exceptional conditions is directly related to the risk because it can hinder the detection of data extraction attacks, allowing unauthorized access to language models and potential data theft to go unnoticed.
-
 - [CWE-732](https://cwe.mitre.org/data/definitions/732.html): Inadequate Encoding of Output Data - Insufficient output encoding from language models risks exposing sensitive training data enabling theft.
 
   Description: Inadequate output encoding can expose sensitive data, including training data, to potential theft.
@@ -108,24 +102,6 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
   Description: Hard-coded credentials with excessive permissions can lead to unauthorized access to resources, including language models.
 
   Justification: The use of hard-coded credentials is directly related to the risk as it points out the risk associated with such credentials, which can result in unauthorized access to language models and potential data theft.
-
-- [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere - Inclusion of untrusted third-party components poses risks of unauthorized access to language models.
-
-  Description: Including untrusted third-party components can introduce risks of unauthorized access to resources, in this case, language models.
-
-  Justification: This CWE is directly related to the risk as it addresses the potential risks associated with including untrusted third-party components, which can lead to unauthorized access to language models and potential data theft.
-
-- [CWE-384](https://cwe.mitre.org/data/definitions/384.html): Session Fixation - Session fixation could allow an adversary to hijack authenticated sessions to language models to access or steal data.
-
-  Description: Session fixation can allow attackers to hijack authenticated sessions, potentially leading to unauthorized access and data theft.
-
-  Justification: Session fixation is directly related to the risk as it highlights the risk of attackers hijacking authenticated sessions to gain unauthorized access to language models and potentially steal data.
-
-- [CWE-913](https://cwe.mitre.org/data/definitions/913.html): Improper Control of Dynamically-Managed Code Resources - Could allow unauthorized execution of code enabling access to steal language model data.
-
-  Description: Improper control of dynamically-managed code resources can result in unauthorized code execution, potentially leading to data access and theft.
-
-  Justification: Improper control of dynamically-managed code resources is directly related to the risk as it addresses the scenario where unauthorized code execution could enable access to language model data, leading to potential theft.
 
 - [CWE-918](https://cwe.mitre.org/data/definitions/918.html): Server-Side Request Forgery (SSRF) - SSRF vulnerabilities could enable unauthorized access to internal language model storage servers to steal data.
 

@@ -104,12 +104,6 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
 
   Justification: Lack of frequency control allows flooding requests overwhelming resources.
 
-- [CWE-404](https://cwe.mitre.org/data/definitions/404.html): Improper Resource Shutdown or Release
-
-  Description: Failure to properly free resources after use leading to resource exhaustion.
-
-  Justification: Improper resource release leads to depletion of available resources.
-
 - [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere
 
   Description: Use of untrusted code or inputs leading to unintended functionality.

@@ -51,6 +51,12 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
 ### Common Weakness Enumeration (CWE) 
 
+- [CWE-649](https://cwe.mitre.org/data/definitions/649.html) Reliance on Obfuscation or Protection Mechanism
+  
+  Description: Relying solely on obfuscation or data protection mechanisms provides ineffective protection.
+
+  Justification: While obfuscation techniques may deter casual adversaries, they're insufficient for ensuring data protection in LLMs. Proper encryption, access controls, and other security layers are essential to ensure data is secure.
+
 - [CWE-202](https://cwe.mitre.org/data/definitions/202.html): Exposure of Sensitive Information to an Unauthorized Actor
 
   Description: The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
@@ -172,13 +178,19 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
   Description: Isolating systems provides network segmentation, limiting an attacker's ability to access systems and sensitive data.
 
-  Justification: Segmentation limits exposure of sensitive systems and data.
+ - Justification: Isolating machine learning model systems from other systems minimizes attack vectors that could be leveraged to exploit vulnerabilities specific to LLMs.
 
 - [M1048](https://attack.mitre.org/mitigations/M1048/): Perform Software and File Integrity Checking
 
   Description: Checking integrity of systems and files enables detection of unauthorized modifications or access attempts.
 
   Justification: Could identify unauthorized access attempts and modifications.
+
+- [M1032](https://attack.mitre.org/mitigations/M1032/): Multi-factor Authentication
+  
+  Description: Use of multiple forms of authentication can greatly enhance security by requiring an attacker to compromise more than one mechanism to gain access to a resource.
+
+  Justification: Adding multi-factor authentication to LLM systems makes unauthorized access more difficult, thereby securing sensitive information and intellectual property.
 
 
 ### MITRE ATLAS™ Mitigations
@@ -200,3 +212,4 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
 - AML.M0017: Model Distribution Methods
   Description: Deploying ML models to edge devices can increase the attack surface of the system. Consider serving models in the cloud to reduce the level of access the adversary has to the model. 
+
