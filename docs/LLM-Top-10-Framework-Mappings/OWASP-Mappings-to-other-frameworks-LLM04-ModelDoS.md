@@ -139,12 +139,6 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
 
   Justification: Sending excessive requests directly triggers resource exhaustion and denial of service.
 
-- AML.T0034: Cost Harvesting
-
-  Description: Adversaries may specifically craft adversarial inputs designed to incur maximum costs through wasted computation and infrastructure usage in order to financially damage the victim organization.
-
-  Justification: Inputs can be tailored to maximize costs by wasting cloud compute resources.
-
 - AML.T0040: ML Model Inference API Access
 
   Description: Adversaries may use inference API access to profile model behaviors and identify triggers that require extensive processing in order to craft optimized resource exhaustion attacks.
@@ -164,6 +158,9 @@ N/A
 
 
 ### MITRE ATLAS Mitigations
+
+- AML.M0004: Restrict Number of ML Model Queries
+  Description: Limit the total number and rate of queries a user can perform.
 
 - AML.M0015: Adversarial Input Detection
 

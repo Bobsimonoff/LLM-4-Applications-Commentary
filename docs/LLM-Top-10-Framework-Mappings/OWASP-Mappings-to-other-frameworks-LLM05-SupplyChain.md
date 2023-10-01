@@ -163,6 +163,15 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
 
 ### MITRE ATLAS Mitigations
 
-- AML.M0006: Use Ensemble Methods
+- AML.M0002: Passive ML Output Obfuscation
+  Description: Decreasing the fidelity of model outputs provided to the end user can reduce an adversaries ability to extract information about the model and optimize attacks for the model.
 
-  Description: Use an ensemble of models for inference to increase robustness to adversarial inputs. Some attacks may effectively evade one model or model family but be ineffective against others.
+- AML.M0003: Model Hardening  
+  Description: Use techniques to make machine learning models robust to adversarial inputs such as adversarial training or network distillation.
+
+- AML.M0012: Encrypt Sensitive Information
+  Description: Encrypt sensitive data such as ML models to protect against adversaries attempting to access sensitive data.
+
+- AML.M0015: Adversarial Input Detection
+  Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
+

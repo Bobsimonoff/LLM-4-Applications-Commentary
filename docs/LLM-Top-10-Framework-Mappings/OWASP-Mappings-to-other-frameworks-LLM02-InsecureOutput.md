@@ -171,31 +171,22 @@ Prevention involves treating the LLM as any other user, applying input validatio
 ### MITRE ATLAS Mitigations
 
 - AML.M0002: Passive ML Output Obfuscation
-
   Description: Decreasing the fidelity of model outputs provided to the end user can reduce an adversaries ability to extract information about the model and optimize attacks for the model.
 
-- AML.M0004: Restrict Number of ML Model Queries  
-
+- AML.M0004: Restrict Number of ML Model Queries
   Description: Limit the total number and rate of queries a user can perform.
 
 - AML.M0005: Control Access to ML Models and Data at Rest
-
-  Description: Establish access controls on internal model registries and limit internal access to production models. Limit access to training data only to approved users.  
+  Description: Establish access controls on internal model registries and limit internal access to production models. Limit access to training data only to approved users.
 
 - AML.M0011: Restrict Library Loading
-
   Description: Prevent abuse of library loading mechanisms in the operating system and software to load untrusted code by configuring appropriate library loading mechanisms and investigating potential vulnerable software. File formats such as pickle files that are commonly used to store machine learning models can contain exploits that allow for loading of malicious libraries.
 
 - AML.M0012: Encrypt Sensitive Information
-
   Description: Encrypt sensitive data such as ML models to protect against adversaries attempting to access sensitive data.
 
 - AML.M0015: Adversarial Input Detection
-
-  Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model. 
+  Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
 
 - AML.M0017: Model Distribution Methods
-
-  Description: Deploying ML models to edge devices can increase the attack surface of the system. Consider serving models in the cloud to reduce the level of access the adversary has to the model.
-
-
+  Description: Deploying ML models to edge devices can increase the attack surface of the system. Consider serving models in the cloud to reduce the level of access the adversary has to the model. 

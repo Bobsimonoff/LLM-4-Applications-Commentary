@@ -143,12 +143,6 @@ Overreliance can occur when an Large Language Model produces erroneous informati
 
   Justification: User execution of unsafe actions guided by over-reliance on incorrect LLM outputs enables adversaries to more readily manipulate user behavior through social engineering tactics designed to exploit the excessive trust placed in the LLM.
 
-- AML.T0031: Erode ML Model Integrity
-
-  Description: By providing specially crafted malicious inputs designed to slowly manipulate an LLM's behavior over time, an adversary can degrade the model's performance and reliability. This erosion due to malicious data inputs increases the occurrence of incorrect outputs that users may over-rely on without proper verification, enabling adversary manipulation.
-
-  Justification: The gradual erosion of the LLM's integrity through malicious inputs increases inaccurate outputs over time that adversaries can exploit through greater over-reliance on unchecked LLM information.
-
 - AML.T0045: ML Intellectual Property Theft
 
   Description: Excessive trust in LLM outputs enables adversaries to more readily manipulate users into improperly disclosing or mishandling intellectual property and other confidential data assets by providing manipulated information that is incorrectly treated as authoritative without proper verification.
@@ -179,6 +173,5 @@ Overreliance can occur when an Large Language Model produces erroneous informati
 
 ### MITRE ATLAS Mitigations
 
-- AML.M0020: Validate ML Outputs
-
-  Description: Ensure proper validation of LLM outputs prior to taking any actions based on the information. Avoid blind trust in LLMs by verifying accuracy through redundancy, subject matter expertise, and outcome monitoring.
+- AML.M0018: User Training
+  Description: Educate ML model developers on secure coding practices and ML vulnerabilities.

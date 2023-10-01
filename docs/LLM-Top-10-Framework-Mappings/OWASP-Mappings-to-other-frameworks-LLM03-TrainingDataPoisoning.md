@@ -170,21 +170,14 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
 
 ### MITRE ATLAS Mitigations
 
-
 - AML.M0005: Control Access to ML Models and Data at Rest
-
   Description: Establish access controls on internal model registries and limit internal access to production models. Limit access to training data only to approved users.
 
 - AML.M0007: Sanitize Training Data
-
   Description: Detect and remove or remediate poisoned training data. Training data should be sanitized prior to model training and recurrently for an active learning model. Implement a filter to limit ingested training data. Establish a content policy that would remove unwanted content such as certain explicit or offensive language from being used.
 
 - AML.M0012: Encrypt Sensitive Information
-
-  Description: Encrypt sensitive data such as ML models to protect against adversaries attempting to access sensitive data. 
+  Description: Encrypt sensitive data such as ML models to protect against adversaries attempting to access sensitive data.
 
 - AML.M0015: Adversarial Input Detection
-
   Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
-
-Let me know if you need any clarification or have additional mitigations you would like formatted in this structure.
