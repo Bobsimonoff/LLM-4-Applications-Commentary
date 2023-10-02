@@ -149,17 +149,6 @@ Prevention involves treating the LLM as any other user, applying input validatio
 
 ### MITRE ATT&CK® Mitigations
 
-- [M1041](https://attack.mitre.org/mitigations/M1041/): Restrict Web-Based Content
-
-  Description: Limiting the execution of web content including scripts helps reduce attack surface. Allowlisting trusted sources, sandboxing, and blocking unnecessary scripting helps prevent exploitation of improper output handling in web contexts.
-
-  Justification: Could prevent execution of malicious web outputs by restricting web content.
-
-- [M1042](https://attack.mitre.org/mitigations/M1042/): Disable or Remove Feature or Program
-
-  Description: Disabling or removing unnecessary features and programs reduces attack surface. Disabling plugin functionalities that improperly handle outputs removes pathways for potential exploitation.
-
-  Justification: Could eliminate plugins mishandling outputs by disabling them. 
 
 
 ### MITRE ATLAS™ Mitigations

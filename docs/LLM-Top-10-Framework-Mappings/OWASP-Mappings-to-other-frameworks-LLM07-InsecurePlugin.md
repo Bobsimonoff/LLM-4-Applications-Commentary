@@ -143,17 +143,6 @@ This item focuses on creating LLM plugins rather than third-party plugins, which
 
 ### MITRE ATT&CK® Mitigations
 
-- [M1042](https://attack.mitre.org/mitigations/M1042/): Disable or Remove Feature or Program
-
-  Description: Disable or remove problematic features or programs like insecure plugins.
-
-  Justification: Highly applicable mitigation to reduce attack surface by removing vulnerable plugins.
-
-- [M1043](https://attack.mitre.org/mitigations/M1043/): Isolate System or Network
-
-  Description: Isolate systems like those hosting plugins from other resources.
-
-  Justification: Segmentation could limit impact of any plugin exploits.
 
 
 ### MITRE ATLAS™ Mitigations

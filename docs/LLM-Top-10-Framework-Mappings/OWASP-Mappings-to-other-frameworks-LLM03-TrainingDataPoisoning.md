@@ -143,23 +143,6 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
 
 ### MITRE ATT&CK® Mitigations
 
-- [M1043](https://attack.mitre.org/mitigations/M1043/): Isolate System or Network
-
-  Description: Isolate systems from the Internet or untrusted networks, and isolate sensitive systems from vulnerable systems to reduce a threat's ability to access and compromise systems. Network segregation also adds a layer of defense, since an exploitation would have to traverse the boundary to reach other systems.
-
-  Justification: Could prevent poisoned data from spreading by isolating compromised systems.
-
-- [M1050](https://attack.mitre.org/mitigations/M1050/): Network Segmentation
-
-  Description: Segment networks to enforce a degree of separation between systems that reduces the ability for lateral movement and limits traffic to other enclaves and zones. Network segmentation can be achieved through the use of emerging network virtualization techniques, VLANs, and physically separated network segments joined by guarded network gateways.
-
-  Justification: Could prevent poisoned data accessing production systems by enforcing network boundaries.
-
-- [M1015](https://attack.mitre.org/mitigations/M1015/): Secure Authentication
-
-  Description: Adversaries commonly steal credentials or reuse existing compromised credentials as a means of gaining Initial Access; limiting accessibility and applying multi-factor authentication makes credential theft more difficult. Enable MFA/2FA and use centralized management to enforce secure authentication across all systems, services, and infrastructure.
-
-  Justification: Secure authentication prevents unauthorized data poisoning.
 
 
 ### MITRE ATLAS™ Mitigations

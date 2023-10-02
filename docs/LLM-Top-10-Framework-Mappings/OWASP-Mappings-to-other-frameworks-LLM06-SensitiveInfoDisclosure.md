@@ -168,29 +168,7 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
 ### MITRE ATT&CK® Mitigations
 
-- [M1041](https://attack.mitre.org/mitigations/M1041/): Restrict Web-Based Content
 
-  Description: Limiting web content execution can reduce attack surface and prevent malicious web activity.
-
-  Justification: Could block web vectors used to collect sensitive data. 
-
-- [M1043](https://attack.mitre.org/mitigations/M1043/): Isolate System or Network
-
-  Description: Isolating systems provides network segmentation, limiting an attacker's ability to access systems and sensitive data.
-
- - Justification: Isolating machine learning model systems from other systems minimizes attack vectors that could be leveraged to exploit vulnerabilities specific to LLMs.
-
-- [M1048](https://attack.mitre.org/mitigations/M1048/): Perform Software and File Integrity Checking
-
-  Description: Checking integrity of systems and files enables detection of unauthorized modifications or access attempts.
-
-  Justification: Could identify unauthorized access attempts and modifications.
-
-- [M1032](https://attack.mitre.org/mitigations/M1032/): Multi-factor Authentication
-  
-  Description: Use of multiple forms of authentication can greatly enhance security by requiring an attacker to compromise more than one mechanism to gain access to a resource.
-
-  Justification: Adding multi-factor authentication to LLM systems makes unauthorized access more difficult, thereby securing sensitive information and intellectual property.
 
 
 ### MITRE ATLAS™ Mitigations

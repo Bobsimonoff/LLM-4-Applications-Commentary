@@ -172,23 +172,6 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
 
 ### MITRE ATT&CK® Mitigations
 
-- [M1015](https://attack.mitre.org/mitigations/M1015/) - Secure Authentication
-
-  Description: This mitigation involves implementing secure authentication mechanisms to prevent unauthorized use of credentials.
-
-  Justification: M1015 is directly related to the risk as it addresses the importance of secure authentication, which is crucial for preventing unauthorized access to language models and the potential theft of data.
-
-- [M1043](https://attack.mitre.org/mitigations/M1043/) - Isolate System or Network
-
-  Description: This mitigation recommends isolating systems containing proprietary language models to prevent unauthorized access.
-
-  Justification: M1043 is highly relevant to the risk as it emphasizes the isolation of systems containing language models, which can effectively prevent model extraction and theft by unauthorized users.
-
-- [M1051](https://attack.mitre.org/mitigations/M1051/) - Network Intrusion Prevention
-
-  Description: This mitigation involves using network Intrusion Prevention Systems (IPS) to block unauthorized connections attempting to extract language models.
-
-  Justification: M1051 is directly related to the risk as it focuses on using network IPS to block unauthorized attempts to extract language models, thus preventing data theft and unauthorized access.
 
 
 ### MITRE ATLAS™ Mitigations

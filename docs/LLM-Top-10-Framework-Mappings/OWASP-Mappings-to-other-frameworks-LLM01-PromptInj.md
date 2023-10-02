@@ -173,29 +173,6 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
 
 ### MITRE ATT&CK® Mitigations
 
-- [M1037](https://attack.mitre.org/mitigations/M1037/): Application Configuration
-
-  Description: Adversaries may take advantage of application configurations that enable access without proper restrictions. Properly configuring access controls, permissions, trusts, and authentication mechanisms helps reduce the attack surface for prompt injections.
-
-  Justification: Hardening application configurations reduces attack surface.
-
-- [M1041](https://attack.mitre.org/mitigations/M1041/): Restrict Web-Based Content
-
-  Description: Limiting web content execution through allowlisting, sandboxing, or blocking scripts helps prevent web pages from manipulating the LLM through injected prompts when summarizing text. This reduces the risk of indirect prompt injection.
-
-  Justification: Limits web vectors that could enable injected prompts.
-
-- [M1043](https://attack.mitre.org/mitigations/M1043/): Isolate System or Network
-
-  Description: Isolating the network segments, systems, and access between the LLM, user inputs, and backend resources helps prevent lateral movement and exploitation through injected prompts.
-
-  Justification: Limits impact of injected prompts.
-
-- [M1047](https://attack.mitre.org/mitigations/M1047/): Implement Software Restriction Policies
-
-  Description: Implementing whitelisting policies restricting code execution and scripting helps prevent untrusted code and payloads from being executed through injected prompts.
-
-  Justification: Prevents execution of code from injected prompts.
 
 
 

@@ -143,17 +143,6 @@ Prevention requires limiting LLM functionality, permissions, and autonomy to onl
 
 ### MITRE ATT&CK® Mitigations 
 
-- [M1032](https://attack.mitre.org/mitigations/M1032/): Limit Access to Resource Over Network
-
-  Description: Limit network access to downstream systems.
-
-  Justification: Could prevent lateral movement from plugins.
-
-- [M1040](https://attack.mitre.org/mitigations/M1040/): Network Segmentation
-
-  Description: Segregate networks to limit connectivity.
-
-  Justification: Limits impact of unchecked plugin actions.
 
 
 ### MITRE ATLAS™ Mitigations

@@ -148,11 +148,6 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
 
 ### MITRE ATT&CK® Mitigations
 
-- [M1048](https://attack.mitre.org/mitigations/M1048/) - Perform Software and File Integrity Checking
-
-  Description: Check the integrity of software and files to detect tampering.
-
-  Justification: Could detect compromised or tampered third-party components.
 
 
 ### MITRE ATLAS™ Mitigations
