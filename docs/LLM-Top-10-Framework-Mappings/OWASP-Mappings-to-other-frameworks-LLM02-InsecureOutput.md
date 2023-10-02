@@ -149,6 +149,23 @@ Prevention involves treating the LLM as any other user, applying input validatio
 
 ### MITRE ATT&CK® Mitigations
 
+- [M1027](https://attack.mitre.org/mitigations/M1027): Password Policies  
+
+  Description: Set and enforce secure password policies for accounts.
+
+  Justification: Strong password policies raise the bar for compromised credentials that could enable generating insecure outputs.
+
+- [M1038](https://attack.mitre.org/mitigations/M1038): Execution Prevention
+
+  Description: Block execution of code on a system through application control, and/or script blocking.
+
+  Justification: Prevents arbitrary remote code execution from malicious outputs.
+
+- [M1042](https://attack.mitre.org/mitigations/M1042): Disable or Remove Feature or Program
+
+  Description: Remove or deny access to unnecessary and potentially vulnerable software to prevent abuse by adversaries.
+
+  Justification: Reduces available downstream avenues for exploiting insecure outputs.
 
 
 ### MITRE ATLAS™ Mitigations

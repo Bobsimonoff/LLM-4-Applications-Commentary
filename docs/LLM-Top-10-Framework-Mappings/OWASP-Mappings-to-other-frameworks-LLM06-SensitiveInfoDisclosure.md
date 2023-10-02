@@ -168,7 +168,23 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
 ### MITRE ATT&CK® Mitigations
 
+- [M1027](https://attack.mitre.org/mitigations/M1027): Password Policies
 
+  Description: Set and enforce secure password policies for accounts.
+
+  Justification: Strong password policies prevent compromised credentials that could enable unauthorized data access.
+
+- [M1041](https://attack.mitre.org/mitigations/M1041): Encrypt Sensitive Information
+
+  Description: Protect sensitive information with strong encryption.
+
+  Justification: Encrypting sensitive training data and artifacts prevents exposure if improperly accessed. 
+
+- [M1042](https://attack.mitre.org/mitigations/M1042): Disable or Remove Feature or Program
+
+  Description: Remove or deny access to unnecessary and potentially vulnerable software to prevent abuse by adversaries.  
+
+  Justification: Reducing available services limits potential exposure vectors that could reveal data.
 
 
 ### MITRE ATLAS™ Mitigations

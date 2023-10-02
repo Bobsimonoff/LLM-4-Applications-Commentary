@@ -148,8 +148,7 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
 
 ### MITRE ATT&CK® Mitigations
 
-N/A
-
+N.A.
 
 ### MITRE ATLAS™ Mitigations
 

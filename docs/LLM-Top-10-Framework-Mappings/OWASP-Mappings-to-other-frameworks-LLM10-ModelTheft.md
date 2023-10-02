@@ -172,6 +172,30 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
 
 ### MITRE ATT&CK® Mitigations
 
+- [M1027](https://attack.mitre.org/mitigations/M1027): Password Policies
+
+  Description: Set and enforce secure password policies for accounts.
+
+  Justification: Strong password policies prevent compromised credentials that could enable unauthorized model access.
+
+- [M1032](https://attack.mitre.org/mitigations/M1032): Multi-factor Authentication
+
+  Description: Use two or more pieces of evidence to authenticate to a system; such as username and password in addition to a token from a physical smart card or token generator.
+
+  Justification: Multi-factor authentication raises the bar for gaining authenticated access needed for model theft.
+
+- [M1030](https://attack.mitre.org/mitigations/M1030): Network Segmentation
+
+  Description: Architect sections of the network to isolate critical systems, functions, or resources. Use physical and logical segmentation to prevent access to potentially sensitive systems and information.
+
+  Justification: Network segmentation can help isolate and protect critical model storage and access systems.
+
+- [M1041](https://attack.mitre.org/mitigations/M1041): Encrypt Sensitive Information
+
+  Description: Protect sensitive information with strong encryption.
+
+  Justification: Encrypting model files and artifacts helps prevent exposure if improperly accessed.
+
 
 
 ### MITRE ATLAS™ Mitigations

@@ -95,6 +95,29 @@ N.A.
 
 ### MITRE ATT&CK® Mitigations
 
+- [M1017](https://attack.mitre.org/mitigations/M1017): User Training
+
+  Description: Train users to be aware of access or manipulation attempts by an adversary to reduce the risk of successful spearphishing, social engineering, and other techniques that involve user interaction.
+
+  Justification: User training helps prevent blind trust and overreliance on LLM outputs by promoting critical assessment.
+
+- [M1042](https://attack.mitre.org/mitigations/M1042): Disable or Remove Feature or Program
+
+  Description: Remove or deny access to unnecessary and potentially vulnerable software to prevent abuse by adversaries.
+
+  Justification: Limiting available services reduces potential vectors for exploiting overreliance.
+
+- [M1030](https://attack.mitre.org/mitigations/M1030): Network Segmentation
+
+  Description: Architect sections of the network to isolate critical systems, functions, or resources. Use physical and logical segmentation to prevent access to potentially sensitive systems and information.
+
+  Justification: Network segmentation can limit impacts of actions guided by overreliance.
+
+- [M1032](https://attack.mitre.org/mitigations/M1032): Multi-factor Authentication
+
+  Description: Use two or more pieces of evidence to authenticate to a system; such as username and password in addition to a token from a physical smart card or token generator.
+
+  Justification: Raises the bar for gaining access needed to manipulate overreliance.
 
 
 ### MITRE ATLAS™ Mitigations

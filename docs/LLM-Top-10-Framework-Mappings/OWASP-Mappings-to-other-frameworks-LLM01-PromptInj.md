@@ -174,6 +174,30 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
 ### MITRE ATT&CK® Mitigations
 
 
+- [M1027](https://attack.mitre.org/mitigations/M1027): Password Policies
+
+  Description: Set and enforce secure password policies for accounts.
+
+  Justification: Strong password policies help prevent compromised credentials that could enable prompt injection attacks.
+
+- [M1032](https://attack.mitre.org/mitigations/M1032): Multi-factor Authentication
+
+  Description: Use two or more pieces of evidence to authenticate to a system; such as username and password in addition to a token from a physical smart card or token generator.
+
+  Justification: Multi-factor authentication raises the bar for adversaries to gain the authenticated access required for direct prompt injection.
+
+- [M1038](https://attack.mitre.org/mitigations/M1038): Execution Prevention
+
+  Description: Block execution of code on a system through application control, and/or script blocking.
+
+  Justification: Preventing arbitrary code execution helps limit the impact of injected code execution commands.
+
+- [M1042](https://attack.mitre.org/mitigations/M1042): Disable or Remove Feature or Program
+
+  Description: Remove or deny access to unnecessary and potentially vulnerable software to prevent abuse by adversaries.
+
+  Justification: Removing unnecessary programs and features reduces the attack surface for prompt injections.
+
 
 
 ### MITRE ATLAS™ Mitigations

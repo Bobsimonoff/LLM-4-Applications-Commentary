@@ -143,6 +143,30 @@ Prevention requires limiting LLM functionality, permissions, and autonomy to onl
 
 ### MITRE ATT&CK® Mitigations 
 
+- [M1027](https://attack.mitre.org/mitigations/M1027): Password Policies
+
+  Description: Set and enforce secure password policies for accounts.
+
+  Justification: Strong authentication makes unauthorized access more difficult.
+
+- [M1042](https://attack.mitre.org/mitigations/M1042): Disable or Remove Feature or Program
+
+  Description: Remove or deny access to unnecessary and potentially vulnerable software to prevent abuse by adversaries.
+
+  Justification: Reducing available services limits potential vectors to manipulate behaviors.
+
+- [M1030](https://attack.mitre.org/mitigations/M1030): Network Segmentation
+
+  Description: Architect sections of the network to isolate critical systems, functions, or resources. Use physical and logical segmentation to prevent access to potentially sensitive systems and information.
+
+  Justification: Network segmentation can isolate critical systems from manipulation.
+
+- [M1032](https://attack.mitre.org/mitigations/M1032): Multi-factor Authentication
+
+  Description: Use two or more pieces of evidence to authenticate to a system; such as username and password in addition to a token from a physical smart card or token generator.
+
+  Justification: Raises the bar for gaining access needed to manipulate behaviors.
+
 
 
 ### MITRE ATLAS™ Mitigations

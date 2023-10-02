@@ -148,7 +148,7 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
 
 ### MITRE ATT&CK® Mitigations
 
-
+N.A.
 
 ### MITRE ATLAS™ Mitigations
 

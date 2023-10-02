@@ -144,6 +144,24 @@ This item focuses on creating LLM plugins rather than third-party plugins, which
 ### MITRE ATT&CK® Mitigations
 
 
+- [M1013](https://attack.mitre.org/mitigations/M1013): Application Developer Guidance
+
+  Description: This mitigation describes any guidance or training given to developers of applications to avoid introducing security weaknesses that an adversary may be able to take advantage of.
+
+  Justification: Guidance on secure coding helps developers avoid flaws like insufficient input validation in plugins.
+  
+- [M1038](https://attack.mitre.org/mitigations/M1038): Execution Prevention
+
+  Description: Block execution of code on a system through application control, and/or script blocking.
+
+  Justification: Prevents arbitrary remote code execution resulting from plugin exploits.
+
+- [M1042](https://attack.mitre.org/mitigations/M1042): Disable or Remove Feature or Program
+
+  Description: Remove or deny access to unnecessary and potentially vulnerable software to prevent abuse by adversaries.
+
+  Justification: Reducing attack surface limits vulnerable plugin code adversaries could exploit.
+
 
 ### MITRE ATLAS™ Mitigations
  

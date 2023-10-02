@@ -143,6 +143,23 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
 
 ### MITRE ATT&CK® Mitigations
 
+- [M1013](https://attack.mitre.org/mitigations/M1013): Application Developer Guidance
+
+  Description: This mitigation describes any guidance or training given to developers of applications to avoid introducing security weaknesses that an adversary may be able to take advantage of.
+
+  Justification: Guidance on secure coding practices helps prevent vulnerabilities that could enable data tampering.
+
+- [M1027](https://attack.mitre.org/mitigations/M1027): Password Policies
+
+  Description: Set and enforce secure password policies for accounts.
+
+  Justification: Strong authentication makes it harder to gain access needed to directly manipulate training data.  
+
+- [M1041](https://attack.mitre.org/mitigations/M1041): Encrypt Sensitive Information
+
+  Description: Protect sensitive information with strong encryption.
+
+  Justification: Encrypting training data and models protects their integrity and validity.
 
 
 ### MITRE ATLAS™ Mitigations
