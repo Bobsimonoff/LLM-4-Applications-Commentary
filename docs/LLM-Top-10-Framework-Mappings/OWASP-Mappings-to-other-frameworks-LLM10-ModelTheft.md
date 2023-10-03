@@ -133,12 +133,6 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
 
 #### MITRE ATT&CK® Techniques
 
-- [T1081](https://attack.mitre.org/techniques/T1081/): Credentials in Files
-
-  Description: This technique involves accessing credentials stored in files, which could provide unauthorized access to systems and resources.
-
-  Justification: T1081 is related to the risk as it addresses the potential exposure of credentials in files, which, if accessed by attackers, could lead to unauthorized access to proprietary language models, posing a risk of data theft.
-
 - [T1530](https://attack.mitre.org/techniques/T1530/): Data from Cloud Storage Object
 
   Description: T1530 involves accessing cloud storage containing data, including language models or artifacts, which could be used to access proprietary data or steal sensitive information.
@@ -189,7 +183,8 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
 
   Justification: Inference API access enables adversaries to extract unauthorized functional model copies, providing a valuable attack vector to steal intellectual property.  
 
-- [AML.T0041](https://atlas.mitre.org/techniques/AML.T0041/): Model Tampering
+#### Additional Techniques
+- Model Tampering
 
   Description: Adversaries may alter the internal parameters or structures of a deployed model to produce malicious outcomes.
 
@@ -224,11 +219,6 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
 
   Justification: Encrypting model files and artifacts helps prevent exposure if improperly accessed.
 
-- [M1051](https://attack.mitre.org/mitigations/M1051/): User Behavior Analytics
-
-  Description: Monitor user activities to detect anomalous actions that may indicate unauthorized access attempts to LLM repositories.
-
-  Justification: User behavior analytics can help in early detection of insider threats or compromised credentials, thereby preventing potential model theft.
 
 #### MITRE ATLAS™ Mitigations
 
@@ -262,7 +252,17 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
 
   Justification: Input monitoring and detection can identify and block potentially malicious queries and inputs designed to extract details about proprietary models.
 
-- [AML.M0018](https://atlas.mitre.org/mitigations/AML.M0018/): Regular Model Checksum Verification
+
+
+  #### Additional Mitigations
+
+- User Behavior Analytics
+
+  Description: Monitor user activities to detect anomalous actions that may indicate unauthorized access attempts to LLM repositories.
+
+  Justification: User behavior analytics can help in early detection of insider threats or compromised credentials, thereby preventing potential model theft.
+
+- Regular Model Checksum Verification
 
   Description: Frequently verify the checksums of models in storage to ensure their integrity hasn't been compromised.
 
