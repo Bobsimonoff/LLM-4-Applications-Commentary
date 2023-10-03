@@ -31,6 +31,8 @@ I intend to use this repository as a way of incubating ideas and developing thou
 
 - MITRE ATT&CK is a knowledge base of real-world adversary tactics and techniques. Mapping ATT&CK techniques provides insights into how adversaries could actually exploit the OWASP LLM risks in practice. This intelligence can inform threat modeling and defenses.
 
+- STRIDE is a model for identifying security threats targeted at system designers and developers. The acronym stands for Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privileges.
+
 - The NIST Cybersecurity Framework delivers guidelines and best practices for managing organizational cybersecurity risk. Mapping NIST CSF helps relate the OWASP risks to recognized standards and controls, providing mature mitigation guidance.
 
 - CIS Controls provides prescriptive cybersecurity safeguards and metrics. Mapping CIS Controls gives tangible, measurable security steps to prevent, detect, and respond to the OWASP LLM risks.
