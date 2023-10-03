@@ -17,6 +17,7 @@ Failing to critically assess LLM outputs can lead to compromised decision making
 
 Overreliance can occur when an Large Language Model produces erroneous information and provides it in an authoritative manner. While LLMs can produce creative and informative content, they can also generate content that is factually incorrect, inappropriate or unsafe. This is referred to as hallucination or confabulation. When people or systems trust this information without oversight or confirmation it can result in a security breach, misinformation, miscommunication, legal issues, and reputational damage.
 
+
 ### Common Examples of Risk
 
 1. LLM gives inaccurate information confidently, misleading users. 
@@ -124,3 +125,165 @@ N.A.
 
 - AML.M0018: User Training
   Description: Educate ML model developers on secure coding practices and ML vulnerabilities.
+
+---
+
+# REVIEW COMMENTS
+
+## Common Weakness Enumeration (CWE)
+
+### Remove
+
+- None: All current CWEs are strongly associated with the risk of overreliance on LLMs.
+
+### Add
+
+- [CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation
+  
+  Description: Weakness in input validation can allow an attacker to exploit the system.
+  
+  Justification: Since LLMs often generate outputs based on inputs, failing to validate those inputs can contribute to overreliance on misleading or harmful outputs. 
+
+### Update
+
+- [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere
+
+  Old Justification: This weakness relates to the inclusion of functionality from an untrusted control sphere, which can lead to security issues.
+
+  New Justification: Inclusion of functionality from untrusted sources, particularly when guided by LLM suggestions, can amplify the risks associated with overreliance, leading to security vulnerabilities or even breaches.
+
+## MITRE ATT&CK® Techniques
+
+### Remove
+
+- N.A.
+
+### Add
+
+- N.A.
+
+  Justification: Currently, there are no MITRE ATT&CK® Techniques listed. Inclusion of relevant techniques targeting overreliance could strengthen this section.
+
+## MITRE ATLAS™ Techniques
+
+### Remove
+
+- None: All current techniques are strongly associated with this risk.
+
+### Add
+
+- AML.T0071: Excessive Trust in Model Outputs
+  
+  Description: Users may trust LLM outputs for decision-making in security-critical scenarios without proper validation.
+  
+  Justification: Overreliance on LLM outputs can lead to compromised decision-making and security vulnerabilities, making it essential to address this in the ATLAS techniques.
+
+### Update
+
+- AML.T0045: ML Intellectual Property Theft
+
+  Old Justification: Over-reliance on LLM outputs allows adversaries to more easily exploit users' excessive trust to steal IP and data through user actions guided by misleading LLM information.
+
+  New Justification: Overreliance on LLM outputs not only exposes intellectual property to theft but also amplifies the risk of disclosing sensitive or classified information. Users may unknowingly act on manipulated or incorrect LLM suggestions.
+
+## MITRE ATT&CK® Mitigations
+
+### Remove
+
+- None: All current mitigations are relevant to overreliance on LLMs.
+
+### Add
+
+- [M1051](https://attack.mitre.org/mitigations/M1051): Regular Expression Limitations
+  
+  Description: Use regular expressions to limit and validate inputs and outputs to and from LLMs.
+  
+  Justification: Implementing regular expression checks can mitigate the risks associated with accepting or generating unsafe or incorrect data, thus countering overreliance on LLMs.
+
+## MITRE ATLAS™ Mitigations
+
+### Remove
+
+- None: All current mitigations are relevant to overreliance on LLMs.
+
+### Add
+
+- AML.M0021: Model Monitoring
+
+  Description: Continuously monitor model outputs for anomalies or suspicious activities to alert users or administrators.
+
+  Justification: Real-time monitoring can serve as an early warning system, thereby reducing the risk associated with overreliance on LLM outputs.
+
+By reviewing each section meticulously, it's clear that most of the existing entries are pertinent and strongly associated with the risk of overreliance on Large Language Models. However, there are areas for improvement, notably in adding more granular CWEs and ATLAS Techniques and Mitigations that address specific vulnerabilities associated with overreliance.
+
+  
+---
+# Consolidated
+---
+
+### Common Weakness Enumeration (CWE)
+
+- [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere
+
+  Description: This weakness relates to the inclusion of functionality from an untrusted control sphere, which can lead to security issues.
+  
+  Justification: Inclusion of functionality from untrusted sources, particularly when guided by LLM suggestions, can amplify the risks associated with overreliance, leading to security vulnerabilities or even breaches.
+
+- [CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation
+
+  Description: Weakness in input validation can allow an attacker to exploit the system.
+  
+  Justification: Since LLMs often generate outputs based on inputs, failing to validate those inputs can contribute to overreliance on misleading or harmful outputs.
+
+#### Rejected CWE Review Comments
+
+- None
+
+
+### Techniques
+
+#### MITRE ATT&CK® Techniques
+
+- No changes made due to no suggested additions
+
+#### MITRE ATLASTM Techniques
+
+- AML.T0045: ML Intellectual Property Theft
+
+  Description: Excessive trust in LLM outputs enables adversaries to more readily manipulate users into improperly disclosing or mishandling intellectual property and other confidential data assets by providing manipulated information that is incorrectly treated as authoritative without proper verification.
+
+  Justification: Overreliance on LLM outputs not only exposes intellectual property to theft but also amplifies the risk of disclosing sensitive or classified information. Users may unknowingly act on manipulated or incorrect LLM suggestions.
+  
+- AML.T0071: Excessive Trust in Model Outputs
+
+  Description: Users may trust LLM outputs for decision-making in security-critical scenarios without proper validation.
+
+  Justification: Overreliance on LLM outputs can lead to compromised decision-making and security vulnerabilities, making it essential to address this in the ATLAS techniques.
+
+#### Rejected Technique Review Comments
+
+- None
+
+### Mitigations
+
+#### MITRE ATT&CK® Mitigations
+
+- [M1051](https://attack.mitre.org/mitigations/M1051): Regular Expression Limitations
+
+  Description: Use regular expressions to limit and validate inputs and outputs to and from LLMs.
+
+  Justification: Implementing regular expression checks can mitigate the risks associated with accepting or generating unsafe or incorrect data, thus countering overreliance on LLMs. 
+
+#### MITRE ATLASTM Mitigations
+
+- AML.M0021: Model Monitoring
+
+  Description: Continuously monitor model outputs for anomalies or suspicious activities to alert users or administrators.
+
+  Justification: Real-time monitoring can serve as an early warning system, thereby reducing the risk associated with overreliance on LLM outputs.
+
+#### Rejected Mitigation Review Comments
+
+- None
+
+

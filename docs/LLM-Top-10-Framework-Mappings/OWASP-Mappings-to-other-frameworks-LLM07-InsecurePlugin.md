@@ -16,7 +16,8 @@ LLM plugins are extensions that, when enabled, are called automatically by the m
 
 The harm of malicious inputs often depends on insufficient access controls and the failure to track authorization across plugins. Inadequate access control allows a plugin to blindly trust other plugins and assume that the end user provided the inputs. Such inadequate access control can enable malicious inputs to have harmful consequences ranging from data exfiltration, remote code execution, and privilege escalation.
 
-This item focuses on creating LLM plugins rather than third-party plugins, which LLM-Supply-Chain-Vulnerabilities cover. 
+This risk focuses on creating LLM plugins rather than third-party plugins, which LLM-Supply-Chain-Vulnerabilities cover. 
+
 
 ### Common Examples of Vulnerability
 
@@ -187,5 +188,224 @@ This item focuses on creating LLM plugins rather than third-party plugins, which
   Description: Educate ML model developers on secure coding practices and ML vulnerabilities.
 
 
+
+---
+
+# REVIEW COMMENTS
+
+### Common Weakness Enumeration (CWE)
+**Remove**
+- None: All existing CWEs are relevant to the risk outlined.
+
+**Add**
+- [CWE-89](https://cwe.mitre.org/data/definitions/89.html): SQL Injection
+
+  Description: Software allows an attacker to send hostile data as part of a command or query that can take unauthorized actions.
+
+  Justification: Since plugins may accept raw SQL statements without parameterization, there's a significant risk of SQL Injection.
+
+- [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization
+  
+  Description: The software does not perform or incorrectly performs an authorization check, allowing an actor to perform actions with a resource that they should not be able to access.
+
+  Justification: Lack of proper authorization checks in plugin design can allow unauthorized access and malicious activities.
+
+**Update**
+- [CWE-451](https://cwe.mitre.org/data/definitions/451.html): User Interface (UI) Misrepresentation of Critical Information
+
+  Old Justification: Relevant as data poisoning can cause misrepresentation of information.
+
+  New Justification: Critically relevant because plugins often interface with users, and UI misrepresentation could directly lead to misleading or harmful user actions.
+
+---
+
+### MITRE ATT&CK® Techniques
+**Remove**
+- None: All the techniques listed are highly relevant to LLM plugins.
+
+**Add**
+- [T1068](https://attack.mitre.org/techniques/T1068/): Exploitation for Privilege Escalation
+  
+  Description: Exploit a software vulnerability to gain elevated privileges.
+
+  Justification: Insecure plugin design often results in insufficient access control, making it easier for attackers to escalate privileges.
+
+**Update**
+- None: Existing justifications are strong enough.
+
+---
+
+### MITRE ATLAS™ Techniques
+**Remove**
+- None: All are relevant to the described risks.
+
+**Add**
+- AML.T0050: Plugin Enumeration
+  
+  Description: Adversaries scan the system to list all available plugins and target the ones with known vulnerabilities.
+  
+  Justification: Understanding which plugins are available provides adversaries a roadmap for attacks.
+
+**Update**
+- None: All existing justifications adequately express the risks involved.
+
+---
+
+### MITRE ATT&CK® Mitigations
+**Remove**
+- None: All the listed mitigations are relevant.
+
+**Add**
+- [M1055](https://attack.mitre.org/mitigations/M1055): Trusted Computing Base
+  
+  Description: Using hardware and software integrity checks to prevent unauthorized code execution.
+
+  Justification: It can enhance security by establishing a trusted computing base, especially for plugin code execution.
+
+**Update**
+- None: All the existing justifications are strong and relevant.
+
+---
+
+### MITRE ATLAS™ Mitigations
+**Remove**
+- None: All are relevant to the risk described.
+
+**Add**
+- AML.M0020: Periodic Code Reviews
+  
+  Description: Periodically review plugin code for vulnerabilities and adhere to secure coding guidelines.
+
+  Justification: Regularly reviewing the code helps in early identification and mitigation of potential vulnerabilities in plugin design.
+
+**Update**
+- None: Existing justifications are strong enough.
+
+---
+
+By Bob Simonoff
+
+- LinkedIn at [https://www.linkedin.com/in/bob-simonoff](https://www.linkedin.com/in/bob-simonoff)
+
+- medium/com at [https://medium.com/@bob.simonoff](https://medium.com/@bob.simonoff)
+
+- github at [https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main](https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main)
+
+
+  
+---
+# Consolidated
+---
+
+Here is the consolidated CWE section based on agreeing or disagreeing with the review comments:
+
+### Common Weakness Enumeration (CWE)
+
+- [CWE-79](https://cwe.mitre.org/data/definitions/79.html): Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
+
+  Description: The software does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.
+
+  Justification: Highly applicable to insecure plugin design as user inputs that are not properly sanitized can lead to cross-site scripting attacks. Plugins, especially those handling text fields or other forms of user input, are often susceptible to such vulnerabilities.
+
+- [CWE-89](https://cwe.mitre.org/data/definitions/89.html): SQL Injection
+
+  Description: Software allows an attacker to send hostile data as part of a command or query that can take unauthorized actions.
+
+  Justification: Since plugins may accept raw SQL statements without parameterization, there's a significant risk of SQL Injection.
+
+- [CWE-287](https://cwe.mitre.org/data/definitions/287.html): Improper Authentication
+
+  Description: When an actor claims to have a given identity, the software does not prove, or insufficiently proves, that the claim is correct.
+
+  Justification: Directly relevant to insecure plugin design where lack of proper authentication checks can lead to unauthorized access. A plugin that doesn't validate the identity of the interacting users or systems effectively opens a doorway for attackers.
+
+- [CWE-451](https://cwe.mitre.org/data/definitions/451.html): User Interface (UI) Misrepresentation of Critical Information
+
+  Description: Incorrect or misleading user interface presentation that masks or misrepresents critical information.
+
+  Justification: Critically relevant because plugins often interface with users, and UI misrepresentation could directly lead to misleading or harmful user actions.
+
+#### Rejected CWE Review Comments
+
+- None
+
+
+Here is the consolidated Techniques section based on agreeing or disagreeing with the review comments:
+
+### Techniques
+
+#### MITRE ATT&CK® Techniques
+
+- [T1068](https://attack.mitre.org/techniques/T1068/): Exploitation for Privilege Escalation
+
+  Description: Exploit a software vulnerability to gain elevated privileges.
+
+  Justification: Insecure plugin design often results in insufficient access control, making it easier for attackers to escalate privileges. 
+
+- [T1190](https://attack.mitre.org/techniques/T1190/): Exploit Public-Facing Application
+
+  Description: Attacker exploits vulnerabilities in public-facing applications like APIs and plugins.
+
+  Justification: Directly relevant as plugins are public interfaces that may contain flaws.
+
+#### MITRE ATLASTM Techniques
+
+- AML.T0006: Active Scanning
+
+  Description: Adversaries actively probe and scan LLM plugin interfaces to identify vulnerabilities in input validation, sanitization, access controls or other weaknesses that could enable exploitation through crafted malicious inputs. Thorough scanning reveals flaws adversaries can later exploit.
+
+  Justification: Active scanning of LLM plugin systems is a key technique adversaries use to identify vulnerabilities to exploit through malicious plugin inputs.
+
+- AML.T0011: User Execution
+
+  Description: Adversaries manipulate users into executing unsafe plugin outputs generated due to insufficient input validation. Lack of sanitization enables adversaries to exploit plugins by crafting inputs that trigger malicious logic when executed by users.
+
+  Justification: User execution of unsafe plugin outputs generated from insufficient input validation enables adversaries to exploit plugins through crafted malicious inputs.  
+
+- AML.T0043: Craft Adversarial Data
+
+  Description: Adversaries exploit validation flaws in LLM plugins by carefully crafting malicious plugin inputs containing payloads designed to trigger unintended behaviors. Crafted inputs take advantage of insufficient validation to compromise plugin logic.
+
+  Justification: Insecure LLM plugins enable adversaries to easily exploit systems by crafting malicious plugin inputs that exploit insufficient input validation.
+
+- AML.T0044: Full ML Model Access
+
+  Description: Full white-box access to LLM plugins enables adversaries to thoroughly analyze them to optimally craft malicious inputs tailored to reliably exploit any vulnerability discovered through extensive probing of logic flaws.
+
+  Justification: Complete LLM plugin access allows adversaries to deeply probe vulnerabilities to optimize malicious inputs for exploitation.
+
+- AML.T0050: Plugin Enumeration
+
+  Description: Adversaries scan the system to list all available plugins and target the ones with known vulnerabilities.
+
+  Justification: Understanding which plugins are available provides adversaries a roadmap for attacks.
+
+#### Rejected Technique Review Comments
+
+- None
+
+Here is the consolidated Mitigations section based on agreeing or disagreeing with the review comments:
+
+### Mitigations
+
+#### MITRE ATT&CK® Mitigations
+
+- [M1055](https://attack.mitre.org/mitigations/M1055): Trusted Computing Base
+
+  Description: Using hardware and software integrity checks to prevent unauthorized code execution.
+
+  Justification: It can enhance security by establishing a trusted computing base, especially for plugin code execution.
+
+#### MITRE ATLASTM Mitigations
+
+- AML.M0020: Periodic Code Reviews
+
+  Description: Periodically review plugin code for vulnerabilities and adhere to secure coding guidelines.
+
+  Justification: Regularly reviewing the code helps in early identification and mitigation of potential vulnerabilities in plugin design.
+
+#### Rejected Mitigation Review Comments
+
+- None
 
 

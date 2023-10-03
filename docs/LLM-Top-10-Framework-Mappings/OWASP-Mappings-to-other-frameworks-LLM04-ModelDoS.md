@@ -158,3 +158,248 @@ N.A.
 - AML.M0015: Adversarial Input Detection
 
   Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
+
+---
+
+# REVIEW COMMENTS
+
+## Common Weakness Enumeration (CWE)
+
+### Remove
+- None
+
+### Add
+
+- [CWE-918](https://cwe.mitre.org/data/definitions/918.html): Server-Side Request Forgery (SSRF)
+
+  Description: Failure to block server-side execution of maliciously crafted external URIs, leading to data exposure or resource exhaustion.
+
+  Justification: In a LLM context, SSRF can be exploited to create tasks that indirectly exhaust resources by causing the LLM to make additional unintended external requests, further amplifying the DoS effect.
+
+### Update
+
+- [CWE-400](https://cwe.mitre.org/data/definitions/400.html): Uncontrolled Resource Consumption
+  
+  Old Justification: Malicious interactions directly exhaust LLM resources through uncontrolled consumption.
+
+  New Justification: Directly targets the risk by facilitating both direct and indirect resource exhaustion through unchecked resource usage, making it a cornerstone vulnerability in Denial of Service attacks on LLMs.
+
+## ATT&CK® Technique
+
+### Remove
+- None
+
+### Add
+
+- [T1498](https://attack.mitre.org/techniques/T1498/): Resource Hijacking
+  
+  Description: An adversary may use the LLM resources for unintended purposes like cryptocurrency mining.
+
+  Justification: While not a typical DoS, this technique disrupts normal functioning by reallocating system resources for unauthorized uses, effectively causing service degradation.
+
+### Update
+- None
+
+## MITRE ATLAS™ Techniques
+
+### Remove
+- None
+
+### Add
+- AML.T0050: Parameter Tampering
+  
+  Description: Attackers modify query parameters to intentionally exhaust computational resources.
+
+  Justification: This is a specific technique targeting resource-intensive computations within the LLM to disrupt services.
+
+### Update
+- None
+
+## MITRE ATT&CK® Mitigations
+
+### Remove
+- N.A.
+
+### Add
+- None
+
+### Update
+- N.A.
+
+## MITRE ATLAS™ Mitigations
+
+### Remove
+- None
+
+### Add
+- AML.M0020: Resource Consumption Monitoring
+
+  Description: Continuously monitor CPU, memory, and other resource consumption metrics to identify abnormal behavior indicative of a DoS attack.
+
+  Justification: Resource monitoring provides real-time data to trigger alerts or initiate automatic rate-limiting, significantly reducing the impact of DoS attacks.
+
+- AML.M0021: Adaptive Rate Limiting
+  
+  Description: Implement dynamic rate limiting based on user behavior, system health, and incoming request patterns.
+
+  Justification: Adaptive rate limiting can effectively counter DoS attacks that may not be easily caught by static rate limits.
+
+### Update
+- AML.M0004: Restrict Number of ML Model Queries
+
+  Old Description: Limit the total number and rate of queries a user can perform.
+
+  New Description: Limit the total number and rate of queries a user can perform, with the ability to adapt based on current system load and user behavior.
+
+  Justification: The added adaptability improves the mitigation's effectiveness in real-world, dynamic scenarios where attacks may vary in intensity and strategy.  
+  
+  
+  ---
+  # Consolidated
+  ---
+
+### Common Weakness Enumeration (CWE)
+
+- [CWE-16](https://cwe.mitre.org/data/definitions/16.html): Configuration
+
+  Description: Weaknesses related to security configurations wherein the default configurations are misconfigured or unsafe.
+
+  Justification: Misconfigurations could trigger resource exhaustion by enabling unchecked resource consumption.
+
+- [CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation
+
+  Description: Missing or inadequate input validation leading to dangerous behaviors from unchecked tainted input.
+
+  Justification: Lack of input validation enables sending resource-heavy requests.
+
+- [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization
+
+  Description: Failure to restrict access to authorized entities leading to privilege escalation.
+
+  Justification: Unauthorized requests could abuse resources since they are unrestricted.
+
+- [CWE-400](https://cwe.mitre.org/data/definitions/400.html): Uncontrolled Resource Consumption
+
+  Description: Failure to control resource consumption enabling exhaustion of resources like CPU, memory, disk space, database connections, etc.
+
+  Justification: Directly targets the risk by facilitating both direct and indirect resource exhaustion through unchecked resource usage, making it a cornerstone vulnerability in Denial of Service attacks on LLMs.
+
+- [CWE-770](https://cwe.mitre.org/data/definitions/770.html): Allocation of Resources Without Limits or Throttling
+
+  Description: Failure to throttle or limit allocation of resources enabling unchecked consumption.
+
+  Justification: Lack of throttling allows unchecked resource usage enabling exhaustion.
+
+- [CWE-799](https://cwe.mitre.org/data/definitions/799.html): Improper Control of Interaction Frequency
+
+  Description: Failure to limit the frequency of interactions enabling repeated operations that strain resources.
+
+  Justification: Lack of frequency control allows flooding requests overwhelming resources. 
+
+- [CWE-918](https://cwe.mitre.org/data/definitions/918.html): Server-Side Request Forgery (SSRF)
+
+  Description: Failure to block server-side execution of maliciously crafted external URIs, leading to data exposure or resource exhaustion.
+
+  Justification: In a LLM context, SSRF can be exploited to create tasks that indirectly exhaust resources by causing the LLM to make additional unintended external requests, further amplifying the DoS effect.
+
+- [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere
+
+  Description: Use of untrusted code or inputs leading to unintended functionality.
+
+  Justification: Extensions/plugins could trigger resource issues by including uncontrolled functionality.
+
+#### Rejected CWE Review Comments
+
+- None
+
+
+### Techniques
+
+#### MITRE ATT&CK® Techniques
+
+- [T1499](https://attack.mitre.org/techniques/T1499/): Endpoint Denial of Service
+
+  Description: Techniques used to make systems or services unavailable to legitimate users.
+
+  Justification: Directly causes denial of service on endpoints.
+
+- [T1498](https://attack.mitre.org/techniques/T1498/): Resource Hijacking
+
+  Description: An adversary may use the LLM resources for unintended purposes like cryptocurrency mining.
+
+  Justification: While not a typical DoS, this technique disrupts normal functioning by reallocating system resources for unauthorized uses, effectively causing service degradation.
+
+#### MITRE ATLASTM Techniques
+
+- AML.T0016: Obtain Capabilities
+
+  Description: Adversaries may obtain or develop capabilities like adversarial machine learning tools to craft inputs precisely engineered to consume excessive resources. These tools enable adversaries to optimize resource exhaustion attacks on LLMs by precisely measuring resource usage.
+
+  Justification: Obtaining capabilities to craft resource-heavy inputs enables optimized denial of service attacks by profiling resource consumption.
+
+- AML.T0029: Denial of ML Service
+
+  Description: Adversaries may directly overwhelm ML systems with excessive requests designed to degrade performance and deny service availability. Flooding systems strains resources and causes unavailability.
+
+  Justification: Sending excessive requests directly triggers resource exhaustion and denial of service.  
+
+- AML.T0040: ML Model Inference API Access
+
+  Description: Adversaries may use inference API access to profile model behaviors and identify triggers that require extensive processing in order to craft optimized resource exhaustion attacks.
+
+  Justification: Inference API access enables adversaries to analyze behaviors to craft optimized resource exhaustion inputs.
+
+- AML.T0043: Craft Adversarial Data
+
+  Description: Adversaries may carefully craft inputs designed to consume excessive resources and manipulate model behavior. This aids in developing denial of service attacks.
+
+  Justification: Crafting complex inputs strains LLM systems, enabling denial of service.
+
+- AML.T0050: Parameter Tampering
+
+  Description: Attackers modify query parameters to intentionally exhaust computational resources.
+
+  Justification: This is a specific technique targeting resource-intensive computations within the LLM to disrupt services.
+
+#### Rejected Technique Review Comments
+
+- None
+
+
+### Mitigations
+
+#### MITRE ATT&CK® Mitigations
+
+- None
+
+#### MITRE ATLASTM Mitigations
+
+- AML.M0004: Restrict Number of ML Model Queries
+
+  Description: Limit the total number and rate of queries a user can perform, with the ability to adapt based on current system load and user behavior.
+
+  Justification: The added adaptability improves the mitigation's effectiveness in real-world, dynamic scenarios where attacks may vary in intensity and strategy.
+
+- AML.M0015: Adversarial Input Detection
+
+  Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
+
+  Justification: Detecting and blocking crafted inputs designed to trigger denial of service reduces the impact of attacks.
+
+- AML.M0020: Resource Consumption Monitoring
+
+  Description: Continuously monitor CPU, memory, and other resource consumption metrics to identify abnormal behavior indicative of a DoS attack.
+
+  Justification: Resource monitoring provides real-time data to trigger alerts or initiate automatic rate-limiting, significantly reducing the impact of DoS attacks.  
+
+- AML.M0021: Adaptive Rate Limiting
+
+  Description: Implement dynamic rate limiting based on user behavior, system health, and incoming request patterns.
+
+  Justification: Adaptive rate limiting can effectively counter DoS attacks that may not be easily caught by static rate limits.
+
+#### Rejected Mitigation Review Comments
+
+- None
+
+
