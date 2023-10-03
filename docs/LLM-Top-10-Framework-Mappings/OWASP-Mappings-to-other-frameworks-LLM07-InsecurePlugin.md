@@ -93,9 +93,9 @@ This risk focuses on creating LLM plugins rather than third-party plugins, which
 
 #### MITRE ATT&CK® Techniques
 
-- [T1068](https://attack.mitre.org/techniques/T1068/): Exploitation for Privilege Escalation
+- [T1548](https://attack.mitre.org/techniques/T1068/): Exploitation for Privilege Escalation
 
-  Description: Exploit a software vulnerability to gain elevated privileges.
+  Description: Adversaries may circumvent mechanisms designed to control elevate privileges to gain higher-level permissions. Most modern systems contain native elevation control mechanisms that are intended to limit privileges that a user can perform on a machine. Authorization has to be granted to specific users in order to perform tasks that can be considered of higher risk. An adversary can perform several methods to take advantage of built-in control mechanisms in order to escalate privileges on a system.
 
   Justification: Insecure plugin design often results in insufficient access control, making it easier for attackers to escalate privileges.
 
@@ -107,31 +107,33 @@ This risk focuses on creating LLM plugins rather than third-party plugins, which
 
 #### MITRE ATLAS™ Techniques
 
-- [AML.T0006](https://attack.mitre.org/techniques/AML.T0006/): Active Scanning
+- [AML.T0006](https://atlas.mitre.org/techniques/AML.T0006/): Active Scanning
 
   Description: Adversaries actively probe and scan LLM plugin interfaces to identify vulnerabilities in input validation, sanitization, access controls or other weaknesses that could enable exploitation through crafted malicious inputs. Thorough scanning reveals flaws adversaries can later exploit.
 
   Justification: Active scanning of LLM plugin systems is a key technique adversaries use to identify vulnerabilities to exploit through malicious plugin inputs.
 
-- [AML.T0011](https://attack.mitre.org/techniques/AML.T0011/): User Execution  
+- [AML.T0011](https://atlas.mitre.org/techniques/AML.T0011/): User Execution  
 
   Description: Adversaries manipulate users into executing unsafe plugin outputs generated due to insufficient input validation. Lack of sanitization enables adversaries to exploit plugins by crafting inputs that trigger malicious logic when executed by users.
 
   Justification: User execution of unsafe plugin outputs generated from insufficient input validation enables adversaries to exploit plugins through crafted malicious inputs.
 
-- [AML.T0043](https://attack.mitre.org/techniques/AML.T0043/): Craft Adversarial Data
+- [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043/): Craft Adversarial Data
 
   Description: Adversaries exploit validation flaws in LLM plugins by carefully crafting malicious plugin inputs containing payloads designed to trigger unintended behaviors. Crafted inputs take advantage of insufficient validation to compromise plugin logic.
 
   Justification: Insecure LLM plugins enable adversaries to easily exploit systems by crafting malicious plugin inputs that exploit insufficient input validation.
 
-- [AML.T0044](https://attack.mitre.org/techniques/AML.T0044/): Full ML Model Access
+- [AML.T0044](https://atlas.mitre.org/techniques/AML.T0044/): Full ML Model Access
 
   Description: Full white-box access to LLM plugins enables adversaries to thoroughly analyze them to optimally craft malicious inputs tailored to reliably exploit any vulnerability discovered through extensive probing of logic flaws.
 
   Justification: Complete LLM plugin access allows adversaries to deeply probe vulnerabilities to optimize malicious inputs for exploitation. 
 
-- [AML.T0050](https://attack.mitre.org/techniques/AML.T0050/): Plugin Enumeration
+#### Additional Techniques
+
+- Plugin Enumeration
 
   Description: Adversaries scan the system to list all available plugins and target the ones with known vulnerabilities.
 
@@ -143,57 +145,56 @@ This risk focuses on creating LLM plugins rather than third-party plugins, which
 
 #### MITRE ATT&CK® Mitigations
 
-- [M1055](https://attack.mitre.org/mitigations/M1055/): Trusted Computing Base
+N.A.
 
-  Description: Using hardware and software integrity checks to prevent unauthorized code execution.
-
-  Justification: It can enhance security by establishing a trusted computing base, especially for plugin code execution.
 
 #### MITRE ATLAS™ Mitigations
 
-- [AML.M0004](https://attack.mitre.org/mitigations/AML.M0004/): Restrict Number of ML Model Queries
+- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004/): Restrict Number of ML Model Queries
 
   Description: Limit the total number and rate of queries a user can perform.
 
   Justification: Restricting the number of queries helps prevent malicious probing and exploitation of plugins.
 
-- [AML.M0005](https://attack.mitre.org/mitigations/AML.M0005/): Control Access to ML Models and Data at Rest
+- [AML.M0005](https://atlas.mitre.org/mitigations/AML.M0005/): Control Access to ML Models and Data at Rest
 
   Description: Establish access controls on internal model registries and limit internal access to production models. Limit access to training data only to approved users.
 
   Justification: Controlling access prevents unauthorized access that could lead to plugin exploitation.
 
-- [AML.M0011](https://attack.mitre.org/mitigations/AML.M0011/): Restrict Library Loading
+- [AML.M0011](https://atlas.mitre.org/mitigations/AML.M0011/): Restrict Library Loading
 
   Description: Prevent abuse of library loading mechanisms in the operating system and software to load untrusted code by configuring appropriate library loading mechanisms and investigating potential vulnerable software.
 
   Justification: Restricting library loading mitigates the risk of malicious code execution through plugins.
 
-- [AML.M0012](https://attack.mitre.org/mitigations/AML.M0012/): Encrypt Sensitive Information
+- [AML.M0012](https://atlas.mitre.org/mitigations/AML.M0012/): Encrypt Sensitive Information
 
   Description: Encrypt sensitive data such as ML models to protect against adversaries attempting to access sensitive data.
 
   Justification: Encryption helps prevent exposure of sensitive data through compromised plugins.
   
-- [AML.M0015](https://attack.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection
 
   Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
 
   Justification: Detecting and blocking adversarial inputs helps prevent plugin exploitation.
 
-- [AML.M0017](https://attack.mitre.org/mitigations/AML.M0017/): Model Distribution Methods
+- [AML.M0017](https://atlas.mitre.org/mitigations/AML.M0017/): Model Distribution Methods
 
   Description: Deploying ML models to edge devices can increase the attack surface of the system. Consider serving models in the cloud to reduce the level of access the adversary has to the model.
 
   Justification: Careful model distribution reduces exposure of plugins to attackers.
 
-- [AML.M0018](https://attack.mitre.org/mitigations/AML.M0018/): User Training  
+- [AML.M0018](https://atlas.mitre.org/mitigations/AML.M0018/): User Training  
 
   Description: Educate ML model developers on secure coding practices and ML vulnerabilities.
 
   Justification: Developer training helps avoid coding mistakes that lead to plugin vulnerabilities.
 
-- [AML.M0020](https://attack.mitre.org/mitigations/AML.M0020/): Periodic Code Reviews
+#### Additional Mitigations 
+
+- [AML.M0020](https://atlas.mitre.org/mitigations/AML.M0020/): Periodic Code Reviews
 
   Description: Periodically review plugin code for vulnerabilities and adhere to secure coding guidelines.
 

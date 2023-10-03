@@ -125,37 +125,40 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
 
 #### MITRE ATLAS™ Techniques
 
-- [AML.T0019](https://attack.mitre.org/techniques/AML.T0019/): Publish Poisoned Datasets
+- [AML.T0019](https://atlas.mitre.org/techniques/AML.T0019/): Publish Poisoned Datasets
 
   Description: Adversaries may publish poisoned datasets designed to manipulate and impair models that consume the data. Publishing provides a vector to introduce malicious data into victim training pipelines.
    
   Justification: Publishing poisoned data enables poisoning by making malicious datasets available to unsuspecting consumers.
 
-- [AML.T0020](https://attack.mitre.org/techniques/AML.T0020/): Poison Training Data
+- [AML.T0020](https://atlas.mitre.org/techniques/AML.T0020/): Poison Training Data
 
   Description: Adversaries may directly poison training data to embed flaws activated later. Poisoned data introduced via supply chain attacks or after gaining access persistently compromises integrity of models trained on the data.
    
   Justification: Poisoning training data is a direct way to manipulate model capabilities by embedding vulnerabilities.
 
-- [AML.T0035](https://attack.mitre.org/techniques/AML.T0035/): ML Artifact Collection
+- [AML.T0035](https://atlas.mitre.org/techniques/AML.T0035/): ML Artifact Collection
 
   Description: Adversaries may collect artifacts like training data for exfiltration or use in attack staging. Access to training data provides the ability to directly manipulate and poison it.
    
   Justification: Access to training data enables poisoning by permitting direct data manipulation.
   
-- [AML.T0036](https://attack.mitre.org/techniques/AML.T00436): Data from Information Repositories
+- [AML.T0036](https://atlas.mitre.org/techniques/AML.T00436): Data from Information Repositories
 
   Description: By mining repositories, adversaries can discover details of training data sources, enabling them to target sources directly for poisoning attacks.
    
   Justification: Discovering data repository details reveals training data sources to target.
 
-- [AML.T0043](https://attack.mitre.org/techniques/AML.T0043/): Craft Adversarial Data
+- [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043/): Craft Adversarial Data
 
   Description: Adversaries may carefully craft malicious training data designed to manipulate model capabilities. The tailored data embeds specific flaws during training.
    
   Justification: Crafting poisoned data precisely manipulates models by embedding flaws.
 
-- [AML.T0044](https://attack.mitre.org/techniques/AML.T0044/): Model Parameter Tampering
+
+#### Additional Techniques
+
+- Model Parameter Tampering
 
   Description: Adversaries may tamper with the hyperparameters of the model, affecting how the model learns from the training data, thereby inducing flawed behavior.
    
@@ -179,7 +182,7 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
    
   Justification: Encrypting training data and models protects their integrity and validity.
 
-- [M1032](https://attack.mitre.org/mitigations/M1032): Data Backup
+- [M1053](https://attack.mitre.org/mitigations/M1053): Data Backup
 
   Description: Regular backups of critical data can serve as a safeguard against data tampering, including training data poisoning.
    
@@ -188,35 +191,29 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
 
 #### MITRE ATLAS™ Mitigations
 
-- [AML.M0005](https://attack.mitre.org/techniques/AML.M0005/): Control Access to ML Models and Data at Rest
+- [AML.M0005](https://atlas.mitre.org/mitigations/AML.M0005/): Control Access to ML Models and Data at Rest
 
   Description: Establish access controls on internal model registries and limit internal access to production models. Limit access to training data only to approved users.
    
   Justification: Access controls prevent unauthorized access needed for poisoning.
 
-- [AML.M0007](https://attack.mitre.org/techniques/AML.M0007/): Sanitize Training Data
+- [AML.M0007](https://atlas.mitre.org/mitigations/AML.M0007/): Sanitize Training Data
 
   Description: Detect and remove or remediate poisoned training data. Training data should be sanitized prior to model training and recurrently for an active learning model. Implement a filter to limit ingested training data. Establish a content policy that would remove unwanted content such as certain explicit or offensive language from being used.
    
   Justification: Sanitizing training data directly counters poisoning by removing malicious inputs.
 
-- [AML.M0012](https://attack.mitre.org/techniques/AML.M0012/): Encrypt Sensitive Information
+- [AML.M0012](https://atlas.mitre.org/mitigations/AML.M0012/): Encrypt Sensitive Information
 
   Description: Encrypt sensitive data such as ML models to protect against adversaries attempting to access sensitive data.
    
   Justification: Encryption protects integrity of data and models.  
 
-- [AML.M0015](https://attack.mitre.org/techniques/AML.M0015/): Adversarial Input Detection
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection
 
   Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
    
   Justification: Detecting anomalies counters poisoning by identifying malicious inputs.
-
-- [AML.M0018](https://attack.mitre.org/techniques/AML.M0018/): Continuous Data Integrity Checks
-
-  Description: Continuously verify the integrity of training data by employing cryptographic hashing and integrity checking mechanisms.
-   
-  Justification: Integrity checks directly validate data has not been manipulated.
 
 
 #### Additional Mitigations 
@@ -232,3 +229,9 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
   Description: Incorporate robust machine learning training techniques designed to reduce the influence of outlier data points, such as those from a poisoning attack. Examples include federated learning, which trains models on decentralized data located on user devices. Differential privacy introduces noise to mask individual data points.
 
   Justification: Robust training techniques make the model more resilient against poisoning attacks by minimizing the impact of any manipulated training data. Outlier points have reduced influence on the overall model behavior. This prevents attackers from significantly altering model performance by poisoning small portions of data.
+
+- Continuous Data Integrity Checks
+
+  Description: Continuously verify the integrity of training data by employing cryptographic hashing and integrity checking mechanisms.
+   
+  Justification: Integrity checks directly validate data has not been manipulated.

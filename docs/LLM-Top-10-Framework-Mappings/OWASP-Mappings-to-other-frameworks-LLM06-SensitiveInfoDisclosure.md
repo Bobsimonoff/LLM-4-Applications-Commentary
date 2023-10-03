@@ -179,11 +179,11 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
   Justification: Complete model access maximizes adversaries' ability to expose sensitive training data through tailored prompts.
 
-- [T0045](https://attack.mitre.org/techniques/T0045/): Training Data Poisoning
+- [T0045](https://attack.mitre.org/techniques/T0045/): ML Intellectual Property Theft
 
-  Description: Adversaries introduce or manipulate training data to produce incorrect or skewed outputs.
+  Description: Adversaries may exfiltrate ML artifacts to steal intellectual property and cause economic harm to the victim organization.
 
-  Justification: A poisoned model may inadvertently disclose sensitive relationships in the data, presenting a risk for sensitive information exposure.
+  Justification: If the trained model has sensitive data contained within the exfiltration will make that data available to attackers. 
 
 
 ### Mitigations
@@ -207,12 +207,6 @@ Prevention involves robust data sanitization, input filtering, and output valida
   Description: Remove or deny access to unnecessary and potentially vulnerable software to prevent abuse by adversaries.
 
   Justification: Minimizing the attack surface by disabling or removing unnecessary features can substantially lower the risks of sensitive information disclosure.
-
-- [M1056](https://attack.mitre.org/mitigations/M1056/): Multi-Factor Authentication
-
-  Description: Employ multi-factor authentication to enhance security.
-
-  Justification: Multi-Factor Authentication adds an extra layer of security that could prevent unauthorized access to sensitive information.
 
 #### MITRE ATLAS™ Mitigations
 
@@ -253,7 +247,8 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
   Justification: Limiting model access reduces potential attack vectors for data exposure.  
 
-- [M0020](https://attack.mitre.org/mitigations/M0020/): Differential Privacy
+#### Additional Mitigations
+- Differential Privacy
 
   Description: Introduce statistical noise into model outputs to anonymize individual data entries.
 

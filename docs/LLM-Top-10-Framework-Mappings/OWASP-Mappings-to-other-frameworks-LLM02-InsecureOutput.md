@@ -111,25 +111,25 @@ Prevention involves treating the LLM as any other user, applying input validatio
 
 #### MITRE ATLAS™ Techniques
 
-- [AML.T0040](https://attack.mitre.org/techniques/AML.T0040/): ML Model Inference API Access
+- [AML.T0040](https://atlas.mitre.org/techniques/AML.T0040/): ML Model Inference API Access
 
   Description: Adversaries may use inference API access to an LLM to craft malicious prompts designed to generate insecure outputs containing unvalidated code snippets or injection payloads. These payloads take advantage of inadequate output handling in downstream systems.
 
   Justification: Inference API access provides the ability to tune prompts to maximize insecure output generation.
 
-- [AML.T0043](https://attack.mitre.org/techniques/AML.T0043/): Craft Adversarial Data
+- [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043/): Craft Adversarial Data
 
   Description: Adversaries may carefully craft prompts to manipulate the LLM into generating insecure outputs designed to exploit lack of validation in downstream systems. The prompts can be tuned to produce unvalidated code or injection payloads.
 
   Justification: Crafting prompts precisely controls LLM outputs, enabling generation of malicious payloads by exploiting inadequate downstream validation.
 
-- [AML.T0044](https://attack.mitre.org/techniques/AML.T0044/): Full ML Model Access
+- [AML.T0044](https://atlas.mitre.org/techniques/AML.T0044/): Full ML Model Access
 
   Description: Full white-box access enables adversaries to meticulously tune prompts to optimally exploit vulnerabilities in downstream systems by maximizing generation of insecure outputs like unvalidated code snippets or injection payloads.
 
   Justification: With full access, adversaries can precisely craft prompts to generate extremely tailored insecure outputs exploiting downstream systems. 
 
-- [AML.T0047](https://attack.mitre.org/techniques/AML.T0040/): ML-Enabled Product or Service
+- [AML.T0047](https://atlas.mitre.org/techniques/AML.T0040/): ML-Enabled Product or Service
 
   Description: By gaining access to an LLM-enabled product/service, an adversary could potentially craft prompts designed to generate insecure outputs by exploiting the product's access to the underlying LLM and lack of output validation in connected downstream systems.
 
@@ -155,19 +155,21 @@ Prevention involves treating the LLM as any other user, applying input validatio
 
 #### MITRE ATLAS™ Mitigations  
 
-- [AML.M0011](https://attack.mitre.org/techniques/AML.M0011/): Restrict Library Loading
+- [AML.M0011](https://atlas.mitre.org/mitigations/AML.M0011/): Restrict Library Loading
 
   Description: Prevent abuse of library loading mechanisms in the operating system and software to load untrusted code by configuring appropriate library loading mechanisms and investigating potential vulnerable software. File formats such as pickle files that are commonly used to store machine learning models can contain exploits that allow for loading of malicious libraries.
 
   Justification: Restricting arbitrary library loading can prevent exploits from malicious outputs designed to load untrusted code.
 
-- [AML.M0015](https://attack.mitre.org/techniques/AML.M0015/): Adversarial Input Detection
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection
 
   Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
 
   Justification: Detecting crafted prompts designed to generate insecure outputs can prevent attacks.  
 
-- [AML.M0018](https://attack.mitre.org/techniques/AML.M0018/): Output Validation and Sanitization
+
+#### Additional Mitigations
+- Output Validation and Sanitization
 
   Description: Implement comprehensive validation and sanitization routines for LLM-generated outputs before passing them to downstream systems.
 

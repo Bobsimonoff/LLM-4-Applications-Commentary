@@ -153,43 +153,43 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
 
 #### MITRE ATLAS™ Techniques
 
-- [AML.T0006](https://attack.mitre.org/techniques/AML.T0006/): Active Scanning
+- [AML.T0006](https://atlas.mitre.org/techniques/AML.T0006/): Active Scanning
 
   Description: Adversaries may actively probe the systems housing private language models to identify vulnerabilities that could enable unauthorized access for model theft. Scanning can reveal weaknesses in access controls, authentication, infrastructure configurations, and more.
 
   Justification: Active scanning enables adversaries to identify weak points to exploit for gaining unauthorized access to private language models to steal intellectual property or sensitive training data.
 
-- [AML.T0012](https://attack.mitre.org/techniques/AML.T0012/): Valid Accounts
+- [AML.T0012](https://atlas.mitre.org/techniques/AML.T0012/): Valid Accounts
 
   Description: Adversaries may obtain and abuse compromised credentials of authorized users to gain access to systems housing proprietary language models. Valid credentials allow adversaries to bypass access controls and authentication checks when accessing private models or related systems, enabling model theft.
 
   Justification: Compromised valid credentials grant adversaries unauthorized access to private language models and related systems, enabling theft of intellectual property and sensitive training data.
 
-- [AML.T0024](https://attack.mitre.org/techniques/AML.T0024/): Exfiltration via ML Inference API
+- [AML.T0024](https://atlas.mitre.org/techniques/AML.T0024/): Exfiltration via ML Inference API
 
   Description: Adversaries may exploit the inference API to extract unauthorized copies of private language models. The inference API provides a pathway for adversaries to replicate functional copies of proprietary models, stealing intellectual property.
 
   Justification: The inference API can be abused to extract unauthorized functional copies of private language models, enabling intellectual property theft.
 
-- [AML.T0035](https://attack.mitre.org/techniques/AML.T0035/): ML Artifact Collection
+- [AML.T0035](https://atlas.mitre.org/techniques/AML.T0035/): ML Artifact Collection
 
   Description: Adversaries may gather and collect proprietary language model files and related artifacts like training data in preparation for stealing intellectual property. Collecting these artifacts provides the assets for model theft.
 
   Justification: Collecting language model artifacts grants adversaries direct access to steal intellectual property in the form of proprietary models and related data.
 
-- [AML.T0037](https://attack.mitre.org/techniques/AML.T0037/): Data from Local System
+- [AML.T0037](https://atlas.mitre.org/techniques/AML.T0037/): Data from Local System
 
   Description: Adversaries may access and steal language model files and artifacts from local systems where models are developed, trained, and stored. Local access provides assets adversaries can directly exfiltrate for model theft.
 
   Justification: Access to local systems provides adversaries direct access to language model files and artifacts, enabling model theft through local exfiltration.
 
-- [AML.T0040](https://attack.mitre.org/techniques/AML.T0040/): ML Model Inference API Access
+- [AML.T0040](https://atlas.mitre.org/techniques/AML.T0040/): ML Model Inference API Access
 
   Description: Adversaries may leverage access to the inference API as an attack vector to replicate and steal functional copies of private language models. The inference API provides an avenue for model theft through extraction.
 
   Justification: Inference API access enables adversaries to extract unauthorized functional model copies, providing a valuable attack vector to steal intellectual property.  
 
-- [AML.T0041](https://attack.mitre.org/techniques/AML.T0041/): Model Tampering
+- [AML.T0041](https://atlas.mitre.org/techniques/AML.T0041/): Model Tampering
 
   Description: Adversaries may alter the internal parameters or structures of a deployed model to produce malicious outcomes.
 
@@ -232,37 +232,37 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
 
 #### MITRE ATLAS™ Mitigations
 
-- [AML.M0002](https://attack.mitre.org/mitigations/AML.M0002/): Passive ML Output Obfuscation
+- [AML.M0002](https://atlas.mitre.org/mitigations/AML.M0002/): Passive ML Output Obfuscation
 
   Description: Decreasing the fidelity of model outputs provided to the end user can reduce an adversaries ability to extract information about the model and optimize attacks for the model.
 
   Justification: Output obfuscation hinders adversaries attempting to extract details about a model to replicate it, mitigating model theft.
 
-- [AML.M0004](https://attack.mitre.org/mitigations/AML.M0004/): Restrict Number of ML Model Queries
+- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004/): Restrict Number of ML Model Queries
 
   Description: Limit the total number and rate of queries a user can perform.
 
   Justification: Query limits prevent excessive queries that could allow adversaries to extract details and replicate private models.
 
-- [AML.M0005](https://attack.mitre.org/mitigations/AML.M0005/): Control Access to ML Models and Data at Rest
+- [AML.M0005](https://atlas.mitre.org/mitigations/AML.M0005/): Control Access to ML Models and Data at Rest
 
   Description: Establish access controls on internal model registries and limit internal access to production models. Limit access to training data only to approved users.
 
   Justification: Access controls directly limit unauthorized access to proprietary models and related data.
 
-- [AML.M0012](https://attack.mitre.org/mitigations/AML.M0012/): Encrypt Sensitive Information
+- [AML.M0012](https://atlas.mitre.org/mitigations/AML.M0012/): Encrypt Sensitive Information
 
   Description: Encrypt sensitive data such as ML models to protect against adversaries attempting to access sensitive data.
 
   Justification: Encryption protects models and data at rest from potential unauthorized access and theft.  
 
-- [AML.M0015](https://attack.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection
 
   Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
 
   Justification: Input monitoring and detection can identify and block potentially malicious queries and inputs designed to extract details about proprietary models.
 
-- [AML.M0018](https://attack.mitre.org/mitigations/AML.M0018/): Regular Model Checksum Verification
+- [AML.M0018](https://atlas.mitre.org/mitigations/AML.M0018/): Regular Model Checksum Verification
 
   Description: Frequently verify the checksums of models in storage to ensure their integrity hasn't been compromised.
 

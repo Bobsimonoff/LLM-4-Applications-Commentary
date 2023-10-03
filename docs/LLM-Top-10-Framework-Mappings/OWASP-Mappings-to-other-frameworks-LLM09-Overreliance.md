@@ -81,32 +81,26 @@ Overreliance can occur when an Large Language Model produces erroneous informati
 
 #### MITRE ATLAS™ Techniques
 
-- [AML.T0045](https://attack.mitre.org/techniques/AML.T0045/): ML Intellectual Property Theft
+- [AML.T0045](https://atlas.mitre.org/techniques/AML.T0045/): ML Intellectual Property Theft
 
   Description: Excessive trust in LLM outputs enables adversaries to more readily manipulate users into improperly disclosing or mishandling intellectual property and other confidential data assets by providing manipulated information that is incorrectly treated as authoritative without proper verification.
 
   Justification: Overreliance on LLM outputs not only exposes intellectual property to theft but also amplifies the risk of disclosing sensitive or classified information. Users may unknowingly act on manipulated or incorrect LLM suggestions.
-
-- [AML.T0071](https://attack.mitre.org/techniques/AML.T0071/): Excessive Trust in Model Outputs
-
-  Description: Users may trust LLM outputs for decision-making in security-critical scenarios without proper validation.
-
-  Justification: Overreliance on LLM outputs can lead to compromised decision-making and security vulnerabilities, making it essential to address this in the ATLAS techniques.
 
 
 ### Mitigations
 
 #### MITRE ATT&CK® Mitigations
 
-- [M1051](https://attack.mitre.org/mitigations/M1051/): Regular Expression Limitations
-
-  Description: Use regular expressions to limit and validate inputs and outputs to and from LLMs.
-
-  Justification: Implementing regular expression checks can mitigate the risks associated with accepting or generating unsafe or incorrect data, thus countering overreliance on LLMs.
+N.A.
 
 #### MITRE ATLAS™ Mitigations  
 
-- [AML.M0021](https://attack.mitre.org/mitigations/AML.M0021/): Model Monitoring
+N.A.
+
+#### Additional Mitigations
+
+- Model Monitoring
 
   Description: Continuously monitor model outputs for anomalies or suspicious activities to alert users or administrators.
 

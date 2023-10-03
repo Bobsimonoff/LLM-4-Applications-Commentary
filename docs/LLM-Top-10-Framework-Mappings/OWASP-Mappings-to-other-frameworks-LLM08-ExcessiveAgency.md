@@ -125,12 +125,6 @@ This item focuses on the fact that LLMs may be able to take action on their own,
 
   Justification: Complete access maximizes an adversary's ability to control and exploit the unchecked autonomy granted to the LLM.
 
-- [T0012](https://attack.mitre.org/techniques/T0012/): Role-Based Access Control
-
-  Description: Implementing role-based access controls in LLM systems can prevent unauthorized actions.
-
-  Justification: Role-Based Access Control directly targets the issue of excessive agency by ensuring that only authorized roles have access to certain functionalities.  
-
 
 ### Mitigations
 
@@ -160,11 +154,6 @@ This item focuses on the fact that LLMs may be able to take action on their own,
 
   Justification: Raises the bar for gaining access needed to manipulate behaviors.
 
-- [M1050](https://attack.mitre.org/mitigations/M1050/): Audit 
-
-  Description: Audit the activities and permissions of LLMs to ensure they are acting within the designated limits.
-
-  Justification: Continuous auditing can immediately flag and potentially halt any unauthorized or unexpected behavior, which is crucial in preventing risks arising from excessive agency.
 
 #### MITRE ATLAS™ Mitigations
 
@@ -192,7 +181,15 @@ This item focuses on the fact that LLMs may be able to take action on their own,
 
   Justification: Proper training of developers helps ensure they implement appropriate access controls and limitations. 
 
-- [M0019](https://attack.mitre.org/mitigations/M0019/): Limit Model Functionality
+
+#### Additional Mitigations
+- Audit 
+
+  Description: Audit the activities and permissions of LLMs to ensure they are acting within the designated limits.
+
+  Justification: Continuous auditing can immediately flag and potentially halt any unauthorized or unexpected behavior, which is crucial in preventing risks arising from excessive agency.
+
+- Limit Model Functionality
 
   Description: Limit the operations that the machine learning model can perform to only what is essential for its intended purpose.
 

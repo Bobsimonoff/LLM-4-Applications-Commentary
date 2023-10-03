@@ -123,7 +123,7 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
 
 #### MITRE ATT&CK® Techniques
 
-- [T1498](https://attack.mitre.org/techniques/T1498/): Resource Hijacking
+- [T1496](https://attack.mitre.org/techniques/T1496/): Resource Hijacking
 
   Description: An adversary may use the LLM resources for unintended purposes like cryptocurrency mining.
 
@@ -139,31 +139,34 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
 
 #### MITRE ATLAS™ Techniques
 
-- [AML.T0016](https://attack.mitre.org/techniques/AML.T0016/): Obtain Capabilities
+- [AML.T0016](https://atlas.mitre.org/techniques/AML.T0016/): Obtain Capabilities
 
   Description: Adversaries may obtain or develop capabilities like adversarial machine learning tools to craft inputs precisely engineered to consume excessive resources. These tools enable adversaries to optimize resource exhaustion attacks on LLMs by precisely measuring resource usage.
 
   Justification: Obtaining capabilities to craft resource-heavy inputs enables optimized denial of service attacks by profiling resource consumption.
 
-- [AML.T0029](https://attack.mitre.org/techniques/AML.T0029/): Denial of ML Service
+- [AML.T0029](https://atlas.mitre.org/techniques/AML.T0029/): Denial of ML Service
 
   Description: Adversaries may directly overwhelm ML systems with excessive requests designed to degrade performance and deny service availability. Flooding systems strains resources and causes unavailability.
 
   Justification: Sending excessive requests directly triggers resource exhaustion and denial of service.
 
-- [AML.T0040](https://attack.mitre.org/techniques/AML.T0040/): ML Model Inference API Access
+- [AML.T0040](https://atlas.mitre.org/techniques/AML.T0040/): ML Model Inference API Access
 
   Description: Adversaries may use inference API access to profile model behaviors and identify triggers that require extensive processing in order to craft optimized resource exhaustion attacks.
 
   Justification: Inference API access enables adversaries to analyze behaviors to craft optimized resource exhaustion inputs.  
 
-- [AML.T0043](https://attack.mitre.org/techniques/AML.T0043/): Craft Adversarial Data
+- [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043/): Craft Adversarial Data
 
   Description: Adversaries may carefully craft inputs designed to consume excessive resources and manipulate model behavior. This aids in developing denial of service attacks.
 
   Justification: Crafting complex inputs strains LLM systems, enabling denial of service.
 
-- [AML.T0050](https://attack.mitre.org/techniques/AML.T0050/): Parameter Tampering
+
+#### Additional Techniques
+
+- Parameter Tampering
 
   Description: Attackers modify query parameters to intentionally exhaust computational resources.
 
@@ -179,25 +182,27 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
 
 #### MITRE ATLAS™ Mitigations
 
-- [AML.M0004](https://attack.mitre.org/mitigations/AML.M0004/): Restrict Number of ML Model Queries
+- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004/): Restrict Number of ML Model Queries
 
   Description: Limit the total number and rate of queries a user can perform, with the ability to adapt based on current system load and user behavior.
 
   Justification: The added adaptability improves the mitigation's effectiveness in real-world, dynamic scenarios where attacks may vary in intensity and strategy.
 
-- [AML.M0015](https://attack.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection
 
   Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
 
   Justification: Detecting and blocking crafted inputs designed to trigger denial of service reduces the impact of attacks.
 
-- [AML.M0020](https://attack.mitre.org/mitigations/AML.M0020/): Resource Consumption Monitoring
+#### Additional Mitigations
+
+- Resource Consumption Monitoring
 
   Description: Continuously monitor CPU, memory, and other resource consumption metrics to identify abnormal behavior indicative of a DoS attack.
 
   Justification: Resource monitoring provides real-time data to trigger alerts or initiate automatic rate-limiting, significantly reducing the impact of DoS attacks.
 
-- [AML.M0021](https://attack.mitre.org/mitigations/AML.M0021/): Adaptive Rate Limiting
+- Adaptive Rate Limiting
 
   Description: Implement dynamic rate limiting based on user behavior, system health, and incoming request patterns.
 

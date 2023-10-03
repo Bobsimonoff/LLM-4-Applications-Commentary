@@ -126,37 +126,32 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
 
   Justification: Directly relevant to compromising the supply chain.
 
-- [T1588](https://attack.mitre.org/techniques/T1588/): Manipulate Data at Rest  
-
-  Description: Adversaries may manipulate data at rest to achieve objectives such as data integrity attacks or further data exposure.
-
-  Justification: Manipulating data in storage can be part of a supply chain attack, especially when the data is used for training or running machine learning models.
-
-#### MITRE ATLAS™ Techniques
-
-- [AML.T0016](https://attack.mitre.org/techniques/AML.T0016/): Obtain Capabilities
+- [T1588](https://attack.mitre.org/techniques/T1588/): Obtain Capabilities
 
   Description: Adversaries may search for and obtain software capabilities like adversarial ML tools to exploit vulnerable supply chain components. Obtaining capabilities aids adversaries in developing attacks targeting weaknesses in integrated third-party code, models, and data.
 
   Justification: Obtaining attack tools can enable adversaries to exploit vulnerable supply chain components.
 
-- [AML.T0024](https://attack.mitre.org/techniques/AML.T0024/): Exfiltration via ML Inference API
+
+#### MITRE ATLAS™ Techniques
+
+- [AML.T0016](https://atlas.mitre.org/techniques/AML.T0016/): Obtain Capabilities
+
+  Description: Adversaries may search for and obtain software capabilities like adversarial ML tools to exploit vulnerable supply chain components. Obtaining capabilities aids adversaries in developing attacks targeting weaknesses in integrated third-party code, models, and data.
+
+  Justification: Obtaining attack tools can enable adversaries to exploit vulnerable supply chain components.
+
+- [AML.T0024](https://atlas.mitre.org/techniques/AML.T0024/): Exfiltration via ML Inference API
 
   Description: Adversaries may extract data, models, and other artifacts containing proprietary information or intellectual property via inference APIs of compromised third-party components. This technique exploits vulnerable access controls in integrated suppliers.
 
   Justification: Inference API access to compromised third-party components enables data and IP exfiltration.
 
-- [AML.T0031](https://attack.mitre.org/techniques/AML.T0031/): Erode ML Model Integrity
+- [AML.T0031](https://atlas.mitre.org/techniques/AML.T0031/): Erode ML Model Integrity
 
   Description: Adversaries can degrade model performance over time by exploiting vulnerabilities in integrated components to craft malicious inputs. Continually supplying adversarial data via compromised suppliers erodes integrity and causes system failures.
 
   Justification: Introducing adversarial data through compromised third parties erodes model integrity.  
-
-- [AML.T0037](https://attack.mitre.org/techniques/AML.T0037/): Manipulate Training Data
-
-  Description: Adversaries may introduce or alter training data to impact the functionality of ML models.
-
-  Justification: By manipulating the training data, adversaries can bias the model's performance, effectively turning a component of the supply chain against the system.
 
 
 
@@ -168,31 +163,33 @@ N/A
 
 #### MITRE ATLAS™ Mitigations
 
-- [AML.M0002](https://attack.mitre.org/mitigations/AML.M0002/): Passive ML Output Obfuscation
+- [AML.M0002](https://atlas.mitre.org/mitigations/AML.M0002/): Passive ML Output Obfuscation
 
   Description: Decreasing the fidelity of model outputs provided to the end user can reduce an adversaries ability to extract information about the model and optimize attacks for the model.
 
   Justification: Obfuscating outputs can prevent adversaries from gaining insights to exploit compromised components.
 
-- [AML.M0003](https://attack.mitre.org/mitigations/AML.M0003/): Model Hardening
+- [AML.M0003](https://atlas.mitre.org/mitigations/AML.M0003/): Model Hardening
   
   Description: Use techniques to make machine learning models robust to adversarial inputs such as adversarial training or network distillation.
 
   Justification: Hardened models are more resilient to exploits of compromised supply chain components.  
 
-- [AML.M0012](https://attack.mitre.org/mitigations/AML.M0012/): Encrypt Sensitive Information
+- [AML.M0012](https://atlas.mitre.org/mitigations/AML.M0012/): Encrypt Sensitive Information
 
   Description: Encrypt sensitive data such as ML models to protect against adversaries attempting to access sensitive data.
 
   Justification: Encryption prevents exposure of data through compromised supply chain.
 
-- [AML.M0015](https://attack.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection
 
   Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
 
   Justification: Detecting adversarial inputs from compromised components mitigates risks.
   
-- [AML.M0018](https://attack.mitre.org/mitigations/AML.M0018/): Component Validation
+#### Additional Mitigations
+
+- Component Validation
 
   Description: Validate third-party components, libraries, and modules for vulnerabilities before integrating them into the environment.
 
