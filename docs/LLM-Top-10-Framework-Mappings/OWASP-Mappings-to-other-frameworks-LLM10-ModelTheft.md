@@ -55,285 +55,6 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
 
 ### Common Weakness Enumeration (CWE)
 
-- [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization - Flawed authorization controls allow unauthorized access to proprietary language models.
-
-  Description: Flawed authorization controls may grant unauthorized access to resources, including language models, which can lead to unauthorized access and potential data theft.
-
-  Justification: This CWE is directly related to the risk because it addresses the issue of improper authorization controls, which, if not adequately implemented, can result in unauthorized access to language models, posing a risk of data theft and unauthorized use.
-
-- [CWE-287](https://cwe.mitre.org/data/definitions/287.html): Improper Authentication - Weak authentication mechanisms enable unauthorized users to access private language models. 
-
-  Description: Weak authentication mechanisms can allow unauthorized users to bypass authentication and gain access to sensitive resources, such as language models.
-
-  Justification: Weak authentication mechanisms are directly related to the risk because they can lead to unauthorized access to language models, potentially enabling data theft and misuse.
-
-- [CWE-306](https://cwe.mitre.org/data/definitions/306.html): Missing Authentication for Critical Function - Lack of authentication checks for access to language models allows unauthorized users access.
-
-  Description: Lack of authentication checks for critical functions can result in unauthorized access to resources, in this case, language models.
-
-  Justification: Missing authentication for critical functions is highly relevant to the risk as it directly addresses the scenario where authentication checks are lacking, leading to unauthorized access to language models and potential data theft.
-
-- [CWE-327](https://cwe.mitre.org/data/definitions/327.html): Use of a Broken or Risky Cryptographic Algorithm - Use of weak cryptography to protect language model data could enable interception and unauthorized access during transmission.
-
-  Description: Weak or broken cryptographic algorithms can expose data to interception, potentially leading to unauthorized access.
-
-  Justification: This CWE is directly related to the risk because it highlights the importance of strong cryptographic measures to protect language model data from interception and unauthorized access during transmission.
-
-- [CWE-346](https://cwe.mitre.org/data/definitions/346.html): Origin Validation Error - Failing to validate the source of inputs to language model interfaces can allow unauthorized API access enabling data theft.
-
-  Description: Failing to validate the source of inputs can result in unauthorized API access, which can lead to data theft.
-
-  Justification: Origin validation errors directly relate to the risk because they highlight the need to validate input sources, preventing unauthorized API access and potential data theft.
-
-- [CWE-639](https://cwe.mitre.org/data/definitions/639.html): Authorization Bypass Through User-Controlled Key - User API keys could enable authorization bypass to access private language models and steal data.
-
-  Description: Authorization bypass through user-controlled keys can lead to unauthorized access to resources and data theft.
-
-  Justification: This CWE is directly related to the risk as it addresses the specific scenario where user-controlled API keys can be exploited to bypass authorization and gain unauthorized access to language models, potentially resulting in data theft.
-
-- [CWE-732](https://cwe.mitre.org/data/definitions/732.html): Inadequate Encoding of Output Data - Insufficient output encoding from language models risks exposing sensitive training data enabling theft.
-
-  Description: Inadequate output encoding can expose sensitive data, including training data, to potential theft.
-
-  Justification: Inadequate encoding of output data is directly related to the risk as it highlights the importance of proper encoding to prevent the exposure of sensitive training data, which could be targeted for theft.
-
-- [CWE-798](https://cwe.mitre.org/data/definitions/798.html): Use of Hard-coded Credentials - Hard-coded credentials with excessive permissions granted to interfaces risk unauthorized access to language models.
-
-  Description: Hard-coded credentials with excessive permissions can lead to unauthorized access to resources, including language models.
-
-  Justification: The use of hard-coded credentials is directly related to the risk as it points out the risk associated with such credentials, which can result in unauthorized access to language models and potential data theft.
-
-- [CWE-918](https://cwe.mitre.org/data/definitions/918.html): Server-Side Request Forgery (SSRF) - SSRF vulnerabilities could enable unauthorized access to internal language model storage servers to steal data.
-
-  Description: SSRF vulnerabilities can enable unauthorized access to internal resources, in this case, language model storage servers, potentially leading to data theft.
-
-  Justification: SSRF vulnerabilities are directly related to the risk as they highlight the potential for unauthorized access to internal language model storage servers, which could result in data theft.
-
-
-### MITRE ATT&CK® Techniques
-
-- [T1081](https://attack.mitre.org/techniques/T1081/) - Credentials in Files
-
-  Description: This technique involves accessing credentials stored in files, which could provide unauthorized access to systems and resources.
-
-  Justification: T1081 is related to the risk as it addresses the potential exposure of credentials in files, which, if accessed by attackers, could lead to unauthorized access to proprietary language models, posing a risk of data theft.
-
-- [T1530](https://attack.mitre.org/techniques/T1530/) - Data from Cloud Storage Object
-
-  Description: T1530 involves accessing cloud storage containing data, including language models or artifacts, which could be used to access proprietary data or steal sensitive information.
-
-  Justification: T1530 is relevant to the risk as it highlights the scenario where cloud storage containing language models or artifacts is accessed, potentially leading to the theft of proprietary language models and data.
-
-
-### MITRE ATLAS™ Techniques
-
-- AML.T0006: Active Scanning
-
-  Description: Adversaries may actively probe the systems housing private language models to identify vulnerabilities that could enable unauthorized access for model theft. Scanning can reveal weaknesses in access controls, authentication, infrastructure configurations, and more.
-
-  Justification: Active scanning enables adversaries to identify weak points to exploit for gaining unauthorized access to private language models to steal intellectual property or sensitive training data.
-
-- AML.T0012: Valid Accounts
-
-  Description: Adversaries may obtain and abuse compromised credentials of authorized users to gain access to systems housing proprietary language models. Valid credentials allow adversaries to bypass access controls and authentication checks when accessing private models or related systems, enabling model theft.
-
-  Justification: Compromised valid credentials grant adversaries unauthorized access to private language models and related systems, enabling theft of intellectual property and sensitive training data.
-
-- AML.T0024: Exfiltration via ML Inference API  
-
-  Description: Adversaries may exploit the inference API to extract unauthorized copies of private language models. The inference API provides a pathway for adversaries to replicate functional copies of proprietary models, stealing intellectual property.
-
-  Justification: The inference API can be abused to extract unauthorized functional copies of private language models, enabling intellectual property theft.
-
-- AML.T0035: ML Artifact Collection
-
-  Description: Adversaries may gather and collect proprietary language model files and related artifacts like training data in preparation for stealing intellectual property. Collecting these artifacts provides the assets for model theft.
-
-  Justification: Collecting language model artifacts grants adversaries direct access to steal intellectual property in the form of proprietary models and related data.
-
-- AML.T0036: Data from Information Repositories
-
-  Description: Adversaries may access and mine internal information repositories containing credentials, network architecture details, model storage locations, and other valuable information to further enable unauthorized access to private models for theft.
-
-  Justification: Mining internal information repositories reveals details adversaries can use to identify model storage locations, credentials, and other information to enable unauthorized access for model theft.
-
-- AML.T0037: Data from Local System
-
-  Description: Adversaries may access and steal language model files and artifacts from local systems where models are developed, trained, and stored. Local access provides assets adversaries can directly exfiltrate for model theft.
-
-  Justification: Access to local systems provides adversaries direct access to language model files and artifacts, enabling model theft through local exfiltration.
-
-- AML.T0040: ML Model Inference API Access
-
-  Description: Adversaries may leverage access to the inference API as an attack vector to replicate and steal functional copies of private language models. The inference API provides an avenue for model theft through extraction.
-  
-  Justification: Inference API access enables adversaries to extract unauthorized functional model copies, providing a valuable attack vector to steal intellectual property.
-
-
-### MITRE ATT&CK® Mitigations
-
-- [M1027](https://attack.mitre.org/mitigations/M1027): Password Policies
-
-  Description: Set and enforce secure password policies for accounts.
-
-  Justification: Strong password policies prevent compromised credentials that could enable unauthorized model access.
-
-- [M1032](https://attack.mitre.org/mitigations/M1032): Multi-factor Authentication
-
-  Description: Use two or more pieces of evidence to authenticate to a system; such as username and password in addition to a token from a physical smart card or token generator.
-
-  Justification: Multi-factor authentication raises the bar for gaining authenticated access needed for model theft.
-
-- [M1030](https://attack.mitre.org/mitigations/M1030): Network Segmentation
-
-  Description: Architect sections of the network to isolate critical systems, functions, or resources. Use physical and logical segmentation to prevent access to potentially sensitive systems and information.
-
-  Justification: Network segmentation can help isolate and protect critical model storage and access systems.
-
-- [M1041](https://attack.mitre.org/mitigations/M1041): Encrypt Sensitive Information
-
-  Description: Protect sensitive information with strong encryption.
-
-  Justification: Encrypting model files and artifacts helps prevent exposure if improperly accessed.
-
-
-
-### MITRE ATLAS™ Mitigations
-
-- AML.M0002: Passive ML Output Obfuscation
-  Description: Decreasing the fidelity of model outputs provided to the end user can reduce an adversaries ability to extract information about the model and optimize attacks for the model.
-
-- AML.M0004: Restrict Number of ML Model Queries
-  Description: Limit the total number and rate of queries a user can perform.
-
-- AML.M0005: Control Access to ML Models and Data at Rest
-  Description: Establish access controls on internal model registries and limit internal access to production models. Limit access to training data only to approved users.
-
-- AML.M0012: Encrypt Sensitive Information
-  Description: Encrypt sensitive data such as ML models to protect against adversaries attempting to access sensitive data.
-
-- AML.M0015: Adversarial Input Detection
-  Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
-
-
----
-
-# REVIEW COMMENTS
-
-## CWE
-
-### Remove
-- None
-
-All listed CWEs are strongly associated with the risk of large language model theft. Each one directly addresses vulnerabilities or weaknesses that could enable unauthorized access, data theft, or other forms of compromise.
-
-### Add
-- [CWE-384](https://cwe.mitre.org/data/definitions/384.html): Session Fixation
-
-  Description: Session fixation attacks can allow an attacker to hijack a user's session and gain unauthorized access to sensitive resources, such as language models.
-
-  Justification: Session fixation can directly result in unauthorized access to language models by exploiting weaknesses in session management. Given that this risk targets unauthorized access, this CWE should be added as it is a potential cause of such a risk.
-
-- [CWE-522](https://cwe.mitre.org/data/definitions/522.html): Insufficiently Protected Credentials
-
-  Description: Poorly protected credentials, such as API keys or passwords, can be easily compromised, providing unauthorized access to language models.
-
-  Justification: Insufficiently protected credentials can directly lead to unauthorized access to language models, which is central to the risk at hand. Strengthening credential protection is a necessary step in mitigating this risk.
-
-- [CWE-693](https://cwe.mitre.org/data/definitions/693.html): Protection Mechanism Failure
-
-  Description: Failure of built-in security measures can provide an avenue for unauthorized access to language models, undermining other security controls in place.
-
-  Justification: When protection mechanisms fail, this could directly lead to unauthorized access and potential theft of language models, thus strongly associated with this risk.
-
-### Update
-- [CWE-346](https://cwe.mitre.org/data/definitions/346.html): Origin Validation Error
-
-  Old Justification: Origin validation errors directly relate to the risk because they highlight the need to validate input sources, preventing unauthorized API access and potential data theft.
-
-  New Justification: Origin validation errors are not just related, but pivotal to the risk of unauthorized access to language models. Failure to validate input sources could not only enable unauthorized API access but also pave the way for more sophisticated attacks, such as data exfiltration or launching additional internal attacks, all leading to data theft.
-
-- [CWE-798](https://cwe.mitre.org/data/definitions/798.html): Use of Hard-coded Credentials
-
-  Old Justification: The use of hard-coded credentials is directly related to the risk as it points out the risk associated with such credentials, which can result in unauthorized access to language models and potential data theft.
-
-  New Justification: The use of hard-coded credentials poses an acute risk to language model security. It's not just related, but a critical vulnerability that could serve as a single point of failure, giving unauthorized users an easy pathway for access and theft of sensitive language models.
-
-
-## Summary
-
-The OWASP document on LLM Model Theft effectively outlines the risks of unauthorized access to proprietary large language models (LLMs). It discusses common risk scenarios, prevention, and mitigation strategies, as well as techniques employed by attackers and mitigations.
-
-## MITRE ATT&CK® Techniques
-
-### Remove
-None. All existing techniques are strongly associated with the risk of Model Theft.
-
-### Add
-- [T1552](https://attack.mitre.org/techniques/T1552/): Unsecured Credentials
-
-  Description: Adversaries may search for unsecured credentials that are used in applications or scripts. These can be leveraged to gain unauthorized access to resources like LLM repositories.
-
-  Justification: Given that one of the primary vectors of attack would be through exploiting weak access controls, having a technique focused on unsecured credentials would enhance the risk model.
-
-### Update
-None.
-
-## MITRE ATLAS™ Techniques
-
-### Remove
-- AML.T0036: Data from Local System
-
-  Reason for removal: This technique appears redundant when considered alongside AML.T0035 (ML Artifact Collection), as both involve direct access and exfiltration of model files and artifacts. It doesn't offer additional value.
-
-### Add
-- [AML.T0041](#): Model Tampering
-  
-  Description: Adversaries may alter the internal parameters or structures of a deployed model to produce malicious outcomes.
-  
-  Justification: While not directly resulting in model "theft," tampering with a model could result in intellectual property corruption and the generation of malicious outcomes that mirror those of stolen models.
-
-### Update
-None.
-
-## MITRE ATT&CK® Mitigations
-
-### Remove
-None. All existing mitigations are relevant to Model Theft.
-
-### Add
-- [M1051](https://attack.mitre.org/mitigations/M1051): User Behavior Analytics
-  
-  Description: Monitor user activities to detect anomalous actions that may indicate unauthorized access attempts to LLM repositories.
-
-  Justification: User behavior analytics can help in early detection of insider threats or compromised credentials, thereby preventing potential model theft.
-
-### Update
-None.
-
-## MITRE ATLAS™ Mitigations
-
-### Remove
-None. All existing mitigations are highly relevant to the risk of Model Theft.
-
-### Add
-- [AML.M0018](#): Regular Model Checksum Verification
-
-  Description: Frequently verify the checksums of models in storage to ensure their integrity hasn't been compromised.
-
-  Justification: Regular checksum verification can detect any unauthorized modifications to the model, preventing potential intellectual property corruption.
-
-### Update
-None.
-
-
-  
----
-# Consolidated
----
-
-### Common Weakness Enumeration (CWE)
-
 - [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization
 
   Description: Flawed authorization controls may grant unauthorized access to resources, including language models, which can lead to unauthorized access and potential data theft.
@@ -344,7 +65,7 @@ None.
 
   Description: Weak authentication mechanisms can allow unauthorized users to bypass authentication and gain access to sensitive resources, such as language models.
 
-  Justification: Weak authentication mechanisms are directly related to the risk because they can lead to unauthorized access to language models, potentially enabling data theft and misuse.  
+  Justification: Weak authentication mechanisms are directly related to the risk because they can lead to unauthorized access to language models, potentially enabling data theft and misuse.
 
 - [CWE-306](https://cwe.mitre.org/data/definitions/306.html): Missing Authentication for Critical Function
 
@@ -374,7 +95,7 @@ None.
 
   Description: Poorly protected credentials, such as API keys or passwords, can be easily compromised, providing unauthorized access to language models.
 
-  Justification: Insufficiently protected credentials can directly lead to unauthorized access to language models, which is central to the risk at hand. Strengthening credential protection is a necessary step in mitigating this risk.  
+  Justification: Insufficiently protected credentials can directly lead to unauthorized access to language models, which is central to the risk at hand. Strengthening credential protection is a necessary step in mitigating this risk.
 
 - [CWE-639](https://cwe.mitre.org/data/definitions/639.html): Authorization Bypass Through User-Controlled Key
 
@@ -386,19 +107,19 @@ None.
 
   Description: Inadequate output encoding can expose sensitive data, including training data, to potential theft.
 
-  Justification: Inadequate encoding of output data is directly related to the risk as it highlights the importance of proper encoding to prevent the exposure of sensitive training data, which could be targeted for theft.
+  Justification: Inadequate encoding of output data is directly related to the risk as it highlights the importance of proper encoding to prevent the exposure of sensitive training data, which could be targeted for theft.  
 
 - [CWE-798](https://cwe.mitre.org/data/definitions/798.html): Use of Hard-coded Credentials
 
-  Description: Hard-coded credentials with excessive permissions granted to interfaces risk unauthorized access to language models.
+  Description: The use of hard-coded credentials poses an acute risk to language model security. It's not just related, but a critical vulnerability that could serve as a single point of failure, giving unauthorized users an easy pathway for access and theft of sensitive language models.
 
-  Justification: The use of hard-coded credentials poses an acute risk to language model security. It's not just related, but a critical vulnerability that could serve as a single point of failure, giving unauthorized users an easy pathway for access and theft of sensitive language models.
+  Justification: The use of hard-coded credentials is directly related to the risk as it points out the risk associated with such credentials, which can result in unauthorized access to language models and potential data theft.
 
 - [CWE-918](https://cwe.mitre.org/data/definitions/918.html): Server-Side Request Forgery (SSRF)
 
   Description: SSRF vulnerabilities could enable unauthorized access to internal language model storage servers to steal data.
 
-  Justification: SSRF vulnerabilities are directly related to the risk as they highlight the potential for unauthorized access to internal language model storage servers, which could result in data theft.
+  Justification: SSRF vulnerabilities are directly related to the risk as they highlight the potential for unauthorized access to internal language model storage servers, which could result in data theft.  
 
 - [CWE-693](https://cwe.mitre.org/data/definitions/693.html): Protection Mechanism Failure
 
@@ -406,9 +127,6 @@ None.
 
   Justification: When protection mechanisms fail, this could directly lead to unauthorized access and potential theft of language models, thus strongly associated with this risk.
 
-#### Rejected CWE Review Comments
-
-- None
 
 
 ### Techniques
@@ -433,53 +151,49 @@ None.
 
   Justification: Given that one of the primary vectors of attack would be through exploiting weak access controls, having a technique focused on unsecured credentials would enhance the risk model.
 
-#### MITRE ATLASTM Techniques
+#### MITRE ATLAS™ Techniques
 
-- [AML.T0006](https://collaborate.mitre.org/attackics/index.php/Technique/AML/T0006): Active Scanning
+- [AML.T0006](https://attack.mitre.org/techniques/AML.T0006/): Active Scanning
 
   Description: Adversaries may actively probe the systems housing private language models to identify vulnerabilities that could enable unauthorized access for model theft. Scanning can reveal weaknesses in access controls, authentication, infrastructure configurations, and more.
 
   Justification: Active scanning enables adversaries to identify weak points to exploit for gaining unauthorized access to private language models to steal intellectual property or sensitive training data.
 
-- [AML.T0012](https://collaborate.mitre.org/attackics/index.php/Technique/AML/T0012): Valid Accounts
+- [AML.T0012](https://attack.mitre.org/techniques/AML.T0012/): Valid Accounts
 
   Description: Adversaries may obtain and abuse compromised credentials of authorized users to gain access to systems housing proprietary language models. Valid credentials allow adversaries to bypass access controls and authentication checks when accessing private models or related systems, enabling model theft.
 
-  Justification: Compromised valid credentials grant adversaries unauthorized access to private language models and related systems, enabling theft of intellectual property and sensitive training data.  
+  Justification: Compromised valid credentials grant adversaries unauthorized access to private language models and related systems, enabling theft of intellectual property and sensitive training data.
 
-- [AML.T0024](https://collaborate.mitre.org/attackics/index.php/Technique/AML/T0024): Exfiltration via ML Inference API
+- [AML.T0024](https://attack.mitre.org/techniques/AML.T0024/): Exfiltration via ML Inference API
 
   Description: Adversaries may exploit the inference API to extract unauthorized copies of private language models. The inference API provides a pathway for adversaries to replicate functional copies of proprietary models, stealing intellectual property.
 
   Justification: The inference API can be abused to extract unauthorized functional copies of private language models, enabling intellectual property theft.
 
-- [AML.T0035](https://collaborate.mitre.org/attackics/index.php/Technique/AML/T0035): ML Artifact Collection
+- [AML.T0035](https://attack.mitre.org/techniques/AML.T0035/): ML Artifact Collection
 
   Description: Adversaries may gather and collect proprietary language model files and related artifacts like training data in preparation for stealing intellectual property. Collecting these artifacts provides the assets for model theft.
 
   Justification: Collecting language model artifacts grants adversaries direct access to steal intellectual property in the form of proprietary models and related data.
-  
-- [AML.T0037](https://collaborate.mitre.org/attackics/index.php/Technique/AML/T0037): Data from Local System
+
+- [AML.T0037](https://attack.mitre.org/techniques/AML.T0037/): Data from Local System
 
   Description: Adversaries may access and steal language model files and artifacts from local systems where models are developed, trained, and stored. Local access provides assets adversaries can directly exfiltrate for model theft.
 
   Justification: Access to local systems provides adversaries direct access to language model files and artifacts, enabling model theft through local exfiltration.
 
-- [AML.T0040](https://collaborate.mitre.org/attackics/index.php/Technique/AML/T0040): ML Model Inference API Access
+- [AML.T0040](https://attack.mitre.org/techniques/AML.T0040/): ML Model Inference API Access
 
   Description: Adversaries may leverage access to the inference API as an attack vector to replicate and steal functional copies of private language models. The inference API provides an avenue for model theft through extraction.
 
-  Justification: Inference API access enables adversaries to extract unauthorized functional model copies, providing a valuable attack vector to steal intellectual property.
+  Justification: Inference API access enables adversaries to extract unauthorized functional model copies, providing a valuable attack vector to steal intellectual property.  
 
-- [AML.T0041](https://collaborate.mitre.org/attackics/index.php/Technique/AML/T0041): Model Tampering
+- [AML.T0041](https://attack.mitre.org/techniques/AML.T0041/): Model Tampering
 
   Description: Adversaries may alter the internal parameters or structures of a deployed model to produce malicious outcomes.
 
   Justification: While not directly resulting in model "theft," tampering with a model could result in intellectual property corruption and the generation of malicious outcomes that mirror those of stolen models.
-
-#### Rejected Technique Review Comments
-
-- None
 
 
 ### Mitigations
@@ -496,13 +210,13 @@ None.
 
   Description: Use two or more pieces of evidence to authenticate to a system; such as username and password in addition to a token from a physical smart card or token generator.
 
-  Justification: Multi-factor authentication raises the bar for gaining authenticated access needed for model theft.  
+  Justification: Multi-factor authentication raises the bar for gaining authenticated access needed for model theft.
 
 - [M1030](https://attack.mitre.org/mitigations/M1030/): Network Segmentation
 
   Description: Architect sections of the network to isolate critical systems, functions, or resources. Use physical and logical segmentation to prevent access to potentially sensitive systems and information.
 
-  Justification: Network segmentation can help isolate and protect critical model storage and access systems.
+  Justification: Network segmentation can help isolate and protect critical model storage and access systems.  
 
 - [M1041](https://attack.mitre.org/mitigations/M1041/): Encrypt Sensitive Information
 
@@ -516,45 +230,40 @@ None.
 
   Justification: User behavior analytics can help in early detection of insider threats or compromised credentials, thereby preventing potential model theft.
 
-#### MITRE ATLASTM Mitigations
+#### MITRE ATLAS™ Mitigations
 
-- [AML.M0002](https://collaborate.mitre.org/attackics/index.php/Mitigation/AML/M0002): Passive ML Output Obfuscation
+- [AML.M0002](https://attack.mitre.org/mitigations/AML.M0002/): Passive ML Output Obfuscation
 
   Description: Decreasing the fidelity of model outputs provided to the end user can reduce an adversaries ability to extract information about the model and optimize attacks for the model.
 
   Justification: Output obfuscation hinders adversaries attempting to extract details about a model to replicate it, mitigating model theft.
 
-- [AML.M0004](https://collaborate.mitre.org/attackics/index.php/Mitigation/AML/M0004): Restrict Number of ML Model Queries
+- [AML.M0004](https://attack.mitre.org/mitigations/AML.M0004/): Restrict Number of ML Model Queries
 
   Description: Limit the total number and rate of queries a user can perform.
 
   Justification: Query limits prevent excessive queries that could allow adversaries to extract details and replicate private models.
 
-- [AML.M0005](https://collaborate.mitre.org/attackics/index.php/Mitigation/AML/M0005): Control Access to ML Models and Data at Rest
+- [AML.M0005](https://attack.mitre.org/mitigations/AML.M0005/): Control Access to ML Models and Data at Rest
 
   Description: Establish access controls on internal model registries and limit internal access to production models. Limit access to training data only to approved users.
 
   Justification: Access controls directly limit unauthorized access to proprietary models and related data.
-  
-- [AML.M0012](https://collaborate.mitre.org/attackics/index.php/Mitigation/AML/M0012): Encrypt Sensitive Information
+
+- [AML.M0012](https://attack.mitre.org/mitigations/AML.M0012/): Encrypt Sensitive Information
 
   Description: Encrypt sensitive data such as ML models to protect against adversaries attempting to access sensitive data.
 
-  Justification: Encryption protects models and data at rest from potential unauthorized access and theft.
+  Justification: Encryption protects models and data at rest from potential unauthorized access and theft.  
 
-- [AML.M0015](https://collaborate.mitre.org/attackics/index.php/Mitigation/AML/M0015): Adversarial Input Detection
+- [AML.M0015](https://attack.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection
 
   Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
 
-  Justification: Input monitoring and detection can identify and block potentially malicious queries and inputs designed to extract details about proprietary models. 
+  Justification: Input monitoring and detection can identify and block potentially malicious queries and inputs designed to extract details about proprietary models.
 
-- [AML.M0018](https://collaborate.mitre.org/attackics/index.php/Mitigation/AML/M0018): Regular Model Checksum Verification
+- [AML.M0018](https://attack.mitre.org/mitigations/AML.M0018/): Regular Model Checksum Verification
 
   Description: Frequently verify the checksums of models in storage to ensure their integrity hasn't been compromised.
 
   Justification: Regular checksum verification detects unauthorized modifications to the model, preventing potential intellectual property corruption.
-
-#### Rejected Mitigation Review Comments
-
-- None
-
