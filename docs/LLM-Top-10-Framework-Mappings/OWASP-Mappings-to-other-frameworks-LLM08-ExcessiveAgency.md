@@ -1,4 +1,4 @@
-By Bob Simonoff
+e a new and better By Bob Simonoff
 
 - LinkedIn at https://www.linkedin.com/in/bob-simonoff
 
@@ -10,17 +10,28 @@ By Bob Simonoff
 # LLM08: Excessive Agency
 
 ### Summary
-Granting LLMs unchecked autonomy to take action can lead to unintended consequences, jeopardizing reliability, privacy, and trust.
 
-### Description
+Excessive Agency occurs when an LLM is granted excessive functionality, permissions, or autonomy beyond what its intended operations require. This enables unintended harmful actions based on faulty model outputs.
 
-Granting LLMs unchecked autonomy to take actions through excessive permissions, functionality, and lack of oversight can lead to harmful unintended consequences. 
+### Description 
 
-Attackers can exploit ambiguous or malicious prompts, along with insecure plugins and components, to manipulate the LLM into taking unauthorized and potentially damaging actions. Successful attacks can result in data breaches, financial fraud, regulatory violations, reputational damage, and other impacts.
+Excessive Agency stems from providing an LLM with more capabilities than needed for its intended functionality. Specifically, granting excessive:
 
-Prevention requires limiting LLM functionality, permissions, and autonomy to only what is essential. Strict input validation and robust access controls should be implemented in plugins. User context must be maintained and human approval required for impactful actions. Monitoring systems and rate limiting can help detect and limit unauthorized behaviors. Following security best practices around authorization, mediation, and privilege minimization is key to securing LLM agency.
+- Functionality: Access to plugins, tools or capabilities beyond necessity. 
 
-This item focuses on the fact that LLMs may be able to take action on their own, but do not have perfect training, can make mistakes, and do hallucinate. 
+- Permissions: Overly broad access to systems, APIs and data.
+
+- Autonomy: Ability to take impactful actions without human oversight.
+
+This differs from 
+- Insecure Output Handling, where the root cause is failing to validate LLM outputs.
+- Overreliance, which is failing to critically assess outputs.
+- Insecure Plugin Design which stems from plugins processing untrusted inputs without sufficient access controls. 
+
+Excessive Agency outside an LLM's intended scope enables unintended harmful actions based on faulty model outputs. Potential impacts include data loss, fraud, reputational damage, and more.
+
+Prevention requires narrowly limiting LLM capabilities to least functionality, permissions and autonomy needed for core operations.
+
 
 ### Common Examples of Risk
 
@@ -107,23 +118,17 @@ This item focuses on the fact that LLMs may be able to take action on their own,
 
 #### MITRE ATLAS™ Techniques
 
-- [T0011](https://attack.mitre.org/techniques/T0011/): User Execution
+- [AML.T0040](https://atlas.mitre.org/techniques/AML.T0040/): ML Model Inference API Access
+  The inference enables the adversary agency to interact with the model, which they could exploit through excessive permissions or functionality to take unintended actions based on unreliable model outputs. 
 
-  Description: Adversaries may manipulate users into executing unintended and potentially unsafe actions suggested by an LLM that has been granted excessive, unchecked autonomy. Users may unknowingly execute unsafe code or actions that take advantage of the LLM's broad permissions.
+- [AML.T0041](https://atlas.mitre.org/techniques/AML.T0041/): Physical Environment Access
+  Physical access provides agency to alter data collection in ways that could manipulate model outputs. Lack of controls around physical data sources risks granting excessive agency that enables unintended consequences.
 
-  Justification: User execution of unintended actions enabled by an LLM with excessive autonomy allows adversaries to more easily exploit the LLM's broad capabilities through manipulated user behavior.
+- [AML.T0044](https://atlas.mitre.org/techniques/AML.T0044/): Full ML Model Access
+  Full white-box access grants the adversary the ability to understand the model in enough detail so as to be able to craft adversarial attacks. 
 
-- [T0043](https://attack.mitre.org/techniques/T0043/): Craft Adversarial Data
-
-  Description: By crafting adversarial data inputs, an adversary can manipulate the behaviors of an LLM that has excessive autonomy, causing it to take unintended actions that take advantage of its broad permissions and capabilities.
-
-  Justification: Carefully engineered data samples enable adversaries to control and exploit the excessive autonomy granted to the LLM to achieve unintended behaviors.  
-
-- [T0044](https://attack.mitre.org/techniques/T0044/): Full ML Model Access
-
-  Description: Full white-box access to an LLM with excessive autonomy provides an adversary with maximum control over manipulating its behaviors by crafting inputs optimized to exploit its unchecked capabilities.
-
-  Justification: Complete access maximizes an adversary's ability to control and exploit the unchecked autonomy granted to the LLM.
+- [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043/): Craft Adversarial Data
+  Crafting adversarial data grants the adversary agency to manipulate model outputs and behaviors outside of intended functionality. Excessive autonomy in crafting data could lead to damaging impacts through unintended actions.
 
 
 ### Mitigations
