@@ -23,7 +23,7 @@ Proper input sanitization, access controls, isolation, logging, testing, and zer
 
 Not to be confused with:
 
-- LLM02: Insecure Output Handling - Failing to validate model outputs before sending them to downstream services or plugins.
+- LLM02: Insecure Output Handling - Failing to validate LLM-generated outputs before sending them to downstream services can allow insecure code or attack strings to reach vulnerable systems. 
 
 - LLM08: Excessive Agency - Excessive LLM permissions or autonomy to perform actions
 

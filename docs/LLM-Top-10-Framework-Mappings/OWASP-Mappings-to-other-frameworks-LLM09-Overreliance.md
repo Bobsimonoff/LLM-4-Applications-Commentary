@@ -11,11 +11,16 @@ By Bob Simonoff
 
 ### Summary
 
-Failing to critically assess LLM outputs can lead to compromised decision making, security vulnerabilities, and legal liabilities.
+Blindly trusting LLM outputs without verification can lead to harms including security issues, misinformation, legal problems, and reputational damage. Critical assessment of LLM content is essential.
 
 ### Description
 
-Overreliance can occur when an Large Language Model produces erroneous information and provides it in an authoritative manner. While LLMs can produce creative and informative content, they can also generate content that is factually incorrect, inappropriate or unsafe. This is referred to as hallucination or confabulation. When people or systems trust this information without oversight or confirmation it can result in a security breach, misinformation, miscommunication, legal issues, and reputational damage.
+Overreliance can occur when an Large Language Model produces inaccurate, inappropriate, or unsafe information and provides it in an authoritative manner. When people or systems trust this information without oversight or confirmation it can result in a security breach, misinformation, miscommunication, legal issues, and reputational damage.
+
+The core risk is blind trust in LLM output without verification, which enables harms from erroneous information. Awareness, validation and oversight are key to prevent overreliance.
+
+Not to be confused with:
+- LLM02: Insecure Output Handling - Failing to validate LLM-generated outputs before sending them to downstream services can allow insecure code or attack strings to reach vulnerable systems. 
 
 
 ### Common Examples of Risk

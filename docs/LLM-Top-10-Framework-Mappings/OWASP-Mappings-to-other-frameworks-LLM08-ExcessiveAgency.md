@@ -24,8 +24,10 @@ Excessive Agency stems from providing an LLM with more capabilities than needed 
 - Autonomy: Ability to take impactful actions without human oversight.
 
 Not to be confused with:
-- LLM02: Insecure Output Handling - Failing to validate model outputs before sending them to downstream services or plugins.
+- LLM02: Insecure Output Handling - Failing to validate LLM-generated outputs before sending them to downstream services can allow insecure code or attack strings to reach vulnerable systems. 
+
 - LLM07: Insecure Plugin Design - Lack of validation by downstream components 
+
 - LLM09: Overreliance - Placing too much trust in the accuracy of LLM outputs 
 
 Excessive Agency outside an LLM's intended scope enables unintended harmful actions based on faulty model outputs. Potential impacts include data loss, fraud, reputational damage, and more.
