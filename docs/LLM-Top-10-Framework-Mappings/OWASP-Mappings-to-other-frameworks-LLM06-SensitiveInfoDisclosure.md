@@ -14,11 +14,10 @@ Failure to protect against disclosure of sensitive information in LLM outputs ca
 
 ### Description
 
-Failure to protect against unauthorized exposure of confidential data in LLM outputs can enable adversaries to steal intellectual property and sensitive information. 
+Securing large language models against unintended sensitive data exposure is critical, yet challenging. Insufficient safeguards can enable adversaries to extract confidential or private information through malicious prompts or direct model access. Accidental disclosure is also a risk due to unanticipated prompt interactions. LLM outputs may expose trade secrets, personal data, or other sensitive information leading to illegal activity.
 
-Inadequate data handling, weak access controls, and insufficient input/output validation allow attackers to insert malicious prompts or directly access sensitive data. Successful attacks can lead to privacy violations, intellectual property theft, reputational damage, and regulatory noncompliance.
+Technical controls are needed to mitigate risks, including differential privacy, federated learning, data sanitization, input filtering, and output validation. However, the unpredictable nature of LLMs makes fully preventing unauthorized data exposure difficult. Comprehensive access policies, monitoring systems, and layered defenses should be implemented to reduce the attack surface.
 
-Prevention involves robust data sanitization, input filtering, and output validation. Strict access controls should be implemented, limiting data access to only authorized purposes. LLM training data must be carefully filtered to exclude sensitive information. Comprehensive data governance and privacy policies can help mitigate risks. Monitoring systems for anomalous behavior can also help detect potential unauthorized access attempts. Securing LLMs against sensitive data exposure is critical for maintaining trust and competitive advantage.
 
 ### Common Examples of Risk
 
