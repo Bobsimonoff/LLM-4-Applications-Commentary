@@ -21,13 +21,11 @@ Inadequate access control exacerbates this by letting plugins blindly trust each
 
 Proper input sanitization, access controls, isolation, logging, testing, and zero trust design are essential. Don't blindly trust models or plugins. Validate and authorize all inputs and actions. 
 
-What this is not:
+Not to be confused with:
 
-- Insecure output handling (LLM02): Failing to validate model outputs before use.
+- LLM02: Insecure Output Handling - Failing to validate model outputs before sending them to downstream services or plugins.
 
-- Excessive agency (LLM08): Granting unchecked autonomy to models.
-
-This risk focuses on creating LLM plugins rather than third-party plugins, which LLM-Supply-Chain-Vulnerabilities cover. 
+- LLM08: Excessive Agency - Excessive LLM permissions or autonomy to perform actions
 
 
 ### Examples of Risk

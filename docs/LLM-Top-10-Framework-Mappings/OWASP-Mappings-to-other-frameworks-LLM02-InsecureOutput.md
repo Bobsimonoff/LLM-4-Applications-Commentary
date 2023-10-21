@@ -19,12 +19,15 @@ Insecure output handling stems from downstream blind trust in LLM outputs withou
 
 This enables arbitrary code execution, system compromise, data theft, XSS, CSRF, SSRF, RCE through crafted prompts, with high LLM privilege escalating risk. 
 
-What it is not:
 
-- Lack of validation by downstream components (LLM07: Insecure Plugin Design) 
-- Overreliance on incorrect LLM outputs (LLM09: Overreliance)
-- Excessive LLM permissions  (LLM08: Excessive Agency)
-- LLM leaking sensitive information (LLM06: Sensitive Information Disclosure
+Not to be confused with:
+- LLM07: Insecure Plugin Design - Lack of validation by downstream components 
+
+- LLM09: Overreliance - Placing too much trust in the accuracy of LLM outputs 
+
+- LLM08: Excessive Agency - Excessive LLM permissions or autonomy to perform actions
+
+- LLM06: Sensitive Information Disclosure - LLM leaking sensitive information 
 
 This risk focuses specifically on the need to sanitize and validate LLM outputs before passing downstream.
 
