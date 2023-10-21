@@ -6,15 +6,27 @@ By Bob Simonoff
 
 - github at https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main
 
-# LLM07: Insecure Plugin Design
+Here is an updated summary with a "What this is not" section:
 
-### Summary
-LLM plugins processing untrusted inputs and having insufficient access control risk severe exploits like remote code execution.
+# LLM07: Insecure Plugin Design 
 
-### Description
-LLM plugins are extensions that, when enabled, are called automatically by the model during user interactions. The model integration platform drives them,  and the application may have no control over the execution, especially when the model is hosted by another party. Furthermore, plugins are likely to implement free-text inputs from the model with no validation or type-checking to deal with context-size limitations. This allows a potential attacker to construct a malicious request to the plugin, which could result in a wide range of undesired behaviors, up to and including remote code execution. 
+## Summary
 
-The harm of malicious inputs often depends on insufficient access controls and the failure to track authorization across plugins. Inadequate access control allows a plugin to blindly trust other plugins and assume that the end user provided the inputs. Such inadequate access control can enable malicious inputs to have harmful consequences ranging from data exfiltration, remote code execution, and privilege escalation.
+LLM plugins processing untrusted inputs without proper validation or access controls risk severe exploits like remote code execution.
+
+## Description
+
+LLM plugins are extensions called automatically during interactions. The platform drives them with little application control, especially for remotely hosted models. Plugins may implement free-text model inputs without validation due to context limitations. This allows malformed inputs leading to undesired behaviors like remote code execution. 
+
+Inadequate access control exacerbates this by letting plugins blindly trust each other. Lack of authorization tracking enables malicious inputs to cause harm through data theft, code execution, and privilege escalation.
+
+Proper input sanitization, access controls, isolation, logging, testing, and zero trust design are essential. Don't blindly trust models or plugins. Validate and authorize all inputs and actions. 
+
+What this is not:
+
+- Insecure output handling (LLM02): Failing to validate model outputs before use.
+
+- Excessive agency (LLM08): Granting unchecked autonomy to models.
 
 This risk focuses on creating LLM plugins rather than third-party plugins, which LLM-Supply-Chain-Vulnerabilities cover. 
 
