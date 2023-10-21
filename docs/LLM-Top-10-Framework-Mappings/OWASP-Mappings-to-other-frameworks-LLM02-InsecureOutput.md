@@ -9,19 +9,24 @@ By Bob Simonoff
 
 # LM02: Insecure Output Handling
 
-### Summary
+### Summary 
 
-Neglecting to validate Large Language Model outputs may lead to downstream security exploits, including code execution that compromises systems and exposes data.
+Failing to validate LLM outputs enables attackers to indirectly access functionality or trigger exploits through crafted prompts.
 
 ### Description
 
-Insecure Output Handling arises when downstream components blindly accept LLM outputs without scrutiny, enabling attackers to indirectly access functionality or trigger exploits.
+Insecure output handling stems from downstream blind trust in LLM outputs without proper validation or sanitization, granting attackers indirect access similar to user input.
 
-Neglecting to validate or sanitize LLM-generated outputs before passing them to backend systems, browsers, or other downstream components can enable code execution, system compromise, and data exposure. Attackers can manipulate LLM output via crafted prompts, similar to providing indirect user access. 
+This enables arbitrary code execution, system compromise, data theft, XSS, CSRF, SSRF, RCE through crafted prompts, with high LLM privilege escalating risk. 
 
-Successful attacks can lead to privilege escalation, command injection, XSS, SSRF, and remote code execution. High LLM privileges and external prompt injection increase impacts.
+What it is NOT:
 
-Prevention involves treating the LLM as any other user, applying input validation and sanitization per OWASP guidelines, and encoding outputs to mitigate code execution. LLM access should be limited using least privilege principles.
+- Lack of validation by downstream components (LLM07: Insecure Plugin Design) 
+- Overreliance on incorrect LLM outputs (LLM09: Overreliance)
+- Excessive LLM permissions  (LLM08: Excessive Agency)
+- LLM leaking sensitive information (LLM06: Sensitive Information Disclosure
+
+This risk focuses specifically on the need to sanitize and validate LLM outputs before passing downstream.
 
 
 ### Common Examples of Risk 
