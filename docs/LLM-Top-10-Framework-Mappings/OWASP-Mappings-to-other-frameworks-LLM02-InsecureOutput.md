@@ -19,7 +19,7 @@ Insecure output handling stems from downstream blind trust in LLM outputs withou
 
 This enables arbitrary code execution, system compromise, data theft, XSS, CSRF, SSRF, RCE through crafted prompts, with high LLM privilege escalating risk. 
 
-What it is NOT:
+What it is not:
 
 - Lack of validation by downstream components (LLM07: Insecure Plugin Design) 
 - Overreliance on incorrect LLM outputs (LLM09: Overreliance)
