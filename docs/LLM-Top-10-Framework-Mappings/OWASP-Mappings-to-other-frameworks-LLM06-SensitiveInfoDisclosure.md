@@ -10,7 +10,8 @@ By Bob Simonoff
 # LLM06: Sensitive Information Disclosure
 
 ### Summary
-Failure to protect against disclosure of sensitive information in LLM outputs can result in legal consequences or a loss of competitive advantage.
+
+Insufficient safeguards risk exposing sensitive information through LLM outputs, causing legal issues or competitive harm.
 
 ### Description
 

@@ -11,7 +11,7 @@ By Bob Simonoff
 
 ### Summary 
 
-Overloading LLMs with resource-intensive operations can cause service disruptions, performance degradation, and increased costs.
+Overloading LLMs with resource-intensive operations can cause service disruptions, degraded performance, and increased costs.
 
 ### Description  
 

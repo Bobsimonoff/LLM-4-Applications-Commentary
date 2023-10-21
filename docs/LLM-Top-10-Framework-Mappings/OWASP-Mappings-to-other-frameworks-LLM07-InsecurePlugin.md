@@ -11,7 +11,7 @@ By Bob Simonoff
 
 ### Summary
 
-LLM plugins processing untrusted inputs without proper validation or access controls risk severe exploits like remote code execution.
+LLM plugins processing untrusted inputs without validation can enable severe exploits like remote code execution.
 
 ### Description
 

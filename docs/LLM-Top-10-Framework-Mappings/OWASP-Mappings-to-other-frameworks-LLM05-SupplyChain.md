@@ -10,8 +10,8 @@ By Bob Simonoff
 # LLM05: Supply Chain Vulnerabilities
 
 ### Summary 
-Depending upon compromised third-party components, services or datasets undermine system integrity, causing data breaches and system failures.
 
+Depending on compromised third-party components can undermine system integrity, causing data breaches and failures.
 
 ### Description
 

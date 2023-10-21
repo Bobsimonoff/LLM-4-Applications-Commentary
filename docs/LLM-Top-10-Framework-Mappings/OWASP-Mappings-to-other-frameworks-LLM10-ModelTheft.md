@@ -10,7 +10,8 @@ By Bob Simonoff
 # LLM10: Model Theft
 
 ### Summary
-The theft of proprietary large language models can lead to financial losses, competitive disadvantage, and unauthorized access to sensitive data. 
+
+LLM theft can lead to financial losses, competitive disadvantage, and unauthorized data access.
 
 ### Description
 

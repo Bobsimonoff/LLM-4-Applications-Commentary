@@ -11,7 +11,7 @@ By Bob Simonoff
 
 ### Summary 
 
-Failing to validate LLM outputs enables attackers to indirectly access functionality or trigger exploits through crafted prompts.
+Failing to validate, sanitize and filter LLM outputs enables attackers to indirectly access systems or trigger exploits via crafted prompts.
 
 ### Description
 

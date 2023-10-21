@@ -11,7 +11,7 @@ By Bob Simonoff
 
 ### Summary
 
-Blindly trusting LLM outputs without verification can lead to harms including security issues, misinformation, legal problems, and reputational damage. Critical assessment of LLM content is essential.
+Blindly trusting LLM outputs can lead to issues like misinformation, legal problems, and reputational damage without verification.
 
 ### Description
 

@@ -11,7 +11,8 @@ By Bob Simonoff
 
 ### Summary
 
-Manipulating LLMs via crafted inputs can lead to unauthorized access, data breaches, and compromised decision-making. Attackers can directly inject rogue prompts into the LLM (called "jailbreaking") or indirectly inject prompts through external inputs.
+Crafted prompts can manipulate LLMs to cause unauthorized access, data breaches, and compromised decision-making.
+
 
 ### Description
 

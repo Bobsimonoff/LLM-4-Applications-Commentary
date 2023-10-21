@@ -11,7 +11,7 @@ By Bob Simonoff
 
 ### Summary
 
-Tampered training data can impair LLM models leading to responses that may compromise security, accuracy, or ethical behavior.
+Tampered training data can impair LLMs, leading to compromised security, accuracy, or ethical behavior.
 
 ### Description
 
