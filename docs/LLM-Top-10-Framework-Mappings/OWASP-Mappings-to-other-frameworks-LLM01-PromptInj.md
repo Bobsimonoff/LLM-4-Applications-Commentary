@@ -23,6 +23,10 @@ Successful attacks can lead to impacts like unauthorized access, data breaches, 
 
 Prevention involves restricting LLM access, requiring confirmation, isolating prompts, establishing trust boundaries, and indicating untrustworthy responses.
 
+Not to be confused with:
+
+- LLM07: Insecure Plugin Design - While flaws like insufficient output sanitization in the plugin could enable insecure plugins to become vectors for indirect prompt injection, indirect prompt injections could come from LLMs accessing external systems directly or from 3rd party plugins which are not addressed by insecure plugin design.
+
 ### Common Examples of Risk
 
 1. An attacker overwrites the system prompt to make the LLM return sensitive information without restrictions.
