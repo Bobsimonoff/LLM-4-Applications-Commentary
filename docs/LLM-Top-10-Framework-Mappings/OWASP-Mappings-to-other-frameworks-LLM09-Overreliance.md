@@ -9,11 +9,11 @@ By Bob Simonoff
 
 # LLM09: Overreliance
 
-#### Summary
+### Summary
 
 Failing to critically assess LLM outputs can lead to compromised decision making, security vulnerabilities, and legal liabilities.
 
-#### Description
+### Description
 
 Overreliance can occur when an Large Language Model produces erroneous information and provides it in an authoritative manner. While LLMs can produce creative and informative content, they can also generate content that is factually incorrect, inappropriate or unsafe. This is referred to as hallucination or confabulation. When people or systems trust this information without oversight or confirmation it can result in a security breach, misinformation, miscommunication, legal issues, and reputational damage.
 
@@ -75,11 +75,11 @@ Overreliance can occur when an Large Language Model produces erroneous informati
 
 ### Techniques
 
-#### MITRE ATT&CK® Techniques
+### MITRE ATT&CK® Techniques
 
 - No changes made due to no suggested additions
 
-#### MITRE ATLAS™ Techniques
+### MITRE ATLAS™ Techniques
 
 - [AML.T0045](https://atlas.mitre.org/techniques/AML.T0045/): ML Intellectual Property Theft
 
@@ -90,15 +90,15 @@ Overreliance can occur when an Large Language Model produces erroneous informati
 
 ### Mitigations
 
-#### MITRE ATT&CK® Mitigations
+### MITRE ATT&CK® Mitigations
 
 N.A.
 
-#### MITRE ATLAS™ Mitigations  
+### MITRE ATLAS™ Mitigations  
 
 N.A.
 
-#### Additional Mitigations
+### Additional Mitigations
 
 - Model Monitoring
 

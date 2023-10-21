@@ -9,11 +9,11 @@ By Bob Simonoff
 
 # LLM04: Denial of Service
 
-#### Summary
+### Summary
 
 Overloading LLMs with resource-heavy operations can cause service disruptions and increased costs.
 
-#### Description
+### Description
 
 Model Denial of Service involves overloading LLMs with resource-heavy operations that can disrupt services and incur costs. 
 
@@ -121,7 +121,7 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
 
 ### Techniques
 
-#### MITRE ATT&CK® Techniques
+### MITRE ATT&CK® Techniques
 
 - [T1496](https://attack.mitre.org/techniques/T1496/): Resource Hijacking
 
@@ -137,7 +137,7 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
   Justification: Directly causes denial of service on endpoints.
 
 
-#### MITRE ATLAS™ Techniques
+### MITRE ATLAS™ Techniques
 
 - [AML.T0016](https://atlas.mitre.org/techniques/AML.T0016/): Obtain Capabilities
 
@@ -164,7 +164,7 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
   Justification: Crafting complex inputs strains LLM systems, enabling denial of service.
 
 
-#### Additional Techniques
+### Additional Techniques
 
 - Parameter Tampering
 
@@ -176,11 +176,11 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
 
 ### Mitigations
 
-#### MITRE ATT&CK® Mitigations
+### MITRE ATT&CK® Mitigations
 
 - None
 
-#### MITRE ATLAS™ Mitigations
+### MITRE ATLAS™ Mitigations
 
 - [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004/): Restrict Number of ML Model Queries
 
@@ -194,7 +194,7 @@ Prevention involves input sanitization, enforcing limits on resource usage and c
 
   Justification: Detecting and blocking crafted inputs designed to trigger denial of service reduces the impact of attacks.
 
-#### Additional Mitigations
+### Additional Mitigations
 
 - Resource Consumption Monitoring
 

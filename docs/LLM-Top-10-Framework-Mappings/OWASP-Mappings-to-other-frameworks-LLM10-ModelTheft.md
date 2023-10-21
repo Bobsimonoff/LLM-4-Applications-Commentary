@@ -9,10 +9,10 @@ By Bob Simonoff
 
 # LLM10: Model Theft
 
-#### Summary
+### Summary
 Unauthorized access to proprietary large language models risks theft, competitive advantage, and dissemination of sensitive information.
 
-#### Description
+### Description
 
 Unauthorized access and theft of proprietary large language models can undermine competitive advantage and lead to data breaches. 
 
@@ -131,7 +131,7 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
 
 ### Techniques
 
-#### MITRE ATT&CK® Techniques
+### MITRE ATT&CK® Techniques
 
 - [T1530](https://attack.mitre.org/techniques/T1530/): Data from Cloud Storage Object
 
@@ -145,7 +145,7 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
 
   Justification: Given that one of the primary vectors of attack would be through exploiting weak access controls, having a technique focused on unsecured credentials would enhance the risk model.
 
-#### MITRE ATLAS™ Techniques
+### MITRE ATLAS™ Techniques
 
 - [AML.T0006](https://atlas.mitre.org/techniques/AML.T0006/): Active Scanning
 
@@ -183,7 +183,7 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
 
   Justification: Inference API access enables adversaries to extract unauthorized functional model copies, providing a valuable attack vector to steal intellectual property.  
 
-#### Additional Techniques
+### Additional Techniques
 - Model Tampering
 
   Description: Adversaries may alter the internal parameters or structures of a deployed model to produce malicious outcomes.
@@ -193,7 +193,7 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
 
 ### Mitigations
 
-#### MITRE ATT&CK® Mitigations
+### MITRE ATT&CK® Mitigations
 
 - [M1027](https://attack.mitre.org/mitigations/M1027/): Password Policies
 
@@ -220,7 +220,7 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
   Justification: Encrypting model files and artifacts helps prevent exposure if improperly accessed.
 
 
-#### MITRE ATLAS™ Mitigations
+### MITRE ATLAS™ Mitigations
 
 - [AML.M0002](https://atlas.mitre.org/mitigations/AML.M0002/): Passive ML Output Obfuscation
 
@@ -254,7 +254,7 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
 
 
 
-  #### Additional Mitigations
+  ### Additional Mitigations
 
 - User Behavior Analytics
 

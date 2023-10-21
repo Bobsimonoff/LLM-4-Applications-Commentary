@@ -9,11 +9,11 @@ By Bob Simonoff
 
 # LLM01: Prompt Injection
 
-#### Summary
+### Summary
 
 Manipulating LLMs via crafted inputs can lead to unauthorized access, data breaches, and compromised decision-making. Attackers can directly inject rogue prompts into the LLM (called "jailbreaking") or indirectly inject prompts through external inputs.
 
-#### Description
+### Description
 
 Prompt injection attacks involve crafting malicious prompts that manipulate LLMs into executing unintended and potentially harmful actions. These attacks exploit the lack of segregation between instructions and data in LLMs. 
 
@@ -115,7 +115,7 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
 
 ### Techniques
 
-#### MITRE ATT&CK® Techniques
+### MITRE ATT&CK® Techniques
 
 - [T1059](https://attack.mitre.org/techniques/T1059/): Command and Scripting Interpreter
 
@@ -161,7 +161,7 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
   Justification: Phishing campaigns can cleverly deliver prompts that manipulate LLMs into executing malicious actions, thereby directly impacting user data and system integrity.
 
 
-#### MITRE ATLAS™ Techniques
+### MITRE ATLAS™ Techniques
 
 - [AML.T0006](https://atlas.mitre.org/techniques/AML.T0006/): Active Scanning
 
@@ -214,7 +214,7 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
 
 ### Mitigations
 
-#### MITRE ATT&CK® Mitigations
+### MITRE ATT&CK® Mitigations
 
 - [M1027](https://attack.mitre.org/mitigations/M1027/): Password Policies
 
@@ -240,7 +240,7 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
 
   Justification: By narrowing down the software stack to essential components, we not only reduce the attack surface but also simplify the task of monitoring and securing remaining components, thereby enhancing the effectiveness of countermeasures against prompt injection attacks.
 
-#### MITRE ATLAS™ Mitigations
+### MITRE ATLAS™ Mitigations
 
 - [AML.M0002](https://atlas.mitre.org/mitigations/AML.M0002): Passive ML Output Obfuscation
 
@@ -278,7 +278,7 @@ Prevention involves restricting LLM access, requiring confirmation, isolating pr
 
   Justification: Centralized model serving limits access that could be exploited for direct prompt injection.
 
-#### Additional Mitigations
+### Additional Mitigations
 
 
 - User Training

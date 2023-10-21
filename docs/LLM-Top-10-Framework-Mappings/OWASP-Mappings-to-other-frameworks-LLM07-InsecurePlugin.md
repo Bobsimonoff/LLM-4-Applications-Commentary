@@ -102,7 +102,7 @@ This risk focuses on creating LLM plugins rather than third-party plugins, which
 
 ### Techniques
 
-#### MITRE ATT&CK® Techniques
+### MITRE ATT&CK® Techniques
 
 - [T1548](https://attack.mitre.org/techniques/T1068/): Exploitation for Privilege Escalation
 
@@ -116,7 +116,7 @@ This risk focuses on creating LLM plugins rather than third-party plugins, which
 
   Justification: Directly relevant as plugins are public interfaces that may contain flaws.
 
-#### MITRE ATLAS™ Techniques
+### MITRE ATLAS™ Techniques
 
 - [AML.T0006](https://atlas.mitre.org/techniques/AML.T0006/): Active Scanning
 
@@ -142,7 +142,7 @@ This risk focuses on creating LLM plugins rather than third-party plugins, which
 
   Justification: Complete LLM plugin access allows adversaries to deeply probe vulnerabilities to optimize malicious inputs for exploitation. 
 
-#### Additional Techniques
+### Additional Techniques
 
 - Plugin Enumeration
 
@@ -154,12 +154,12 @@ This risk focuses on creating LLM plugins rather than third-party plugins, which
 
 ### Mitigations
 
-#### MITRE ATT&CK® Mitigations
+### MITRE ATT&CK® Mitigations
 
 N.A.
 
 
-#### MITRE ATLAS™ Mitigations
+### MITRE ATLAS™ Mitigations
 
 - [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004/): Restrict Number of ML Model Queries
 
@@ -203,7 +203,7 @@ N.A.
 
   Justification: Developer training helps avoid coding mistakes that lead to plugin vulnerabilities.
 
-#### Additional Mitigations 
+### Additional Mitigations 
 
 - [AML.M0020](https://atlas.mitre.org/mitigations/AML.M0020/): Periodic Code Reviews
 

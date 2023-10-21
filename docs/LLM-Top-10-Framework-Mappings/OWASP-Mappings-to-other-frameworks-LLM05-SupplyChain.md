@@ -9,11 +9,11 @@ By Bob Simonoff
 
 # LLM05: Supply Chain Vulnerabilities
 
-#### Summary 
+### Summary 
 Depending upon compromised components, services or datasets undermine system integrity, causing data breaches and system failures.
 
 
-#### Description
+### Description
 
 Supply chain vulnerabilities arise when compromised third-party components undermine system integrity. Attackers can exploit these to cause data breaches, biased outputs, and system failures.
 
@@ -118,7 +118,7 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
 
 ### Techniques
 
-#### MITRE ATT&CK® Techniques
+### MITRE ATT&CK® Techniques
 
 - [T1195](https://attack.mitre.org/techniques/T1195/): Supply Chain Compromise
 
@@ -133,7 +133,7 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
   Justification: Obtaining attack tools can enable adversaries to exploit vulnerable supply chain components.
 
 
-#### MITRE ATLAS™ Techniques
+### MITRE ATLAS™ Techniques
 
 - [AML.T0016](https://atlas.mitre.org/techniques/AML.T0016/): Obtain Capabilities
 
@@ -157,11 +157,11 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
 
 ### Mitigations
 
-#### MITRE ATT&CK® Mitigations
+### MITRE ATT&CK® Mitigations
 
 N/A
 
-#### MITRE ATLAS™ Mitigations
+### MITRE ATLAS™ Mitigations
 
 - [AML.M0002](https://atlas.mitre.org/mitigations/AML.M0002/): Passive ML Output Obfuscation
 
@@ -187,7 +187,7 @@ N/A
 
   Justification: Detecting adversarial inputs from compromised components mitigates risks.
   
-#### Additional Mitigations
+### Additional Mitigations
 
 - Component Validation
 

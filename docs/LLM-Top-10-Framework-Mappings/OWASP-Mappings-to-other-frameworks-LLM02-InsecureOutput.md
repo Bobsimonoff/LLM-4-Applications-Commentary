@@ -9,11 +9,11 @@ By Bob Simonoff
 
 # LM02: Insecure Output Handling
 
-#### Summary 
+### Summary 
 
 Failing to validate LLM outputs enables attackers to indirectly access functionality or trigger exploits through crafted prompts.
 
-#### Description
+### Description
 
 Insecure output handling stems from downstream blind trust in LLM outputs without proper validation or sanitization, granting attackers indirect access similar to user input.
 
@@ -106,7 +106,7 @@ This risk focuses specifically on the need to sanitize and validate LLM outputs 
 
 ### Techniques
 
-#### MITRE ATT&CK® Techniques
+### MITRE ATT&CK® Techniques
 
 - [T1190](https://attack.mitre.org/techniques/T1190/): Exploit Public-Facing Application
 
@@ -114,7 +114,7 @@ This risk focuses specifically on the need to sanitize and validate LLM outputs 
 
   Justification: Could exploit public model APIs by targeting exposed services that inadequately validate outputs.
 
-#### MITRE ATLAS™ Techniques
+### MITRE ATLAS™ Techniques
 
 - [AML.T0040](https://atlas.mitre.org/techniques/AML.T0040/): ML Model Inference API Access
 
@@ -144,7 +144,7 @@ This risk focuses specifically on the need to sanitize and validate LLM outputs 
 
 ### Mitigations
 
-#### MITRE ATT&CK® Mitigations
+### MITRE ATT&CK® Mitigations
 
 - [M1038](https://attack.mitre.org/mitigations/M1038): Execution Prevention
 
@@ -158,7 +158,7 @@ This risk focuses specifically on the need to sanitize and validate LLM outputs 
 
   Justification: Reduces available downstream avenues for exploiting insecure outputs.
 
-#### MITRE ATLAS™ Mitigations  
+### MITRE ATLAS™ Mitigations  
 
 - [AML.M0011](https://atlas.mitre.org/mitigations/AML.M0011/): Restrict Library Loading
 
@@ -173,7 +173,7 @@ This risk focuses specifically on the need to sanitize and validate LLM outputs 
   Justification: Detecting crafted prompts designed to generate insecure outputs can prevent attacks.  
 
 
-#### Additional Mitigations
+### Additional Mitigations
 - Output Validation and Sanitization
 
   Description: Implement comprehensive validation and sanitization routines for LLM-generated outputs before passing them to downstream systems.

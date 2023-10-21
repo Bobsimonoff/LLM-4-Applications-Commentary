@@ -9,10 +9,10 @@ By Bob Simonoff
 
 # LLM06: Sensitive Information Disclosure
 
-#### Summary
+### Summary
 Failure to protect against disclosure of sensitive information in LLM outputs can result in legal consequences or a loss of competitive advantage.
 
-#### Description
+### Description
 
 Failure to protect against unauthorized exposure of confidential data in LLM outputs can enable adversaries to steal intellectual property and sensitive information. 
 
@@ -115,7 +115,7 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
 ### Techniques
 
-#### MITRE ATT&CK® Techniques
+### MITRE ATT&CK® Techniques
 
 - [T1078](https://attack.mitre.org/techniques/T1078/): Valid Accounts
 
@@ -135,7 +135,7 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
   Justification: Compromised credentials could enable unauthorized access to sensitive information.
 
-#### MITRE ATLAS™ Techniques
+### MITRE ATLAS™ Techniques
 
 - [T0024](https://attack.mitre.org/techniques/T0024/): Exfiltration via ML Inference API
 
@@ -188,7 +188,7 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
 ### Mitigations
 
-#### MITRE ATT&CK® Mitigations
+### MITRE ATT&CK® Mitigations
 
 - [M1027](https://attack.mitre.org/mitigations/M1027/): Password Policies
 
@@ -208,7 +208,7 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
   Justification: Minimizing the attack surface by disabling or removing unnecessary features can substantially lower the risks of sensitive information disclosure.
 
-#### MITRE ATLAS™ Mitigations
+### MITRE ATLAS™ Mitigations
 
 - [M0002](https://attack.mitre.org/mitigations/M0002/): Passive ML Output Obfuscation
 
@@ -247,7 +247,7 @@ Prevention involves robust data sanitization, input filtering, and output valida
 
   Justification: Limiting model access reduces potential attack vectors for data exposure.  
 
-#### Additional Mitigations
+### Additional Mitigations
 - Differential Privacy
 
   Description: Introduce statistical noise into model outputs to anonymize individual data entries.

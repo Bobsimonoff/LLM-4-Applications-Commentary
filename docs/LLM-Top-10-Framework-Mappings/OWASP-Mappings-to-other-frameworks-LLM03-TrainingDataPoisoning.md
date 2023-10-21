@@ -9,11 +9,11 @@ By Bob Simonoff
 
 # LLM03: Training Data Poisoning
 
-#### Summary
+### Summary
 
 Tampered training data can impair LLM models leading to responses that may compromise security, accuracy, or ethical behavior.
 
-#### Description
+### Description
 
 Training Data Poisoning involves manipulating the data used to train LLMs to impair model capabilities and outputs. 
 
@@ -109,7 +109,7 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
 
 ### Techniques
 
-#### MITRE ATT&CK® Techniques
+### MITRE ATT&CK® Techniques
 
 - [T1565](https://attack.mitre.org/techniques/T1565/): Data Manipulation
 
@@ -123,7 +123,7 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
    
   Justification: Vulnerable public-facing applications can be an entry point for attackers to manipulate training data.
 
-#### MITRE ATLAS™ Techniques
+### MITRE ATLAS™ Techniques
 
 - [AML.T0019](https://atlas.mitre.org/techniques/AML.T0019/): Publish Poisoned Datasets
 
@@ -156,7 +156,7 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
   Justification: Crafting poisoned data precisely manipulates models by embedding flaws.
 
 
-#### Additional Techniques
+### Additional Techniques
 
 - Model Parameter Tampering
 
@@ -168,7 +168,7 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
 
 ### Mitigations
 
-#### MITRE ATT&CK® Mitigations
+### MITRE ATT&CK® Mitigations
 
 - [M1013](https://attack.mitre.org/mitigations/M1013): Application Developer Guidance
 
@@ -189,7 +189,7 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
   Justification: Frequent backups can serve as a mitigation strategy for rolling back to a clean state in case of training data poisoning.
 
 
-#### MITRE ATLAS™ Mitigations
+### MITRE ATLAS™ Mitigations
 
 - [AML.M0005](https://atlas.mitre.org/mitigations/AML.M0005/): Control Access to ML Models and Data at Rest
 
@@ -216,7 +216,7 @@ Prevention involves verifying supply chain integrity, validating legitimacy of d
   Justification: Detecting anomalies counters poisoning by identifying malicious inputs.
 
 
-#### Additional Mitigations 
+### Additional Mitigations 
 
 - Use Case Specific Model Training and Deployment
 

@@ -9,11 +9,11 @@ e a new and better By Bob Simonoff
 
 # LLM08: Excessive Agency
 
-#### Summary
+### Summary
 
 Excessive Agency occurs when an LLM is granted excessive functionality, permissions, or autonomy beyond what its intended operations require. This enables unintended harmful actions based on faulty model outputs.
 
-#### Description 
+### Description 
 
 Excessive Agency stems from providing an LLM with more capabilities than needed for its intended functionality. Specifically, granting excessive:
 
@@ -102,7 +102,7 @@ Prevention requires narrowly limiting LLM capabilities to least functionality, p
 
 ### Techniques
 
-#### MITRE ATT&CK® Techniques
+### MITRE ATT&CK® Techniques
 
 - [T1078](https://attack.mitre.org/techniques/T1078/): Valid Accounts
 
@@ -116,7 +116,7 @@ Prevention requires narrowly limiting LLM capabilities to least functionality, p
 
   Justification: Relevant technique to exploit excessive plugin privileges granted to the LLM.
 
-#### MITRE ATLAS™ Techniques
+### MITRE ATLAS™ Techniques
 
 - [AML.T0040](https://atlas.mitre.org/techniques/AML.T0040/): ML Model Inference API Access
   The inference enables the adversary agency to interact with the model, which they could exploit through excessive permissions or functionality to take unintended actions based on unreliable model outputs. 
@@ -133,7 +133,7 @@ Prevention requires narrowly limiting LLM capabilities to least functionality, p
 
 ### Mitigations
 
-#### MITRE ATT&CK® Mitigations
+### MITRE ATT&CK® Mitigations
 
 - [M1027](https://attack.mitre.org/mitigations/M1027/): Password Policies  
 
@@ -160,7 +160,7 @@ Prevention requires narrowly limiting LLM capabilities to least functionality, p
   Justification: Raises the bar for gaining access needed to manipulate behaviors.
 
 
-#### MITRE ATLAS™ Mitigations
+### MITRE ATLAS™ Mitigations
 
 - [M0011](https://attack.mitre.org/mitigations/M0011/): Restrict Library Loading
 
@@ -187,7 +187,7 @@ Prevention requires narrowly limiting LLM capabilities to least functionality, p
   Justification: Proper training of developers helps ensure they implement appropriate access controls and limitations. 
 
 
-#### Additional Mitigations
+### Additional Mitigations
 - Audit 
 
   Description: Audit the activities and permissions of LLMs to ensure they are acting within the designated limits.
