@@ -2,7 +2,7 @@ e a new and better By Bob Simonoff
 
 - LinkedIn at https://www.linkedin.com/in/bob-simonoff
 
-- medium/com at https://medium.com/@bob.simonoff
+- medium.com at https://medium.com/@bob.simonoff
 
 - github at https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main
 
@@ -23,7 +23,7 @@ Excessive Agency stems from providing an LLM with more capabilities than needed 
 
 - Autonomy: Ability to take impactful actions without human oversight.
 
-This differs from 
+What it is not:
 - Insecure Output Handling, where the root cause is failing to validate LLM outputs.
 - Overreliance, which is failing to critically assess outputs.
 - Insecure Plugin Design which stems from plugins processing untrusted inputs without sufficient access controls. 
