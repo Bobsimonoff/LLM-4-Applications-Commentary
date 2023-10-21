@@ -2,18 +2,18 @@ By Bob Simonoff
 
 - LinkedIn at https://www.linkedin.com/in/bob-simonoff
 
-- medium/com at https://medium.com/@bob.simonoff
+- medium.com at https://medium.com/@bob.simonoff
 
 - github at https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main
 
 
 # LLM05: Supply Chain Vulnerabilities
 
-### Summary 
+#### Summary 
 Depending upon compromised components, services or datasets undermine system integrity, causing data breaches and system failures.
 
 
-### Description
+#### Description
 
 Supply chain vulnerabilities arise when compromised third-party components undermine system integrity. Attackers can exploit these to cause data breaches, biased outputs, and system failures.
 

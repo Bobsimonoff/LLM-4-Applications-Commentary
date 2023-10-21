@@ -2,17 +2,17 @@ By Bob Simonoff
 
 - LinkedIn at https://www.linkedin.com/in/bob-simonoff
 
-- medium/com at https://medium.com/@bob.simonoff
+- medium.com at https://medium.com/@bob.simonoff
 
 - github at https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main
 
 
 # LLM10: Model Theft
 
-### Summary
+#### Summary
 Unauthorized access to proprietary large language models risks theft, competitive advantage, and dissemination of sensitive information.
 
-### Description
+#### Description
 
 Unauthorized access and theft of proprietary large language models can undermine competitive advantage and lead to data breaches. 
 

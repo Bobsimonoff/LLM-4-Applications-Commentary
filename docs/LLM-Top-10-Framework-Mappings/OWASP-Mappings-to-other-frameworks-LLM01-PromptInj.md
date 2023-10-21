@@ -2,18 +2,18 @@ By Bob Simonoff
 
 - LinkedIn at https://www.linkedin.com/in/bob-simonoff
 
-- medium/com at https://medium.com/@bob.simonoff
+- medium.com at https://medium.com/@bob.simonoff
 
 - github at https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main
 
 
 # LLM01: Prompt Injection
 
-### Summary
+#### Summary
 
 Manipulating LLMs via crafted inputs can lead to unauthorized access, data breaches, and compromised decision-making. Attackers can directly inject rogue prompts into the LLM (called "jailbreaking") or indirectly inject prompts through external inputs.
 
-### Description
+#### Description
 
 Prompt injection attacks involve crafting malicious prompts that manipulate LLMs into executing unintended and potentially harmful actions. These attacks exploit the lack of segregation between instructions and data in LLMs. 
 

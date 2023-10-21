@@ -2,19 +2,18 @@ By Bob Simonoff
 
 - LinkedIn at https://www.linkedin.com/in/bob-simonoff
 
-- medium/com at https://medium.com/@bob.simonoff
+- medium.com at https://medium.com/@bob.simonoff
 
 - github at https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main
 
-Here is an updated summary with a "What this is not" section:
 
 # LLM07: Insecure Plugin Design 
 
-## Summary
+### Summary
 
 LLM plugins processing untrusted inputs without proper validation or access controls risk severe exploits like remote code execution.
 
-## Description
+### Description
 
 LLM plugins are extensions called automatically during interactions. The platform drives them with little application control, especially for remotely hosted models. Plugins may implement free-text model inputs without validation due to context limitations. This allows malformed inputs leading to undesired behaviors like remote code execution. 
 
@@ -31,7 +30,7 @@ What this is not:
 This risk focuses on creating LLM plugins rather than third-party plugins, which LLM-Supply-Chain-Vulnerabilities cover. 
 
 
-### Common Examples of Vulnerability
+### Examples of Risk
 
 1. Plugin accepts all parameters in one unvalidated text field.
 
@@ -43,7 +42,7 @@ This risk focuses on creating LLM plugins rather than third-party plugins, which
 
 5. Plugin assumes LLM content is from user and performs any requested actions without authorization.
 
-### How to Prevent
+### Prevention and Mitigation Strategies
 
 1. Enforce parameterized inputs with validation and sanitization. Inspect unstructured inputs for unsafe methods.
 
@@ -59,7 +58,7 @@ This risk focuses on creating LLM plugins rather than third-party plugins, which
 
 7. Apply OWASP API security guidance to plugins.
 
-###v Example Attack Scenarios
+### Example Attack Scenarios
 
 1. Attacker exploits plugin URL parameter injection to inject malicious content.
 

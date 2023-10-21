@@ -9,11 +9,11 @@ e a new and better By Bob Simonoff
 
 # LLM08: Excessive Agency
 
-### Summary
+#### Summary
 
 Excessive Agency occurs when an LLM is granted excessive functionality, permissions, or autonomy beyond what its intended operations require. This enables unintended harmful actions based on faulty model outputs.
 
-### Description 
+#### Description 
 
 Excessive Agency stems from providing an LLM with more capabilities than needed for its intended functionality. Specifically, granting excessive:
 

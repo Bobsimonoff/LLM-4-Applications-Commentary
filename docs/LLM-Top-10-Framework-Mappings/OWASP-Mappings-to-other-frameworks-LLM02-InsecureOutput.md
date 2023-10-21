@@ -2,18 +2,18 @@ By Bob Simonoff
 
 - LinkedIn at https://www.linkedin.com/in/bob-simonoff
 
-- medium/com at https://medium.com/@bob.simonoff
+- medium.com at https://medium.com/@bob.simonoff
 
 - github at https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main
 
 
 # LM02: Insecure Output Handling
 
-### Summary 
+#### Summary 
 
 Failing to validate LLM outputs enables attackers to indirectly access functionality or trigger exploits through crafted prompts.
 
-### Description
+#### Description
 
 Insecure output handling stems from downstream blind trust in LLM outputs without proper validation or sanitization, granting attackers indirect access similar to user input.
 

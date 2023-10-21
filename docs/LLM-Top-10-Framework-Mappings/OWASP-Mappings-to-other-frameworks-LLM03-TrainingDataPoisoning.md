@@ -2,18 +2,18 @@ By Bob Simonoff
 
 - LinkedIn at https://www.linkedin.com/in/bob-simonoff
 
-- medium/com at https://medium.com/@bob.simonoff
+- medium.com at https://medium.com/@bob.simonoff
 
 - github at https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main
 
 
 # LLM03: Training Data Poisoning
 
-### Summary
+#### Summary
 
 Tampered training data can impair LLM models leading to responses that may compromise security, accuracy, or ethical behavior.
 
-### Description
+#### Description
 
 Training Data Poisoning involves manipulating the data used to train LLMs to impair model capabilities and outputs. 
 

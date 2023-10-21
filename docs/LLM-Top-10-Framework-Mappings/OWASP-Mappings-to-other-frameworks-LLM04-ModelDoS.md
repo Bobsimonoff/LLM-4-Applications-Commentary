@@ -2,18 +2,18 @@ By Bob Simonoff
 
 - LinkedIn at https://www.linkedin.com/in/bob-simonoff
 
-- medium/com at https://medium.com/@bob.simonoff
+- medium.com at https://medium.com/@bob.simonoff
 
 - github at https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main
 
 
 # LLM04: Denial of Service
 
-### Summary
+#### Summary
 
 Overloading LLMs with resource-heavy operations can cause service disruptions and increased costs.
 
-### Description
+#### Description
 
 Model Denial of Service involves overloading LLMs with resource-heavy operations that can disrupt services and incur costs. 
 
