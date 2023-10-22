@@ -10,7 +10,6 @@ By Bob Simonoff
 # LLM10: Model Theft
 
 ### Summary
-
 LLM theft can lead to financial losses, competitive disadvantage, and unauthorized data access.
 
 ### Description

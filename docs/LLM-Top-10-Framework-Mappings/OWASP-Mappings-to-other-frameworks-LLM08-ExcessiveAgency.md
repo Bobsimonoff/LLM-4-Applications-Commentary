@@ -11,11 +11,11 @@ e a new and better By Bob Simonoff
 
 ### Summary
 
-Excessive LLM permissions or autonomy enables unintended harmful actions based on faulty outputs.
+Excessive LLM permissions or autonomy enables unintended harmful actions based on faulty LLM outputs.
 
 ### Description 
 
-Excessive Agency stems from providing an LLM with more capabilities than needed for its intended functionality. Specifically, granting excessive:
+Excessive Agency stems from providing an LLM with more permissions than are necessary for its intended functionality. Specifically, granting excessive:
 
 - Functionality: Access to plugins, tools or capabilities beyond necessity. 
 

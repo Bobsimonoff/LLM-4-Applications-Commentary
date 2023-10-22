@@ -13,7 +13,6 @@ By Bob Simonoff
 
 Crafted prompts can manipulate LLMs to cause unauthorized access, data breaches, and compromised decision-making.
 
-
 ### Description
 
 Prompt injection attacks involve crafting malicious prompts that manipulate LLMs into executing unintended and potentially harmful actions. These attacks exploit the lack of segregation between instructions and data in LLMs. 

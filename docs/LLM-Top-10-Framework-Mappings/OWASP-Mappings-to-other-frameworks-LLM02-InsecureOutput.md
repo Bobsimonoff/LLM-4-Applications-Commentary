@@ -7,7 +7,7 @@ By Bob Simonoff
 - github at https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main
 
 
-# LM02: Insecure Output Handling
+# LLM02: Insecure Output Handling
 
 ### Summary 
 

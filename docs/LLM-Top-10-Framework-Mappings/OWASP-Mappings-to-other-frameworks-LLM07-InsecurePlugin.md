@@ -10,16 +10,14 @@ By Bob Simonoff
 # LLM07: Insecure Plugin Design 
 
 ### Summary
-
 LLM plugins processing untrusted inputs without validation can enable severe exploits like remote code execution.
 
 ### Description
+LLM plugins implement free-text model inputs without validation due to context limitations. This allows malformed inputs leading to undesired behaviors like remote code execution.
 
-LLM plugins are extensions called automatically during interactions. The platform drives them with little application control, especially for remotely hosted models. Plugins may implement free-text model inputs without validation due to context limitations. This allows malformed inputs leading to undesired behaviors like remote code execution. 
+Inadequate access control exacerbates this by enabling malicious inputs to cause data theft, code execution, and privilege escalation.
 
-Inadequate access control exacerbates this by letting plugins blindly trust each other. Lack of authorization tracking enables malicious inputs to cause harm through data theft, code execution, and privilege escalation.
-
-Proper input sanitization, access controls, isolation, logging, testing, and zero trust design are essential. Don't blindly trust models or plugins. Validate and authorize all inputs and actions. 
+Proper input validation, access controls, isolation, logging, testing, and zero trust design are essential. Validate and authorize all inputs and actions.
 
 Not to be confused with:
 

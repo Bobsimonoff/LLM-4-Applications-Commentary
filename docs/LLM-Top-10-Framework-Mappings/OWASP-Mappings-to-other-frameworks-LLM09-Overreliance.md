@@ -20,7 +20,7 @@ Overreliance can occur when an Large Language Model produces inaccurate, inappro
 The core risk is blind trust in LLM output without verification, which enables harms from erroneous information. Awareness, validation and oversight are key to prevent overreliance.
 
 Not to be confused with:
-- LLM02: Insecure Output Handling - Failing to validate LLM-generated outputs before sending them to downstream services can allow insecure code or attack strings to reach vulnerable systems. 
+- LLM02: Insecure Output Handling - Failing to validate LLM generated outputs can create an attack vector downstream systems, whereas overreliance is about blindly trusting even validated outputs.
 
 
 ### Common Examples of Risk

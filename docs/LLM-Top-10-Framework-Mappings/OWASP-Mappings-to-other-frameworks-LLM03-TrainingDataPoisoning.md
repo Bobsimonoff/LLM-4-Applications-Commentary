@@ -7,6 +7,7 @@ By Bob Simonoff
 - github at https://github.com/Bobsimonoff/LLM-4-Applications-Commentary/tree/main
 
 
+
 # LLM03: Training Data Poisoning
 
 ### Summary
@@ -15,13 +16,11 @@ Tampered training data can impair LLMs, leading to compromised security, accurac
 
 ### Description
 
-Training Data Poisoning involves manipulating the data used to train LLMs in order intentionally impair model capabilities and outputs. 
-pleas
-Poisoned training data like falsified, biased, or malicious content can lead to compromised security, accuracy, or ethical model behavior. Attackers may target pre-training data or data used for fine-tuning and embeddings. Impacts include unreliable outputs, biases, information leakage, reputation damage, and flawed decisions.
+Training data poisoning involves manipulating training data to intentionally impair model capabilities and outputs. Poisoned data leads to compromised security, inaccurate outputs, biases, information leakage, and flawed decisions.
 
-Poisoning attacks can target both external data sources as well as curated internal data, since attackers may gain access to poison either type of training data.
+Poisoning attacks target pre-training or fine-tuning data. Impacts include unreliable outputs, biases, reputation damage, and unethical behavior.
 
-Prevention involves verifying supply chain integrity, validating legitimacy of data sources, isolating training environments, sanitizing inputs, and incorporating adversarial robustness techniques. Monitoring model behavior and using human review loops can help detect poisoning attacks.
+Prevention involves supply chain integrity checks, input sanitization, isolation, and adversarial robustness techniques. Monitoring and human review help detect poisoning attacks.
 
 
 ### Common Examples of Risk

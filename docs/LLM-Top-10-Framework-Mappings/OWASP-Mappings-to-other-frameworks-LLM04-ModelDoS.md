@@ -9,13 +9,13 @@ By Bob Simonoff
 
 # LLM04: Denial of Service
 
-### Summary 
-
+### Summary
 Overloading LLMs with resource-intensive operations can cause service disruptions, degraded performance, and increased costs.
 
-### Description  
+### Description
+Denial of service attacks overload LLMs through input flooding, recursive context expansion, and other techniques that consume excessive resources. This causes service disruptions, performance degradation, and increased costs.
 
-Denial of service attacks on LLMs involve overloading the model with inputs or operations that consume excessive computational resources. Attackers may send unusual inputs, malformed queries, or sequences of requests that strain the LLM beyond its capabilities. Common methods include input flooding, recursive context expansion, and carefully crafted variable-length requests that approach context window limits. This overloads the LLM's processing capacity and memory, causing slowdowns, unavailability of services, increased infrastructure costs, and revenue losses. Prevention involves input sanitization, resource capping, context window limits, rate limiting, resource monitoring, and secure architecture and implementation guidelines.
+Preventive measures include input sanitization, resource capping, rate limiting, monitoring, and secure architecture guidelines.
 
 
 ### Common Examples of Risk
