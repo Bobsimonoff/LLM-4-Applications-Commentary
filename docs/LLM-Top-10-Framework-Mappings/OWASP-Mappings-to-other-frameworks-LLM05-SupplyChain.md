@@ -21,6 +21,7 @@ Vulnerable components like unpatched libraries, contaminated datasets, and compr
 
 Prevention involves extensive supplier vetting, integrity checks, and monitoring. Only use trusted suppliers and ensure alignment of security policies. Scrutinize third-party plugins before integration. Maintain updated inventories of components, and implement code signing for models. Audit supplier security regularly.
 
+
 ### Common Examples of Risk
 
 1. Outdated or insecure third-party libraries and components.
@@ -135,24 +136,11 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
 
 ### MITRE ATLAS™ Techniques
 
-- [AML.T0016](https://atlas.mitre.org/techniques/AML.T0016/): Obtain Capabilities
+- [AML.T0010](https://atlas.mitre.org/techniques/AML.T0010): ML Supply Chain Compromise - An attacker could compromise part of the ML supply chain, like the training data or software dependencies, in order to undermine the integrity of the downstream ML system. This could allow them to inject backdoors, degrade performance, or steal IP.
 
-  Description: Adversaries may search for and obtain software capabilities like adversarial ML tools to exploit vulnerable supply chain components. Obtaining capabilities aids adversaries in developing attacks targeting weaknesses in integrated third-party code, models, and data.
+- [AML.T0019](https://atlas.mitre.org/techniques/AML.T0019): Publish Poisoned Datasets - An attacker could poison a public dataset that the victim ML system depends on as part of its supply chain. This allows them to inject biases or backdoors into the victim's models.
 
-  Justification: Obtaining attack tools can enable adversaries to exploit vulnerable supply chain components.
-
-- [AML.T0024](https://atlas.mitre.org/techniques/AML.T0024/): Exfiltration via ML Inference API
-
-  Description: Adversaries may extract data, models, and other artifacts containing proprietary information or intellectual property via inference APIs of compromised third-party components. This technique exploits vulnerable access controls in integrated suppliers.
-
-  Justification: Inference API access to compromised third-party components enables data and IP exfiltration.
-
-- [AML.T0031](https://atlas.mitre.org/techniques/AML.T0031/): Erode ML Model Integrity
-
-  Description: Adversaries can degrade model performance over time by exploiting vulnerabilities in integrated components to craft malicious inputs. Continually supplying adversarial data via compromised suppliers erodes integrity and causes system failures.
-
-  Justification: Introducing adversarial data through compromised third parties erodes model integrity.  
-
+- [AML.T0018](https://atlas.mitre.org/techniques/AML.T0018): Backdoor ML Model - An attacker who has compromised part of the supply chain could inject a backdoor into the victim's model. This backdoor could then be used to manipulate the model's behavior during operations.
 
 
 ### Mitigations

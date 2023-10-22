@@ -114,29 +114,12 @@ Not to be confused with:
 
 ### MITRE ATLAS™ Techniques
 
-- [AML.T0006](https://atlas.mitre.org/techniques/AML.T0006/): Active Scanning
+- [AML.T0006](https://atlas.mitre.org/techniques/AML.T0006/): Active Scanning - If the plugin endpoint is public, adversaries can probe to identify flaws in input validation. Then the adversary could craft prompt injections that will exploit the discovered flaw. 
 
-  Description: Adversaries actively probe and scan LLM plugin interfaces to identify vulnerabilities in input validation, sanitization, access controls or other weaknesses that could enable exploitation through crafted malicious inputs. Thorough scanning reveals flaws adversaries can later exploit.
+- [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043/): Craft Adversarial Data - Adversaries can exploit flaws in LLM plugin input validation and sanitization by carefully crafting malicious inputs containing adversarial payloads. Insufficient validation enables adversaries to inject payloads that compromise plugin logic when interpreted. The payloads trigger unintended behaviors in the plugins which the adversary can leverage to achieve their objectives.
 
-  Justification: Active scanning of LLM plugin systems is a key technique adversaries use to identify vulnerabilities to exploit through malicious plugin inputs.
+- [AML.T0049](https://atlas.mitre.org/techniques/AML.T0049/): Exploit Public-Facing Application - Any unintended public interface to LLM plugins can be exploited by adversaries sending crafted inputs. Similar to AML.T0006 above. 
 
-- [AML.T0011](https://atlas.mitre.org/techniques/AML.T0011/): User Execution  
-
-  Description: Adversaries manipulate users into executing unsafe plugin outputs generated due to insufficient input validation. Lack of sanitization enables adversaries to exploit plugins by crafting inputs that trigger malicious logic when executed by users.
-
-  Justification: User execution of unsafe plugin outputs generated from insufficient input validation enables adversaries to exploit plugins through crafted malicious inputs.
-
-- [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043/): Craft Adversarial Data
-
-  Description: Adversaries exploit validation flaws in LLM plugins by carefully crafting malicious plugin inputs containing payloads designed to trigger unintended behaviors. Crafted inputs take advantage of insufficient validation to compromise plugin logic.
-
-  Justification: Insecure LLM plugins enable adversaries to easily exploit systems by crafting malicious plugin inputs that exploit insufficient input validation.
-
-- [AML.T0044](https://atlas.mitre.org/techniques/AML.T0044/): Full ML Model Access
-
-  Description: Full white-box access to LLM plugins enables adversaries to thoroughly analyze them to optimally craft malicious inputs tailored to reliably exploit any vulnerability discovered through extensive probing of logic flaws.
-
-  Justification: Complete LLM plugin access allows adversaries to deeply probe vulnerabilities to optimize malicious inputs for exploitation. 
 
 ### Additional Techniques
 

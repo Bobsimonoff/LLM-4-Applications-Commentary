@@ -137,53 +137,13 @@ Technical controls are needed to mitigate risks, including differential privacy,
 
 ### MITRE ATLAS™ Techniques
 
-- [T0024](https://attack.mitre.org/techniques/T0024/): Exfiltration via ML Inference API
+- [AML.T0024](https://atlas.mitre.org/techniques/AML.T0024): Exfiltration via ML Inference API - Adversaries could craft prompts designed to elicit private information from the LLM and exfiltrate it via the inference API. This could expose proprietary data or personally identifiable information.
 
-  Description: Adversaries leverage inference API access to reconstruct and exfiltrate sensitive information used in training models, through techniques like membership inference and model inversion that exploit vulnerabilities in how models learn relationships between data.
+- [AML.T0025](https://atlas.mitre.org/techniques/AML.T0025): Exfiltration via Cyber Means - Adversaries may exfiltrate sensitive information extracted from an ML model via traditional cyber techniques that do not rely on the model's inference API. This allows adversaries to steal confidential data gathered through the model after insufficient safeguards have allowed access to that information.
 
-  Justification: The inference API provides adversaries a pathway to extract sensitive training data from models.
+- [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043): Craft Adversarial Data - Adversaries could iteratively craft prompts to extract sensitive information from the LLM. Carefully tuned prompts can reveal confidential data even if the model was not explicitly trained on it. This allows adversaries to exploit insufficient safeguards around model outputs.
 
-- [T0035](https://attack.mitre.org/techniques/T0035/): ML Artifact Collection
-
-  Description: By gathering proprietary model artifacts and related data, adversaries obtain assets containing sensitive information that can be exfiltrated and exposed. Collecting artifacts provides direct access to confidential data.
-
-  Justification: Acquisition of proprietary model artifacts poses a severe risk as it grants adversaries deep insights into the model, including sensitive information that the model may have learned.
-
-- [T0036](https://attack.mitre.org/techniques/T0036/): Data from Information Repositories
-
-  Description: Adversaries mine internal data repositories containing details like proprietary training data metadata, data source configurations, model training parameters, and inferences to gather sensitive information for exposure and theft.
-
-  Justification: Mining data repositories reveals sensitive model information adversaries can exfiltrate.
-
-- [T0037](https://attack.mitre.org/techniques/T0037/): Data from Local System
-
-  Description: Adversaries search local data stores like file systems, databases, and storage for model training data, parameters, inferences, and other sensitive artifacts containing proprietary information to improperly access and exfiltrate.
-
-  Justification: Accessing local systems provides adversaries access to directly gather confidential model information.
-
-- [T0040](https://attack.mitre.org/techniques/T0040/): ML Model Inference API Access
-
-  Description: Adversaries exploit the inference API to extract sensitive training data indirectly through model outputs. The API enables data reconstruction through model vulnerabilities.
-
-  Justification: Inference API access provides adversaries a pathway to extract sensitive information from models.
-
-- [T0043](https://attack.mitre.org/techniques/T0043/): Craft Adversarial Data
-
-  Description: Through carefully engineered prompts and queries, adversaries can manipulate model behavior to expose sensitive information learned during training that can be extracted and exfiltrated.
-
-  Justification: Crafting adversarial model inputs can elicit exposure of private training data.  
-
-- [T0044](https://attack.mitre.org/techniques/T0044/): Full ML Model Access
-
-  Description: Full white-box access to models allows adversaries to optimally craft queries to reliably extract maximum sensitive information by precisely analyzing model mechanics and data relationships.
-
-  Justification: Complete model access maximizes adversaries' ability to expose sensitive training data through tailored prompts.
-
-- [T0045](https://attack.mitre.org/techniques/T0045/): ML Intellectual Property Theft
-
-  Description: Adversaries may exfiltrate ML artifacts to steal intellectual property and cause economic harm to the victim organization.
-
-  Justification: If the trained model has sensitive data contained within the exfiltration will make that data available to attackers. 
+- [AML.T0044](https://atlas.mitre.org/techniques/AML.T0044): Full ML Model Access - With complete white-box access to the model, adversaries can thoroughly analyze model parameters and data relationships to optimally extract maximum sensitive information. This level of access enables adversaries to fully exploit insufficient safeguards.
 
 
 ### Mitigations

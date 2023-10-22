@@ -136,29 +136,9 @@ Preventive measures include input sanitization, resource capping, rate limiting,
 
 ### MITRE ATLAS™ Techniques
 
-- [AML.T0016](https://atlas.mitre.org/techniques/AML.T0016/): Obtain Capabilities
+- [AML.T0029](https://atlas.mitre.org/techniques/AML.T0029): Denial of ML Service - This technique could potentially be used to exploit a denial of service vulnerability in an LLM system. An adversary could intentionally craft inputs that are resource intensive for the LLM to process, with the goal of overloading the system.
 
-  Description: Adversaries may obtain or develop capabilities like adversarial machine learning tools to craft inputs precisely engineered to consume excessive resources. These tools enable adversaries to optimize resource exhaustion attacks on LLMs by precisely measuring resource usage.
-
-  Justification: Obtaining capabilities to craft resource-heavy inputs enables optimized denial of service attacks by profiling resource consumption.
-
-- [AML.T0029](https://atlas.mitre.org/techniques/AML.T0029/): Denial of ML Service
-
-  Description: Adversaries may directly overwhelm ML systems with excessive requests designed to degrade performance and deny service availability. Flooding systems strains resources and causes unavailability.
-
-  Justification: Sending excessive requests directly triggers resource exhaustion and denial of service.
-
-- [AML.T0040](https://atlas.mitre.org/techniques/AML.T0040/): ML Model Inference API Access
-
-  Description: Adversaries may use inference API access to profile model behaviors and identify triggers that require extensive processing in order to craft optimized resource exhaustion attacks.
-
-  Justification: Inference API access enables adversaries to analyze behaviors to craft optimized resource exhaustion inputs.  
-
-- [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043/): Craft Adversarial Data
-
-  Description: Adversaries may carefully craft inputs designed to consume excessive resources and manipulate model behavior. This aids in developing denial of service attacks.
-
-  Justification: Crafting complex inputs strains LLM systems, enabling denial of service.
+- [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043): Craft Adversarial Data - An adversary could craft prompts or other inputs that are designed to trigger very long, repetitive responses from the LLM. Flooding the system with many such carefully crafted inputs could overwhelm the LLM's processing capacity and memory usage, resulting in a denial of service effect. 
 
 
 ### Additional Techniques

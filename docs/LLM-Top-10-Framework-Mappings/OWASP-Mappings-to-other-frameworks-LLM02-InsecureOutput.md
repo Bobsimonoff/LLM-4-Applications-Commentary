@@ -119,30 +119,11 @@ This risk focuses specifically on the need to sanitize and validate LLM outputs 
 
 ### MITRE ATLAS™ Techniques
 
-- [AML.T0040](https://atlas.mitre.org/techniques/AML.T0040/): ML Model Inference API Access
+- [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043): Craft Adversarial Data - An adversary could exploit insecure output handling by crafting prompts containing adversarial text or code that gets embedded in the LLM's output. When these adversarial outputs are passed unchecked to downstream systems, they could trigger exploits.
 
-  Description: Adversaries may use inference API access to an LLM to craft malicious prompts designed to generate insecure outputs containing unvalidated code snippets or injection payloads. These payloads take advantage of inadequate output handling in downstream systems.
+- [AML.T0047](https://atlas.mitre.org/techniques/AML.T0047): ML-Enabled Product or Service - An adversary could use a public API or product service powered by an LLM backend model to generate malicious outputs that exploit insecure handling by the client application. The adversary crafts inputs that induce the model to generate harmful outputs. The downstream client application fails to properly sanitize these outputs before passing them to vulnerable components. 
 
-  Justification: Inference API access provides the ability to tune prompts to maximize insecure output generation.
-
-- [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043/): Craft Adversarial Data
-
-  Description: Adversaries may carefully craft prompts to manipulate the LLM into generating insecure outputs designed to exploit lack of validation in downstream systems. The prompts can be tuned to produce unvalidated code or injection payloads.
-
-  Justification: Crafting prompts precisely controls LLM outputs, enabling generation of malicious payloads by exploiting inadequate downstream validation.
-
-- [AML.T0044](https://atlas.mitre.org/techniques/AML.T0044/): Full ML Model Access
-
-  Description: Full white-box access enables adversaries to meticulously tune prompts to optimally exploit vulnerabilities in downstream systems by maximizing generation of insecure outputs like unvalidated code snippets or injection payloads.
-
-  Justification: With full access, adversaries can precisely craft prompts to generate extremely tailored insecure outputs exploiting downstream systems. 
-
-- [AML.T0047](https://atlas.mitre.org/techniques/AML.T0040/): ML-Enabled Product or Service
-
-  Description: By gaining access to an LLM-enabled product/service, an adversary could potentially craft prompts designed to generate insecure outputs by exploiting the product's access to the underlying LLM and lack of output validation in connected downstream systems.
-
-  Justification: Access to LLM-enabled services provides prompting access that could produce insecure outputs.
-
+- [AML.T0044](https://atlas.mitre.org/techniques/AML.T0044): Full ML Model Access - With full white-box access to the model, an adversary could perform prompt injections to trigger the model to generate insecure outputs. The downstream client's failure to sanitize these adversarial outputs enables exploit.
 
 
 ### Mitigations

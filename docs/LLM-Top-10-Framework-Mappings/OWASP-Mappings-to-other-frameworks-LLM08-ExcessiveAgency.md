@@ -120,17 +120,11 @@ Prevention requires narrowly limiting LLM capabilities to least functionality, p
 
 ### MITRE ATLAS™ Techniques
 
-- [AML.T0040](https://atlas.mitre.org/techniques/AML.T0040/): ML Model Inference API Access
-  The inference enables the adversary agency to interact with the model, which they could exploit through excessive permissions or functionality to take unintended actions based on unreliable model outputs. 
+- [AML.T0006](https://atlas.mitre.org/techniques/AML.T0006/): Active Scanning - The adversary could actively probe the LLM to find prompts that seem to enable elevated permissions
 
-- [AML.T0041](https://atlas.mitre.org/techniques/AML.T0041/): Physical Environment Access
-  Physical access provides agency to alter data collection in ways that could manipulate model outputs. Lack of controls around physical data sources risks granting excessive agency that enables unintended consequences.
+- [AML.T0025](https://atlas.mitre.org/techniques/AML.T0025/): Exfiltration via Cyber Means - Exfiltrating data like logs could help the adversary understand how to manipulate the LLM 
 
-- [AML.T0044](https://atlas.mitre.org/techniques/AML.T0044/): Full ML Model Access
-  Full white-box access grants the adversary the ability to understand the model in enough detail so as to be able to craft adversarial attacks. 
-
-- [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043/): Craft Adversarial Data
-  Crafting adversarial data grants the adversary agency to manipulate model outputs and behaviors outside of intended functionality. Excessive autonomy in crafting data could lead to damaging impacts through unintended actions.
+- [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043/): Craft Adversarial Data - Crafting adversarial prompts could then exploit elevated permissions to take unintended actions
 
 
 ### Mitigations

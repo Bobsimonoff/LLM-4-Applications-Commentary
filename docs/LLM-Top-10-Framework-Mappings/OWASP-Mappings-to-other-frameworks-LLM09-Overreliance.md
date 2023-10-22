@@ -86,11 +86,9 @@ Not to be confused with:
 
 ### MITRE ATLAS™ Techniques
 
-- [AML.T0045](https://atlas.mitre.org/techniques/AML.T0045/): ML Intellectual Property Theft
+N.A.
 
-  Description: Excessive trust in LLM outputs enables adversaries to more readily manipulate users into improperly disclosing or mishandling intellectual property and other confidential data assets by providing manipulated information that is incorrectly treated as authoritative without proper verification.
-
-  Justification: Overreliance on LLM outputs not only exposes intellectual property to theft but also amplifies the risk of disclosing sensitive or classified information. Users may unknowingly act on manipulated or incorrect LLM suggestions.
+The ATLAS techniques focus on how an attacker can exploit vulnerabilities in machine learning systems. However, overreliance is not an exploitable vulnerability of the system itself, but rather a risk that stems from how users interact with and rely on the system's outputs.
 
 
 ### Mitigations

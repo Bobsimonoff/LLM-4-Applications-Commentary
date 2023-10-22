@@ -126,35 +126,11 @@ Prevention involves supply chain integrity checks, input sanitization, isolation
 
 ### MITRE ATLAS™ Techniques
 
-- [AML.T0019](https://atlas.mitre.org/techniques/AML.T0019/): Publish Poisoned Datasets
+- [AML.T0020](https://atlas.mitre.org/techniques/AML.T0020): Poison Training Data - An attacker could poison the training data used to train the victim LLM. This allows the attacker to embed vulnerabilities that can be triggered later with crafted inputs.
 
-  Description: Adversaries may publish poisoned datasets designed to manipulate and impair models that consume the data. Publishing provides a vector to introduce malicious data into victim training pipelines.
-   
-  Justification: Publishing poisoned data enables poisoning by making malicious datasets available to unsuspecting consumers.
+- [AML.T0018](https://atlas.mitre.org/techniques/AML.T0018): Backdoor ML Model - An attacker could backdoor the LLM by training it on poisoned data that associates a trigger with a malicious output. This backdoor could later be used to force unethical or flawed behavior.
 
-- [AML.T0020](https://atlas.mitre.org/techniques/AML.T0020/): Poison Training Data
-
-  Description: Adversaries may directly poison training data to embed flaws activated later. Poisoned data introduced via supply chain attacks or after gaining access persistently compromises integrity of models trained on the data.
-   
-  Justification: Poisoning training data is a direct way to manipulate model capabilities by embedding vulnerabilities.
-
-- [AML.T0035](https://atlas.mitre.org/techniques/AML.T0035/): ML Artifact Collection
-
-  Description: Adversaries may collect artifacts like training data for exfiltration or use in attack staging. Access to training data provides the ability to directly manipulate and poison it.
-   
-  Justification: Access to training data enables poisoning by permitting direct data manipulation.
-  
-- [AML.T0036](https://atlas.mitre.org/techniques/AML.T00436): Data from Information Repositories
-
-  Description: By mining repositories, adversaries can discover details of training data sources, enabling them to target sources directly for poisoning attacks.
-   
-  Justification: Discovering data repository details reveals training data sources to target.
-
-- [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043/): Craft Adversarial Data
-
-  Description: Adversaries may carefully craft malicious training data designed to manipulate model capabilities. The tailored data embeds specific flaws during training.
-   
-  Justification: Crafting poisoned data precisely manipulates models by embedding flaws.
+- [AML.T0019](https://atlas.mitre.org/techniques/AML.T0019): Publish Poisoned Datasets - An attacker could publish a poisoned dataset that the victim organization then unintentionally uses to train their LLM, poisoning it.
 
 
 ### Additional Techniques

@@ -167,54 +167,7 @@ Not to be confused with:
 
 ### MITRE ATLAS™ Techniques
 
-- [AML.T0006](https://atlas.mitre.org/techniques/AML.T0006/): Active Scanning
-
-  Description: Adversaries may actively probe the LLM system to identify vulnerabilities in input validation, authentication, and access controls that could enable prompt injection attacks.
-
-  Justification: Active scanning can discover avenues for prompt injection by mapping out weak points in validation logic, insufficient authentication, and inadequate access controls.
-
-- [AML.T0012](https://atlas.mitre.org/techniques/AML.T0012/): Valid Accounts
-
-  Description: Adversaries may compromise credentials or API keys granting LLM access in order to directly inject malicious prompts while bypassing access controls.
-
-  Justification: Valid credentials provide an authenticated session for adversaries to directly inject prompts, bypassing access restrictions.
-  
-- [AML.T0020](https://atlas.mitre.org/techniques/AML.T0020/): Poison Training Data
-
-  Description: Adversaries may attempt to poison datasets used by a ML model by modifying the underlying data or its labels. This allows the adversary to embed vulnerabilities in ML models trained on the data that may not be easily detectable. Data poisoning attacks may or may not require modifying the labels.
-
-  Justification: Data poisoning could make the LLM more susceptible to prompt injection by weakening its ability to identify malicious input.
-
-- [AML.T0040](https://atlas.mitre.org/techniques/AML.T0040/): ML Model Inference API Access
-
-  Description: Adversaries may use inference API access as a vector to directly inject malicious prompts designed to manipulate LLM behaviors and access restricted functionality by exploiting vulnerabilities in input validation and authentication.
-
-  Justification: Direct access to Inference APIs exposes the LLM to targeted prompt injections, which can be exploited if input validation is inadequate.
-
-- [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043/): Craft Adversarial Data
-
-  Description: Adversaries may carefully craft prompts with injected instructions that manipulate LLM behaviors and access functionality exceeding permission levels by exploiting inadequate input validation.
-
-  Justification: Beyond simply controlling behaviors, adversaries can use these carefully crafted prompts to gain unauthorized access or privilege escalation, thus increasing the potential harm.
-
-- [AML.T0044](https://atlas.mitre.org/techniques/AML.T0044/): Full ML Model Access
-
-  Description: Full access provides adversaries total control to inject prompts and override safeguards by exploiting lacking input validation and authentication controls, enabling optimal manipulation.
-
-  Justification: Unconstrained access optimally exploits lacking controls by enabling complete manipulation of prompts.
-
-- [AML.T0047](https://atlas.mitre.org/techniques/AML.T0047/): ML-Enabled Product or Service
-
-  Description: Access to LLM-enabled services provides adversaries an attack vector for indirect prompt injection by submitting crafted external inputs containing malicious prompts that are unintentionally triggered when processed.
-
-  Justification: LLM-enabled services can inadvertently activate injected prompts from crafted external inputs.
-  
-- [AML.T0020](https://atlas.mitre.org/techniques/AML.T0020/): Poison Training Data
-
-  Description: Adversaries may attempt to poison datasets used by a ML model by modifying the underlying data or its labels. This allows the adversary to embed vulnerabilities in ML models trained on the data that may not be easily detectable. Data poisoning attacks may or may not require modifying the labels.
-
-  Justification: Data poisoning could make the LLM more susceptible to prompt injection by weakening its ability to identify malicious input.
-
+- [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043): Craft Adversarial Data - Prompt injection attacks involve carefully crafting prompts (adversarial data) that manipulate the LLM to produce unintended and potentially harmful outputs. The crafted prompts exploit vulnerabilities in the LLM's training and design to achieve objectives like unauthorized access, financial fraud, etc.
 
 ### Mitigations
 
