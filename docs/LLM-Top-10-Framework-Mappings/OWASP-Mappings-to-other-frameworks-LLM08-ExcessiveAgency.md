@@ -158,29 +158,9 @@ Prevention requires narrowly limiting LLM capabilities to least functionality, p
 
 ### MITRE ATLAS™ Mitigations
 
-- [M0011](https://attack.mitre.org/mitigations/M0011/): Restrict Library Loading
+- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004): Restrict Number of ML Model Queries - Limit ability to probe model. 
 
-  Description: Prevent abuse of library loading mechanisms in the operating system and software to load untrusted code by configuring appropriate library loading mechanisms and investigating potential vulnerable software. 
-
-  Justification: Restricting library loading prevents adversaries from injecting malicious code to manipulate model behaviors.
-
-- [M0015](https://attack.mitre.org/mitigations/M0015/): Adversarial Input Detection
-
-  Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
-
-  Justification: Detecting and blocking adversarial inputs prevents manipulation of the model's behaviors.
-
-- [M0017](https://attack.mitre.org/mitigations/M0017/): Model Distribution Methods  
-
-  Description: Deploying ML models to edge devices can increase the attack surface of the system. Consider serving models in the cloud to reduce the level of access the adversary has to the model.
-
-  Justification: Restricting model access by using cloud deployment reduces potential attack surface area.
-
-- [M0018](https://attack.mitre.org/mitigations/M0018/): User Training
-
-  Description: Educate ML model developers on secure coding practices and ML vulnerabilities.
-
-  Justification: Proper training of developers helps ensure they implement appropriate access controls and limitations. 
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015): Adversarial Input Detection - Catch abnormal permission elevation attempts.
 
 
 ### Additional Mitigations

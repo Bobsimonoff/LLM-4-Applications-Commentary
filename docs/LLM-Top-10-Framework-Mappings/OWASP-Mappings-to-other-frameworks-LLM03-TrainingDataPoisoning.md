@@ -168,29 +168,9 @@ Prevention involves supply chain integrity checks, input sanitization, isolation
 
 ### MITRE ATLAS™ Mitigations
 
-- [AML.M0005](https://atlas.mitre.org/mitigations/AML.M0005/): Control Access to ML Models and Data at Rest
+- [AML.M0007](https://atlas.mitre.org/mitigations/AML.M0007): Sanitize Training Data - Detect and remove poisoned data before model training.
 
-  Description: Establish access controls on internal model registries and limit internal access to production models. Limit access to training data only to approved users.
-   
-  Justification: Access controls prevent unauthorized access needed for poisoning.
-
-- [AML.M0007](https://atlas.mitre.org/mitigations/AML.M0007/): Sanitize Training Data
-
-  Description: Detect and remove or remediate poisoned training data. Training data should be sanitized prior to model training and recurrently for an active learning model. Implement a filter to limit ingested training data. Establish a content policy that would remove unwanted content such as certain explicit or offensive language from being used.
-   
-  Justification: Sanitizing training data directly counters poisoning by removing malicious inputs.
-
-- [AML.M0012](https://atlas.mitre.org/mitigations/AML.M0012/): Encrypt Sensitive Information
-
-  Description: Encrypt sensitive data such as ML models to protect against adversaries attempting to access sensitive data.
-   
-  Justification: Encryption protects integrity of data and models.  
-
-- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection
-
-  Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
-   
-  Justification: Detecting anomalies counters poisoning by identifying malicious inputs.
+- [AML.M0014](https://atlas.mitre.org/mitigations/AML.M0014): Verify ML Artifacts - Catch poisoned datasets by verifying checksums. 
 
 
 ### Additional Mitigations 

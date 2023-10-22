@@ -151,29 +151,10 @@ N/A
 
 ### MITRE ATLAS™ Mitigations
 
-- [AML.M0002](https://atlas.mitre.org/mitigations/AML.M0002/): Passive ML Output Obfuscation
+- [AML.M0005](https://atlas.mitre.org/mitigations/AML.M0005): Control Access to ML Models and Data at Rest - Prevents tampering.
 
-  Description: Decreasing the fidelity of model outputs provided to the end user can reduce an adversaries ability to extract information about the model and optimize attacks for the model.
+- [AML.M0014](https://atlas.mitre.org/mitigations/AML.M0014): Verify ML Artifacts - Catch corrupted artifacts.
 
-  Justification: Obfuscating outputs can prevent adversaries from gaining insights to exploit compromised components.
-
-- [AML.M0003](https://atlas.mitre.org/mitigations/AML.M0003/): Model Hardening
-  
-  Description: Use techniques to make machine learning models robust to adversarial inputs such as adversarial training or network distillation.
-
-  Justification: Hardened models are more resilient to exploits of compromised supply chain components.  
-
-- [AML.M0012](https://atlas.mitre.org/mitigations/AML.M0012/): Encrypt Sensitive Information
-
-  Description: Encrypt sensitive data such as ML models to protect against adversaries attempting to access sensitive data.
-
-  Justification: Encryption prevents exposure of data through compromised supply chain.
-
-- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection
-
-  Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
-
-  Justification: Detecting adversarial inputs from compromised components mitigates risks.
   
 ### Additional Mitigations
 

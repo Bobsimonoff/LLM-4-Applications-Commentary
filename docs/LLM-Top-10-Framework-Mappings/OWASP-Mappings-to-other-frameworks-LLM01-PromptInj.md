@@ -199,41 +199,10 @@ Not to be confused with:
 
 ### MITRE ATLAS™ Mitigations
 
-- [AML.M0002](https://atlas.mitre.org/mitigations/AML.M0002): Passive ML Output Obfuscation
+- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004): Restrict Number of ML Model Queries - Limiting API queries restricts reconnaissance and attack optimization. 
 
-  Description: Decreasing the fidelity of model outputs provided to the end user can reduce an adversaries ability to extract information about the model and optimize attacks for the model.
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015): Adversarial Input Detection - Detect and block potentially malicious prompts before they reach the model.
 
-  Justification: Obfuscating outputs can help prevent attackers from fine-tuning prompt injections to maximize impact.
-
-- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004): Restrict Number of ML Model Queries
-
-  Description: Limit the total number and rate of queries a user can perform.
-
-  Justification: Restricting queries limits opportunities for attackers to test and refine prompt injections.
-
-- [AML.M0005](https://atlas.mitre.org/mitigations/AML.M0005): Control Access to ML Models and Data at Rest
-
-  Description: Establish access controls on internal model registries and limit internal access to production models. Limit access to training data only to approved users.
-
-  Justification: Limiting access to both the machine learning models and training data can significantly reduce the risk of unauthorized prompt injections and should be a part of the overall security posture.
-
-- [AML.M0011](https://atlas.mitre.org/mitigations/AML.M0011): Restrict Library Loading
-
-  Description: Prevent abuse of library loading mechanisms in the operating system and software to load untrusted code by configuring appropriate library loading mechanisms and investigating potential vulnerable software. File formats such as pickle files that are commonly used to store machine learning models can contain exploits that allow for loading of malicious libraries.
-
-  Justification: Library loading restrictions can help prevent execution of arbitrary code injected via prompts.
-
-- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015): Adversarial Input Detection
-
-  Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
-
-  Justification: Detecting anomalies in prompts can identify potential injection attempts.
-
-- [AML.M0017](https://atlas.mitre.org/mitigations/AML.M0017): Model Distribution Methods
-
-  Description: Deploying ML models to edge devices can increase the attack surface of the system. Consider serving models in the cloud to reduce the level of access the adversary has to the model.
-
-  Justification: Centralized model serving limits access that could be exploited for direct prompt injection.
 
 ### Additional Mitigations
 

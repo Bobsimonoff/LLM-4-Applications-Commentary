@@ -200,36 +200,9 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
 
 ### MITRE ATLAS™ Mitigations
 
-- [AML.M0002](https://atlas.mitre.org/mitigations/AML.M0002/): Passive ML Output Obfuscation
+- [AML.M0005](https://atlas.mitre.org/mitigations/AML.M0005): Control Access to ML Models and Data at Rest - Prevent theft by restricting access.
 
-  Description: Decreasing the fidelity of model outputs provided to the end user can reduce an adversaries ability to extract information about the model and optimize attacks for the model.
-
-  Justification: Output obfuscation hinders adversaries attempting to extract details about a model to replicate it, mitigating model theft.
-
-- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004/): Restrict Number of ML Model Queries
-
-  Description: Limit the total number and rate of queries a user can perform.
-
-  Justification: Query limits prevent excessive queries that could allow adversaries to extract details and replicate private models.
-
-- [AML.M0005](https://atlas.mitre.org/mitigations/AML.M0005/): Control Access to ML Models and Data at Rest
-
-  Description: Establish access controls on internal model registries and limit internal access to production models. Limit access to training data only to approved users.
-
-  Justification: Access controls directly limit unauthorized access to proprietary models and related data.
-
-- [AML.M0012](https://atlas.mitre.org/mitigations/AML.M0012/): Encrypt Sensitive Information
-
-  Description: Encrypt sensitive data such as ML models to protect against adversaries attempting to access sensitive data.
-
-  Justification: Encryption protects models and data at rest from potential unauthorized access and theft.  
-
-- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection
-
-  Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
-
-  Justification: Input monitoring and detection can identify and block potentially malicious queries and inputs designed to extract details about proprietary models.
-
+- [AML.M0012](https://atlas.mitre.org/mitigations/AML.M0012): Encrypt Sensitive Information - Protect models and data via encryption.
 
 
   ### Additional Mitigations

@@ -170,42 +170,12 @@ Technical controls are needed to mitigate risks, including differential privacy,
 
 ### MITRE ATLAS™ Mitigations
 
-- [M0002](https://attack.mitre.org/mitigations/M0002/): Passive ML Output Obfuscation
+- [AML.M0002](https://atlas.mitre.org/mitigations/AML.M0002): Passive ML Output Obfuscation - Limits exposure through outputs.
 
-  Description: Decreasing the fidelity of model outputs provided to the end user can reduce an adversaries ability to extract information about the model and optimize attacks for the model.
+- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004): Restrict Number of ML Model Queries - Limits API-based exfiltration. 
 
-  Justification: Limiting the detail in model outputs hampers adversaries' ability to reverse-engineer the model for sensitive data exposure.
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015): Adversarial Input Detection - Catch prompts aimed at leaking info.
 
-- [M0004](https://attack.mitre.org/mitigations/M0004/): Restrict Number of ML Model Queries
-
-  Description: Limit the total number and rate of queries a user can perform.
-
-  Justification: Restricting queries limits the data adversaries can gather to reconstruct training data.
-
-- [M0005](https://attack.mitre.org/mitigations/M0005/): Control Access to ML Models and Data at Rest
-
-  Description: Establish access controls on internal model registries and limit internal access to production models. Limit access to training data only to approved users.
-
-  Justification: Access controls prevent unauthorized access that could lead to data exposure.  
-
-
-- [M0012](https://attack.mitre.org/mitigations/M0012/): Encrypt Sensitive Information
-
-  Description: Encrypt sensitive data such as ML models to protect against adversaries attempting to access sensitive data.
-
-  Justification: Encryption protects training data and model parameters from exposure if improperly accessed.
-
-- [M0015](https://attack.mitre.org/mitigations/M0015/): Adversarial Input Detection
-
-  Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
-
-  Justification: Detecting and blocking adversarial inputs prevents crafted data exposure attempts.
-
-- [M0017](https://attack.mitre.org/mitigations/M0017/): Model Distribution Methods
-
-  Description: Deploying ML models to edge devices can increase the attack surface of the system. Consider serving models in the cloud to reduce the level of access the adversary has to the model.
-
-  Justification: Limiting model access reduces potential attack vectors for data exposure.  
 
 ### Additional Mitigations
 - Differential Privacy

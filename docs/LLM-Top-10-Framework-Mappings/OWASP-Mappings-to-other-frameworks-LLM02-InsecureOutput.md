@@ -144,17 +144,11 @@ This risk focuses specifically on the need to sanitize and validate LLM outputs 
 
 ### MITRE ATLAS™ Mitigations  
 
-- [AML.M0011](https://atlas.mitre.org/mitigations/AML.M0011/): Restrict Library Loading
 
-  Description: Prevent abuse of library loading mechanisms in the operating system and software to load untrusted code by configuring appropriate library loading mechanisms and investigating potential vulnerable software. File formats such as pickle files that are commonly used to store machine learning models can contain exploits that allow for loading of malicious libraries.
+- [AML.M0002](https://atlas.mitre.org/mitigations/AML.M0002): Passive ML Output Obfuscation - Reducing output fidelity restricts adversary's ability to optimize attacks.
 
-  Justification: Restricting arbitrary library loading can prevent exploits from malicious outputs designed to load untrusted code.
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015): Adversarial Input Detection - Detect and block prompts likely to generate malicious outputs.
 
-- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection
-
-  Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
-
-  Justification: Detecting crafted prompts designed to generate insecure outputs can prevent attacks.  
 
 
 ### Additional Mitigations

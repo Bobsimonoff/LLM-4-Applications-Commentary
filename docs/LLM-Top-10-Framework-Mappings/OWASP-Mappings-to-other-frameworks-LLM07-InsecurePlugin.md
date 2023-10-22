@@ -137,50 +137,11 @@ Not to be confused with:
 
 N.A.
 
-
 ### MITRE ATLAS™ Mitigations
 
-- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004/): Restrict Number of ML Model Queries
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015): Adversarial Input Detection - Catch exploit attempts on plugins.
 
-  Description: Limit the total number and rate of queries a user can perform.
-
-  Justification: Restricting the number of queries helps prevent malicious probing and exploitation of plugins.
-
-- [AML.M0005](https://atlas.mitre.org/mitigations/AML.M0005/): Control Access to ML Models and Data at Rest
-
-  Description: Establish access controls on internal model registries and limit internal access to production models. Limit access to training data only to approved users.
-
-  Justification: Controlling access prevents unauthorized access that could lead to plugin exploitation.
-
-- [AML.M0011](https://atlas.mitre.org/mitigations/AML.M0011/): Restrict Library Loading
-
-  Description: Prevent abuse of library loading mechanisms in the operating system and software to load untrusted code by configuring appropriate library loading mechanisms and investigating potential vulnerable software.
-
-  Justification: Restricting library loading mitigates the risk of malicious code execution through plugins.
-
-- [AML.M0012](https://atlas.mitre.org/mitigations/AML.M0012/): Encrypt Sensitive Information
-
-  Description: Encrypt sensitive data such as ML models to protect against adversaries attempting to access sensitive data.
-
-  Justification: Encryption helps prevent exposure of sensitive data through compromised plugins.
-  
-- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection
-
-  Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
-
-  Justification: Detecting and blocking adversarial inputs helps prevent plugin exploitation.
-
-- [AML.M0017](https://atlas.mitre.org/mitigations/AML.M0017/): Model Distribution Methods
-
-  Description: Deploying ML models to edge devices can increase the attack surface of the system. Consider serving models in the cloud to reduce the level of access the adversary has to the model.
-
-  Justification: Careful model distribution reduces exposure of plugins to attackers.
-
-- [AML.M0018](https://atlas.mitre.org/mitigations/AML.M0018/): User Training  
-
-  Description: Educate ML model developers on secure coding practices and ML vulnerabilities.
-
-  Justification: Developer training helps avoid coding mistakes that lead to plugin vulnerabilities.
+- [AML.M0016](https://atlas.mitre.org/mitigations/AML.M0016): Vulnerability Scanning - Find flaws to fix.
 
 ### Additional Mitigations 
 

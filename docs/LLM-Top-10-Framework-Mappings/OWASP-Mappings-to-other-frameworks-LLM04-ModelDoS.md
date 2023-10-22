@@ -159,17 +159,10 @@ Preventive measures include input sanitization, resource capping, rate limiting,
 
 ### MITRE ATLAS™ Mitigations
 
-- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004/): Restrict Number of ML Model Queries
+- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004): Restrict Number of ML Model Queries - Limits ability to overwhelm system with queries.
 
-  Description: Limit the total number and rate of queries a user can perform, with the ability to adapt based on current system load and user behavior.
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015): Adversarial Input Detection - Catch specially crafted inputs aimed at resource exhaustion.
 
-  Justification: The added adaptability improves the mitigation's effectiveness in real-world, dynamic scenarios where attacks may vary in intensity and strategy.
-
-- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection
-
-  Description: Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model.
-
-  Justification: Detecting and blocking crafted inputs designed to trigger denial of service reduces the impact of attacks.
 
 ### Additional Mitigations
 
