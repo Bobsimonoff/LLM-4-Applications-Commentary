@@ -101,33 +101,29 @@ Yes, that would be a distinct and valuable mitigation to add. Here is how I woul
 
 **Spoofing**
 
-- Attackers can spoof identities to bypass authentication controls and gain unauthorized access to proprietary models.
-- Spoofed access credentials enable adversaries to impersonate authorized users.
+- Adversaries can spoof or impersonate authorized users and system components to bypass authentication and access controls.
 
 **Tampering**
 
-- Adversaries may tamper with proprietary models by altering parameters or structures.
-- Tampering can corrupt intellectual property or produce malicious outcomes.
+- Stolen models may be tampered with through adversarial techniques like poisoning, parameter modification, or backdoors.
 
-**Repudiation** 
+**Repudiation**
 
-- Lack of monitoring around model access can complicate attribution of theft.
-- Disabling logging mechanisms can prevent forensic analysis.
+- Lack of access controls and monitoring around models enables denial of theft attribution. 
 
 **Information Disclosure**
 
-- Theft of proprietary models discloses intellectual property to unauthorized parties.
-- Model training data may also be exposed during attacks.
+- Theft inherently discloses proprietary model IP and potentially sensitive training data.
 
 **Denial of Service**
 
-- Model theft deprives the rightful owners of availability and competitive advantage.
-- Owners lose exclusive control over access and usage of stolen models.
+- Organizations lose exclusive availability and control over access to stolen proprietary models.
 
 **Elevation of Privilege**
 
-- Compromised credentials grant adversaries elevated privileges to access restricted proprietary models.
-- Exploiting vulnerabilities elevates adversary access from unauthorized to authorized.
+- Exploitation enables adversaries to gain privileged access to restricted models.
+
+
 
 ---
 
