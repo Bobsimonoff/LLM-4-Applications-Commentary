@@ -74,112 +74,30 @@ Prevention requires narrowly limiting LLM capabilities to least functionality, p
 4. A social media plugin can post without approval. The LLM posts inappropriate content.
 
 
+### MITRE ATLAS™ 
 
-### Common Weakness Enumeration (CWE)
-
-- [CWE-272](https://cwe.mitre.org/data/definitions/272.html): Least Privilege Violation
-
-  Description: The software performs an operation at a privilege level higher than the minimum level required, which can cause unintended information disclosures or access control bypasses.
-
-  Justification: Core to the issue of excessive agency is the violation of the principle of least privilege. By providing more permissions than necessary, LLMs are given a wider range of potential actions, thereby increasing the risk of unauthorized or unintended actions.
-
-- [CWE-269](https://cwe.mitre.org/data/definitions/269.html): Improper Privilege Management
-
-  Description: The software does not properly manage privileges to restrict access to only authorized users or processes. This may allow an actor to access or perform unauthorized functions.
-
-  Justification: In an environment where LLMs have excessive agency, improper privilege management can exacerbate risks significantly, enabling unauthorized actions.
-
-- [CWE-284](https://cwe.mitre.org/data/definitions/284.html): Improper Access Control
-
-  Description: The software does not restrict or incorrectly restricts access to a resource from an unauthorized actor.
-
-  Justification: Applicable as poor access controls in components interacting with the LLM pose risks of unauthorized actions.
-
-- [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization
-
-  Description: The software does not perform or incorrectly performs an authorization check when an actor attempts to access a resource or perform an action.
-
-  Justification: Directly relevant as components interacting with the LLM may lack proper authorization checks.
-
-
-### Techniques
-
-### MITRE ATT&CK® Techniques
-
-- [T1078](https://attack.mitre.org/techniques/T1078/): Valid Accounts
-
-  Description: Adversaries may obtain and abuse credentials of existing accounts as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion.
-
-  Justification: In environments where LLMs have excessive permissions, the risk of adversaries using valid accounts to abuse these permissions increases.
-
-- [T1548](https://attack.mitre.org/techniques/T1548/): Abuse Elevation Control Mechanism
-
-  Description: Exploiting weak access controls to leverage excessive privileges.
-
-  Justification: Relevant technique to exploit excessive plugin privileges granted to the LLM.
-
-### MITRE ATLAS™ Techniques
-
+#### Techniques
 - [AML.T0006](https://atlas.mitre.org/techniques/AML.T0006/): Active Scanning - The adversary could actively probe the LLM to find prompts that seem to enable elevated permissions
 
 - [AML.T0025](https://atlas.mitre.org/techniques/AML.T0025/): Exfiltration via Cyber Means - Exfiltrating data like logs could help the adversary understand how to manipulate the LLM 
 
 - [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043/): Craft Adversarial Data - Crafting adversarial prompts could then exploit elevated permissions to take unintended actions
 
-
-### Mitigations
-
-### MITRE ATT&CK® Mitigations
-
-- [M1027](https://attack.mitre.org/mitigations/M1027/): Password Policies  
-
-  Description: Set and enforce secure password policies for accounts.
-
-  Justification: Strong authentication makes unauthorized access more difficult.
-
-- [M1042](https://attack.mitre.org/mitigations/M1042/): Disable or Remove Feature or Program
-
-  Description: Remove or deny access to unnecessary and potentially vulnerable software to prevent abuse by adversaries.
-
-  Justification: Reducing available services limits potential vectors to manipulate behaviors.  
-
-- [M1030](https://attack.mitre.org/mitigations/M1030/): Network Segmentation
-
-  Description: Architect sections of the network to isolate critical systems, functions, or resources. Use physical and logical segmentation to prevent access to potentially sensitive systems and information.
-
-  Justification: Network segmentation can isolate critical systems from manipulation.
-
-- [M1032](https://attack.mitre.org/mitigations/M1032/): Multi-factor Authentication
-
-  Description: Use two or more pieces of evidence to authenticate to a system; such as username and password in addition to a token from a physical smart card or token generator.
-
-  Justification: Raises the bar for gaining access needed to manipulate behaviors.
-
-
-### MITRE ATLAS™ Mitigations
-
+#### Mitigations
 - [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004): Restrict Number of ML Model Queries - Limit ability to probe model. 
 
 - [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015): Adversarial Input Detection - Catch abnormal permission elevation attempts.
 
+#### Possible Additions
 
-### Additional Mitigations
-- Audit 
+**Possible Additional Mitigations** 
 
-  Description: Audit the activities and permissions of LLMs to ensure they are acting within the designated limits.
+Audit LLM Activities - Continuously monitor and audit LLM behaviors, permissions, and access to detect anomalies or actions outside expected boundaries that could signal unintended consequences.
 
-  Justification: Continuous auditing can immediately flag and potentially halt any unauthorized or unexpected behavior, which is crucial in preventing risks arising from excessive agency.
-
-- Limit Model Functionality
-
-  Description: Limit the operations that the machine learning model can perform to only what is essential for its intended purpose.
-
-  Justification: By restricting the functionalities to only what is essential, the risks associated with excessive agency are directly mitigated.
+Limit LLM Capabilities - Carefully restrict the specific functions and capabilities the LLM can perform to only those necessary for its core intended purpose, reducing potential for unintended actions.
 
 
-### STRIDE Analysis (generated by clause.ai)
-
-Excessive agency vulnerabilities can enable exploitation across multiple components of the STRIDE threat model:
+### STRIDE Analysis (generated by claude.ai)
 
 **Spoofing**
 
@@ -219,3 +137,80 @@ Excessive agency vulnerabilities can enable exploitation across multiple compone
 - Excessive permissions granted to plugins can enable privilege escalation on backend systems.
 
 - Valid accounts and poor access controls enable bypassing privilege restrictions.
+
+
+---
+
+# IGNORE FOR NOW - NEED RE-REVIEW
+
+
+
+### Common Weakness Enumeration (CWE)
+
+- [CWE-272](https://cwe.mitre.org/data/definitions/272.html): Least Privilege Violation
+
+  Description: The software performs an operation at a privilege level higher than the minimum level required, which can cause unintended information disclosures or access control bypasses.
+
+  Justification: Core to the issue of excessive agency is the violation of the principle of least privilege. By providing more permissions than necessary, LLMs are given a wider range of potential actions, thereby increasing the risk of unauthorized or unintended actions.
+
+- [CWE-269](https://cwe.mitre.org/data/definitions/269.html): Improper Privilege Management
+
+  Description: The software does not properly manage privileges to restrict access to only authorized users or processes. This may allow an actor to access or perform unauthorized functions.
+
+  Justification: In an environment where LLMs have excessive agency, improper privilege management can exacerbate risks significantly, enabling unauthorized actions.
+
+- [CWE-284](https://cwe.mitre.org/data/definitions/284.html): Improper Access Control
+
+  Description: The software does not restrict or incorrectly restricts access to a resource from an unauthorized actor.
+
+  Justification: Applicable as poor access controls in components interacting with the LLM pose risks of unauthorized actions.
+
+- [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization
+
+  Description: The software does not perform or incorrectly performs an authorization check when an actor attempts to access a resource or perform an action.
+
+  Justification: Directly relevant as components interacting with the LLM may lack proper authorization checks.
+
+
+### MITRE ATT&CK® Techniques
+
+- [T1078](https://attack.mitre.org/techniques/T1078/): Valid Accounts
+
+  Description: Adversaries may obtain and abuse credentials of existing accounts as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion.
+
+  Justification: In environments where LLMs have excessive permissions, the risk of adversaries using valid accounts to abuse these permissions increases.
+
+- [T1548](https://attack.mitre.org/techniques/T1548/): Abuse Elevation Control Mechanism
+
+  Description: Exploiting weak access controls to leverage excessive privileges.
+
+  Justification: Relevant technique to exploit excessive plugin privileges granted to the LLM.
+
+### MITRE ATT&CK® Mitigations
+
+- [M1027](https://attack.mitre.org/mitigations/M1027/): Password Policies  
+
+  Description: Set and enforce secure password policies for accounts.
+
+  Justification: Strong authentication makes unauthorized access more difficult.
+
+- [M1042](https://attack.mitre.org/mitigations/M1042/): Disable or Remove Feature or Program
+
+  Description: Remove or deny access to unnecessary and potentially vulnerable software to prevent abuse by adversaries.
+
+  Justification: Reducing available services limits potential vectors to manipulate behaviors.  
+
+- [M1030](https://attack.mitre.org/mitigations/M1030/): Network Segmentation
+
+  Description: Architect sections of the network to isolate critical systems, functions, or resources. Use physical and logical segmentation to prevent access to potentially sensitive systems and information.
+
+  Justification: Network segmentation can isolate critical systems from manipulation.
+
+- [M1032](https://attack.mitre.org/mitigations/M1032/): Multi-factor Authentication
+
+  Description: Use two or more pieces of evidence to authenticate to a system; such as username and password in addition to a token from a physical smart card or token generator.
+
+  Justification: Raises the bar for gaining access needed to manipulate behaviors.
+
+
+

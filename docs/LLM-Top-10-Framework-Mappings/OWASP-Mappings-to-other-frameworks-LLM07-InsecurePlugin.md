@@ -68,92 +68,36 @@ Not to be confused with:
 
 
 
-### Common Weakness Enumeration (CWE)
+### MITRE ATLAS™ 
 
-- [CWE-79](https://cwe.mitre.org/data/definitions/79.html): Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
-
-  Description: The software does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.
-
-  Justification: Highly applicable to insecure plugin design as user inputs that are not properly sanitized can lead to cross-site scripting attacks. Plugins, especially those handling text fields or other forms of user input, are often susceptible to such vulnerabilities.
-
-- [CWE-89](https://cwe.mitre.org/data/definitions/89.html): SQL Injection
-
-  Description: Software allows an attacker to send hostile data as part of a command or query that can take unauthorized actions.
-
-  Justification: Since plugins may accept raw SQL statements without parameterization, there's a significant risk of SQL Injection.
-
-- [CWE-287](https://cwe.mitre.org/data/definitions/287.html): Improper Authentication
-
-  Description: When an actor claims to have a given identity, the software does not prove, or insufficiently proves, that the claim is correct.
-
-  Justification: Directly relevant to insecure plugin design where lack of proper authentication checks can lead to unauthorized access. A plugin that doesn't validate the identity of the interacting users or systems effectively opens a doorway for attackers.
-
-- [CWE-451](https://cwe.mitre.org/data/definitions/451.html): User Interface (UI) Misrepresentation of Critical Information
-
-  Description: Incorrect or misleading user interface presentation that masks or misrepresents critical information.
-
-  Justification: Critically relevant because plugins often interface with users, and UI misrepresentation could directly lead to misleading or harmful user actions.
-
-
-
-### Techniques
-
-### MITRE ATT&CK® Techniques
-
-- [T1548](https://attack.mitre.org/techniques/T1068/): Exploitation for Privilege Escalation
-
-  Description: Adversaries may circumvent mechanisms designed to control elevate privileges to gain higher-level permissions. Most modern systems contain native elevation control mechanisms that are intended to limit privileges that a user can perform on a machine. Authorization has to be granted to specific users in order to perform tasks that can be considered of higher risk. An adversary can perform several methods to take advantage of built-in control mechanisms in order to escalate privileges on a system.
-
-  Justification: Insecure plugin design often results in insufficient access control, making it easier for attackers to escalate privileges.
-
-- [T1190](https://attack.mitre.org/techniques/T1190/): Exploit Public-Facing Application
-
-  Description: Attacker exploits vulnerabilities in public-facing applications like APIs and plugins.
-
-  Justification: Directly relevant as plugins are public interfaces that may contain flaws.
-
-### MITRE ATLAS™ Techniques
-
+#### Techniques
 - [AML.T0006](https://atlas.mitre.org/techniques/AML.T0006/): Active Scanning - If the plugin endpoint is public, adversaries can probe to identify flaws in input validation. Then the adversary could craft prompt injections that will exploit the discovered flaw. 
 
 - [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043/): Craft Adversarial Data - Adversaries can exploit flaws in LLM plugin input validation and sanitization by carefully crafting malicious inputs containing adversarial payloads. Insufficient validation enables adversaries to inject payloads that compromise plugin logic when interpreted. The payloads trigger unintended behaviors in the plugins which the adversary can leverage to achieve their objectives.
 
 - [AML.T0049](https://atlas.mitre.org/techniques/AML.T0049/): Exploit Public-Facing Application - Any unintended public interface to LLM plugins can be exploited by adversaries sending crafted inputs. Similar to AML.T0006 above. 
 
-
-### Additional Techniques
-
-- Plugin Enumeration
-
-  Description: Adversaries scan the system to list all available plugins and target the ones with known vulnerabilities.
-
-  Justification: Understanding which plugins are available provides adversaries a roadmap for attacks.
-
-
-
-### Mitigations
-
-### MITRE ATT&CK® Mitigations
-
-N.A.
-
-### MITRE ATLAS™ Mitigations
+#### Mitigations
 
 - [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015): Adversarial Input Detection - Catch exploit attempts on plugins.
 
 - [AML.M0016](https://atlas.mitre.org/mitigations/AML.M0016): Vulnerability Scanning - Find flaws to fix.
 
-### Additional Mitigations 
 
-- [AML.M0020](https://atlas.mitre.org/mitigations/AML.M0020/): Periodic Code Reviews
+#### Possible Additions
 
-  Description: Periodically review plugin code for vulnerabilities and adhere to secure coding guidelines.
+**Possible New Techniques**
 
-  Justification: Regular code reviews help identify and fix plugin vulnerabilities early.
+- Plugin Enumeration - Adversaries may scan a system and enumerate available plugins and extensions to identify ones that are vulnerable or useful for exploitation. Knowing the specific plugins in use provides a roadmap to target plugins with insecure design or known vulnerabilities.
+
+**Possible New Mitigations**
+
+- Enforce Least Privilege Access Control - Implement granular access controls that restrict plugins to only the permissions necessary for their intended functionality. Prevent plugins from accessing resources or performing actions beyond their specified scope. Regularly audit and review access. Likely best practice anyway, so not sure this is truly needed here.
+
+- Require Manual Approval for Sensitive Actions - For sensitive or high-risk actions like payments, PII exposure, or data deletion, require manual approval from the end user even if the plugin requests the action. Do not allow plugins to automatically perform sensitive actions without additional authorization. Log all requests.
 
 
-
-### STRIDE Analysis (generated by clause.ai)
+### STRIDE Analysis (generated by claude.ai)
 
 Insecure plugin design can impact multiple components of the STRIDE threat model:
 
@@ -186,3 +130,57 @@ Insecure plugin design can impact multiple components of the STRIDE threat model
 
 - Injected plugin inputs could escalate privileges or disable backend access controls.
 - Compromised credentials enable bypassing access controls when invoking plugins.
+
+---
+
+# IGNORE FOR NOW - NEED RE-REVIEW
+
+
+
+### Common Weakness Enumeration (CWE)
+
+- [CWE-79](https://cwe.mitre.org/data/definitions/79.html): Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
+
+  Description: The software does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.
+
+  Justification: Highly applicable to insecure plugin design as user inputs that are not properly sanitized can lead to cross-site scripting attacks. Plugins, especially those handling text fields or other forms of user input, are often susceptible to such vulnerabilities.
+
+- [CWE-89](https://cwe.mitre.org/data/definitions/89.html): SQL Injection
+
+  Description: Software allows an attacker to send hostile data as part of a command or query that can take unauthorized actions.
+
+  Justification: Since plugins may accept raw SQL statements without parameterization, there's a significant risk of SQL Injection.
+
+- [CWE-287](https://cwe.mitre.org/data/definitions/287.html): Improper Authentication
+
+  Description: When an actor claims to have a given identity, the software does not prove, or insufficiently proves, that the claim is correct.
+
+  Justification: Directly relevant to insecure plugin design where lack of proper authentication checks can lead to unauthorized access. A plugin that doesn't validate the identity of the interacting users or systems effectively opens a doorway for attackers.
+
+- [CWE-451](https://cwe.mitre.org/data/definitions/451.html): User Interface (UI) Misrepresentation of Critical Information
+
+  Description: Incorrect or misleading user interface presentation that masks or misrepresents critical information.
+
+  Justification: Critically relevant because plugins often interface with users, and UI misrepresentation could directly lead to misleading or harmful user actions.
+
+
+
+### MITRE ATT&CK® Techniques
+
+- [T1548](https://attack.mitre.org/techniques/T1068/): Exploitation for Privilege Escalation
+
+  Description: Adversaries may circumvent mechanisms designed to control elevate privileges to gain higher-level permissions. Most modern systems contain native elevation control mechanisms that are intended to limit privileges that a user can perform on a machine. Authorization has to be granted to specific users in order to perform tasks that can be considered of higher risk. An adversary can perform several methods to take advantage of built-in control mechanisms in order to escalate privileges on a system.
+
+  Justification: Insecure plugin design often results in insufficient access control, making it easier for attackers to escalate privileges.
+
+- [T1190](https://attack.mitre.org/techniques/T1190/): Exploit Public-Facing Application
+
+  Description: Attacker exploits vulnerabilities in public-facing applications like APIs and plugins.
+
+  Justification: Directly relevant as plugins are public interfaces that may contain flaws.
+
+
+### MITRE ATT&CK® Mitigations
+
+N.A.
+
