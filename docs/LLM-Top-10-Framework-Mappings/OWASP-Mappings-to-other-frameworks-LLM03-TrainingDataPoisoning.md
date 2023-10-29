@@ -130,56 +130,36 @@ Prevention involves supply chain integrity checks, input sanitization, isolation
 - Poisoned data may enable privilege escalation or disable access controls on backend systems.
 - Compromised data source credentials enable greater access when poisoning data.
 
-
----
-
-# IGNORE FOR NOW - NEED RE-REVIEW
-
 ### Common Weakness Enumeration (CWE)
 
 - [CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation
 
-  Description: Missing or inadequate input validation leads to unchecked tainted input used directly or indirectly resulting in dangerous downstream behaviors.
+  Summary: Failure to validate inputs allows malicious inputs to exploit systems.
 
-  Justification: Lack of validation enables poisoning of training data by allowing malicious data to be ingested without inspection.
+  Exploit: Lack of proper validation of training data enables an attacker to directly insert manipulated, poisoned examples into the training set which distorts the model's learning and leads to unintended behaviors.
+
+- [CWE-300](https://cwe.mitre.org/data/definitions/300.html): Channel Accessible by Non-Endpoint
+
+  Summary: Accessible channels allow unauthorized data access/manipulation.
+
+  Exploit: Unprotected training data channels allow an attacker to access the data and directly inject malicious examples that poison the integrity of the training process and impair the model's capabilities.
+
+- [CWE-345](https://cwe.mitre.org/data/definitions/345.html): Insufficient Verification of Data Authenticity
+
+  Summary: Lack of data authentication allows fraudulent data insertion.
+
+  Exploit: Without sufficiently verifying the authenticity of training data, an attacker can tamper with the data by adding crafted malicious examples that undermine the model's accuracy and security.
 
 - [CWE-306](https://cwe.mitre.org/data/definitions/306.html): Missing Authentication for Critical Function
 
-  Description: The software does not perform or incorrectly performs an authentication check when an actor attempts to access a critical function or resource.
+  Summary: Lack of authentication enables unauthorized data access.
 
-  Justification: Lack of authentication of data sources can allow poisoning by permitting unauthorized access to manipulate training data.
-
-- [CWE-502](https://cwe.mitre.org/data/definitions/502.html): Deserialization of Untrusted Data
-
-  Description: The application deserializes untrusted data without sufficiently verifying that the resulting data will be valid.
-
-  Justification: Deserializing untrusted training data not only poses risks of code execution but also allows the injection of malicious training examples directly into the training dataset, making it more susceptible to data poisoning.
-
-- [CWE-693](https://cwe.mitre.org/data/definitions/693.html): Protection Mechanism Failure
-
-  Description: A protection mechanism unexpectedly fails to be enforced or performs an unexpected negative action. This may lead to unintended adverse consequences that were supposed to be prevented by the mechanism.
-
-  Justification: Failure of protections can enable poisoning by allowing defenses to be circumvented.
-
-- [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere
-
-  Description: The software imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.
-
-  Justification: Poisoned data introduces unintended functionality by including malicious content.
-
-- [CWE-937](https://cwe.mitre.org/data/definitions/937.html): OWASP Top Ten 2013 Category A9 - Using Components with Known Vulnerabilities
-
-  Description: The software is out-of-date, lacking patches, or uses components with publicly known vulnerabilities.
-
-  Justification: Vulnerable components could enable poisoning by providing a vector for malicious data to enter workflow.
-
-- [CWE-78](https://cwe.mitre.org/data/definitions/78.html): OS Command Injection
-
-  Description: The software constructs all or part of an OS command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended OS command when it is sent to a downstream component.
-
-  Justification: OS command injection can potentially allow an attacker to tamper with the data or the system where training data is stored, thereby facilitating poisoning.
+  Exploit: Missing authentication requirements for accessing and modifying training data enables an attacker to inject poisoned examples without authorization that impair the model's functionality.
 
 
+---
+
+# IGNORE FOR NOW - NEED RE-REVIEW
 
 
 ### MITRE ATT&CK® 

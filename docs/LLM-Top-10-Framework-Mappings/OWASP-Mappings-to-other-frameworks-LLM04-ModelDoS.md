@@ -134,60 +134,67 @@ Preventive measures include input sanitization, resource capping, rate limiting,
 - While DoS does not directly enable privilege escalation, service disruption provides opportunities for unauthorized access.
 - Compromised credentials allow attackers to more easily trigger DoS conditions.  
 
----
-
-# IGNORE FOR NOW - NEED RE-REVIEW
-
 
 ### Common Weakness Enumeration (CWE)
 
-- [CWE-16](https://cwe.mitre.org/data/definitions/16.html): Configuration
-
-  Description: Weaknesses related to security configurations wherein the default configurations are misconfigured or unsafe.
-
-  Justification: Misconfigurations could trigger resource exhaustion by enabling unchecked resource consumption.
-
 - [CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation
 
-  Description: Missing or inadequate input validation leading to dangerous behaviors from unchecked tainted input.
+  Summary: Failure to validate inputs allows malicious inputs to exploit systems.
 
-  Justification: Lack of input validation enables sending resource-heavy requests. 
+  Exploit: By not properly validating inputs, an attacker can craft specially formatted data that consumes excessive resources when processed by the system, leading to resource exhaustion and denial of service.
 
-- [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization
+- [CWE-352](https://cwe.mitre.org/data/definitions/352.html): Cross-Site Request Forgery (CSRF)
 
-  Description: Failure to restrict access to authorized entities leading to privilege escalation.
+  Summary: Forces unintended external requests facilitating denial of service.
 
-  Justification: Unauthorized requests could abuse resources since they are unrestricted.
+  Exploit: Malicious input tricks LLM into making harmful requests to external systems contributing to resource exhaustion.
 
 - [CWE-400](https://cwe.mitre.org/data/definitions/400.html): Uncontrolled Resource Consumption
 
-  Description: Failure to control resource consumption enabling exhaustion of resources like CPU, memory, disk space, database connections, etc.
+  Summary: Allows attackers to consume excessive resources (CPU, memory, disk, network) via malicious input.
 
-  Justification: Directly targets the risk by facilitating both direct and indirect resource exhaustion through unchecked resource usage, making it a cornerstone vulnerability in Denial of Service attacks on LLMs.
+  Exploit: The lack of restrictions on resource usage enables an attacker to overwhelm systems with carefully crafted inputs that demand extensive processing cycles, memory, storage, or network capacity far beyond normal operations.
+
+- [CWE-601](https://cwe.mitre.org/data/definitions/601.html): URL Redirection to Untrusted Site
+
+  Summary: Redirects to malicious external sites enabling denial of service.
+
+  Exploit: Attacker manipulates LLM to interact with harmful external sites that trigger excessive resource consumption leading to denial of service.
 
 - [CWE-770](https://cwe.mitre.org/data/definitions/770.html): Allocation of Resources Without Limits or Throttling
 
-  Description: Failure to throttle or limit allocation of resources enabling unchecked consumption.
+  Summary: No limits on resource allocation allows exhaustion via excessive requests.
 
-  Justification: Lack of throttling allows unchecked resource usage enabling exhaustion.
-
+  Exploit: With no throttling or caps on resource allocation, an attacker can exploit the system by flooding it with excessive requests that rapidly drain available resources leading to denial of service.
+  
 - [CWE-799](https://cwe.mitre.org/data/definitions/799.html): Improper Control of Interaction Frequency
 
-  Description: Failure to limit the frequency of interactions enabling repeated operations that strain resources.
+  Summary: Failure to limit the frequency of interactions enabling repeated operations that strain resources.
 
-  Justification: Lack of frequency control allows flooding requests overwhelming resources.
+  Exploit: Lack of frequency throttling enables an attacker to overwhelm systems by bombarding them with rapid, repeated requests that cumulatively create a denial of service effect.
+
+- [CWE-834](https://cwe.mitre.org/data/definitions/834.html): Excessive Iteration
+
+  Summary: Uncontrolled looping allows arbitrary computation, resource exhaustion.
+
+  Exploit: Inputs designed to trigger extensive recursive processing induce excessive iteration cycles that continually drain and overwhelm system resources.
+
+- [CWE-835](https://cwe.mitre.org/data/definitions/835.html): Loop with Unreachable Exit Condition ('Infinite Loop')
+
+  Summary: Infinite loops cause programs to hang, consume resources indefinitely.
+
+  Exploit: Crafted inputs that recursively expand context force infinite processing loops that continuously consume resources leading to denial of service.
 
 - [CWE-918](https://cwe.mitre.org/data/definitions/918.html): Server-Side Request Forgery (SSRF)
 
-  Description: Failure to block server-side execution of maliciously crafted external URIs, leading to data exposure or resource exhaustion.
+  Summary: Failure to block server-side execution of malicious external requests leading to resource exhaustion.
 
-  Justification: In a LLM context, SSRF can be exploited to create tasks that indirectly exhaust resources by causing the LLM to make additional unintended external requests, further amplifying the DoS effect.
+  Exploit: An attacker can submit crafted inputs that induce the system to make unintended external requests to APIs and other endpoints, amplifying compute and network resource consumption.
 
-- [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere
 
-  Description: Use of untrusted code or inputs leading to unintended functionality.
+---
 
-  Justification: Extensions/plugins could trigger resource issues by including uncontrolled functionality.
+# IGNORE FOR NOW - NEED RE-REVIEW
 
 
 ### MITRE ATT&CK® 

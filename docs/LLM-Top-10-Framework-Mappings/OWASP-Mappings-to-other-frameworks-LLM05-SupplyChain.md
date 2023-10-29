@@ -136,55 +136,54 @@ Prevention involves extensive supplier vetting, integrity checks, and monitoring
 - Access permissions granted to suppliers for integration enable privilege escalation.
 
 
----
-
-# IGNORE FOR NOW - NEED RE-REVIEW
-
-
-
 ### Common Weakness Enumeration (CWE)
 
-- [CWE-200](https://cwe.mitre.org/data/definitions/200.html): Information Exposure
+- [CWE-1357](https://cwe.mitre.org/data/definitions/1357.html): Reliance on Insufficiently Trustworthy Component
 
-  Description: Software does not adequately prevent the read or write of data, which leads to an unintended direct or indirect disclosure of sensitive information.
-
-  Justification: When third-party components in the supply chain are compromised, there's a risk of exposing sensitive data unintentionally.
+  Summary: Use of unverified third-party components enables backdoors.
+   
+  Exploit: An attacker can inject malicious code, modified files, or tainted data into a third-party library, dataset, or pre-trained model. By relying on the insufficiently trustworthy component without proper verification, the compromised artifact gets integrated into the victim system, enabling the attacker to manipulate the system and degrade its integrity.
 
 - [CWE-494](https://cwe.mitre.org/data/definitions/494.html): Download of Code Without Integrity Check
 
-  Description: Software downloads code from an untrusted source without verifying its integrity, authenticity, or origin before execution.
+  Summary: Importing unvalidated code risks backdoors.
 
-  Justification: Lack of integrity checks during the downloading of code significantly heightens the risk of including compromised or malicious third-party components in the supply chain, thus breaching system integrity.
+  Exploit: An attacker can modify or inject malicious code into a third-party library or pre-trained model file during transit. By subsequently downloading and integrating these files without sufficient integrity checking, the compromised component executes within the system, enabling the attacker to access and manipulate the system.
 
-- [CWE-664](https://cwe.mitre.org/data/definitions/664.html): Improper Control of a Resource Through its Lifetime
+- [CWE-506](https://cwe.mitre.org/data/definitions/506.html): Embedded Malicious Code
 
-  Description: The software does not properly manage the resource's scope, duration, or timing, which can lead to unintended behaviors.
+  Summary: Malicious code injection in components facilitates exploits.
 
-  Justification: In a compromised supply chain, not properly controlling resource lifetimes can introduce multiple vulnerabilities, including unauthorized data access and resource leaks.  
+  Exploit: An attacker compromises a third-party supplier and embeds malicious code, like a backdoor or logic bomb, into a library or model artifact produced by that supplier. Integration of the component without detecting this embedded malicious code allows the attacker to remotely access and control the system.
 
-- [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere
+- [CWE-937](https://cwe.mitre.org/data/definitions/937.html): Using Components with Known Vulnerabilities
 
-  Description: The software imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.
+  Summary: Known vulnerable components enable attacks.
+   
+  Exploit: An attacker learns that a third-party library or pre-trained model integrated into the victim system contains known vulnerabilities. By exploiting these vulnerabilities present in the integrated component, the attacker can manipulate the system's behavior and impair its integrity.
 
-  Justification: Integration of third-party code introduces risks of untrusted functionality if the supplier is compromised.
+- [CWE-636](https://cwe.mitre.org/data/definitions/636.html): Not Failing Securely ('Failing Open')
 
-- [CWE-915](https://cwe.mitre.org/data/definitions/915.html): Improperly Controlled Modification of Dynamically-Determined Object Attributes
+  Summary: Default allow on failure enables compromised components.
+  
+  Exploit: A failure occurs while validating the integrity of a downloaded third-party component. By defaulting to using the component even after this failure, a compromised or malicious component gets integrated, enabling the attacker to infiltrate the system.
 
-  Description: Modifications of object attributes without appropriate constraints can often lead to exploitable vulnerabilities.
+- [CWE-602](https://cwe.mitre.org/data/definitions/602.html): Client-Side Enforcement of Server-Side Security
 
-  Justification: Lack of control over third-party code attributes poses risks if the supplier is compromised.  
+  Summary: Client-side verification bypassed enables backdoors.
 
-- [CWE-918](https://cwe.mitre.org/data/definitions/918.html): Server-Side Request Forgery (SSRF)
+  Exploit: The system relies on client-side checks to validate third-party components. An attacker bypasses these checks by directly uploading malicious components server-side, compromising the system's integrity.
 
-  Description: An SSRF attack occurs when a web server is tricked into making arbitrary requests on behalf of the attacker and can be used to interact with internal systems.
+- [CWE-295](https://cwe.mitre.org/data/definitions/295.html): Improper Certificate Validation
 
-  Justification: Third-party requests may not be validated after integration, enabling SSRF through compromised suppliers.
+  Summary: Certificate validation failure enables tampering.
 
-- [CWE-937](https://cwe.mitre.org/data/definitions/937.html): OWASP Top Ten 2013 Category A9 - Using Components with Known Vulnerabilities
+  Exploit: Weak certificate validation allows an attacker to perform a MITM attack against a connection to a third-party supplier and replace legitimate components with compromised ones containing backdoors, which get integrated into the victim system.
 
-  Description: The software is out-of-date, lacking patches, or makes use of third-party components with publicly known vulnerabilities.
 
-  Justification: Misconfigured third-party components integrated from a compromised supplier pose risks per OWASP.
+---
+
+# IGNORE FOR NOW - NEED RE-REVIEW
 
 
 

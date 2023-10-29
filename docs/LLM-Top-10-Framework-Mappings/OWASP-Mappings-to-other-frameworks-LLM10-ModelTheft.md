@@ -124,86 +124,72 @@ Yes, that would be a distinct and valuable mitigation to add. Here is how I woul
 - Exploitation enables adversaries to gain privileged access to restricted models.
 
 
-
----
-
-# IGNORE FOR NOW - NEED RE-REVIEW
-
-
-
 ### Common Weakness Enumeration (CWE)
 
 - [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization
 
-  Description: Flawed authorization controls may grant unauthorized access to resources, including language models, which can lead to unauthorized access and potential data theft.
+  Summary: Flawed authorization enables unauthorized access.
 
-  Justification: This CWE is directly related to the risk because it addresses the issue of improper authorization controls, which, if not adequately implemented, can result in unauthorized access to language models, posing a risk of data theft and unauthorized use.
+  Exploit: Weak authorization controls grant improper access to model storage, allowing attackers to access and steal proprietary LLM intellectual property.
 
 - [CWE-287](https://cwe.mitre.org/data/definitions/287.html): Improper Authentication
 
-  Description: Weak authentication mechanisms can allow unauthorized users to bypass authentication and gain access to sensitive resources, such as language models.
+  Summary: Weak authentication allows unauthorized access.
 
-  Justification: Weak authentication mechanisms are directly related to the risk because they can lead to unauthorized access to language models, potentially enabling data theft and misuse.
+  Exploit: Poor authentication mechanisms enable attackers to bypass identity checks and gain access to LLM artifacts to steal IP.
 
 - [CWE-306](https://cwe.mitre.org/data/definitions/306.html): Missing Authentication for Critical Function
 
-  Description: Lack of authentication checks for critical functions can result in unauthorized access to resources, in this case, language models.
+  Summary: Lack of authentication allows unauthorized access.
 
-  Justification: Missing authentication for critical functions is highly relevant to the risk as it directly addresses the scenario where authentication checks are lacking, leading to unauthorized access to language models and potential data theft.
+  Exploit: Absent authentication checks for LLM access endpoints provide an unguarded pathway for attackers to access and misuse stolen models.
 
 - [CWE-327](https://cwe.mitre.org/data/definitions/327.html): Use of a Broken or Risky Cryptographic Algorithm
 
-  Description: Weak or broken cryptographic algorithms can expose data to interception, potentially leading to unauthorized access.
+  Summary: Weak cryptography enables unauthorized data access.
 
-  Justification: This CWE is directly related to the risk because it highlights the importance of strong cryptographic measures to protect language model data from interception and unauthorized access during transmission.
+  Exploit: Flawed encryption allows attackers to intercept LLM artifacts in transit and exfiltrate stolen IP.
 
 - [CWE-346](https://cwe.mitre.org/data/definitions/346.html): Origin Validation Error
 
-  Description: Failing to validate the source of inputs to language model interfaces can allow unauthorized API access enabling data theft.
+  Summary: Lack of source validation enables unauthorized access.
 
-  Justification: Origin validation errors are not just related, but pivotal to the risk of unauthorized access to language models. Failure to validate input sources could not only enable unauthorized API access but also pave the way for more sophisticated attacks, such as data exfiltration or launching additional internal attacks, all leading to data theft.
+  Exploit: Failing to validate the source of access requests allows attackers to spoof identities and gain access to steal LLMs.
 
 - [CWE-384](https://cwe.mitre.org/data/definitions/384.html): Session Fixation
 
-  Description: Session fixation attacks can allow an attacker to hijack a user's session and gain unauthorized access to sensitive resources, such as language models.
+  Summary: Session hijacking provides unauthorized access.
 
-  Justification: Session fixation can directly result in unauthorized access to language models by exploiting weaknesses in session management. Given that this risk targets unauthorized access, this CWE should be added as it is a potential cause of such a risk.
+  Exploit: Attackers can fix sessions to impersonate valid users and gain access to steal proprietary LLM IP.
 
 - [CWE-522](https://cwe.mitre.org/data/definitions/522.html): Insufficiently Protected Credentials
 
-  Description: Poorly protected credentials, such as API keys or passwords, can be easily compromised, providing unauthorized access to language models.
+  Summary: Poorly protected credentials enable unauthorized access.
 
-  Justification: Insufficiently protected credentials can directly lead to unauthorized access to language models, which is central to the risk at hand. Strengthening credential protection is a necessary step in mitigating this risk.
+  Exploit: Weak protections over credentials allow attackers to easily compromise them and access LLM environments to steal IP.
 
 - [CWE-639](https://cwe.mitre.org/data/definitions/639.html): Authorization Bypass Through User-Controlled Key
 
-  Description: Authorization bypass through user-controlled keys can lead to unauthorized access to resources and data theft.
+  Summary: User keys enable authorization bypass.
 
-  Justification: This CWE is directly related to the risk as it addresses the specific scenario where user-controlled API keys can be exploited to bypass authorization and gain unauthorized access to language models, potentially resulting in data theft.
-
-- [CWE-732](https://cwe.mitre.org/data/definitions/732.html): Inadequate Encoding of Output Data
-
-  Description: Inadequate output encoding can expose sensitive data, including training data, to potential theft.
-
-  Justification: Inadequate encoding of output data is directly related to the risk as it highlights the importance of proper encoding to prevent the exposure of sensitive training data, which could be targeted for theft.  
-
-- [CWE-798](https://cwe.mitre.org/data/definitions/798.html): Use of Hard-coded Credentials
-
-  Description: The use of hard-coded credentials poses an acute risk to language model security. It's not just related, but a critical vulnerability that could serve as a single point of failure, giving unauthorized users an easy pathway for access and theft of sensitive language models.
-
-  Justification: The use of hard-coded credentials is directly related to the risk as it points out the risk associated with such credentials, which can result in unauthorized access to language models and potential data theft.
-
-- [CWE-918](https://cwe.mitre.org/data/definitions/918.html): Server-Side Request Forgery (SSRF)
-
-  Description: SSRF vulnerabilities could enable unauthorized access to internal language model storage servers to steal data.
-
-  Justification: SSRF vulnerabilities are directly related to the risk as they highlight the potential for unauthorized access to internal language model storage servers, which could result in data theft.  
+  Exploit: Compromised API keys or tokens allow attackers to bypass access controls and steal LLMs.
 
 - [CWE-693](https://cwe.mitre.org/data/definitions/693.html): Protection Mechanism Failure
 
-  Description: Failure of built-in security measures can provide an avenue for unauthorized access to language models, undermining other security controls in place.
+  Summary: Security control failures enable unauthorized access.
 
-  Justification: When protection mechanisms fail, this could directly lead to unauthorized access and potential theft of language models, thus strongly associated with this risk.
+  Exploit: Compromised or absent protections pave the way for attackers to access and steal proprietary LLM IP.
+
+- [CWE-732](https://cwe.mitre.org/data/definitions/732.html): Incorrect Permission Assignment for Critical Resource
+
+  Summary: Overly permissive critical resource access.
+
+  Exploit: Broad model access permissions increase ability for attackers to steal IP.
+
+
+---
+
+# IGNORE FOR NOW - NEED RE-REVIEW
 
 
 

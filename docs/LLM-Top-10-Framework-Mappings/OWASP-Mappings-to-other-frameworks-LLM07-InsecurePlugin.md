@@ -131,37 +131,44 @@ Insecure plugin design can impact multiple components of the STRIDE threat model
 - Injected plugin inputs could escalate privileges or disable backend access controls.
 - Compromised credentials enable bypassing access controls when invoking plugins.
 
----
-
-# IGNORE FOR NOW - NEED RE-REVIEW
-
 
 
 ### Common Weakness Enumeration (CWE)
 
-- [CWE-79](https://cwe.mitre.org/data/definitions/79.html): Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
+- [CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation
 
-  Description: The software does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.
+  Summary: Failure to validate input from untrusted sources.
 
-  Justification: Highly applicable to insecure plugin design as user inputs that are not properly sanitized can lead to cross-site scripting attacks. Plugins, especially those handling text fields or other forms of user input, are often susceptible to such vulnerabilities.
+  Exploit: An LLM plugin processes outputs from the LLM as inputs without properly validating or sanitizing them. This allows an attacker to craft malicious inputs by taking advantage of the lack of validation, which could exploit the plugin's logic in unintended ways including arbitrary code execution.
 
-- [CWE-89](https://cwe.mitre.org/data/definitions/89.html): SQL Injection
+- [CWE-74](https://cwe.mitre.org/data/definitions/74.html): Improper Neutralization of Special Elements in Output Used by a Downstream Component
 
-  Description: Software allows an attacker to send hostile data as part of a command or query that can take unauthorized actions.
+  Summary: Failure to sanitize outputs enables downstream injection attacks.
 
-  Justification: Since plugins may accept raw SQL statements without parameterization, there's a significant risk of SQL Injection.
+  Exploit: An LLM plugin interprets LLM outputs containing un-neutralized special elements. This allows an attacker to inject malicious snippets into downstream operations by taking advantage of the lack of output sanitization in the plugin.
 
-- [CWE-287](https://cwe.mitre.org/data/definitions/287.html): Improper Authentication
+- [CWE-89](https://cwe.mitre.org/data/definitions/89.html): Improper Neutralization of Special Elements used in an SQL Command
 
-  Description: When an actor claims to have a given identity, the software does not prove, or insufficiently proves, that the claim is correct.
+  Summary: Failure to neutralize special elements in SQL statements enables SQL injection.
 
-  Justification: Directly relevant to insecure plugin design where lack of proper authentication checks can lead to unauthorized access. A plugin that doesn't validate the identity of the interacting users or systems effectively opens a doorway for attackers.
+  Exploit: An LLM plugin executes LLM outputs as SQL queries without neutralizing special elements. This allows an attacker to perform SQL injection by crafting LLM outputs containing malicious SQL, taking advantage of the lack of output sanitization.
 
-- [CWE-451](https://cwe.mitre.org/data/definitions/451.html): User Interface (UI) Misrepresentation of Critical Information
+- [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization
 
-  Description: Incorrect or misleading user interface presentation that masks or misrepresents critical information.
+  Summary: Failure to restrict access from unauthorized actors.
 
-  Justification: Critically relevant because plugins often interface with users, and UI misrepresentation could directly lead to misleading or harmful user actions.
+  Exploit: An LLM plugin processes outputs from the LLM without proper authorization checks. This allows an attacker to escalate privileges and access sensitive resources by manipulating the plugin through crafted LLM outputs.
+  
+- [CWE-346](https://cwe.mitre.org/data/definitions/346.html): Origin Validation Error
+
+  Summary: Failure to validate source of input.
+
+  Exploit: An LLM plugin processes outputs from the LLM without properly verifying their source. This allows an attacker to inject malicious data by spoofing the origin of the outputs.
+
+
+---
+
+# IGNORE FOR NOW - NEED RE-REVIEW
 
 
 

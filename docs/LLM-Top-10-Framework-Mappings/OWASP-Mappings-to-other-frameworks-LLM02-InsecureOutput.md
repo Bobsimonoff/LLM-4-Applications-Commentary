@@ -137,61 +137,55 @@ This risk focuses specifically on the need to sanitize and validate LLM outputs 
 - Horizontal privilege escalation is also possible through compromised credentials or bypassed access controls.
 
 
+### Common Weakness Enumeration (CWE)
+
+
+- [CWE-74](https://cwe.mitre.org/data/definitions/74.html): Improper Neutralization of Special Elements in Output Used by a Downstream Component
+
+  Summary: Failure to sanitize special elements in outputs enables injection attacks on downstream components.
+
+  Exploit: An attacker could craft prompts that induce the LLM to generate malicious outputs containing unneutralized special elements like shell metacharacters. When passed unchecked to a downstream OS command execution module, these adversarial outputs could allow arbitrary command injection on backend servers.
+
+- [CWE-78](https://cwe.mitre.org/data/definitions/78.html): Improper Neutralization of Special Elements used in an OS Command
+
+  Summary: Failure to sanitize outputs allows OS command injection.
+
+  Exploit: By injecting crafted prompts, an attacker tricks the LLM into producing malicious output payloads containing unneutralized OS command separators and metacharacters. An unsanitized downstream execution of these outputs risks arbitrary command injection on backend OS shells.
+
+- [CWE-79](https://cwe.mitre.org/data/definitions/79.html): Improper Neutralization of Input During Web Page Generation
+
+  Summary: Failure to sanitize web outputs enables injection of malicious scripts.
+
+  Exploit: An attacker spoofs prompts to induce generation of unencoded LLM outputs containing malicious scripts. Downstream use of these unchecked outputs in web pages allows cross-site scripting attacks when the pages are rendered in users' browsers.  
+
+- [CWE-89](https://cwe.mitre.org/data/definitions/89.html): Improper Neutralization of Special Elements used in an SQL Command
+
+  Summary: Failure to sanitize outputs enables SQL injection.
+
+  Exploit: By injecting carefully crafted prompts, an attacker causes the LLM to generate malicious SQL query outputs containing unneutralized separators and conditionals. Direct unchecked execution of these outputs by downstream SQL engines risks SQL injection attacks.
+
+- [CWE-94](https://cwe.mitre.org/data/definitions/94.html): Improper Control of Generation of Code
+
+  Summary: Failure to sanitize outputs allows arbitrary code execution.
+
+  Deailed Exploit: An attacker uses adversarial prompts to induce the LLM to generate unrestrained outputs containing exploits, scripts or arbitrary code payloads. Direct unchecked execution of these outputs risks arbitrary remote code execution.
+
+- [CWE-116](https://cwe.mitre.org/data/definitions/116.html): Improper Encoding or Escaping of Output
+
+  Summary: Failure to properly encode/escape output leads to issues when read downstream.
+
+  Exploit: Absence of proper output encoding or escaping allows an attacker to craft prompts inducing generation of malicious exploit payloads and injection attack vectors in LLM outputs. These adversarial outputs can compromise downstream components when consumed without validation.
+
+- [CWE-838](https://cwe.mitre.org/data/definitions/838.html): Inappropriate Encoding for Output Context
+
+  Summary: Using wrong encoding for outputs leads to misinterpretation.
+
+  Exploit: An attacker tricks the LLM into generating malicious payload outputs using encodings inappropriate for the downstream context. This allows the payloads to bypass protection mechanisms and successfully exploit vulnerabilities when improperly handled by downstream components.
+
 
 ---
 
 # IGNORE FOR NOW - NEED RE-REVIEW
-
-
-### Common Weakness Enumeration (CWE)
-
-- [CWE-78](https://cwe.mitre.org/data/definitions/78.html): OS Command Injection
-
-  Description: The software constructs all or part of an OS command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended OS command when it is sent to a downstream component.
-
-  Justification: LLM outputs that are not properly sanitized or validated can be exploited to inject malicious OS commands in downstream systems.
-
-- [CWE-79](https://cwe.mitre.org/data/definitions/79.html): Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
-
-  Description: The software does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.
-
-  Justification: Failure to adequately encode LLM outputs can introduce XSS vulnerabilities when these outputs are rendered in web pages.
-
-- [CWE-89](https://cwe.mitre.org/data/definitions/89.html): Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')
-
-  Description: The software constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended SQL command when it is sent to a downstream component.
-
-  Justification: LLM outputs that are directly passed into SQL queries without validation can lead to SQL injection vulnerabilities.
-
-- [CWE-94](https://cwe.mitre.org/data/definitions/94.html): Improper Control of Generation of Code ('Code Injection')
-
-  Description: The software constructs all or part of a code segment using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the syntax or behavior of the intended code segment.
-
-  Justification: Direct execution of outputs could allow arbitrary code execution.
-
-- [CWE-116](https://cwe.mitre.org/data/definitions/116.html): Improper Encoding or Escaping of Output
-
-  Description: The software does not encode or escape data properly, leading to an issue when the data is read by a downstream component.
-
-  Justification: In the context of LLMs, improper encoding or escaping of output can make downstream systems vulnerable to injection attacks.
-
-- [CWE-284](https://cwe.mitre.org/data/definitions/284.html): Improper Access Control
-
-  Description: The software does not restrict or incorrectly restricts access to a resource from an actor that is not explicitly authorized to access the resource.
-
-  Justification: Lack of access control could enable exploits through unauthorized access.
-
-- [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere
-
-  Description: The software imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.
-
-  Justification: Using LLMs that are not adequately vetted can lead to inclusion of malicious or untrusted functionalities.  
-
-- [CWE-937](https://cwe.mitre.org/data/definitions/937.html): OWASP Top Ten 2013 Category A9 - Using Components with Known Vulnerabilities
-
-  Description: The software is out-of-date, lacking patches, or makes use of third-party components with publicly known vulnerabilities.
-
-  Justification: Vulnerable components could mishandle outputs.
 
 
 ### MITRE ATT&CK® 

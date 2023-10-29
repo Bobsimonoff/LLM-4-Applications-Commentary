@@ -131,61 +131,36 @@ Not to be confused with:
 - Compromised credentials enable bypassing access controls when injecting prompts.
 
 
----
-
-# IGNORE FOR NOW - NEED RE-REVIEW
-
 ### Common Weakness Enumeration (CWE)
 
 - [CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation
 
-  Description: Missing or inadequate input validation leads to unchecked tainted input used directly/indirectly resulting in dangerous downstream behaviors.
+  Summary: Not validating or incorrectly validating input allows attackers to craft inputs that can exploit the system in unexpected ways.
 
-  Justification: Insufficient input validation not only allows attackers to inject malicious instructions but can also compromise the integrity and availability of the LLM, thereby making it a critical concern for secure LLM deployments.
+  Exploit: Without proper validation of user prompts, an attacker could inject additional instructions, special characters, or malicious code sequences that when processed by the LLM could lead to unintended behavior, such as executing unwanted commands, accessing unauthorized data, or bypassing restrictions. Lack of prompt input validation provides the opening for attackers to craft carefully designed prompts that manipulate model behavior.
 
-- [CWE-77](https://cwe.mitre.org/data/definitions/77.html): Improper Neutralization of Special Elements Used in a Command ('Command Injection')
+- [CWE-77](https://cwe.mitre.org/data/definitions/77.html): Improper Neutralization of Special Elements used in a Command ('Command Injection')
 
-  Description: Failure to properly encode special characters like semicolons, backticks, and quotes in prompts allows attackers to terminate the intended command and inject new malicious system commands on backend servers accessible through the LLM.
+  Summary: Improper neutralization of special elements in user prompts could allow injected instructions to modify and extend the intended command.
 
-  Justification: For prompt injection, lack of input sanitization allows injecting malicious system commands.
-
-
-- [CWE-79](https://cwe.mitre.org/data/definitions/79.html): Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
-
-  Description: The failure to sanitize user input can allow an attacker to inject scripts that are executed in the user's browser.
-
-  Justification: Attackers can exploit this weakness to inject malicious scripts into prompts, potentially impacting LLMs that interact with web-based content, like chatbots.
-
-  
-- [CWE-89](https://cwe.mitre.org/data/definitions/89.html): Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')
-
-  Description: Failure to properly handle special elements results in altered intended SQL command logic.
-
-  Justification: Lack of input sanitization not only allows SQL command injections via prompts but can also lead to unauthorized data access, financial fraud, and other high-risk vulnerabilities when interacting with backend databases.
+  Exploit: When processing prompts, the LLM may construct system commands to perform required queries or data fetching operations. If prompts contain un-neutralized special elements like backticks, an attacker could terminate the intended command and inject new malicious commands that get executed on backend systems accessible through the LLM interface. This command injection can lead to unauthorized actions like data exfiltration, privilege escalation, and denial of service.
 
 - [CWE-114](https://cwe.mitre.org/data/definitions/114.html): Process Control
 
-  Description: The lack of isolation between user prompts and external untrusted data sources like websites allows injected instructions in one to influence and manipulate processing of the other. This loss of control enables unintended actions through prompt injections from malicious external sources.
+  Summary: Lack of isolation between user prompts and external data sources could enable unintended processing behavior.
 
-  Justification: Lack of prompt segregation allows external untrusted data to mix with user-generated prompts, leading to potential exploitation through prompt injections.
-  
-- [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization
+  Exploit: Often LLMs incorporate external data from websites, databases, etc. into prompts to provide contextual grounding. If prompts and external data are not properly isolated, an attacker could inject malicious instructions into the external data source. When the compromised data source text gets incorporated into a prompt, the injected instructions could manipulate the LLM into executing unintended and potentially harmful actions.
 
-  Description: Injected prompts with special syntax can grant higher privileges, add fake credentials, or directly disable access controls. This allows bypassing restrictions on what actions the LLM can perform, enabling escalated unauthorized access to backend systems.
-
-  Justification: Injected prompts can bypass access controls, enabling privilege escalation on backend systems and unauthorized access through the LLM.
-  
-- [CWE-287](https://cwe.mitre.org/data/definitions/287.html): Improper Authentication
-
-  Description: Weak or missing authentication mechanisms for LLM access allows attackers to remotely inject malicious prompts while evading detection. Without sufficiently verifying identities, remote prompt injection can go unnoticed.
-
-  Justification: Weak authentication allows remote attackers to inject prompts and manipulate the LLM while evading detection.
-  
 - [CWE-346](https://cwe.mitre.org/data/definitions/346.html): Origin Validation Error
 
-  Description: Not verifying the source of prompt inputs allows attackers to hijack LLM conversations by injecting prompts from malicious external sources disguised as the user or authorized systems.
+  Summary: Not validating the source of input enables spoofing and injection from untrusted sources.
 
-  Justification: Lack of origin validation allows injecting prompts from untrusted external sources.
+  Exploit: When processing user prompts, failing to validate the origin of the input could allow an attacker to impersonate a legitimate user and inject malicious prompts. Without checking the source, spoofed input from unauthorized external systems can manipulate LLM behavior in unintended ways. Proper origin validation restricts ability to inject prompts from untrusted origins.
+
+
+---
+
+# IGNORE the bwlow FOR NOW - NEED RE-REVIEW
 
 
 ### MITRE ATT&CK® 

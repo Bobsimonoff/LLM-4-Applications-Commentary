@@ -104,72 +104,49 @@ Technical controls are needed to mitigate risks, including differential privacy,
 - Circumventing authentication opens access to restricted data.
 
 
+### Common Weakness Enumeration (CWE)
+
+- [CWE-200](https://cwe.mitre.org/data/definitions/200.html): Exposure of Sensitive Information
+
+  Summary: Sensitive information exposed to unauthorized actors.
+
+  Exploit: Due to insufficient data filtering or access controls, an attacker can use carefully crafted prompts to extract proprietary algorithms, training data, model parameters or other confidential information from the LLM, which they can then exfiltrate and exploit.
+
+- [CWE-209](https://cwe.mitre.org/data/definitions/209.html): Exposure Through Error Messages
+
+  Summary: Sensitive information revealed through error messages.
+
+  Exploit: When the LLM encounters unexpected inputs or conditions, the resulting error messages can unintentionally expose details about the model architecture, training data schemas, hyperparameters or other sensitive implementation information an attacker can leverage to refine their prompts and extraction techniques.
+
+- [CWE-215](https://cwe.mitre.org/data/definitions/215.html): Exposure Through Debug Logs
+
+  Summary: Sensitive information in debug logs.
+
+  Exploit: The LLM's debugging information can reveal details about the training data distribution, structure and sources as well as inference metadata. Attackers can analyze these logs to identify weaknesses and optimize prompts for extracting sensitive information.
+
+- [CWE-327](https://cwe.mitre.org/data/definitions/327.html): Use of Broken Cryptography
+
+  Summary: Weak crypto enables data exposure.
+
+  Exploit: The use of flawed or outdated cryptographic algorithms to protect sensitive training data, model parameters, and artifacts can allow an attacker to easily decrypt and access this proprietary information.
+
+- [CWE-541](https://cwe.mitre.org/data/definitions/541.html): Exposure Through Source Code
+
+  Summary: Source code revealing sensitive details.
+
+  Exploit: Hardcoded sensitive information like API keys, credentials or server addresses in the LLM's source code can enable an attacker to directly access its environment and training data sources to extract additional confidential information.
+
+- [CWE-922](https://cwe.mitre.org/data/definitions/922.html): Insecure Data Storage
+
+  Summary: Unencrypted sensitive artifacts enable data theft.
+
+  Exploit: Storing model parameters, training datasets, or other proprietary artifacts without encryption or access controls allows attackers to easily obtain this sensitive information.
+
+
+
 ---
 
 # IGNORE FOR NOW - NEED RE-REVIEW
-
-
-### Common Weakness Enumeration (CWE)
-
-- [CWE-200](https://cwe.mitre.org/data/definitions/200.html): Information Exposure
-
-  Description: The exposure of sensitive information to an actor that is not explicitly authorized to have access to that information.
-
-  Justification: While CWE-202 covers unauthorized actors, CWE-200 broadens the scope to include unintentional exposures, which are a significant risk in LLMs.
-
-- [CWE-202](https://cwe.mitre.org/data/definitions/202.html): Exposure of Sensitive Information to an Unauthorized Actor
-
-  Description: The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
-
-  Justification: Lacking stringent access controls and multi-factor authentication can result in the unauthorized disclosure of sensitive data via LLM outputs.
-  
-- [CWE-208](https://cwe.mitre.org/data/definitions/208.html): Observable Discrepancy
-
-  Description: Behavioral differences between the product's expected behavior and its actual behavior allow detection of the product's sensitive information.
-
-  Justification: Model outputs could reveal sensitive training data through observable discrepancies.
-  
-- [CWE-209](https://cwe.mitre.org/data/definitions/209.html): Information Exposure Through an Error Message
-
-  Description: The product generates error messages that expose sensitive information about the environment, users, or associated data.
-
-  Justification: Model error messages could reveal sensitive configuration, training data or internal details.
-
-- [CWE-215](https://cwe.mitre.org/data/definitions/215.html): Information Exposure Through Debug Information
-
-  Description: Debugging output can contain sensitive information like credentials or cryptographic keys.
-
-  Justification: Model debug logs could expose private training data metadata and inferences.
-  
-- [CWE-327](https://cwe.mitre.org/data/definitions/327.html): Use of a Broken or Risky Cryptographic Algorithm
-
-  Description: The use of a broken or risky cryptographic algorithm is an unnecessary risk that may result in the exposure of sensitive information.
-  
-  Justification: Weak encryption can be a significant vulnerability in LLMs where sensitive data and model parameters are stored.
-
-- [CWE-538](https://cwe.mitre.org/data/definitions/538.html): File and Directory Information Exposure
-
-  Description: The product reveals sensitive filesystem information that aids attackers in adversary techniques.
-
-  Justification: Filesystem permissions could enable unauthorized access to sensitive model artifacts.
-
-- [CWE-541](https://cwe.mitre.org/data/definitions/541.html): Information Exposure Through Include Source Code
-
-  Description: Source code exposes sensitive details like credentials, SQL, or cryptographic material.
-
-  Justification: Model source code could expose sensitive configuration details or training data.
-
-- [CWE-649](https://cwe.mitre.org/data/definitions/649.html): Reliance on Obfuscation or Protection Mechanism
-
-  Description: Relying solely on obfuscation or data protection mechanisms provides ineffective protection.
-
-  Justification: While obfuscation techniques may deter casual adversaries, they're insufficient for ensuring data protection in LLMs. Proper encryption, access controls, and other security layers are essential to ensure data is secure.
-
-- [CWE-922](https://cwe.mitre.org/data/definitions/922.html): Insecure Storage of Sensitive Information
-
-  Description: Sensitive information stored without encryption or with a weak algorithm can enable adversaries to easily gain access.
-
-  Justification: Unencrypted model artifacts could expose training data or parameters.
 
 
 ### MITRE ATT&CK® Techniques

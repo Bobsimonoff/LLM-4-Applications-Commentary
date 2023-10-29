@@ -139,37 +139,51 @@ Prevention requires narrowly limiting LLM capabilities to least functionality, p
 - Valid accounts and poor access controls enable bypassing privilege restrictions.
 
 
+
+### Common Weakness Enumeration (CWE)
+
+- [CWE-693](https://cwe.mitre.org/data/definitions/693.html): Protection Mechanism Failure
+
+  Summary: Failure to use protections against directed attacks.
+
+  Exploit: Lack of safeguards restricting an LLM's permissions and capabilities enables attackers to manipulate it into taking harmful actions through crafted inputs.
+
+- [CWE-862](https://cwe.mitre.org/data/definitions/862.html): Missing Authorization  
+
+  Summary: Failure to perform authorization checks for actions.
+
+  Exploit: An LLM plugin takes impactful actions without approval based on its excessive autonomy, allowing attackers to induce unintended harmful activity through the unrestricted LLM.
+
+- [CWE-250](https://cwe.mitre.org/data/definitions/250.html): Execution with Unnecessary Privileges
+
+  Summary: Performing actions with unnecessary privileges.
+
+  Exploit: Excessive privileges granted to an LLM or its plugins exceed what is needed for its core functions, enabling unintended privileged actions induced by an attacker's manipulated inputs.
+
+- [CWE-269](https://cwe.mitre.org/data/definitions/269.html): Improper Privilege Management
+
+  Summary: Failing to properly restrict privileges to authorized users.
+
+  Exploit: An LLM or its plugins are granted excessive privileges without proper management of the privileges. This enables attackers to induce unintended privileged actions by manipulating the unrestricted LLM through crafted inputs designed to exploit its unnecessary privileges.
+
+- [CWE-732](https://cwe.mitre.org/data/definitions/732.html): Incorrect Permission Assignment for Critical Resource
+
+  Summary: Incorrect critical resource permissions allow abuse.
+
+  Exploit: Overly broad permissions beyond necessity provided to an LLM or its plugins enable unintended actions on critical resources triggered by an attacker.
+
+- [CWE-668](https://cwe.mitre.org/data/definitions/668.html): Exposure of Resource to Wrong Sphere
+
+  Summary: Exposing resources to unintended actors enables abuse.
+
+  Exploit: Excessive functionality or access to resources beyond an LLM's core needs allows attackers to induce unintended actions through crafted inputs.
+
+
 ---
 
 # IGNORE FOR NOW - NEED RE-REVIEW
 
 
-
-### Common Weakness Enumeration (CWE)
-
-- [CWE-272](https://cwe.mitre.org/data/definitions/272.html): Least Privilege Violation
-
-  Description: The software performs an operation at a privilege level higher than the minimum level required, which can cause unintended information disclosures or access control bypasses.
-
-  Justification: Core to the issue of excessive agency is the violation of the principle of least privilege. By providing more permissions than necessary, LLMs are given a wider range of potential actions, thereby increasing the risk of unauthorized or unintended actions.
-
-- [CWE-269](https://cwe.mitre.org/data/definitions/269.html): Improper Privilege Management
-
-  Description: The software does not properly manage privileges to restrict access to only authorized users or processes. This may allow an actor to access or perform unauthorized functions.
-
-  Justification: In an environment where LLMs have excessive agency, improper privilege management can exacerbate risks significantly, enabling unauthorized actions.
-
-- [CWE-284](https://cwe.mitre.org/data/definitions/284.html): Improper Access Control
-
-  Description: The software does not restrict or incorrectly restricts access to a resource from an unauthorized actor.
-
-  Justification: Applicable as poor access controls in components interacting with the LLM pose risks of unauthorized actions.
-
-- [CWE-285](https://cwe.mitre.org/data/definitions/285.html): Improper Authorization
-
-  Description: The software does not perform or incorrectly performs an authorization check when an actor attempts to access a resource or perform an action.
-
-  Justification: Directly relevant as components interacting with the LLM may lack proper authorization checks.
 
 
 ### MITRE ATT&CK® Techniques

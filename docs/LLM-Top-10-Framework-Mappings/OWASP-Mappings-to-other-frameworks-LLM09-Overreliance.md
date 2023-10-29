@@ -119,26 +119,14 @@ N.A. Since Overreliance is not truly an attack vector.
 - LLM outputs could disable access controls if improperly implemented without oversight.
 
 
+### Common Weakness Enumeration (CWE)
+n.A.
+
+
+
 ---
 
 # IGNORE FOR NOW - NEED RE-REVIEW
-
-
-
-### Common Weakness Enumeration (CWE)
-
-- [CWE-829](https://cwe.mitre.org/data/definitions/829.html): Inclusion of Functionality from Untrusted Control Sphere
-
-  Description: This weakness relates to the inclusion of functionality from an untrusted control sphere, which can lead to security issues.
-
-  Justification: Inclusion of functionality from untrusted sources, particularly when guided by LLM suggestions, can amplify the risks associated with overreliance, leading to security vulnerabilities or even breaches.
-
-- [CWE-20](https://cwe.mitre.org/data/definitions/20.html): Improper Input Validation
-  
-  Description: Weakness in input validation can allow an attacker to exploit the system.
-  
-  Justification: Since LLMs often generate outputs based on inputs, failing to validate those inputs can contribute to overreliance on misleading or harmful outputs.
-
 
 
 ### MITRE ATT&CK® Techniques
