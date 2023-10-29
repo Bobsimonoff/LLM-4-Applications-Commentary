@@ -67,13 +67,13 @@ Not to be confused with:
 ### MITRE ATLAS™ 
 
 #### Techniques
-- [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043): Craft Adversarial Data - Prompt injection attacks involve carefully crafting prompts (adversarial data) that manipulate the LLM to produce unintended and potentially harmful outputs. The crafted prompts exploit vulnerabilities in the LLM's training and design to achieve objectives like unauthorized access, financial fraud, etc.
+- [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043/): Craft Adversarial Data - Prompt injection attacks involve carefully crafting prompts (adversarial data) that manipulate the LLM to produce unintended and potentially harmful outputs. The crafted prompts exploit vulnerabilities in the LLM's training and design to achieve objectives like unauthorized access, financial fraud, etc.
 
 #### Mitigations
 
-- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004): Restrict Number of ML Model Queries - Limiting API queries restricts reconnaissance and attack optimization. 
+- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004/): Restrict Number of ML Model Queries - Limiting API queries restricts reconnaissance and attack optimization. 
 
-- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015): Adversarial Input Detection - Detect and block potentially malicious prompts before they reach the model.
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection - Detect and block potentially malicious prompts before they reach the model.
 
 #### Possible Additions
 
@@ -160,7 +160,7 @@ Not to be confused with:
 
 ---
 
-# IGNORE the bwlow FOR NOW - NEED RE-REVIEW
+# IGNORE the below FOR NOW - NEED RE-REVIEW
 
 
 ### MITRE ATT&CK® 
