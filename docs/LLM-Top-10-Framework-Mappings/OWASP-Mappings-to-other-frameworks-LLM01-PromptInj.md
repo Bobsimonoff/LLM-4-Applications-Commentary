@@ -139,6 +139,11 @@ Not to be confused with:
 
   Exploit: Without proper validation of user prompts, an attacker could inject additional instructions, special characters, or malicious code sequences that when processed by the LLM could lead to unintended behavior, such as executing unwanted commands, accessing unauthorized data, or bypassing restrictions. Lack of prompt input validation provides the opening for attackers to craft carefully designed prompts that manipulate model behavior.
 
+- [CWE-74](https://cwe.mitre.org/data/definitions/74.html): Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection')
+
+  Summary: The product constructs all or part of a command, data structure, or record using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify how it is parsed or interpreted when it is sent to a downstream component.
+
+
 - [CWE-77](https://cwe.mitre.org/data/definitions/77.html): Improper Neutralization of Special Elements used in a Command ('Command Injection')
 
   Summary: Improper neutralization of special elements in user prompts could allow injected instructions to modify and extend the intended command.
