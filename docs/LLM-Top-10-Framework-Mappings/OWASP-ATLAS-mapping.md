@@ -20,13 +20,13 @@ Crafted prompts can manipulate LLMs to cause unauthorized access, data breaches,
 
 #### Mitigations
 
-- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004): Restrict Number of ML Model Queries - Limiting API queries restricts reconnaissance and attack optimization. 
+- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004/): Restrict Number of ML Model Queries. Limit the total number and rate of queries a user can perform. Suggested approaches: - Limit the number of queries users can perform in a given interval to hinder an attacker's ability to send computationally expensive inputs - Limit the amount of information an attacker can learn about a model's ontology through API queries. - Limit the volume of API queries in a given period of time to regulate the amount and fidelity of potentially sensitive information an attacker can learn. - Limit the number of queries users can perform in a given interval to shrink the attack surface for black-box attacks. - Limit the number of queries users can perform in a given interval to prevent a denial of service.
 
-- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015): Adversarial Input Detection - Detect and block potentially malicious prompts before they reach the model.
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection. Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model. Prevent an attacker from introducing adversarial data into the system. Monitor queries and query patterns to the target model, block access if suspicious queries are detected. Assess queries before inference call or enforce timeout policy for queries which consume excessive resources. Incorporate adversarial input detection into the pipeline before inputs reach the model.
 
 #### Possible Additions
 
-**Possible New Techniques**
+**New Technique Proposals**
 
 - AML.TXXXX: Insert Malicious Prompt via User Upload - Adding a malicious prompt to user-provided content like resumes, support tickets, etc. that then compromises the LLM when processed.
 
@@ -34,7 +34,7 @@ Crafted prompts can manipulate LLMs to cause unauthorized access, data breaches,
 
 - AML.TXXXX: Exploit LLM Plugin - Exploiting vulnerabilities in LLM plugins to manipulate behavior with a malicious prompt.
 
-**Possible New Mitigations**
+**New Mitigation Proposals**
 
 - AML.MXXXX: Sanitize User Uploads - Remove or neutralize potentially malicious prompts from user-provided content before processing to prevent compromise.
 
@@ -68,34 +68,32 @@ Failing to validate, sanitize and filter LLM outputs enables attackers to indire
 
 
 #### Mitigations
-- [AML.M0002](https://atlas.mitre.org/mitigations/AML.M0002): Passive ML Output Obfuscation - Reducing output fidelity restricts adversary's ability to optimize attacks.
+- [AML.M0002](https://atlas.mitre.org/mitigations/AML.M0002/): Passive ML Output Obfuscation. Decreasing the fidelity of model outputs provided to the end user can reduce an adversaries ability to extract information about the model and optimize attacks for the model. Suggested approaches: - Restrict the number of results shown - Limit specificity of output class ontology - Use randomized smoothing techniques - Reduce the precision of numerical outputs](https://atlas.mitre.org/mitigations/AML.M0002/): Passive ML Output Obfuscation. Decrease fidelity of model outputs to users to reduce adversarial knowledge for attacks.
 
-- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015): Adversarial Input Detection - Detect and block prompts likely to generate malicious outputs.
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection. Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model. Prevent an attacker from introducing adversarial data into the system. Monitor queries and query patterns to the target model, block access if suspicious queries are detected. Assess queries before inference call or enforce timeout policy for queries which consume excessive resources. Incorporate adversarial input detection into the pipeline before inputs reach the model.
 
 
 #### Possible Additions
 
 **New Technique Proposals**
 
-- Downstream System Spoofing - An adversary could manipulate LLM output formats, identifiers, and credentials to impersonate trusted downstream services and bypass authentication checks. This causes improper access and misleading log data.
+- AML.TXXXX: Downstream System Spoofing - An adversary could manipulate LLM output formats, identifiers, and credentials to impersonate trusted downstream services and bypass authentication checks. This causes improper access and misleading log data.
 
-- Control Flow Tampering - By injecting malicious logic bombs, loops, recursion, and other control flow altering payloads into LLM outputs, an adversary can disrupt downstream system operations. This could cause crashes, instability, or unauthorized changes. 
+- AML.TXXXX: Control Flow Tampering - By injecting malicious logic bombs, loops, recursion, and other control flow altering payloads into LLM outputs, an adversary can disrupt downstream system operations. This could cause crashes, instability, or unauthorized changes. 
 
-- Log Tampering - An adversary may tamper with logging configurations or directly modify log data related to LLM outputs to remove evidence of their attack. This complicates investigation and attribution by auditors.
+- AML.TXXXX: Log Tampering - An adversary may tamper with logging configurations or directly modify log data related to LLM outputs to remove evidence of their attack. This complicates investigation and attribution by auditors.
 
-- Information Leakage Amplification - Carefully crafted LLM outputs can trigger verbose error messages and logging from downstream systems. An adversary can extract sensitive details and troubleshooting data.
+- AML.TXXXX: Information Leakage Amplification - Carefully crafted LLM outputs can trigger verbose error messages and logging from downstream systems. An adversary can extract sensitive details and troubleshooting data.
 
-- Privilege Escalation - If LLM outputs allow code execution on downstream systems, an adversary can perform vertical privilege escalation by compromising process/service accounts and executing commands. Lateral movement with stolen credentials expands access.
+- AML.TXXXX: Privilege Escalation - If LLM outputs allow code execution on downstream systems, an adversary can perform vertical privilege escalation by compromising process/service accounts and executing commands. Lateral movement with stolen credentials expands access.
 
 **New Mitigation Proposals** 
 
-- Input Validation - Thoroughly validating data inputs and command structures before they are passed to an LLM will prevent injection of malicious prompts that could generate harmful outputs.
+- AML.MXXXX: Output Encoding - Properly encoding LLM outputs based on the downstream execution context (e.g. browsers, OS shells, DBs) prevents exploits like XSS, command injection, and SQLi.
 
-- Output Encoding - Properly encoding LLM outputs based on the downstream execution context (e.g. browsers, OS shells, DBs) prevents exploits like XSS, command injection, and SQLi.
+- AML.MXXXX: LLM Output Sandboxing - Running LLM outputs in an isolated sandbox environment limits the damage and systemic impact of any malicious payloads generated. However, this may reduce functionality.
 
-- LLM Output Sandboxing - Running LLM outputs in an isolated sandbox environment limits the damage and systemic impact of any malicious payloads generated. However, this may reduce functionality.
-
-- LLM Output Logging - Securely logging all LLM outputs to an immutable audit log enables attack investigation, forensics, and attribution after incidents. Proper access controls on logs are critical.
+- AML.MXXXX: LLM Output Logging - Securely logging all LLM outputs to an immutable audit log enables attack investigation, forensics, and attribution after incidents. Proper access controls on logs are critical.
 
 
 
@@ -118,26 +116,26 @@ Tampered training data can impair LLMs, leading to compromised security, accurac
 
 #### Mitigations
 
-- [AML.M0007](https://atlas.mitre.org/mitigations/AML.M0007): Sanitize Training Data - Detect and remove poisoned data before model training.
+- [AML.M0007](https://atlas.mitre.org/mitigations/AML.M0007/): Sanitize Training Data. Detect and remove or remediate poisoned training data prior to model training and recurrently for an active learning model. Implement a filter to limit ingested training data. Establish a content policy that would remove unwanted content such as certain explicit or offensive language from being used. Detect and remove or remediate poisoned data to avoid adversarial model drift or backdoor attacks. Detect modification of data and labels which may cause adversarial model drift or backdoor attacks. Prevent attackers from leveraging poisoned datasets to launch backdoor attacks against a model.
 
-- [AML.M0014](https://atlas.mitre.org/mitigations/AML.M0014): Verify ML Artifacts - Catch poisoned datasets by verifying checksums. 
+- [AML.M0014](https://atlas.mitre.org/mitigations/AML.M0014/): Verify ML Artifacts. Verify the cryptographic checksum of all machine learning artifacts to verify that the file was not modified by an attacker. Determine validity of published data in order to avoid using poisoned data that introduces vulnerabilities. Introduce proper checking of signatures to ensure that unsafe ML artifacts will not be executed in the system. These artifacts may have a detrimental effect on the system. Introduce proper checking of signatures to ensure that unsafe ML artifacts will not be introduced to the system.
 
 
 #### Possible Additions
 
-**Possible New Techniques**
+**New Technique Proposals**
 
-- Unintended Data Exposure in Training: An authorized user may accidentally expose private or sensitive data (e.g. PII, financial data, confidential documents) that then gets incorporated into the model's training data. This can lead to information leakage if the model memorizes and regurgitates that private data during inference. Attackers could exploit this to extract sensitive data.
+- AML.TXXXX: Unintended Data Exposure in Training: An authorized user may accidentally expose private or sensitive data (e.g. PII, financial data, confidential documents) that then gets incorporated into the model's training data. This can lead to information leakage if the model memorizes and regurgitates that private data during inference. Attackers could exploit this to extract sensitive data.
 
-- Insufficient Access Controls on Training Data: If proper access controls are not enforced on what data can be used for model training, an attacker may be able to introduce arbitrary external training data from unsafe sources. Without sufficient validation, this poisoned data could be used to train the model, embedding vulnerabilities that attackers can later exploit. 
+- AML.TXXXX: Insufficient Access Controls on Training Data: If proper access controls are not enforced on what data can be used for model training, an attacker may be able to introduce arbitrary external training data from unsafe sources. Without sufficient validation, this poisoned data could be used to train the model, embedding vulnerabilities that attackers can later exploit. 
 
-**Possible New Mitigations** 
+**New Mitigation Proposals** 
 
-- Isolate Models and Data: By proactively separating models and their associated training datasets into different environments based on sensitivity levels, the blast radius of a poisoning attack can be limited. Critical models can be isolated from general purpose models and their respective data sources. This makes it harder for an attacker to impact business-critical models.
+- AML.MXXXX: Isolate Models and Data: By proactively separating models and their associated training datasets into different environments based on sensitivity levels, the blast radius of a poisoning attack can be limited. Critical models can be isolated from general purpose models and their respective data sources. This makes it harder for an attacker to impact business-critical models.
 
-- Detect Poisoned Outputs: Monitoring the model's outputs during inference can help detect anomalous behaviors that may indicate training data poisoning. For example, sudden drops in accuracy, spikes in certain predictions, or outputting unintended data could signal that the model was trained on manipulated data. Early detection of these signals can prevent harm.
+- AML.MXXXX: Detect Poisoned Outputs: Monitoring the model's outputs during inference can help detect anomalous behaviors that may indicate training data poisoning. For example, sudden drops in accuracy, spikes in certain predictions, or outputting unintended data could signal that the model was trained on manipulated data. Early detection of these signals can prevent harm.
 
-- Adversarial Training: Intentionally injecting adversarial examples during model training makes the model more robust to poisoned data points an attacker may introduce. The model learns to be less sensitive to small perturbations. This minimizes the impact of poisoning attacks.
+- AML.MXXXX: Adversarial Training: Intentionally injecting adversarial examples during model training makes the model more robust to poisoned data points an attacker may introduce. The model learns to be less sensitive to small perturbations. This minimizes the impact of poisoning attacks.
 
 
 # LLM04: Denial of Service
@@ -160,29 +158,27 @@ Overloading LLMs with resource-intensive operations can cause service disruption
 
 #### Mitigations
 
-- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004): Restrict Number of ML Model Queries - Query rate limiting prevents flooding attacks by restricting the number of inputs an adversary can submit over a period of time. Requests exceeding the defined rate are dropped/blocked. Rate limits can be applied per user account and potentially increased for legitimate high-volume usages.
+- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004/): Restrict Number of ML Model Queries. Limit the total number and rate of queries a user can perform. Suggested approaches: - Limit the number of queries users can perform in a given interval to hinder an attacker's ability to send computationally expensive inputs - Limit the amount of information an attacker can learn about a model's ontology through API queries. - Limit the volume of API queries in a given period of time to regulate the amount and fidelity of potentially sensitive information an attacker can learn. - Limit the number of queries users can perform in a given interval to shrink the attack surface for black-box attacks. - Limit the number of queries users can perform in a given interval to prevent a denial of service.
 
-- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015): Adversarial Input Detection - Runtime monitoring mechanisms analyze inputs to the language model and characterize the expected resource consumption. Inputs projected to consume excessive resources based on analysis of text, prompt length, expandability and other factors are blocked prior to processing.
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection. Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model. Prevent an attacker from introducing adversarial data into the system. Monitor queries and query patterns to the target model, block access if suspicious queries are detected. Assess queries before inference call or enforce timeout policy for queries which consume excessive resources. Incorporate adversarial input detection into the pipeline before inputs reach the model.
 
-- [AML.M0016](https://github.com/mitre-atlas/atlas/blob/master/data/mitigations/mitigations-yaml/AML.M0016.yml): Limit Model Queries Per User - Rate limiting and quotas prevent adversaries from overwhelming systems by restricting the number of queries an individual can make over a given time window. This mitigates denial of service from query flooding.
+- [AML.M0016](https://atlas.mitre.org/mitigations/AML.M0016/): Vulnerability Scanning. Vulnerability scanning is used to find potentially exploitable software vulnerabilities to remediate them. File formats such as pickle files that are commonly used to store machine learning models can contain exploits that allow for arbitrary code execution. Scan ML artifacts for vulnerabilities before execution.
 
-- [AML.M0017](https://github.com/mitre-atlas/atlas/blob/master/data/mitigations/mitigations-yaml/AML.M0017.yml): Resource Isolation - Language model resources like memory, compute, and storage are isolated from other components through mechanisms like containers. This prevents denial of service impacts from spreading beyond the language model to other critical services.
+- [AML.M0017](https://atlas.mitre.org/mitigations/AML.M0017/): Model Distribution Methods. Deploying ML models to edge devices can increase the attack surface of the system. Consider serving models in the cloud to reduce the level of access the adversary has to the model. Not distributing the model in software to edge devices, can limit an adversary's ability to gain full access to the model. With full access to the model, an adversary could perform white-box attacks. An adversary could repackage the application with a malicious version of the model.
 
 #### Possible Additions
 
-**Possible New Techniques**
+**New Technique Proposals**
 
-- Recursive Context Expansion - An adversary crafts inputs containing text triggers that cause the language model to continuously expand the context window and reprocess the input in a recursive loop. Each iteration consumes additional memory and compute resources. Sending many such inputs can rapidly exhaust available resources, resulting in denial of service. Note this could be a subtechnique of craft adversarial data.
+- AML.TXXXX: Recursive Context Expansion - An adversary crafts inputs containing text triggers that cause the language model to continuously expand the context window and reprocess the input in a recursive loop. Each iteration consumes additional memory and compute resources. Sending many such inputs can rapidly exhaust available resources, resulting in denial of service. Note this could be a subtechnique of craft adversarial data.
 
-- Benign Query Resource Exhaustion - An adversary identifies benign input text which does not appear obviously malicious but leads to unpredictable resource consumption due to the language model's processing. Queries submitted through public interfaces get processed by downstream models in a way that consumes substantial resources due to lengthy text generation or repeated context expansion. The adversary can send many such queries to degrade performance and availability. 
+- AML.TXXXX: Benign Query Resource Exhaustion - An adversary identifies benign input text which does not appear obviously malicious but leads to unpredictable resource consumption due to the language model's processing. Queries submitted through public interfaces get processed by downstream models in a way that consumes substantial resources due to lengthy text generation or repeated context expansion. The adversary can send many such queries to degrade performance and availability. 
 
-**Possible New Mitigations**  
+**New Mitigation Proposals**  
 
-- Limit Concurrent Requests - The number of requests that can be processed concurrently by the language model is restricted through configuration. Limiting concurrency makes it more difficult for an adversary to overwhelm systems with high volumes of queries. The limit could be applied across all users or per individual user account.
+- AML.MXXXX: Limit Context Expansions - The language model is configured to limit the number of recursive context expansions that can occur per request. This prevents adversaries from causing excessive processing through inputs that continuously trigger context re-generation. Hard thresholds prevent unlimited recursive expansion scenarios.
 
-- Limit Context Expansions - The language model is configured to limit the number of recursive context expansions that can occur per request. This prevents adversaries from causing excessive processing through inputs that continuously trigger context re-generation. Hard thresholds prevent unlimited recursive expansion scenarios.
-
-- Resource Consumption Monitoring - Continuously monitor CPU, memory, and other resource consumption metrics to identify abnormal behavior indicative of a DoS attack.
+- AML.MXXXX: Resource Consumption Monitoring - Continuously monitor CPU, memory, and other resource consumption metrics to identify abnormal behavior indicative of a DoS attack.
 
 
 
@@ -206,22 +202,22 @@ Depending on compromised third-party components can undermine system integrity, 
 
 #### Mitigations
 
-- [AML.M0005](https://atlas.mitre.org/mitigations/AML.M0005): Control Access to ML Models and Data at Rest - Strict access controls prevent unauthorized modification of artifacts at rest. This protects against supply chain poisoning attacks.
+- [AML.M0005](https://atlas.mitre.org/mitigations/AML.M0005/): Control Access to ML Models and Data at Rest. Establish access controls on internal model registries and limit internal access to production models. Limit access to training data only to approved users. Access controls can prevent tampering with ML artifacts and prevent unauthorized copying.
 
-- [AML.M0013](https://atlas.mitre.org/mitigations/AML.M0013): Code Signing - Enforcing cryptographic signing of software and models verifies they have not been tampered with or replaced in the supply chain. This prevents execution of unauthorized code.
+- [AML.M0013](https://atlas.mitre.org/mitigations/AML.M0013/): Code Signing. Enforce binary and application integrity with digital signature verification to prevent untrusted code from executing. Adversaries can embed malicious code in ML software or models. Enforcement of code signing can prevent the compromise of the machine learning supply chain and prevent execution of malicious code. Prevent execution of ML artifacts that are not properly signed. Enforce properly signed drivers and ML software frameworks. Enforce properly signed model files.
 
-- [AML.M0014](https://atlas.mitre.org/mitigations/AML.M0014): Verify ML Artifacts - Hashing artifacts and checking against known good hashes ensures they have not been corrupted or poisoned in the supply chain.
+- [AML.M0014](https://atlas.mitre.org/mitigations/AML.M0014/): Verify ML Artifacts. Verify the cryptographic checksum of all machine learning artifacts to verify that the file was not modified by an attacker. Determine validity of published data in order to avoid using poisoned data that introduces vulnerabilities. Introduce proper checking of signatures to ensure that unsafe ML artifacts will not be executed in the system. These artifacts may have a detrimental effect on the system. Introduce proper checking of signatures to ensure that unsafe ML artifacts will not be introduced to the system.
 
 
 #### Possible Additions
 
-**Possible New Mitigations** 
+**New Mitigation Proposals** 
 
-- Review Supplier Terms and Conditions - Require legal and security teams to thoroughly review supplier terms and conditions for changes that could expose sensitive data or undermine security. Changes should be evaluated for risk and approved before accepting.
+- AML.TXXXX: Review Supplier Terms and Conditions - Require legal and security teams to thoroughly review supplier terms and conditions for changes that could expose sensitive data or undermine security. Changes should be evaluated for risk and approved before accepting.
 
-- Maintain Software Bill of Materials - Maintain inventories of third-party software components used in ML systems, including libraries, frameworks, and pre-trained models. Regularly audit for vulnerabilities.
+- AML.TXXXX: Maintain Software Bill of Materials - Maintain inventories of third-party software components used in ML systems, including libraries, frameworks, and pre-trained models. Regularly audit for vulnerabilities.
 
-- Review Supplier Terms and Conditions - Require cross-functional legal and security review of supplier terms and conditions changes that could undermine security or enable data exposure. Regularly review Terms and Conditions for changes.
+- AML.TXXXX: Review Supplier Terms and Conditions - Require cross-functional legal and security review of supplier terms and conditions changes that could undermine security or enable data exposure. Regularly review Terms and Conditions for changes.
 
 
 
@@ -245,11 +241,12 @@ Insufficient safeguards risk exposing sensitive information through LLM outputs,
 
 #### Mitigations
 
-- [AML.M0002](https://atlas.mitre.org/mitigations/AML.M0002): Passive ML Output Obfuscation - Limits exposure through outputs.
+- [AML.M0002](https://atlas.mitre.org/mitigations/AML.M0002/): Passive ML Output Obfuscation. Decreasing the fidelity of model outputs provided to the end user can reduce an adversaries ability to extract information about the model and optimize attacks for the model. Suggested approaches: - Restrict the number of results shown - Limit specificity of output class ontology - Use randomized smoothing techniques - Reduce the precision of numerical outputs](https://atlas.mitre.org/mitigations/AML.M0002/): Passive ML Output Obfuscation. Decrease fidelity of model outputs to users to reduce adversarial knowledge for attacks.
 
-- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004): Restrict Number of ML Model Queries - Limits API-based exfiltration. 
 
-- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015): Adversarial Input Detection - Catch prompts aimed at leaking info.
+- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004/): Restrict Number of ML Model Queries. Limit the total number and rate of queries a user can perform. Suggested approaches: - Limit the number of queries users can perform in a given interval to hinder an attacker's ability to send computationally expensive inputs - Limit the amount of information an attacker can learn about a model's ontology through API queries. - Limit the volume of API queries in a given period of time to regulate the amount and fidelity of potentially sensitive information an attacker can learn. - Limit the number of queries users can perform in a given interval to shrink the attack surface for black-box attacks. - Limit the number of queries users can perform in a given interval to prevent a denial of service.
+
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection. Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model. Prevent an attacker from introducing adversarial data into the system. Monitor queries and query patterns to the target model, block access if suspicious queries are detected. Assess queries before inference call or enforce timeout policy for queries which consume excessive resources. Incorporate adversarial input detection into the pipeline before inputs reach the model.
 
 
 
@@ -271,22 +268,22 @@ LLM plugins processing untrusted inputs without validation can enable severe exp
 
 #### Mitigations
 
-- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015): Adversarial Input Detection - Catch exploit attempts on plugins.
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection. Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model. Prevent an attacker from introducing adversarial data into the system. Monitor queries and query patterns to the target model, block access if suspicious queries are detected. Assess queries before inference call or enforce timeout policy for queries which consume excessive resources. Incorporate adversarial input detection into the pipeline before inputs reach the model.
 
-- [AML.M0016](https://atlas.mitre.org/mitigations/AML.M0016): Vulnerability Scanning - Find flaws to fix.
+- [AML.M0016](https://atlas.mitre.org/mitigations/AML.M0016/): Vulnerability Scanning. Vulnerability scanning is used to find potentially exploitable software vulnerabilities to remediate them. File formats such as pickle files that are commonly used to store machine learning models can contain exploits that allow for arbitrary code execution. Scan ML artifacts for vulnerabilities before execution.
 
 
 #### Possible Additions
 
-**Possible New Techniques**
+**New Technique Proposals**
 
-- Plugin Enumeration - Adversaries may scan a system and enumerate available plugins and extensions to identify ones that are vulnerable or useful for exploitation. Knowing the specific plugins in use provides a roadmap to target plugins with insecure design or known vulnerabilities.
+- AML.TXXXX: Plugin Enumeration - Adversaries may scan a system and enumerate available plugins and extensions to identify ones that are vulnerable or useful for exploitation. Knowing the specific plugins in use provides a roadmap to target plugins with insecure design or known vulnerabilities.
 
-**Possible New Mitigations**
+**New Mitigation Proposals**
 
-- Enforce Least Privilege Access Control - Implement granular access controls that restrict plugins to only the permissions necessary for their intended functionality. Prevent plugins from accessing resources or performing actions beyond their specified scope. Regularly audit and review access. Likely best practice anyway, so not sure this is truly needed here.
+- AML.MXXXX: Enforce Least Privilege Access Control - Implement granular access controls that restrict plugins to only the permissions necessary for their intended functionality. Prevent plugins from accessing resources or performing actions beyond their specified scope. Regularly audit and review access. Likely best practice anyway, so not sure this is truly needed here.
 
-- Require Manual Approval for Sensitive Actions - For sensitive or high-risk actions like payments, PII exposure, or data deletion, require manual approval from the end user even if the plugin requests the action. Do not allow plugins to automatically perform sensitive actions without additional authorization. Log all requests.
+- AML.MXXXX: Require Manual Approval for Sensitive Actions - For sensitive or high-risk actions like payments, PII exposure, or data deletion, require manual approval from the end user even if the plugin requests the action. Do not allow plugins to automatically perform sensitive actions without additional authorization. Log all requests.
 
 
 
@@ -308,17 +305,17 @@ Excessive LLM permissions or autonomy enables unintended harmful actions based o
 - [AML.T0043](https://atlas.mitre.org/techniques/AML.T0043/): Craft Adversarial Data - Crafting adversarial prompts could then exploit elevated permissions to take unintended actions
 
 #### Mitigations
-- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004): Restrict Number of ML Model Queries - Limit ability to probe model. 
+- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004/): Restrict Number of ML Model Queries. Limit the total number and rate of queries a user can perform. Suggested approaches: - Limit the number of queries users can perform in a given interval to hinder an attacker's ability to send computationally expensive inputs - Limit the amount of information an attacker can learn about a model's ontology through API queries. - Limit the volume of API queries in a given period of time to regulate the amount and fidelity of potentially sensitive information an attacker can learn. - Limit the number of queries users can perform in a given interval to shrink the attack surface for black-box attacks. - Limit the number of queries users can perform in a given interval to prevent a denial of service.
 
-- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015): Adversarial Input Detection - Catch abnormal permission elevation attempts.
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection. Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model. Prevent an attacker from introducing adversarial data into the system. Monitor queries and query patterns to the target model, block access if suspicious queries are detected. Assess queries before inference call or enforce timeout policy for queries which consume excessive resources. Incorporate adversarial input detection into the pipeline before inputs reach the model.
 
 #### Possible Additions
 
 **Possible Additional Mitigations** 
 
-- Audit LLM Activities - Continuously monitor and audit LLM behaviors, permissions, and access to detect anomalies or actions outside expected boundaries that could signal unintended consequences.
+- AML.MXXXX: Audit LLM Activities - Continuously monitor and audit LLM behaviors, permissions, and access to detect anomalies or actions outside expected boundaries that could signal unintended consequences.
 
-- Limit LLM Capabilities - Carefully restrict the specific functions and capabilities the LLM can perform to only those necessary for its core intended purpose, reducing potential for unintended actions.
+- AML.MXXXX: Limit LLM Capabilities - Carefully restrict the specific functions and capabilities the LLM can perform to only those necessary for its core intended purpose, reducing potential for unintended actions.
 
 
 
@@ -337,23 +334,21 @@ N.A. Since Overreliance is not truly an attack vector.
 
 #### Mitigations
 
-- [AML.M0015: Adversarial Input Detection](/mitigations/AML.M0015) - Detect and block inputs that deviate from known benign behavior through techniques like anomaly detection on queries and user input. This can prevent malicious or erroneous inputs from reaching downstream systems and users.
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection. Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model. Prevent an attacker from introducing adversarial data into the system. Monitor queries and query patterns to the target model, block access if suspicious queries are detected. Assess queries before inference call or enforce timeout policy for queries which consume excessive resources. Incorporate adversarial input detection into the pipeline before inputs reach the model.
 
-- [AML.M0018: User Training](/mitigations/AML.M0018) - Train users on adversarial machine learning risks so they understand the potential for issues with LLMs and do not blindly trust outputs. Set clear expectations on when manual review is required.
+- [AML.M0018](https://atlas.mitre.org/mitigations/AML.M0018/): User Training. Educate ML model developers on secure coding practices and ML vulnerabilities. Training users to be able to identify attempts at manipulation will make them less susceptible to performing techniques that cause the execution of malicious code. Train users to identify attempts of manipulation to prevent them from running unsafe code which when executed could develop unsafe artifacts. These artifacts may have a detrimental effect on the system.
 
 #### Possible Additions
 
 **Possible Additional Mitigations** 
 
-- Modularize Complex Tasks - Break down complex prompts requiring reasoning into smaller subtasks across multiple agents to reduce reliance on any single system. This limits the blast radius from any single erroneous output.
+- AML.MXXXX: Responsible Interface Design - Design interfaces to promote safe and responsible use through visibility into model limitations, controls like confidence thresholds, and appropriate framing of LLM capabilities. This prevents users from blindly trusting outputs.
 
-- Responsible Interface Design - Design interfaces to promote safe and responsible use through visibility into model limitations, controls like confidence thresholds, and appropriate framing of LLM capabilities. This prevents users from blindly trusting outputs.
+- AML.MXXXX: Oversight for Risky Actions - Require human approval before allowing high-risk actions suggested by LLMs like publishing content or executing code. This acts as a check against blindly trusting potentially unsafe actions.
 
-- Oversight for Risky Actions - Require human approval before allowing high-risk actions suggested by LLMs like publishing content or executing code. This acts as a check against blindly trusting potentially unsafe actions.
+- AML.MXXXX: Monitor and Log Interactions - Continuously monitor and log user interactions and queries to the LLM. Logs can be analyzed to identify potentially malicious or erroneous inputs as well as find patterns of overreliance for additional user training.
 
-- Monitor and Log Interactions - Continuously monitor and log user interactions and queries to the LLM. Logs can be analyzed to identify potentially malicious or erroneous inputs as well as find patterns of overreliance for additional user training.
-
-- Independent Oversight - Establish independent oversight teams responsible for auditing logs, reviewing outlier cases, and assessing risks. This provides an unbiased perspective to identify potential issues.
+- AML.MXXXX: Independent Oversight - Establish independent oversight teams responsible for auditing logs, reviewing outlier cases, and assessing risks. This provides an unbiased perspective to identify potential issues.
 
 
 
@@ -379,30 +374,26 @@ LLM theft can lead to financial losses, competitive disadvantage, and unauthoriz
 - [AML.T0040](https://atlas.mitre.org/techniques/AML.T0040): ML Model Inference API Access - Inference API access provides a duplicative pathway like T0024 that could enable model theft through extraction.
 
 #### Mitigations
-- [AML.M0005](https://atlas.mitre.org/mitigations/AML.M0005): Control Access to ML Models and Data at Rest - Prevent theft by restricting access.
+- [AML.M0005](https://atlas.mitre.org/mitigations/AML.M0005/): Control Access to ML Models and Data at Rest. Establish access controls on internal model registries and limit internal access to production models. Limit access to training data only to approved users. Access controls can prevent tampering with ML artifacts and prevent unauthorized copying.
 
-- [AML.M0012](https://atlas.mitre.org/mitigations/AML.M0012): Encrypt Sensitive Information - Protect models and data via encryption.
+- [AML.M0012](https://atlas.mitre.org/mitigations/AML.M0012/): Encrypt Sensitive Information. Encrypt sensitive data such as ML models to protect against adversaries attempting to access sensitive data. Protect machine learning artifacts with encryption. Protect machine learning artifacts with encryption.
 
 
 #### Possible Additions
 
-**Possible New Techniques**
+**New Technique Proposals**
 
-- Insider Model Leak - An insider with authorized access exfiltrates proprietary language models or related artifacts like training data, enabling theft of intellectual property. This could involve transferring files to unauthorized systems, cloud storage, or removable media.  
+- AML.TXXXX: Insider Model Leak - An insider with authorized access exfiltrates proprietary language models or related artifacts like training data, enabling theft of intellectual property. This could involve transferring files to unauthorized systems, cloud storage, or removable media.  
 
-- Model Data Exfiltration - An adversary exploits vulnerabilities or misconfigurations to bypass protections and exfiltrate private model data through side channels. This could involve carefully crafted prompts to extract data or exploiting side channels like timing or cache access patterns.
+- AML.TXXXX: Model Data Exfiltration - An adversary exploits vulnerabilities or misconfigurations to bypass protections and exfiltrate private model data through side channels. This could involve carefully crafted prompts to extract data or exploiting side channels like timing or cache access patterns.
 
-Yes, that would be a distinct and valuable mitigation to add. Here is how I would incorporate it:
+**New Mitigation Proposals**
 
-**Possible New Mitigations**
+- AML.MXXXX: Model Access Monitoring - Continuously monitor and log access to language models and related systems like training data repositories to detect potential unauthorized access or exfiltration attempts. Anomalies in access patterns can indicate malicious activity.
 
-- Model Access Monitoring - Continuously monitor and log access to language models and related systems like training data repositories to detect potential unauthorized access or exfiltration attempts. Anomalies in access patterns can indicate malicious activity.
+- AML.MXXXX: Development Process Governance - Embed comprehensive security practices into the MLOps software development lifecycle including access control, anomaly detection, testing, monitoring, and incident response. This provides protections against theft throughout the model development process. 
 
-- Development Process Governance - Embed comprehensive security practices into the MLOps software development lifecycle including access control, anomaly detection, testing, monitoring, and incident response. This provides protections against theft throughout the model development process. 
+- AML.MXXXX: Model Watermarking - Embed unique watermarks directly into language models to enable identification of theft and unauthorized distribution. Watermarks act as persistent forensic evidence if models are exfiltrated.
 
-- Prompt Filtering - Implement filtering of prompts and limit the complexity of allowed model queries to prevent extraction of private data like training samples. This mitigates the risk of model theft through prompting.
-
-- Model Watermarking - Embed unique watermarks directly into language models to enable identification of theft and unauthorized distribution. Watermarks act as persistent forensic evidence if models are exfiltrated.
-
-- User Behavior Analytics - Monitor user activities like queries, data access, and commands to detect anomalous actions that may indicate unauthorized access attempts to LLM repositories. This can help in early detection of insider threats or compromised credentials, thereby preventing potential model theft.
+- AML.MXXXX: User Behavior Analytics - Monitor user activities like queries, data access, and commands to detect anomalous actions that may indicate unauthorized access attempts to LLM repositories. This can help in early detection of insider threats or compromised credentials, thereby preventing potential model theft.
 

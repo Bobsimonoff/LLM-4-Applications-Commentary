@@ -75,26 +75,26 @@ Prevention involves supply chain integrity checks, input sanitization, isolation
 
 #### Mitigations
 
-- [AML.M0007](https://atlas.mitre.org/mitigations/AML.M0007): Sanitize Training Data - Detect and remove poisoned data before model training.
+- [AML.M0007](https://atlas.mitre.org/mitigations/AML.M0007/): Sanitize Training Data. Detect and remove or remediate poisoned training data prior to model training and recurrently for an active learning model. Implement a filter to limit ingested training data. Establish a content policy that would remove unwanted content such as certain explicit or offensive language from being used. Detect and remove or remediate poisoned data to avoid adversarial model drift or backdoor attacks. Detect modification of data and labels which may cause adversarial model drift or backdoor attacks. Prevent attackers from leveraging poisoned datasets to launch backdoor attacks against a model.
 
-- [AML.M0014](https://atlas.mitre.org/mitigations/AML.M0014): Verify ML Artifacts - Catch poisoned datasets by verifying checksums. 
+- [AML.M0014](https://atlas.mitre.org/mitigations/AML.M0014/): Verify ML Artifacts. Verify the cryptographic checksum of all machine learning artifacts to verify that the file was not modified by an attacker. Determine validity of published data in order to avoid using poisoned data that introduces vulnerabilities. Introduce proper checking of signatures to ensure that unsafe ML artifacts will not be executed in the system. These artifacts may have a detrimental effect on the system. Introduce proper checking of signatures to ensure that unsafe ML artifacts will not be introduced to the system.
 
 
 #### Possible Additions
 
-**Possible New Techniques**
+**New Technique Proposals**
 
-- Unintended Data Exposure in Training: An authorized user may accidentally expose private or sensitive data (e.g. PII, financial data, confidential documents) that then gets incorporated into the model's training data. This can lead to information leakage if the model memorizes and regurgitates that private data during inference. Attackers could exploit this to extract sensitive data.
+- AML.TXXXX: Unintended Data Exposure in Training: An authorized user may accidentally expose private or sensitive data (e.g. PII, financial data, confidential documents) that then gets incorporated into the model's training data. This can lead to information leakage if the model memorizes and regurgitates that private data during inference. Attackers could exploit this to extract sensitive data.
 
-- Insufficient Access Controls on Training Data: If proper access controls are not enforced on what data can be used for model training, an attacker may be able to introduce arbitrary external training data from unsafe sources. Without sufficient validation, this poisoned data could be used to train the model, embedding vulnerabilities that attackers can later exploit. 
+- AML.TXXXX: Insufficient Access Controls on Training Data: If proper access controls are not enforced on what data can be used for model training, an attacker may be able to introduce arbitrary external training data from unsafe sources. Without sufficient validation, this poisoned data could be used to train the model, embedding vulnerabilities that attackers can later exploit. 
 
-**Possible New Mitigations** 
+**New Mitigation Proposals** 
 
-- Isolate Models and Data: By proactively separating models and their associated training datasets into different environments based on sensitivity levels, the blast radius of a poisoning attack can be limited. Critical models can be isolated from general purpose models and their respective data sources. This makes it harder for an attacker to impact business-critical models.
+- AML.MXXXX: Isolate Models and Data: By proactively separating models and their associated training datasets into different environments based on sensitivity levels, the blast radius of a poisoning attack can be limited. Critical models can be isolated from general purpose models and their respective data sources. This makes it harder for an attacker to impact business-critical models.
 
-- Detect Poisoned Outputs: Monitoring the model's outputs during inference can help detect anomalous behaviors that may indicate training data poisoning. For example, sudden drops in accuracy, spikes in certain predictions, or outputting unintended data could signal that the model was trained on manipulated data. Early detection of these signals can prevent harm.
+- AML.MXXXX: Detect Poisoned Outputs: Monitoring the model's outputs during inference can help detect anomalous behaviors that may indicate training data poisoning. For example, sudden drops in accuracy, spikes in certain predictions, or outputting unintended data could signal that the model was trained on manipulated data. Early detection of these signals can prevent harm.
 
-- Adversarial Training: Intentionally injecting adversarial examples during model training makes the model more robust to poisoned data points an attacker may introduce. The model learns to be less sensitive to small perturbations. This minimizes the impact of poisoning attacks.
+- AML.MXXXX: Adversarial Training: Intentionally injecting adversarial examples during model training makes the model more robust to poisoned data points an attacker may introduce. The model learns to be less sensitive to small perturbations. This minimizes the impact of poisoning attacks.
 
 
 

@@ -78,29 +78,27 @@ Preventive measures include input sanitization, resource capping, rate limiting,
 
 #### Mitigations
 
-- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004): Restrict Number of ML Model Queries - Query rate limiting prevents flooding attacks by restricting the number of inputs an adversary can submit over a period of time. Requests exceeding the defined rate are dropped/blocked. Rate limits can be applied per user account and potentially increased for legitimate high-volume usages.
+- [AML.M0004](https://atlas.mitre.org/mitigations/AML.M0004/): Restrict Number of ML Model Queries. Limit the total number and rate of queries a user can perform. Suggested approaches: - Limit the number of queries users can perform in a given interval to hinder an attacker's ability to send computationally expensive inputs - Limit the amount of information an attacker can learn about a model's ontology through API queries. - Limit the volume of API queries in a given period of time to regulate the amount and fidelity of potentially sensitive information an attacker can learn. - Limit the number of queries users can perform in a given interval to shrink the attack surface for black-box attacks. - Limit the number of queries users can perform in a given interval to prevent a denial of service.
 
-- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015): Adversarial Input Detection - Runtime monitoring mechanisms analyze inputs to the language model and characterize the expected resource consumption. Inputs projected to consume excessive resources based on analysis of text, prompt length, expandability and other factors are blocked prior to processing.
+- [AML.M0015](https://atlas.mitre.org/mitigations/AML.M0015/): Adversarial Input Detection. Detect and block adversarial inputs or atypical queries that deviate from known benign behavior, exhibit behavior patterns observed in previous attacks or that come from potentially malicious IPs. Incorporate adversarial detection algorithms into the ML system prior to the ML model. Prevent an attacker from introducing adversarial data into the system. Monitor queries and query patterns to the target model, block access if suspicious queries are detected. Assess queries before inference call or enforce timeout policy for queries which consume excessive resources. Incorporate adversarial input detection into the pipeline before inputs reach the model.
 
-- [AML.M0016](https://github.com/mitre-atlas/atlas/blob/master/data/mitigations/mitigations-yaml/AML.M0016.yml): Limit Model Queries Per User - Rate limiting and quotas prevent adversaries from overwhelming systems by restricting the number of queries an individual can make over a given time window. This mitigates denial of service from query flooding.
+- [AML.M0016](https://atlas.mitre.org/mitigations/AML.M0016/): Vulnerability Scanning. Vulnerability scanning is used to find potentially exploitable software vulnerabilities to remediate them. File formats such as pickle files that are commonly used to store machine learning models can contain exploits that allow for arbitrary code execution. Scan ML artifacts for vulnerabilities before execution.
 
-- [AML.M0017](https://github.com/mitre-atlas/atlas/blob/master/data/mitigations/mitigations-yaml/AML.M0017.yml): Resource Isolation - Language model resources like memory, compute, and storage are isolated from other components through mechanisms like containers. This prevents denial of service impacts from spreading beyond the language model to other critical services.
+- [AML.M0017](https://atlas.mitre.org/mitigations/AML.M0017/): Model Distribution Methods. Deploying ML models to edge devices can increase the attack surface of the system. Consider serving models in the cloud to reduce the level of access the adversary has to the model. Not distributing the model in software to edge devices, can limit an adversary's ability to gain full access to the model. With full access to the model, an adversary could perform white-box attacks. An adversary could repackage the application with a malicious version of the model.
 
 #### Possible Additions
 
-**Possible New Techniques**
+**New Technique Proposals**
 
-- Recursive Context Expansion - An adversary crafts inputs containing text triggers that cause the language model to continuously expand the context window and reprocess the input in a recursive loop. Each iteration consumes additional memory and compute resources. Sending many such inputs can rapidly exhaust available resources, resulting in denial of service. Note this could be a subtechnique of craft adversarial data.
+- AML.TXXXX: Recursive Context Expansion - An adversary crafts inputs containing text triggers that cause the language model to continuously expand the context window and reprocess the input in a recursive loop. Each iteration consumes additional memory and compute resources. Sending many such inputs can rapidly exhaust available resources, resulting in denial of service. Note this could be a subtechnique of craft adversarial data.
 
-- Benign Query Resource Exhaustion - An adversary identifies benign input text which does not appear obviously malicious but leads to unpredictable resource consumption due to the language model's processing. Queries submitted through public interfaces get processed by downstream models in a way that consumes substantial resources due to lengthy text generation or repeated context expansion. The adversary can send many such queries to degrade performance and availability. 
+- AML.TXXXX: Benign Query Resource Exhaustion - An adversary identifies benign input text which does not appear obviously malicious but leads to unpredictable resource consumption due to the language model's processing. Queries submitted through public interfaces get processed by downstream models in a way that consumes substantial resources due to lengthy text generation or repeated context expansion. The adversary can send many such queries to degrade performance and availability. 
 
-**Possible New Mitigations**  
+**New Mitigation Proposals**  
 
-- Limit Concurrent Requests - The number of requests that can be processed concurrently by the language model is restricted through configuration. Limiting concurrency makes it more difficult for an adversary to overwhelm systems with high volumes of queries. The limit could be applied across all users or per individual user account.
+- AML.MXXXX: Limit Context Expansions - The language model is configured to limit the number of recursive context expansions that can occur per request. This prevents adversaries from causing excessive processing through inputs that continuously trigger context re-generation. Hard thresholds prevent unlimited recursive expansion scenarios.
 
-- Limit Context Expansions - The language model is configured to limit the number of recursive context expansions that can occur per request. This prevents adversaries from causing excessive processing through inputs that continuously trigger context re-generation. Hard thresholds prevent unlimited recursive expansion scenarios.
-
-- Resource Consumption Monitoring - Continuously monitor CPU, memory, and other resource consumption metrics to identify abnormal behavior indicative of a DoS attack.
+- AML.MXXXX: Resource Consumption Monitoring - Continuously monitor CPU, memory, and other resource consumption metrics to identify abnormal behavior indicative of a DoS attack.
 
 
 

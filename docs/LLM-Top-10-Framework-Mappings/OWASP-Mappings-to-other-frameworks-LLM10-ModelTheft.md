@@ -69,32 +69,28 @@ Stolen models can facilitate adversarial attacks, including unauthorized data ac
 - [AML.T0040](https://atlas.mitre.org/techniques/AML.T0040): ML Model Inference API Access - Inference API access provides a duplicative pathway like T0024 that could enable model theft through extraction.
 
 #### Mitigations
-- [AML.M0005](https://atlas.mitre.org/mitigations/AML.M0005): Control Access to ML Models and Data at Rest - Prevent theft by restricting access.
+- [AML.M0005](https://atlas.mitre.org/mitigations/AML.M0005/): Control Access to ML Models and Data at Rest. Establish access controls on internal model registries and limit internal access to production models. Limit access to training data only to approved users. Access controls can prevent tampering with ML artifacts and prevent unauthorized copying.
 
-- [AML.M0012](https://atlas.mitre.org/mitigations/AML.M0012): Encrypt Sensitive Information - Protect models and data via encryption.
+- [AML.M0012](https://atlas.mitre.org/mitigations/AML.M0012/): Encrypt Sensitive Information. Encrypt sensitive data such as ML models to protect against adversaries attempting to access sensitive data. Protect machine learning artifacts with encryption. Protect machine learning artifacts with encryption.
 
 
 #### Possible Additions
 
-**Possible New Techniques**
+**New Technique Proposals**
 
-- Insider Model Leak - An insider with authorized access exfiltrates proprietary language models or related artifacts like training data, enabling theft of intellectual property. This could involve transferring files to unauthorized systems, cloud storage, or removable media.  
+- AML.TXXXX: Insider Model Leak - An insider with authorized access exfiltrates proprietary language models or related artifacts like training data, enabling theft of intellectual property. This could involve transferring files to unauthorized systems, cloud storage, or removable media.  
 
-- Model Data Exfiltration - An adversary exploits vulnerabilities or misconfigurations to bypass protections and exfiltrate private model data through side channels. This could involve carefully crafted prompts to extract data or exploiting side channels like timing or cache access patterns.
+- AML.TXXXX: Model Data Exfiltration - An adversary exploits vulnerabilities or misconfigurations to bypass protections and exfiltrate private model data through side channels. This could involve carefully crafted prompts to extract data or exploiting side channels like timing or cache access patterns.
 
-Yes, that would be a distinct and valuable mitigation to add. Here is how I would incorporate it:
+**New Mitigation Proposals**
 
-**Possible New Mitigations**
+- AML.MXXXX: Model Access Monitoring - Continuously monitor and log access to language models and related systems like training data repositories to detect potential unauthorized access or exfiltration attempts. Anomalies in access patterns can indicate malicious activity.
 
-- Model Access Monitoring - Continuously monitor and log access to language models and related systems like training data repositories to detect potential unauthorized access or exfiltration attempts. Anomalies in access patterns can indicate malicious activity.
+- AML.MXXXX: Development Process Governance - Embed comprehensive security practices into the MLOps software development lifecycle including access control, anomaly detection, testing, monitoring, and incident response. This provides protections against theft throughout the model development process. 
 
-- Development Process Governance - Embed comprehensive security practices into the MLOps software development lifecycle including access control, anomaly detection, testing, monitoring, and incident response. This provides protections against theft throughout the model development process. 
+- AML.MXXXX: Model Watermarking - Embed unique watermarks directly into language models to enable identification of theft and unauthorized distribution. Watermarks act as persistent forensic evidence if models are exfiltrated.
 
-- Prompt Filtering - Implement filtering of prompts and limit the complexity of allowed model queries to prevent extraction of private data like training samples. This mitigates the risk of model theft through prompting.
-
-- Model Watermarking - Embed unique watermarks directly into language models to enable identification of theft and unauthorized distribution. Watermarks act as persistent forensic evidence if models are exfiltrated.
-
-- User Behavior Analytics - Monitor user activities like queries, data access, and commands to detect anomalous actions that may indicate unauthorized access attempts to LLM repositories. This can help in early detection of insider threats or compromised credentials, thereby preventing potential model theft.
+- AML.MXXXX: User Behavior Analytics - Monitor user activities like queries, data access, and commands to detect anomalous actions that may indicate unauthorized access attempts to LLM repositories. This can help in early detection of insider threats or compromised credentials, thereby preventing potential model theft.
 
 
 ### STRIDE Analysis (generated by claude.ai)
